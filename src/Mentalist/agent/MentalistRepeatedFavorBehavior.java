@@ -2,6 +2,7 @@ package Mentalist.agent;
 
 import edu.usc.ict.iago.utils.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static java.lang.Math.*;
@@ -14,6 +15,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	private Offer concession;
 	private Offer previous;
 	private ArrayList<Offer> previousOffers;
+	private ArrayList<Offer> dummyOffers;
 	private LedgerBehavior lb = LedgerBehavior.NONE;
 	private int adverseEvents = 0;
 	//target function関連
@@ -22,6 +24,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	private int n;
 	private int t;
 	private double alpha;
+	//TKI関連
+	private ArrayList<Double> assertiveness;
+	private ArrayList<Double> cooperativeness;
 	//big5関連
 	private double mean;
 	private double variance;
@@ -54,6 +59,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	private double behaviorRatio;
 	private final double MAX = 1.0;
 	private final double MIN = -1.0;
+	private final double SENCE_MAX = 10.0;
 
 	public enum LedgerBehavior
 	{
@@ -84,7 +90,56 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		return (game.getNumIssues() * (game.getNumIssues() - 1)) / 2;
 	}
 
-	//分散の最大を計算(ここでは標準偏差)
+	//効用の分散を計算(ここでは標準偏差)
+	public double calcVariance(ArrayList<Offer> offers){
+		double mean = 0.0;
+		double variance = 0.0;
+		if(!offers.isEmpty()) {
+			for (Offer o: offers) {
+				mean += this.utils.adversaryValue(o, this.utils.getMinimaxOrdering());
+			}
+			mean /= offers.size();
+			for(Offer o: offers){
+				variance += (this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) - mean);
+			}
+			variance /= sqrt(offers.size());
+		}
+		return variance;
+	}
+
+	//効用の平均を計算
+	public double calcMean(ArrayList<Offer> offers){
+		double mean = 0.0;
+		if(!offers.isEmpty()) {
+			for (Offer o : offers) {
+				mean += this.utils.adversaryValue(o, this.utils.getMinimaxOrdering());
+			}
+			mean /= offers.size();
+		}
+		return mean;
+	}
+
+	//平均を計算するためのダミーofferを作成
+	public ArrayList<Offer> makePlayerMaxOffers(){
+		ArrayList<Offer> dummyoffers = new ArrayList<Offer>();
+		for(Offer o: previousOffers){
+			Offer p = new Offer(game.getNumIssues());
+			//未定義のアイテムをissueごとに把握
+			int[] free = new int[game.getNumIssues()];
+			for(int issue = 0; issue < game.getNumIssues(); issue++) {
+				free[issue] = allocated.getItem(issue)[1];
+			}
+			//プレイヤーに全振り
+			for(int i = 0; i < game.getNumIssues(); i++) {
+				int[] init = {game.getIssueQuants()[i] - free[i], free[i], 0};
+				p.setItem(i, init);
+			}
+			dummyoffers.add(p);
+		}
+		return dummyoffers;
+	}
+
+	//分散を計算するためのダミーofferを作成
 	public ArrayList<Offer> makeMaxOffers(){
 		ArrayList<Offer> dummyoffers = new ArrayList<Offer>();
 		int count = 0;
@@ -95,17 +150,17 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			for(int issue = 0; issue < game.getNumIssues(); issue++) {
 				free[issue] = allocated.getItem(issue)[1];
 			}
-			//未定義に全振り
+			//プレイヤーに全振り
 			if(count % 3 == 0){
 				for(int i = 0; i < game.getNumIssues(); i++) {
-					int[] init = {0, game.getIssueQuants()[i], 0};
+					int[] init = {game.getIssueQuants()[i] - free[i], free[i], 0};
 					p.setItem(i, init);
 				}
 			}
-			//プレイヤーに全振り
+			//未定義に全振り
 			else if(count % 3 == 1){
 				for(int i = 0; i < game.getNumIssues(); i++) {
-					int[] init = {game.getIssueQuants()[i] - free[i], free[i], 0};
+					int[] init = {0, game.getIssueQuants()[i], 0};
 					p.setItem(i, init);
 				}
 			}
@@ -119,6 +174,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			dummyoffers.add(p);
 			count++;
 		}
+		return dummyoffers;
 	}
 
 	//譲歩関数に基づいて譲歩するOfferを更新
@@ -147,7 +203,12 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public void setPrevious(Offer o){ this.previous = o; }
 
 	/**** TKI協調性 ****/
+	public void calcCooperativeness(){
+		double mean = calcMean(previousOffers);
+		this.cooperativeness.add(normarize(mean, max(calcMean(makePlayerMaxOffers()), mean), 0.3 * max(calcMean(makePlayerMaxOffers()), mean)));
+	}
 	//相手の効用の平均
+	/*
 	public void calcMean(){
 		double mean = 0.0;
 		if(!previousOffers.isEmpty()) {
@@ -159,9 +220,15 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		else
 			this.mean = 0.0;
 	}
+	*/
 
 	/**** TKI積極性 ****/
+	public void calcAssertiveness(){
+		double variance = calcVariance(previousOffers);
+		this.assertiveness.add(normarize(variance, max(calcVariance(dummyOffers), variance), 0.0));
+	}
 	//相手の効用の分散(ここでは標準偏差)
+	/*
 	public void calcVariance(){
 		double variance = 0.0;
 		if(!previousOffers.isEmpty()) {
@@ -173,6 +240,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		else
 			this.variance = 0.0;
 	}
+	*/
 
 
 	/**** ビッグファイブ神経症傾向 ****/
@@ -214,10 +282,36 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 
 	/**** ビッグファイブ経験への開放性 ****/
 	public void calcOpenness(){
-		this.openness.add(normarize(choiceVariance, , 0.0) * offerRatio + normarize(min(preferenceAskNum, combination()), combination(), 0.0) * behaviorRatio);
+		double choiceVariance = calcChoiceVariance(previousOffers);
+		this.openness.add(normarize(choiceVariance, max(calcChoiceVariance(dummyOffers), choiceVariance), 0.0) * offerRatio + normarize(preferenceAskNum, max(combination(), preferenceAskNum), 0.0) * behaviorRatio);
 	}
 
 	//選択肢の分散(ここでは標準偏差)
+	public double calcChoiceVariance(ArrayList<Offer> offers){
+		double means[][] = new double[game.getNumIssues()][3];
+		double variances = 0.0;
+		double resultVariance = 0.0;
+		if(!offers.isEmpty()) {
+			for (int i = 0; i < offers.size(); i++) {
+				for (int j = 0; j < game.getNumIssues(); j++) {
+					for (int k = 0; k < 3; k++) {
+						means[j][k] += offers.get(i).getItem(j)[k];
+					}
+				}
+			}
+			for (int i = 0; i < offers.size(); i++) {
+				for (int j = 0; j < game.getNumIssues(); j++) {
+					for (int k = 0; k < 3; k++) {
+						variances += offers.get(i).getItem(j)[k] - means[j][k] / offers.size();
+					}
+				}
+			}
+			resultVariance = variances / (3 * game.getNumIssues() * sqrt(offers.size()));
+		}
+		return resultVariance;
+	}
+
+	/*
 	public void calcChoiceVariance(){
 		double means[][] = new double[game.getNumIssues()][3];
 		double variances = 0.0;
@@ -241,11 +335,16 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		else
 			this.choiceVariance = 0.0;
 	}
+	 */
 
 	//選好に関する質問の回数
 	public void addPreferenceAskNum(){ this.preferenceAskNum += 1; }
 
 	/**** ビッグファイブ誠実性 ****/
+	public void calcConscientiousness(){
+		double variance = calcVariance(previousOffers);
+		this.conscientiousness.add(normarize(variance, max(calcVariance(dummyOffers), variance), 0.0) * offerRatio + (normarize(preferenceExpressionNum, max(combination(), preferenceExpressionNum), 0.0) + normarize(lieNum, max(combination(), lieNum), 0.0)) / 2 * behaviorRatio);
+	}
 	//選好を表出した回数
 	public void addPreferenceExpressionNum(){ this.preferenceExpressionNum += 1;}
 
@@ -253,6 +352,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public void addLieNum(){ this.lieNum += 1; }
 
 	/**** ビッグファイブ協調性 ****/
+	public void calcAgreeableness(){
+		this.agreeableness.add(normarize(behaviorSence, max(SENCE_MAX, behaviorSence), 0.0) * offerRatio + normarize(positiveMessageNum, max((double)game.getTotalTime() / 90, positiveMessageNum),0.0) * behaviorRatio);
+	}
 	//行動に対する感受性
 	public void calcBehaviorSence(){
 		if(previousOffers.size() == 0) return;
@@ -278,8 +380,10 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			else if(agentDiff < 0)
 				unfortunateNum++;
 		}
+		//この時は非常に敏感
 		if(selfishNum + unfortunateNum + silentNum == 0)
-			behaviorSence = -1;
+			behaviorSence = SENCE_MAX;
+		//1より大きければ敏感，1より小さければ鈍感
 		else
 			behaviorSence = (fortunateNum + niceNum + concessionNum) / (selfishNum + unfortunateNum + silentNum);
 	}
@@ -308,23 +412,26 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 
 	//offerと行動の割合を計算
 	public void calcWeight(){
-		offerRatio = (double)previousOffers.size() / (previousOffers.size() + behaviorTimings.size());
-		behaviorRatio = (double)behaviorTimings.size() / (previousOffers.size() + behaviorTimings.size());
+		offerRatio = (2.0 * previousOffers.size()) / (2.0 * previousOffers.size() + behaviorTimings.size());
+		behaviorRatio = (double)behaviorTimings.size() / (2.0 * previousOffers.size() + behaviorTimings.size());
 	}
 
 	//譲歩関数におけるアルファの値を計算
 	public void calcAlpha(Offer o, int timing){
 		calcMean();
-		calcVariance();
+		this.variance = calcVariance(previousOffers);
 		calcEmotionRatio();
 		calcFrequency();
-		calcChoiceVariance();
+		//calcChoiceVariance();
 		calcBehaviorSence();
 		calcWeight();
+		dummyOffers.clear();
+		dummyOffers = makeMaxOffers();
 		double alpha = 0.0;
 		double variance = pow(this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) - this.mean, 2.0);
 		double frequency = behaviorTimings.size() >= 1 ? timing - behaviorTimings.get(behaviorTimings.size() - 1) : timing;
 		double offerDiff = 0.0;
+
 
 		if(previousOffers.size() >= 2) {
 			for (int i = 1; i < game.getNumIssues(); i++) {
@@ -413,12 +520,16 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		}
 		this.previous = this.concession;
 		this.previousOffers = new ArrayList<Offer>();
+		this.dummyOffers = new ArrayList<Offer>();
 		//target function関連
 		this.gamma_min = 0.3;
 		this.gamma_max = 1.0;
 		this.n = max(1, (int)(game.getTotalTime() / 30));
 		this.t = 1;
 		this.alpha = 0.01;
+		//TKI関連
+		this.assertiveness = new ArrayList<Double>();
+		this.cooperativeness = new ArrayList<Double>();
 		//big5関連
 		this.mean = 0.0;
 		this.variance = 0.0;
