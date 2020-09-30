@@ -10,7 +10,7 @@
 
 <script src="js/start.js" type="text/javascript"></script>
 
-<title>ICT Experiment - Start</title>
+<title>TUAT Experiment - Start</title>
 </head>
 <!-- NOTE: Much of the body text on these page appears to be repeated to account for both game conditions.  When users come from Qualtrics the correct text is loaded depending on their condition. -->
 <body>

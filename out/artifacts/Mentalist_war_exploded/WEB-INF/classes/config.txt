@@ -17,12 +17,12 @@ gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,M
 #email_smtpHost: the smtp host, e.g., exchange.website.com
 #email_smtpPort: the smtp port, e.g., 25
 
-email_user=Mentalist
-email_pass=****
-email_sender_name=IAGO <Mentalist@ict.usc.edu>
+email_user=drivePajama
+email_pass=13eas-17ohs
+email_sender_name=experiment4iago@gmail.com
 email_smtpAuth=true
-email_smtpHost=exchange.ict.usc.edu
-email_smtpPort=25
+email_smtpHost=smtp.gmail.com
+email_smtpPort=587
 
 custom_agent_simulation = ON
 pinocchioplusplus = ON
@@ -32,7 +32,7 @@ pinocchioplusplus = ON
 #it is highly recommended that you do not change the dataMode settings, as they are configured for simplest operation
 
 dataMode_log=enabled
-dataMode_email=disabled
+dataMode_email=enabled
 dataMode_db=disabled
 
 #DebugLevel (debug, warn, error, silenced)
