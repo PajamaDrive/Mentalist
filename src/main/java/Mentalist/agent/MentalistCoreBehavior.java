@@ -1,8 +1,8 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.BehaviorPolicy;
-import edu.usc.ict.iago.utils.History;
-import edu.usc.ict.iago.utils.Offer;
+import Mentalist.utils.BehaviorPolicy;
+import Mentalist.utils.History;
+import Mentalist.utils.Offer;
 
 public abstract class MentalistCoreBehavior implements BehaviorPolicy
 {

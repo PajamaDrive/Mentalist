@@ -67,35 +67,35 @@ public class History {
         ans = ans + "UserHistory:\n\n";
         for (Event e : this.userHistory) {
             if (!e.getType().equals(Event.EventClass.OFFER_IN_PROGRESS))
-                ans = ans + ans + ": ";
+                ans += e.getType().toString() +  ": ";
             if (e.getType().equals(Event.EventClass.SEND_MESSAGE))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_OFFER))
-                ans = ans + ans + "\n";
+                ans += e.getOffer() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_EXPRESSION))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
         }
         ans = ans + "\n\nOpponentHistory:\n\n";
         for (Event e : this.opponentHistory) {
             if (!e.getType().equals(Event.EventClass.OFFER_IN_PROGRESS))
-                ans = ans + ans + ": ";
+                ans += e.getType().toString() +  ": ";
             if (e.getType().equals(Event.EventClass.SEND_MESSAGE))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_OFFER))
-                ans = ans + ans + "\n";
+                ans += e.getOffer() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_EXPRESSION))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
         }
         ans = ans + "\n\nCombined Log:\n\n";
         for (Event e : this.totalHistory) {
             if (!e.getType().equals(Event.EventClass.OFFER_IN_PROGRESS))
-                ans = ans + ans;
+                ans += e.getOwner() == 0 ? "You --> " + e.getType().toString() + ": " : "Sam --> " + e.getType().toString() + ": " ;
             if (e.getType().equals(Event.EventClass.SEND_MESSAGE))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_OFFER))
-                ans = ans + ans + "\n";
+                ans += e.getOffer() + "\n";
             if (e.getType().equals(Event.EventClass.SEND_EXPRESSION))
-                ans = ans + ans + "\n";
+                ans += e.getMessage() + "\n";
         }
         return ans;
     }

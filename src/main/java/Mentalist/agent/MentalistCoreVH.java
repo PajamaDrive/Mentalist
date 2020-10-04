@@ -1,7 +1,7 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.*;
-import edu.usc.ict.iago.utils.Event.EventClass;
+import Mentalist.utils.*;
+import Mentalist.utils.Event.EventClass;
 
 import javax.websocket.Session;
 import java.util.LinkedList;

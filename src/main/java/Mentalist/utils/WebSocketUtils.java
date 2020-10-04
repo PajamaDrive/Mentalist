@@ -14,7 +14,6 @@ import javax.websocket.Session;
 
 public class WebSocketUtils {
     private static final ScheduledExecutorService worker = Executors.newSingleThreadScheduledExecutor();
-
     private static ConcurrentHashMap<String, GeneralNegotiator> userMap = new ConcurrentHashMap<>();
 
     public static synchronized void send(String msg, Session session) {
@@ -56,7 +55,7 @@ public class WebSocketUtils {
             public void run() {
                 WebSocketUtils.send(msg, user);
             }
-        }, delay);
+        }, (long)delay);
     }
 
     public static void close(Session session) {

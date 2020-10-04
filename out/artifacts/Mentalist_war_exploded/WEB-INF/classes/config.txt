@@ -17,8 +17,8 @@ gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,M
 #email_smtpHost: the smtp host, e.g., exchange.website.com
 #email_smtpPort: the smtp port, e.g., 25
 
-email_user=drivePajama
-email_pass=13eas-17ohs
+email_user=experiment4iago@gmail.com
+email_pass=wqftmjelzclhjoyg
 email_sender_name=experiment4iago@gmail.com
 email_smtpAuth=true
 email_smtpHost=smtp.gmail.com
@@ -33,7 +33,7 @@ pinocchioplusplus = ON
 
 dataMode_log=enabled
 dataMode_email=enabled
-dataMode_db=disabled
+dataMode_db=enabled
 
 #DebugLevel (debug, warn, error, silenced)
 

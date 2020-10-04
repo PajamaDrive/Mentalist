@@ -78,6 +78,7 @@ public class ServletUtils {
         Properties props = System.getProperties();
         if (!mailReady())
             throw new Exception("Error: use ServletUtils.setCredentials to set username and password");
+        props.put("mail.smtp.starttls.enable","true");
         props.put("mail.smtp.host", MAIL_SMTP_HOST);
         props.put("mail.smtp.auth", MAIL_SMTP_AUTH);
         props.put("mail.debug", Boolean.valueOf((debugLevel == DebugLevels.DEBUG)));

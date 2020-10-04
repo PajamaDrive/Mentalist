@@ -1,11 +1,11 @@
 package Mentalist.views;
 
 import com.google.gson.Gson;
-import edu.usc.ict.iago.utils.GetHttpSessionConfigurator;
-import edu.usc.ict.iago.utils.Governor;
-import edu.usc.ict.iago.utils.ServletUtils;
-import edu.usc.ict.iago.utils.ServletUtils.DebugLevels;
-import edu.usc.ict.iago.utils.WebSocketUtils;
+import Mentalist.utils.GetHttpSessionConfigurator;
+import Mentalist.utils.Governor;
+import Mentalist.utils.ServletUtils;
+import Mentalist.utils.ServletUtils.DebugLevels;
+import Mentalist.utils.WebSocketUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -1,6 +1,6 @@
 package Mentalist.views;
 
-import edu.usc.ict.iago.utils.GameSpec;
+import Mentalist.utils.GameSpec;
 
 import java.util.HashMap;
 

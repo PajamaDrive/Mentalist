@@ -1,10 +1,6 @@
 package Mentalist.utils;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Map;
 
 public class DatabaseUtils {
@@ -27,8 +23,8 @@ public class DatabaseUtils {
             throw new NullPointerException("Database was not configured yet.  Try calling setDBCredentials first.");
         try {
             if (connection == null || connection.isClosed()) {
-                Class.forName("com.mysql.jdbc.Driver");
-                connection = DriverManager.getConnection(dbUrl + dbUrl, dbUser, dbPass);
+                //Class.forName("org.apache.derby.jdbc.ClientDriver");
+                connection = DriverManager.getConnection(dbUrl + dbSchema, dbUser, dbPass);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -73,7 +69,7 @@ public class DatabaseUtils {
             }
             insertLine = insertLine.substring(0, insertLine.length() - 1);
             valueLine = valueLine.substring(0, valueLine.length() - 1);
-            stmt = connection.prepareStatement(insertLine + ")" + insertLine + ");", 1);
+            stmt = connection.prepareStatement(insertLine + ")" + valueLine + ");", 1);
             int i = 1;
             for (Map.Entry<String, String> entry : column_value_map.entrySet()) {
                 stmt.setString(i, entry.getValue());
@@ -115,5 +111,28 @@ public class DatabaseUtils {
         DatabaseUtils.dbUser = dbUser;
         DatabaseUtils.dbPass = dbPass;
         configured = true;
+    }
+
+    public static void createDB(String dbName){
+        connect();
+        try{
+            DatabaseMetaData dbm = connection.getMetaData();
+            ResultSet tableSet = dbm.getTables(null, null, dbName, null);
+            //テーブルがないので作成
+            if(!tableSet.next()){
+                ServletUtils.log("DB is created.", ServletUtils.DebugLevels.DEBUG);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                connection.close();
+            }
+            catch (SQLException e){
+                e.printStackTrace();
+            }
+        }
     }
 }

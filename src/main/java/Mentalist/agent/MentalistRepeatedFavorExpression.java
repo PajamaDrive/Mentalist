@@ -1,8 +1,8 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.Event;
-import edu.usc.ict.iago.utils.ExpressionPolicy;
-import edu.usc.ict.iago.utils.History;
+import Mentalist.utils.Event;
+import Mentalist.utils.ExpressionPolicy;
+import Mentalist.utils.History;
 
 public class MentalistRepeatedFavorExpression extends MentalistCoreExpression implements ExpressionPolicy {
 	

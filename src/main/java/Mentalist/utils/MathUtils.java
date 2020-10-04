@@ -50,12 +50,9 @@ public class MathUtils {
         while (hasMobile(work, dir)) {
             int curMobile = findLargestMobile(work, dir);
             int movePos = curMobile + ((dir[curMobile] == 0) ? -1 : 1);
-            work[movePos] = work[movePos] - work[curMobile];
-            work[curMobile] = work[curMobile] + work[movePos] - work[curMobile];
-            work[movePos] = work[curMobile] + work[movePos] - work[curMobile] - work[movePos];
-            dir[movePos] = dir[movePos] - dir[curMobile];
-            dir[curMobile] = dir[curMobile] + dir[movePos] - dir[curMobile];
-            dir[movePos] = dir[curMobile] + dir[movePos] - dir[curMobile] - dir[movePos];
+            work[movePos] = (work[curMobile] += work[movePos] -= work[curMobile]) - work[movePos];
+            dir[movePos] = (dir[curMobile] += dir[movePos] -= dir[curMobile]) - dir[movePos];
+
             for (int j = 0; j < n; j++) {
                 if (work[j] > work[movePos])
                     dir[j] = (dir[j] == 0) ? 1 : 0;

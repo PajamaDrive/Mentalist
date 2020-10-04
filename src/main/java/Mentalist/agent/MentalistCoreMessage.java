@@ -1,6 +1,6 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.*;
+import Mentalist.utils.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;

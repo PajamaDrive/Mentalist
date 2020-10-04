@@ -1,7 +1,7 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.*;
-import edu.usc.ict.iago.utils.Preference.Relation;
+import Mentalist.utils.*;
+import Mentalist.utils.Preference.Relation;
 import Mentalist.agent.MentalistRepeatedFavorBehavior.LedgerBehavior;
 
 import java.util.ArrayList;

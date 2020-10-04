@@ -1,6 +1,6 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.ExpressionPolicy;
+import Mentalist.utils.ExpressionPolicy;
 
 public abstract class MentalistCoreExpression implements ExpressionPolicy
 {

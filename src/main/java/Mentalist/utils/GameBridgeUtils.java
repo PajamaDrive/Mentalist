@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
+import java.sql.DatabaseMetaData;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
@@ -33,35 +34,20 @@ import net.sf.image4j.codec.ico.ICOEncoder;
 
 public class GameBridgeUtils {
     private GeneralVH selectedAgent0;
-
     private Mediator mediator0 = new Mediator(this);
-
     private VHRunner runner0 = new VHRunner(0, this.mediator0, this.selectedAgent0, this);
-
     private Thread thread0 = new Thread(this.runner0);
-
     private GeneralVH selectedAgent1;
-
     private Mediator mediator1 = new Mediator(this);
-
     private VHRunner runner1 = new VHRunner(1, this.mediator1, this.selectedAgent1, this);
-
     private Thread thread1 = new Thread(this.runner1);
-
     private boolean isMultiAgent = false;
-
     private GeneralNegotiator user = null;
-
     private String userName;
-
     private String MTurkID;
-
     private GameSpec spec;
-
     private int currentGame = 0;
-
     private String menuLoc = "root";
-
     private History history = new History();
 
     enum AcceptanceState {
@@ -69,29 +55,17 @@ public class GameBridgeUtils {
     }
 
     private AcceptanceState astate = AcceptanceState.NO_ACCEPTANCE;
-
     private int[][] issue_locs;
-
     private Preference preferenceState = new Preference();
-
     private String[] comparisonState = new String[]{" ", "something ", "more than ", "something", " "};
-
     private int itemInHand = -1;
-
     private int rowInHand = -1;
-
     private int quantInHand = 0;
-
     private int comparisonItemInHand = -1;
-
     private String oldContents = "something";
-
     private NegotiationMode nMode;
-
     private HttpSession httpSession;
-
     private Session wsSession;
-
     private NegotiationRoom nRoom;
 
     public enum NegotiationMode {
@@ -99,11 +73,8 @@ public class GameBridgeUtils {
     }
 
     private boolean dataWritten = false;
-
     private boolean timedOut = false;
-
     private boolean formallyQuit = false;
-
     private boolean finalOfferWarning = false;
 
     enum QuitState {
@@ -111,17 +82,11 @@ public class GameBridgeUtils {
     }
 
     private QuitState qstate = QuitState.NO_WARNED;
-
     private int userPresentedBATNA = 0;
-
     private Map<String, String> surveyData = new HashMap<>();
-
     private final int QUEUE_MAX = 15;
-
     private LinkedList<Event> eventQueue = new LinkedList<>();
-
     private boolean multi;
-
     Logger logger = Logger.getLogger(GameBridgeUtils.class.getName());
 
     public GameBridgeUtils(GameSpec spec) {
@@ -133,10 +98,7 @@ public class GameBridgeUtils {
         this.spec = spec;
         this.issue_locs = new int[spec.getNumIssues()][];
         for (int i = 0; i < spec.getNumIssues(); i++) {
-            (new int[3])[0] = 0;
-            (new int[3])[1] = spec.getIssueQuants()[i];
-            (new int[3])[2] = 0;
-            this.issue_locs[i] = new int[3];
+            this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
     }
 
@@ -147,11 +109,9 @@ public class GameBridgeUtils {
         ServletUtils.log("Resetting many things for new game.", ServletUtils.DebugLevels.DEBUG);
         this.issue_locs = new int[spec.getNumIssues()][];
         for (int i = 0; i < spec.getNumIssues(); i++) {
-            (new int[3])[0] = 0;
-            (new int[3])[1] = spec.getIssueQuants()[i];
-            (new int[3])[2] = 0;
-            this.issue_locs[i] = new int[3];
+            this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
+
         this.menuLoc = "root";
         this.itemInHand = -1;
         this.rowInHand = -1;
@@ -304,8 +264,8 @@ public class GameBridgeUtils {
             if (time >= this.spec.getTotalTime()) {
                 ServletUtils.log("Game timing out", ServletUtils.DebugLevels.DEBUG);
                 String timeoutMessage = "<p>The game has ended because time has expired.  Both players receive their BATNA.  </p><br><br>Your score was: " + this.spec.getPlayerBATNA() + ".<br><br>";
-                timeoutMessage = timeoutMessage + timeoutMessage;
-                WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("negotiationEnd", timeoutMessage + timeoutMessage)), session);
+                timeoutMessage += this.spec.showOpponentScoreOnEnd() ? "Your opponent scored: " + this.spec.getBATNA(1) + ".<br><br>" : "";
+                WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("negotiationEnd", timeoutMessage + this.spec.getEndgameMessage())), session);
                 this.timedOut = true;
             } else if (time > this.spec.getTotalTime() - 60 && time < this.spec.getTotalTime() - 54) {
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("negotiationWarn", "")), session);
@@ -341,7 +301,7 @@ public class GameBridgeUtils {
                 }
                 if (ltm != null)
                     for (String key : ltm.keySet())
-                        this.surveyData.put(key, ltm.get(key).toString());
+                        this.surveyData.put(key, String.valueOf(ltm.get(key)));
                 ServletUtils.log("GSON RESULT: " + result, ServletUtils.DebugLevels.DEBUG);
             } catch (NullPointerException e) {
                 ServletUtils.log("NULL SURVEY DATA ", ServletUtils.DebugLevels.DEBUG);
@@ -408,10 +368,7 @@ public class GameBridgeUtils {
         this.itemInHand = -1;
         this.rowInHand = -1;
         for (int i = 0; i < this.spec.getNumIssues(); i++) {
-            (new int[3])[0] = 0;
-            (new int[3])[1] = this.spec.getIssueQuants()[i];
-            (new int[3])[2] = 0;
-            this.issue_locs[i] = new int[3];
+            this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
         this.astate = AcceptanceState.NO_ACCEPTANCE;
         this.qstate = QuitState.NO_WARNED;
@@ -438,10 +395,7 @@ public class GameBridgeUtils {
         this.itemInHand = -1;
         this.rowInHand = -1;
         for (int i = 0; i < this.spec.getNumIssues(); i++) {
-            (new int[3])[0] = 0;
-            (new int[3])[1] = this.spec.getIssueQuants()[i];
-            (new int[3])[2] = 0;
-            this.issue_locs[i] = new int[3];
+            this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
         this.astate = AcceptanceState.NO_ACCEPTANCE;
         this.qstate = QuitState.NO_WARNED;
@@ -742,8 +696,8 @@ public class GameBridgeUtils {
                     break;
                 points = "";
                 for (String s : this.spec.getSimpleUserPoints().keySet())
-                    points = points + points + ": " + s + " points each.\n";
-                points = points + "\nYou already have a deal for " + points + " points. Try to get more!\n";
+                    points += s + ": " + this.spec.getSimpleUserPoints().get(s) + " points each.\n";
+                points += "\nYou already have a deal for " + this.spec.getPlayerBATNA()  + " points. Try to get more!\n";
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("playerPointStruct", points)), session);
                 break;
             case "root":
@@ -755,7 +709,7 @@ public class GameBridgeUtils {
                 this.comparisonState[3] = this.oldContents;
                 this.comparisonState[2] = "more than ";
                 this.preferenceState.setRelation(Preference.Relation.GREATER_THAN);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
                 break;
             case "butItemComparisonLT":
@@ -763,7 +717,7 @@ public class GameBridgeUtils {
                 this.comparisonState[3] = this.oldContents;
                 this.comparisonState[2] = "less than ";
                 this.preferenceState.setRelation(Preference.Relation.LESS_THAN);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
                 break;
             case "butItemComparisonBEST":
@@ -772,7 +726,7 @@ public class GameBridgeUtils {
                 this.oldContents = this.comparisonState[3].equals("") ? this.oldContents : this.comparisonState[3];
                 this.comparisonState[3] = "";
                 this.preferenceState.setRelation(Preference.Relation.BEST);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
                 break;
             case "butItemComparisonLEAST":
@@ -781,7 +735,7 @@ public class GameBridgeUtils {
                 this.oldContents = this.comparisonState[3].equals("") ? this.oldContents : this.comparisonState[3];
                 this.comparisonState[3] = "";
                 this.preferenceState.setRelation(Preference.Relation.WORST);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
                 break;
             case "butItemComparisonEQUAL":
@@ -789,7 +743,7 @@ public class GameBridgeUtils {
                 this.comparisonState[3] = this.oldContents;
                 this.comparisonState[2] = "the same as ";
                 this.preferenceState.setRelation(Preference.Relation.EQUAL);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
                 break;
             case "butItem0":
@@ -824,7 +778,7 @@ public class GameBridgeUtils {
                 break;
             case "butConfirm":
                 dropItem(session);
-                userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+                userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
                 ServletUtils.log("User message: " + userMessage, ServletUtils.DebugLevels.DEBUG);
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextFinalized", userMessage)), session);
                 this.menuLoc = "root";
@@ -1023,12 +977,11 @@ public class GameBridgeUtils {
 
     private boolean finalBoardMatch(Offer o) {
         int[][] comparison = new int[this.spec.getNumIssues()][3];
-        int i;
-        for (i = 0; i < this.spec.getNumIssues(); i++) {
+        for (int i = 0; i < this.spec.getNumIssues(); i++) {
             for (int j = 0; j < 3; j++)
                 comparison[i][j] = o.getItem(i)[j];
         }
-        for (i = 0; i < this.spec.getNumIssues(); i++) {
+        for (int i = 0; i < this.spec.getNumIssues(); i++) {
             for (int j = 0; j < 3; j++) {
                 if (comparison[i][j] != this.issue_locs[i][j])
                     return false;
@@ -1039,11 +992,9 @@ public class GameBridgeUtils {
 
     private Offer getLastOffer() {
         LinkedList<Event> newHistory = this.history.getHistory();
-        Offer lastOffer = new Offer(this.spec.getNumIssues());
         for (int i = newHistory.size() - 1; i > 0; i--) {
             if (((Event) newHistory.get(i)).getType() == Event.EventClass.SEND_OFFER) {
-                lastOffer = ((Event) newHistory.get(i)).getOffer();
-                return lastOffer;
+                return newHistory.get(i).getOffer();
             }
         }
         return null;
@@ -1065,7 +1016,7 @@ public class GameBridgeUtils {
             this.comparisonState[3] = "something else";
         }
         dropItem(session);
-        String userMessage = this.comparisonState[0] + this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3];
+        String userMessage = this.comparisonState[0] + this.comparisonState[1] + this.comparisonState[2] + this.comparisonState[3] + this.comparisonState[4];
         WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("chatTextTemp", userMessage)), session);
     }
 
@@ -1096,34 +1047,34 @@ public class GameBridgeUtils {
             subClassMap.put(varVH, Integer.valueOf(0));
         }
         for (String title : subClassMap.keySet())
-            body = body + "," + body;
+            body += "," + title;
         for (String key : this.surveyData.keySet())
-            body = body + "," + body;
-        body = body + "\n";
-        body = body + body + ",";
+            body += "," + key;
+        body += "\n";
+        body += this.MTurkID + ",";
         if (!this.isMultiAgent) {
-            body = body + "player,";
+            body +=  "player,";
         } else {
-            body = body + body + ",";
+            body += this.selectedAgent0.getName();
         }
-        body = body + body + ",";
+        body += this.selectedAgent1.getName();
         int points = 0;
-        for (int i = 0; i < (getPoints()).length; i++)
+        for (int i = 0; i < this.getPoints().length; i++)
             points += getPoints()[i];
         int vhpoints = 0;
-        for (int j = 0; j < (getVHPoints(1)).length; j++)
+        for (int j = 0; j < this.getVHPoints(1).length; j++)
             vhpoints += getVHPoints(1)[j];
         if (this.timedOut || this.formallyQuit) {
-            body = body + body + "," + this.spec.getPlayerBATNA();
+            body += "," + this.spec.getPlayerBATNA() + "," + this.spec.getBATNA(1);
         } else {
-            body = body + body + "," + points;
+            body += "," + points + "," + vhpoints;
         }
         if (this.timedOut && !this.formallyQuit) {
-            body = body + ",true,false,";
+            body += ",true,false";
         } else if (!this.timedOut && this.formallyQuit) {
-            body = body + ",false,true,";
+            body += ",false,true";
         } else {
-            body = body + ",false,false,";
+            body += ",false,false";
         }
         String fullList = "";
         int numUserOffers = 0;
@@ -1275,40 +1226,42 @@ public class GameBridgeUtils {
                                     break;
                             }
                         }
-                    fullList = fullList + fullList + ": " + userID + "__" + e.getType() + "," + e.getSubClass() + "," + e.getMessage() + ",";
+                    fullList += ": " + userID + "__" + e.getType() + "," + e.getSubClass() + "," + e.getMessage();
                     if (e.getOffer() != null)
-                        fullList = fullList + fullList + ",";
+                        fullList += "," + e.getOffer().toString();
                     if (e.getPreference() != null)
-                        fullList = fullList + fullList;
-                    fullList = fullList + "\n";
+                        fullList += "," + e.getPreference().toString();
+                    fullList += "\n";
                 }
         }
-        body = body + body + "," + numUserOffers + "," + numVHOffers + "," + numUserPref + "," + numVHPref + "," + numUserQuery + "," + numVHQuery + "," + numUserMsg + "," + numVHMsg + "," + numUserLie + "," + numVHLie + "," + numUserNeutral + "," + numVHNeutral + "," + numUserHappy + "," + numVHHappy + "," + numUserAngry + "," + numVHAngry + "," + numUserSad + "," + numVHSad + "," + numUserSurprised + "," + numVHSurprised + "," + numVHDisgusted + "," + numVHInsincere + "," + numVHAfraid + "," + studyName + "," + this.currentGame + "," + gameEndTime + "," + gameAllottedTime + "," + numUserBATNALies + ",";
+        body += "," + numUserOffers + "," + numVHOffers + "," + numUserPref + "," + numVHPref + "," + numUserQuery + "," + numVHQuery + "," + numUserMsg + "," + numVHMsg + "," + numUserLie + "," + numVHLie + "," + numUserNeutral + "," + numVHNeutral + "," + numUserHappy + "," + numVHHappy + "," + numUserAngry + "," + numVHAngry + "," + numUserSad + "," + numVHSad + "," + numUserSurprised + "," + numVHSurprised + "," + numVHDisgusted + "," + numVHInsincere + "," + numVHAfraid + "," + studyName + "," + this.currentGame + "," + gameEndTime + "," + gameAllottedTime + "," + numUserBATNALies + "," + numVHBATNALies;
         int m;
         for (m = 0; m < this.spec.getNumIssues(); m++)
-            body = body + body + ",";
+            body += "," + initialOfferUserAlloc[m];
         for (m = 5; m > this.spec.getNumIssues(); m--)
-            body = body + "0,";
+            body += ",0";
         for (m = 0; m < this.spec.getNumIssues(); m++)
-            body = body + body + ",";
+            body += "," + finalOfferUserAlloc[m];
         for (m = 5; m > this.spec.getNumIssues(); m--)
-            body = body + "0,";
+            body += ",0";
         for (m = 0; m < this.spec.getNumIssues(); m++)
-            body = body + body + ",";
+            body += "," + initialOfferVHAlloc[m];
         for (m = 5; m > this.spec.getNumIssues(); m--)
-            body = body + "0,";
+            body += ",0";
         for (m = 0; m < this.spec.getNumIssues(); m++)
-            body = body + body + ",";
+            body += "," + finalOfferVHAlloc[m];
         for (m = 5; m > this.spec.getNumIssues(); m--)
-            body = body + "0,";
+            body += ",0";
+
         for (String key : subClassMap.keySet())
-            body = body + body + ",";
+            body += "," + subClassMap.get(key);
         for (String key : this.surveyData.keySet())
-            body = body + body + ",";
-        body = body + "\n\n";
-        body = body + body;
-        body = body + body + ": Survey Results: \n";
-        body = body + body + "\n";
+            body += "," + this.surveyData.get(key);
+
+        body += "\n\n";
+        body += ": Survey Results: \n";
+        body += fullList + "\n";
+
         if (ServletUtils.isDataModeLog()) {
             this.logger.log(Level.INFO, "Logger session dump:\n" + body);
             ServletUtils.log("Starting new dump of session:\n" + body, ServletUtils.DebugLevels.WARN);
@@ -1317,9 +1270,18 @@ public class GameBridgeUtils {
             try {
                 ServletUtils.sendMail(this.spec.getTargetEmail(), "User data: " + this.MTurkID, body);
             } catch (Exception e) {
+                ServletUtils.log(e.getMessage(),ServletUtils.DebugLevels.ERROR);
                 ServletUtils.log("Mail did not send properly--did you enable it but fail to configure?", ServletUtils.DebugLevels.ERROR);
             }
-        if (ServletUtils.isDataModeDb()) ;
+        if (ServletUtils.isDataModeDb())
+            try {
+                //DatabaseUtils.setDBCredentials("jdbc:derby://localhost/","NegotiationData","pajama","13eas-17ohs");
+                //DatabaseUtils.createDB("NegotiationData");
+                GoogleSpreadSheetUtils.test();
+                ServletUtils.log("DataBase connection is correct.", ServletUtils.DebugLevels.DEBUG);
+            } catch (Exception e) {
+                ServletUtils.log(e.getMessage(), ServletUtils.DebugLevels.ERROR);
+            }
     }
 
     private boolean isLie(Event e, int id) {
@@ -1471,7 +1433,7 @@ public class GameBridgeUtils {
         if (eUpgrade.getType() != Event.EventClass.SEND_MESSAGE) {
             WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject(eUpgrade.getType().toString(), eUpgrade)), session);
         } else {
-            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject(eUpgrade.getType().toString() + "__" + eUpgrade.getType().toString(), eUpgrade)), session);
+            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject(eUpgrade.getType().toString() + "__" + eUpgrade.getSubClass().toString(), eUpgrade)), session);
         }
         if (this.astate == AcceptanceState.FULL_ACCEPTANCE) {
             Offer lastOffer = getLastOffer();
@@ -1489,8 +1451,8 @@ public class GameBridgeUtils {
                 ServletUtils.log("VH points: " + vhpoints + ", Player points: " + points, ServletUtils.DebugLevels.DEBUG);
                 ServletUtils.log("Formal Offer: Valid, current board matches last offer.", ServletUtils.DebugLevels.DEBUG);
                 String acceptanceMessage = "<p>The game has ended because your opponent has accepted your offer!  Both players receive the points agreed upon on in their final offers. </p><br><br>Your score was: " + points + ".<br><br>";
-                acceptanceMessage = acceptanceMessage + acceptanceMessage;
-                WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("offerFinalized", acceptanceMessage + acceptanceMessage)), session);
+                acceptanceMessage += this.spec.showOpponentScoreOnEnd() ? "Your opponent scored: " + vhpoints + ".<br><br>" : "";
+                WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("offerFinalized", acceptanceMessage)), session);
             }
         }
         if (this.qstate == QuitState.FULL_QUIT) {
@@ -1521,8 +1483,8 @@ public class GameBridgeUtils {
         ServletUtils.log("VH points: " + vhpoints + ", Player points: " + points, ServletUtils.DebugLevels.DEBUG);
         ServletUtils.log("Formal Offer: Valid, current board matches last offer.", ServletUtils.DebugLevels.DEBUG);
         String acceptanceMessage = "<p>The game has ended because your opponent has accepted your offer!  Both players receive the points agreed upon on in their final offers. </p><br><br>Your score was: " + points + ".<br><br>";
-        acceptanceMessage = acceptanceMessage + acceptanceMessage;
-        WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("offerFinalized", acceptanceMessage + acceptanceMessage)), this.wsSession);
+        acceptanceMessage += this.spec.showOpponentScoreOnEnd() ? "Your opponent scored: " + vhpoints + ".<br><br>" : "";
+        WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("offerFinalized", acceptanceMessage + this.spec.getEndgameMessage())), this.wsSession);
     }
 
     private String myOfferToString(Offer o, boolean isReceiver) {
@@ -1532,17 +1494,15 @@ public class GameBridgeUtils {
         for (int i = 0; i < o.getIssueCount(); i++) {
             if (o.getItem(i)[mine] != 0 || o.getItem(i)[yours] != 0)
                 if (o.getItem(i)[mine] == this.spec.getIssueQuants()[i]) {
-                    ans = ans + "I'll get all the " + ans + ".\n";
+                    ans += "I'll get all the " + this.spec.getIssuePluralNames()[i] + ".\n";
                 } else if (o.getItem(i)[yours] == this.spec.getIssueQuants()[i]) {
-                    ans = ans + "You'll get all the " + ans + ".\n";
+                    ans += "You'll get all the " + this.spec.getIssuePluralNames()[i] + ".\n";
                 } else {
-                    ans = ans + "You'll get ";
-                    ans = ans + ans;
-                    ans = ans + ans;
-                    ans = ans + ", and I'll get ";
-                    ans = ans + ans;
-                    ans = ans + ans;
-                    ans = ans + ".\n";
+                    ans += "You'll get " + o.getItem(i)[yours];
+                    ans += o.getItem(i)[yours] != 1 ? " " + this.spec.getIssuePluralNames()[i] : " " + this.spec.getIssueNames()[i];
+                    ans += ", and I'll get " + o.getItem(i)[mine];
+                    ans += o.getItem(i)[mine] != 1 ? " " + this.spec.getIssuePluralNames()[i] : " " + this.spec.getIssueNames()[i];
+                    ans += ".\n";
                 }
         }
         ans = ans.substring(0, ans.length() - 1);

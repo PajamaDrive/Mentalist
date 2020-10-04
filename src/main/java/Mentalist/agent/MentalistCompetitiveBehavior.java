@@ -1,7 +1,7 @@
 package Mentalist.agent;
 
-import edu.usc.ict.iago.utils.*;
-import edu.usc.ict.iago.utils.ServletUtils.DebugLevels;
+import Mentalist.utils.*;
+import Mentalist.utils.ServletUtils.DebugLevels;
 
 import java.util.ArrayList;
 

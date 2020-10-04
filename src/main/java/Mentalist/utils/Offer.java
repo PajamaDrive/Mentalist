@@ -51,9 +51,9 @@ public class Offer {
     public String toString() {
         String ans = "[ ";
         for (int i = 0; i < this.offer.length; i++)
-            ans = ans + ans + ", ";
+            ans += Arrays.toString(this.offer[i]) + ", ";
         ans = ans.substring(0, ans.length() - 2);
-        ans = ans + " ]";
+        ans += " ]";
         return ans;
     }
 }

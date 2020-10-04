@@ -1,9 +1,9 @@
 package Mentalist.views;
 
 import com.google.gson.Gson;
-import edu.usc.ict.iago.utils.*;
-import edu.usc.ict.iago.utils.GameBridgeUtils.NegotiationMode;
-import edu.usc.ict.iago.utils.Governor.SessionState;
+import Mentalist.utils.*;
+import Mentalist.utils.GameBridgeUtils.NegotiationMode;
+import Mentalist.utils.Governor.SessionState;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
