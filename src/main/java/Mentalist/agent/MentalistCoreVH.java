@@ -480,6 +480,13 @@ public abstract class MentalistCoreVH extends GeneralVH
 					localFair = true;//offer improvement is within one max value item of the same for me and my opponent
 			}
 
+
+			if (behavior instanceof MentalistRepeatedFavorBehavior){
+				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
+				((MentalistRepeatedFavorBehavior) behavior).addPreviousOffer();
+				((MentalistRepeatedFavorBehavior) behavior).printParameter();
+			}
+
 			if (behavior instanceof MentalistCompetitiveBehavior)
 			{
 				totalFair = ((MentalistCompetitiveBehavior) behavior).acceptOffer(o);
