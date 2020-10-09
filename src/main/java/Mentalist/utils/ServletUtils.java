@@ -35,6 +35,8 @@ public class ServletUtils {
 
     private static boolean dataMode_db = false;
 
+    private static boolean datamode_GoogleSpreadSheets = false;
+
     public enum DebugLevels {
         DEBUG, WARN, ERROR, SILENCED;
     }
@@ -56,6 +58,12 @@ public class ServletUtils {
     public static void setDataModeEmail(boolean dataMode_email) {
         ServletUtils.dataMode_email = dataMode_email;
     }
+
+    public static boolean isDataModeGoogleSpreadSheets() {
+        return datamode_GoogleSpreadSheets;
+    }
+
+    public static void setDataModeGoogleSpreadSheets(boolean dataMode_GoogleSpreadSheets) { ServletUtils.datamode_GoogleSpreadSheets = dataMode_GoogleSpreadSheets; }
 
     public static boolean isDataModeLog() {
         return dataMode_log;

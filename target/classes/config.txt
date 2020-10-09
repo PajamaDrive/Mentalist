@@ -34,6 +34,7 @@ pinocchioplusplus = ON
 dataMode_log=enabled
 dataMode_email=enabled
 dataMode_db=enabled
+dataMode_GoogleSpreadSheets=enabled
 
 #DebugLevel (debug, warn, error, silenced)
 

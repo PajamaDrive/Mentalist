@@ -57,6 +57,7 @@ public class GameBridge extends HttpServlet  {
 	private HttpSession httpSession;
 	private String globalMTurkID;		//this gets passed back into Qualtrics after the game ends if the user is coming from a Qualtrics study
 	private boolean programmed;		//this lets us know whether or not the system is in programming mode
+	private static String webDir;
 
 	//private Logger LOGGER = LogManager.getLogger(GameBridge.class.getName());
 	Logger logger = Logger.getLogger(GameBridge.class.getName());
@@ -77,6 +78,7 @@ public class GameBridge extends HttpServlet  {
 		boolean dataMode_log = false;
 		boolean dataMode_email = false;
 		boolean dataMode_db = false;
+		boolean dataMode_GoogleSpreadSheets = false;
 		ServletUtils.DebugLevels debug = ServletUtils.DebugLevels.ERROR;
 		//logger.log(Level.INFO, "I am a test");
 
@@ -110,6 +112,7 @@ public class GameBridge extends HttpServlet  {
 			dataMode_log = properties.getProperty("dataMode_log").equals("enabled");
 			dataMode_email = properties.getProperty("dataMode_email").equals("enabled");
 			dataMode_db = properties.getProperty("dataMode_db").equals("enabled");
+			dataMode_GoogleSpreadSheets = properties.getProperty("dataMode_GoogleSpreadSheets").equals("enabled");
 
 			debug = ServletUtils.DebugLevels.valueOf(properties.getProperty("debugLevel"));
 
@@ -120,6 +123,7 @@ public class GameBridge extends HttpServlet  {
 		ServletUtils.setDataModeDb(dataMode_db);
 		ServletUtils.setDataModeEmail(dataMode_email);
 		ServletUtils.setDataModeLog(dataMode_log);
+		ServletUtils.setDataModeGoogleSpreadSheets(dataMode_GoogleSpreadSheets);
 		ServletUtils.setCredentials(email_username, email_pass, email_sender_name, email_smtpAuth, email_smtpHost, email_smtpPort);
 
 		if (vhQualifiedName0 == null || vhQualifiedName0.equals(""))
@@ -327,6 +331,7 @@ public class GameBridge extends HttpServlet  {
 			if (vh0 != null && !vh1.safeForMultiAgent()) {
 				ServletUtils.log("One of your chosen agents is not capable of multi-agent. Reverted to single player.", ServletUtils.DebugLevels.DEBUG);
 			}
+			u.setwebDir(webDir);
 		} catch (MessagingException e) {
 			e.printStackTrace();
 		} catch (ClassNotFoundException e) {
@@ -403,12 +408,14 @@ public class GameBridge extends HttpServlet  {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		webDir = new String(this.getServletContext().getRealPath("/WEB-INF/"));
 		u.doPostHelper(request, response);
 	}
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+		webDir = new String(this.getServletContext().getRealPath("/WEB-INF/"));
 		u.doGetHelper(request, response);
 	}
 

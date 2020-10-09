@@ -7,16 +7,11 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.sql.DatabaseMetaData;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -49,6 +44,7 @@ public class GameBridgeUtils {
     private int currentGame = 0;
     private String menuLoc = "root";
     private History history = new History();
+    private String webDir;
 
     enum AcceptanceState {
         NO_ACCEPTANCE, USER_ACCEPTED, OPPONENT_ACCEPTED, FULL_ACCEPTANCE;
@@ -83,7 +79,7 @@ public class GameBridgeUtils {
 
     private QuitState qstate = QuitState.NO_WARNED;
     private int userPresentedBATNA = 0;
-    private Map<String, String> surveyData = new HashMap<>();
+    private Map<String, String> surveyData = new LinkedHashMap<>();
     private final int QUEUE_MAX = 15;
     private LinkedList<Event> eventQueue = new LinkedList<>();
     private boolean multi;
@@ -101,6 +97,8 @@ public class GameBridgeUtils {
             this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
     }
+
+    public void setwebDir(String webDir){ this.webDir = webDir; }
 
     public void setGameSpec(GameSpec spec) {
         this.spec = spec;
@@ -1265,6 +1263,44 @@ public class GameBridgeUtils {
         if (ServletUtils.isDataModeLog()) {
             this.logger.log(Level.INFO, "Logger session dump:\n" + body);
             ServletUtils.log("Starting new dump of session:\n" + body, ServletUtils.DebugLevels.WARN);
+            try{
+                String folderName = webDir +  "log/" + MTurkID;
+                File folder = new File(folderName);
+                if(!folder.exists()){
+                    folder.mkdirs();
+                }
+                String fileName = folderName + "/" + this.selectedAgent1.getName() + ".log";
+
+                BufferedWriter bw = new BufferedWriter(new FileWriter((new File( fileName)), true));
+
+                bw.write(body);
+                bw.newLine();
+
+                bw.close();
+
+                boolean mkdir_flag = false;
+                folderName = webDir +  "csv_log";
+                folder = new File(folderName);
+                if(!folder.exists()){
+                    folder.mkdirs();
+                    mkdir_flag = true;
+                }
+                String[] split = body.split("\n");
+                fileName = folderName + "/log.csv";
+                bw = new BufferedWriter(new FileWriter((new File( fileName)), true));
+                if(mkdir_flag){
+                    bw.write(split[0]);
+                    bw.newLine();
+                }
+                bw.write(split[1]);
+                bw.newLine();
+
+                bw.close();
+
+            }
+            catch(IOException e){
+                System.out.println(e);
+            }
         }
         if (ServletUtils.isDataModeEmail())
             try {
@@ -1273,11 +1309,16 @@ public class GameBridgeUtils {
                 ServletUtils.log(e.getMessage(),ServletUtils.DebugLevels.ERROR);
                 ServletUtils.log("Mail did not send properly--did you enable it but fail to configure?", ServletUtils.DebugLevels.ERROR);
             }
+        if (ServletUtils.isDataModeGoogleSpreadSheets())
+            try {
+                GoogleSpreadSheetUtils.addRow(body);
+            } catch(Exception e){
+                ServletUtils.log(e.getMessage(), ServletUtils.DebugLevels.ERROR);
+            }
         if (ServletUtils.isDataModeDb())
             try {
-                //DatabaseUtils.setDBCredentials("jdbc:derby://localhost/","NegotiationData","pajama","13eas-17ohs");
-                //DatabaseUtils.createDB("NegotiationData");
-                GoogleSpreadSheetUtils.test();
+                DatabaseUtils.setDBCredentials("jdbc:derby://localhost/","NegotiationData","pajama","13eas-17ohs");
+                DatabaseUtils.createDB("NegotiationData");
                 ServletUtils.log("DataBase connection is correct.", ServletUtils.DebugLevels.DEBUG);
             } catch (Exception e) {
                 ServletUtils.log(e.getMessage(), ServletUtils.DebugLevels.ERROR);

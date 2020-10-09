@@ -23,7 +23,7 @@ public class DatabaseUtils {
             throw new NullPointerException("Database was not configured yet.  Try calling setDBCredentials first.");
         try {
             if (connection == null || connection.isClosed()) {
-                //Class.forName("org.apache.derby.jdbc.ClientDriver");
+                Class.forName("org.apache.derby.jdbc.ClientDriver");
                 connection = DriverManager.getConnection(dbUrl + dbSchema, dbUser, dbPass);
             }
         } catch (Exception e) {

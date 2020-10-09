@@ -27,7 +27,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.35" level="application_server_libraries" />
+    <orderEntry type="library" name="Tomcat 9.0.35" level="application_server_libraries" />
     <orderEntry type="library" name="IAGO_Core" level="project" />
     <orderEntry type="library" name="jsp-api" level="project" />
     <orderEntry type="library" name="Maven: javax.mail:mail:1.4.3" level="project" />
