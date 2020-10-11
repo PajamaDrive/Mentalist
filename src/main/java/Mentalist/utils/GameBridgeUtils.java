@@ -1,5 +1,8 @@
 package Mentalist.utils;
 
+import Mentalist.agent.MentalistCoreBehavior;
+import Mentalist.agent.MentalistCoreVH;
+import Mentalist.agent.MentalistRepeatedFavorBehavior;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
@@ -1048,6 +1051,7 @@ public class GameBridgeUtils {
             body += "," + title;
         for (String key : this.surveyData.keySet())
             body += "," + key;
+        body += ",Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness";
         body += "\n";
         body += this.MTurkID + ",";
         if (!this.isMultiAgent) {
@@ -1256,6 +1260,24 @@ public class GameBridgeUtils {
         for (String key : this.surveyData.keySet())
             body += "," + this.surveyData.get(key);
 
+        String firstRow = body.split("\n")[0];
+        String secondRow = body.split("\n")[1];
+        ArrayList<String> parameter = new ArrayList<>();
+
+        if (this.selectedAgent1 instanceof MentalistCoreVH) {
+            MentalistCoreBehavior behavior = ((MentalistCoreVH) this.selectedAgent1).getBehavior();
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getCooperativeness());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAssertiveness());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getNeuroticism());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getExtraversion());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpenness());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeableness());
+            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousness());
+            for(int i = 0; i < parameter.size(); i++){
+                body += "," + parameter.get(i);
+            }
+        }
+
         body += "\n\n";
         body += ": Survey Results: \n";
         body += fullList + "\n";
@@ -1289,10 +1311,15 @@ public class GameBridgeUtils {
                 fileName = folderName + "/log.csv";
                 bw = new BufferedWriter(new FileWriter((new File( fileName)), true));
                 if(mkdir_flag){
-                    bw.write(split[0]);
+                    bw.write(firstRow);
                     bw.newLine();
                 }
-                bw.write(split[1]);
+                bw.write(secondRow);
+                if(!parameter.isEmpty()){
+                    for(int i = 0; i < parameter.size(); i++){
+                        bw.write("," + parameter.get(i));
+                    }
+                }
                 bw.newLine();
 
                 bw.close();
@@ -1311,7 +1338,8 @@ public class GameBridgeUtils {
             }
         if (ServletUtils.isDataModeGoogleSpreadSheets())
             try {
-                GoogleSpreadSheetUtils.addRow(body);
+                GoogleSpreadSheetUtils.addRow(secondRow, parameter);
+
             } catch(Exception e){
                 ServletUtils.log(e.getMessage(), ServletUtils.DebugLevels.ERROR);
             }

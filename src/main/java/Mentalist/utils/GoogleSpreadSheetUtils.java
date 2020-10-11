@@ -88,13 +88,13 @@ public class GoogleSpreadSheetUtils{
         }
     }
 
-    public static void addRow(String userData) throws IOException, GeneralSecurityException {
+    public static void addRow(String secondRow, ArrayList<String> parameter) throws IOException, GeneralSecurityException {
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         final String spreadsheetId = "1AG8eNSX2XYsaxzdE2GMk3vtjIO8c6PovDUEfEKm1q48";
-        final List<String> ranges = new ArrayList<>(Arrays.asList("Data1!A2:Y", "Data2!A2:Z", "Data3!A2:Z", "Data4!A2:Y"));
-        final List<String> resultRow = Arrays.asList(userData.split("\n")[1].split(","));
-        final List<ValueRange> data = Arrays.asList(
+        List<String> ranges = new ArrayList<>(Arrays.asList("Data1!A2:Y", "Data2!A2:Z", "Data3!A2:Z", "Data4!A2:Y"));
+        final List<String> resultRow = Arrays.asList(secondRow.split(","));
+        List<ValueRange> data = new ArrayList<>(Arrays.asList(
             new ValueRange().setValues(Arrays.asList(Arrays.asList(
                 resultRow.subList(0, 25).toArray()
             ))),
@@ -107,7 +107,15 @@ public class GoogleSpreadSheetUtils{
             new ValueRange().setValues(Arrays.asList(Arrays.asList(
                 resultRow.subList(77,resultRow.size()).toArray()
             )))
-        );
+        ));
+
+        if(!parameter.isEmpty()){
+            ranges.add("Data5!A2:G");
+            data.add(new ValueRange().setValues(Arrays.asList(Arrays.asList(
+                    parameter.toArray()
+            ))));
+        }
+
 
         for(int i = 0; i < ranges.size(); i++) {
             Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, getCredentials(HTTP_TRANSPORT))

@@ -229,3 +229,751 @@ null,player,Sympathizer,12,12,true,false,8,4,0,0,0,0,0,24,0,0,0,0,0,5,0,0,0,3,0,
 : null__GAME_END,NONE,null
 
 
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,3,82,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,30,420,0,0,0,0,0,2,0,0,1,0,0,0,0,0,2,0,0,5,4,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,2.0,No,[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0],[-0.4285714285714286, 1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [2, 3, 0], [0, 3, 2] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__SEND_MESSAGE,OFFER_REJECT,Apologies, but that won't work for me.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_PROPOSE,I think you'll find this offer to be satisfactory.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__TIME,NONE,15
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Yes. This deal will work.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,30
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,23,66,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,35,420,0,0,0,0,1,1,0,2,1,4,0,0,0,1,0,0,0,3,4,1,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,1.0,No,[-1.0, 0.06493506493506473],[1.0, -0.924812030075188],[-1.0, -1.0],[-1.0, -0.33333333333333337],[1.0, 0.3513513513513513],[-1.0, 1.0],[1.0, -0.924812030075188]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [1, 4, 0], [0, 4, 1], [0, 4, 1] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but I don't think that's fair to me.
+: null__TIME,NONE,10
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,15
+: null__SEND_MESSAGE,OFFER_PROPOSE,I think you'll find this offer to be satisfactory.
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__TIME,NONE,30
+: null__SEND_OFFER,NONE,null,[ [3, 0, 2], [4, 0, 1], [1, 0, 4], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__TIME,NONE,35
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like6,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,6.0,No,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,20,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__TIME,NONE,20
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,30,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__TIME,NONE,15
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,30
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,2,81,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,20,420,0,0,1,0,0,0,0,1,0,0,0,0,4,5,5,5,0,4,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,No,[1.0],[-1.0],[-1.0],[-1.0],[0.8999999999999999],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [4, 0, 1], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__TIME,NONE,20
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,15
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like6,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,10,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,6.0,Yes,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,14,63,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,1,0,0,5,0,1,0,0,0,5,4,5,0,0,5,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,Yes,[0.33333333333333337],[-1.0],[-1.0],[-1.0],[0.40000000000000013],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [4, 0, 1], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,1,77,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,1,0,0,0,0,1,0,5,5,5,4,0,5,5,5,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,[1.0],[-1.0],[-1.0],[-1.0],[0.8999999999999999],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [4, 0, 1] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Yes. This deal will work.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3.0,Yes,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,20,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,20
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,No,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,15
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,Yes,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,15
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like5,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,2,81,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,1,0,0,0,0,1,0,0,0,0,4,5,5,5,0,4,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5.0,Yes,[1.0],[-1.0],[-1.0],[-1.0],[0.8999999999999999],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [4, 0, 1], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,20,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3.0,No,[1.0],[-1.0],[-1.0],[-1.0],[1.0],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,15
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,20
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,10,65,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,5,0,0,0,0,5,0,0,0,0,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,Yes,[0.9047619047619048],[-1.0],[-1.0],[-1.0],[0.5],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [0, 0, 5], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,3,82,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,35,420,0,0,0,1,0,2,0,0,1,0,0,0,0,0,1,0,0,5,4,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,2.0,No,[-1.0, 1.0],[0.22077922077922074, -1.0],[-1.0, -0.33333333333333337],[-1.0, -1.0],[0.5, 1.0],[-1.0, 1.0],[0.22077922077922074, -1.0]
+
+: Survey Results: 
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [1, 4, 0], [0, 3, 2] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__SEND_MESSAGE,OFFER_REJECT,Apologies, but that won't work for me.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_PROPOSE,I think this deal will interest you.
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__TIME,NONE,15
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,30
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,35
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,7,80,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,30,420,0,0,0,0,1,5,0,0,1,1,0,0,0,0,4,0,0,5,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,2.0,No,[-1.0, 0.7142857142857143],[-0.3714285714285712, -1.0],[-1.0, -0.33333333333333337],[-1.0, -1.0],[0.19999999999999996, 0.8000000000000003],[-1.0, 1.0],[-0.3714285714285712, -1.0]
+
+: Survey Results: 
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [4, 0, 1], [0, 0, 5] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but I don't think that's fair to me.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,15
+: null__SEND_MESSAGE,OFFER_PROPOSE,I think you'll find this offer to be satisfactory.
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [4, 0, 1], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,30
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,15,70,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,25,420,0,0,0,0,0,4,0,0,5,0,0,0,0,0,0,0,0,5,0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,2.0,No,[-1.0, -0.21182266009852224],[1.0, -0.8633540372670805],[-1.0, -1.0],[-1.0, -0.33333333333333337],[1.0, 0.5384615384615385],[-1.0, 1.0],[1.0, -0.8633540372670805]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 5, 0], [0, 1, 4] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but I don't think that's fair to me.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_PROPOSE,Please consider this deal?
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__TIME,NONE,15
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [0, 0, 5], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,25
+: null__SEND_MESSAGE,OFFER_ACCEPT,Yes. This deal will work.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,7,80,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,20,420,0,0,0,1,1,0,0,0,1,1,0,0,5,4,4,5,0,5,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,[0.680672268907563],[-1.0],[-1.0],[-1.0],[0.8],[-1.0],[-1.0]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__TIME,NONE,15
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [4, 0, 1], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,20
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,5,45,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,5,0,0,0,0,5,0,5,5,5,0,0,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,2.0,No,[-0.04761904761904767],[-0.9047619047619047],[-1.0],[-1.0],[0.5],[-1.0],[-0.9047619047619047]
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [0, 0, 5] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,2,81,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,1,0,0,0,0,1,0,0,0,0,4,5,5,5,0,4,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,3.0,No,1.0,-1.0,-1.0,-1.0,0.8999999999999999,-1.0,-1.0
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [4, 0, 1], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like4,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,85,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,0,0,0,0,0,0,0,5,5,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,4.0,Yes,1.0,-1.0,-1.0,-1.0,1.0,-1.0,-1.0
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,15
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like1,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,4,53,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,15,420,0,0,0,0,0,4,0,0,0,0,4,0,5,5,5,1,0,5,5,5,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1.0,No,0.33333333333333337,-1.0,-1.0,-1.0,0.6000000000000001,-1.0,-1.0
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [1, 0, 4] ]
+: null__TIME,NONE,10
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,15
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,15,64,false,false,2,1,0,0,0,0,0,5,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,FavorPart1,0,30,420,0,0,0,0,0,3,0,4,1,1,0,0,0,0,1,0,0,1,4,4,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,1,1,0,0,0,0,0,0,0,0,0,2.0,No,-1.0: 0.6222760290556901,0.04761904761904745: -1.0,-1.0: -1.0,-1.0: -0.33333333333333337,0.5: 0.45945945945945943,-1.0: 1.0,0.04761904761904745: -1.0
+
+: Survey Results: 
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [1, 4, 0], [0, 2, 3] ]
+: null__SEND_EXPRESSION,NONE,sad
+: null__SEND_MESSAGE,OFFER_REJECT,Perhaps we should spend more time finding a solution that's good for us both...
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_PROPOSE,I think this deal will interest you.
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 4, 1], [0, 5, 0], [1, 4, 0] ]
+: null__TIME,NONE,15
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,20
+: null__TIME,NONE,25
+: null__SEND_OFFER,NONE,null,[ [1, 0, 4], [4, 0, 1], [4, 0, 1], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__TIME,NONE,30
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorNo,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,3,82,false,false,3,0,0,0,0,0,0,5,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,FavorPart1,0,30,420,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,3,0,5,4,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,0,3.0,No,1.0:1.0:1.0,-1.0:-1.0:-1.0,-1.0:-0.33333333333333337:-0.5,-1.0:-1.0:-0.5,1.0:1.0:0.8909090909090909,-1.0:1.0:1.0,-1.0:-1.0:-1.0
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 5, 0], [3, 2, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__TIME,NONE,10
+: null__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [2, 3, 0], [3, 2, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,Yes. This deal will work.
+: null__GAME_START,NONE,null
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,15
+: null__TIME,NONE,20
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,25
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,30
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,0,50,false,false,2,0,0,0,0,0,0,3,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,FavorPart2,1,30,420,0,0,0,1,0,0,0,0,0,0,0,0,5,4,5,5,0,5,5,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,2,0,0,0,0,0,0,0,0,0,0,0,3.0,1.0,-1.0,-1.0,-1.0,1.0,-1.0,-1.0
+
+: Survey Results: 
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,15
+: null__TIME,NONE,20
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [4, 0, 1], [5, 0, 0], [5, 0, 0] ]
+: null__TIME,NONE,25
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,30
+: null__GAME_END,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__SEND_MESSAGE,NONE,It's good to see you again!  Let's get ready to negotiate again.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,15
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,21,31,false,false,2,0,0,0,0,0,0,4,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,FavorPart3,2,30,420,0,0,0,0,0,0,0,2,1,2,3,0,5,5,5,5,0,3,4,3,2,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,2,0,0,0,0,0,0,0,0,0,0,0,3.0,-1.0,-0.26050420168067234,-1.0,-1.0,0.19999999999999996,-1.0,-0.26050420168067234
+
+: Survey Results: 
+: null__TIME,NONE,30
+: null__GAME_END,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__SEND_MESSAGE,NONE,It's good to see you again!  Let's get ready to negotiate again.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,5
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [5, 0, 0], [5, 0, 0] ]
+: null__SEND_EXPRESSION,NONE,happy
+: null__TIME,NONE,10
+: null__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,15
+: null__GAME_END,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__SEND_MESSAGE,NONE,It's good to see you again!  Let's get ready to negotiate again.
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,5
+: null__TIME,NONE,10
+: null__TIME,NONE,15
+: null__SEND_OFFER,NONE,null,[ [3, 0, 2], [4, 0, 1], [3, 0, 2], [2, 0, 3] ]
+: null__TIME,NONE,20
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: null__FORMAL_ACCEPT,NONE,null
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_START,NONE,null
+: null__TIME,NONE,25
+: null__GAME_END,NONE,null
+
+
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like7,favorYes,Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness
+null,player,Sympathizer,20,75,false,false,1,0,0,0,0,0,0,3,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,FavorPart1,0,25,420,0,0,0,0,5,0,0,0,0,5,0,0,5,5,0,5,0,5,5,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,7.0,Yes,1.0,-0.4285714285714286,-1.0,-1.0,0.5,-1.0,-0.4285714285714286
+
+: Survey Results: 
+: null__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.   What about you?
+: null__SEND_MESSAGE,FAVOR_REQUEST,Excuse me, but there is a super-valuable item here for me!  If you accept my favor request, I'll promise to pay you back in a future round!
+: null__TIME,NONE,5
+: null__OFFER_IN_PROGRESS,NONE,null
+: null__TIME,NONE,10
+: null__TIME,NONE,15
+: null__SEND_OFFER,NONE,null,[ [5, 0, 0], [5, 0, 0], [0, 0, 5], [5, 0, 0] ]
+: null__TIME,NONE,20
+: null__SEND_EXPRESSION,NONE,happy
+: null__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: null__FORMAL_ACCEPT,NONE,null
+: null__TIME,NONE,25
+: null__FORMAL_ACCEPT,NONE,null
+: null__GAME_START,NONE,null
+: null__GAME_END,NONE,null
+
+

@@ -65,6 +65,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 		}
 	}
 
+	public MentalistCoreBehavior getBehavior(){ return this.behavior; }
+
 	/**
 	 * Returns a simple int representing the internal "ledger" of favors done for the agent.  Can be negative.  Persists across games.
 	 * @return the ledger
