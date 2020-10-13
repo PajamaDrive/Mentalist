@@ -486,6 +486,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 			if (behavior instanceof MentalistRepeatedFavorBehavior){
 				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
 				((MentalistRepeatedFavorBehavior) behavior).addPreviousOffer();
+				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 				((MentalistRepeatedFavorBehavior) behavior).printParameter();
 			}
 

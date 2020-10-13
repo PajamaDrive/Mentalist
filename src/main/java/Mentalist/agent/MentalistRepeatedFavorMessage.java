@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implements MessagePolicy {
 	protected final String[] proposal = {"I think this deal is good for the both of us.",
 			"I think you'll find this offer to be satisfactory.",
-			"I think this arrangement is fair.",
+			//"I think this arrangement is fair.",
 			"I think this deal will interest you.",
 	"Please consider this deal?"};
 
@@ -248,7 +248,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		{
 		case GENERIC_POS: 
 			sc = Event.SubClass.PREF_INFO;
-			this.behavior.addPositiveMessageNum();
+			this.behavior.addPosMessageNum();
 			if(best < 0) 
 			{ // We do not have any guesses as to their favorite
 				str = "I agree!  What is your favorite item?";
@@ -268,6 +268,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			str = "I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.";
 			sc = Event.SubClass.GENERIC_NEG;
 
+			this.behavior.addNegMessageNum();
 			if(!isFull)
 				str += "  Besides, what about the rest of the undecided items?";
 
@@ -345,6 +346,11 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case OFFER_REQUEST_NEG:
 			str = "Alright, what do you think of this?";
 			sc = Event.SubClass.OFFER_PROPOSE;
+			if(ePrime.getSubClass() == Event.SubClass.OFFER_REQUEST_POS){
+				this.behavior.addPosMessageNum();
+			}else if(ePrime.getSubClass() == Event.SubClass.OFFER_REQUEST_NEG){
+				this.behavior.addNegMessageNum();
+			}
 			break;
 		case THREAT_POS: // "I'm sorry but I think I'm going to have to walk away.");
 		case THREAT_NEG: // "This is a warning, I'm about to walk away."
@@ -364,6 +370,11 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			else {
 				str = "Oh well, I guess we really should walk away. Are you sure you can't accept anything less than " + utils.adversaryBATNA + " points?";
 				sc = Event.SubClass.BATNA_REQUEST;
+			}
+			if(ePrime.getSubClass() == Event.SubClass.THREAT_POS){
+				this.behavior.addPosMessageNum();
+			}else if(ePrime.getSubClass() == Event.SubClass.THREAT_NEG){
+				this.behavior.addNegMessageNum();
 			}
 			break;
 		case PREF_INFO:

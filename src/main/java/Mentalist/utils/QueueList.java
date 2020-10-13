@@ -14,7 +14,9 @@ public class QueueList<T>{
 
     public boolean isEmpty(){ return items.isEmpty(); }
 
-    public String toString(){ return items.toString(); }
+    public String toString(){ return getQueue().toString(); }
+
+    public String toStringAll(){ return items.toString(); }
 
     public void enQueue(T element){ items.add(element); }
 
@@ -23,6 +25,8 @@ public class QueueList<T>{
     public T deQueue(){ return items.isEmpty() ? null : items.remove(0); }
 
     public void clear(){ items.clear(); }
+
+    public T getElement(int index){ items.get(index); }
 
     public int getQueueSize(){ return items.size() <= subSize ? items.size() : this.subSize; }
 
