@@ -376,6 +376,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			}else if(ePrime.getSubClass() == Event.SubClass.THREAT_NEG){
 				this.behavior.addNegMessageNum();
 			}
+			this.behavior.addThreatNum();
 			break;
 		case PREF_INFO:
 		case PREF_REQUEST:

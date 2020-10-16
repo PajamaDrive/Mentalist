@@ -1,6 +1,7 @@
 package Mentalist.utils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class QueueList<T>{
     private ArrayList<T> items;
@@ -26,12 +27,27 @@ public class QueueList<T>{
 
     public void clear(){ items.clear(); }
 
-    public T getElement(int index){ items.get(index); }
+    public T getElement(int index){ return items.get(index); }
 
-    public int getQueueSize(){ return items.size() <= subSize ? items.size() : this.subSize; }
+    public int queueSize(){ return items.size() <= subSize ? items.size() : this.subSize; }
 
     public ArrayList<T> getQueue(){
         return items.size() <= subSize ? items : new ArrayList<T>(items.subList(items.size() - subSize, items.size()));
+    }
+
+    public ArrayList<T> getExceptZeroQueue(){
+        return (items.size() - 1) <= subSize ? new ArrayList<T>(items.subList(1, items.size() + 1)) : new ArrayList<T>(items.subList(items.size() - subSize, items.size()));
+    }
+
+    public T getLastElement(){ return items.get(items.size() - 1); }
+
+    public int sum(){
+        int sum = 0;
+        Iterator<T> iter = getQueue().iterator();
+        while(iter.hasNext()){
+            sum += (Integer)iter.next();
+        }
+        return sum;
     }
 
     public int getFullSize(){ return items.size(); }

@@ -274,6 +274,9 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 				((MentalistRepeatedFavorBehavior) behavior).addExpression(emotion);
 				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).addFastResponseNum();
+				((MentalistRepeatedFavorBehavior) behavior).setPreBehaviorTiminig(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+
 
 			}
 			if (expr != null)
@@ -580,6 +583,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 		{
 			if (behavior instanceof MentalistRepeatedFavorBehavior) {
 				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).addFastResponseNum();
+				((MentalistRepeatedFavorBehavior) behavior).setPreBehaviorTiminig(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 			}
 			Preference p;
 			if (e.getPreference() == null)
