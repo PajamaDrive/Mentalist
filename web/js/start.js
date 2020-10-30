@@ -224,8 +224,18 @@ window.onload = function() {
 				$("#wrong3").removeClass("hidden");
 			else
 				$("#wrong3").addClass("hidden");
+
+			if($("input[name=lang]:checked").val() == "0"){
+				$(".langChange[lang=en]").removeClass("hidden");
+				$(".langChange[lang=jp]").addClass("hidden");
+			}
+			else{
+                $(".langChange[lang=en]").addClass("hidden");
+                $(".langChange[lang=jp]").removeClass("hidden");
+			}
 		});
 	});
 
 };
+
 

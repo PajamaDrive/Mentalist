@@ -1,7 +1,8 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <link href="css/iago.css" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -14,7 +15,937 @@
 </head>
 <!-- NOTE: Much of the body text on these page appears to be repeated to account for both game conditions.  When users come from Qualtrics the correct text is loaded depending on their condition. -->
 <body>
-	<div id="mainpage">
+	<div id="big5">
+		<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
+		<label for="radio_en">
+			<span class="langChange" lang="en">English</span>
+			<span class="hidden langChange" lang="jp">英語</span>
+		</label>
+		<input type="radio" id="radio_jp" name="lang" value="1">
+		<label for="radio_jp">
+			<span class="langChange" lang="en">Japanese</span>
+			<span class="hidden langChange" lang="jp">日本語</span>
+		</label>
+		<div id="questionnaire">
+			<h1>
+				<span class="langChange" lang="en">Questionnaire</span>
+				<span class="hidden langChange" lang="jp">事前アンケート</span>
+			</h1><br>
+			1.
+			<span class="langChange" lang="en">Am the life of the party.</span>
+			<span class="hidden langChange" lang="jp">盛り上げ役である</span><br>
+			<input type="radio" name="q1_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q1_e" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q1_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q1_e" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q1_e" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			2.
+			<span class="langChange" lang="en">Feel little concern for others.</span>
+			<span class="hidden langChange" lang="jp">他人を気づかうことはない</span><br>
+			<input type="radio" name="q2_a" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q2_a" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q2_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q2_a" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q2_a" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			3.
+			<span class="langChange" lang="en">Am always prepared.</span>
+			<span class="hidden langChange" lang="jp">いつも用意周到である</span><br>
+			<input type="radio" name="q3_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q3_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q3_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q3_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q3_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			4.
+			<span class="langChange" lang="en">Get stressed out easily.</span>
+			<span class="hidden langChange" lang="jp">すぐにストレスがたまってしまう</span><br>
+			<input type="radio" name="q4_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q4_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q4_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q4_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q4_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			5.
+			<span class="langChange" lang="en">Have a rich vocabulary.</span>
+			<span class="hidden langChange" lang="jp">語彙が豊富である</span><br>
+			<input type="radio" name="q5_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q5_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q5_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q5_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q5_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			6.
+			<span class="langChange" lang="en">Don't talk a lot.</span>
+			<span class="hidden langChange" lang="jp">おしゃべりではない</span><br>
+			<input type="radio" name="q6_e" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q6_e" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q6_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q6_e" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q6_e" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			7.
+			<span class="langChange" lang="en">Am interested in people.</span>
+			<span class="hidden langChange" lang="jp">他人に興味がある</span><br>
+			<input type="radio" name="q7_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q7_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q7_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q7_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q7_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			8.
+			<span class="langChange" lang="en">Leave my belongings around.</span>
+			<span class="hidden langChange" lang="jp">持ち物が整理できないほうだ</span><br>
+			<input type="radio" name="q8_c" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q8_c" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q8_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q8_c" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q8_c" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			9.
+			<span class="langChange" lang="en">Am relaxed most of the time.</span>
+			<span class="hidden langChange" lang="jp">いつもリラックスしていることが多い</span><br>
+			<input type="radio" name="q9_n" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q9_n" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q9_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q9_n" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q9_n" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			10.
+			<span class="langChange" lang="en">Have difficulty understanding abstract ideas.</span>
+			<span class="hidden langChange" lang="jp">抽象的な考えを理解するのが苦手だ</span><br>
+			<input type="radio" name="q10_o" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q10_o" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q10_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q10_o" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q10_o" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			11.
+			<span class="langChange" lang="en">Feel comfortable around people.</span>
+			<span class="hidden langChange" lang="jp">人前でもあがらない</span><br>
+			<input type="radio" name="q11_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q11_e" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q11_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q11_e" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q11_e" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			12.
+			<span class="langChange" lang="en">Insult people.</span>
+			<span class="hidden langChange" lang="jp">人を馬鹿にするほうだ</span><br>
+			<input type="radio" name="q12_a" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q12_a" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q12_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q12_a" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q12_a" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			13.
+			<span class="langChange" lang="en">Pay attention to details.</span>
+			<span class="hidden langChange" lang="jp">細かいことに気がつく</span><br>
+			<input type="radio" name="q13_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q13_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q13_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q13_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q13_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			14.
+			<span class="langChange" lang="en">Worry about things.</span>
+			<span class="hidden langChange" lang="jp">心配性である</span><br>
+			<input type="radio" name="q14_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q14_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q14_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q14_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q14_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			15.
+			<span class="langChange" lang="en">Have a vivid imagination.</span>
+			<span class="hidden langChange" lang="jp">想像力が豊かである</span><br>
+			<input type="radio" name="q15_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q15_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q15_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q15_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q15_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			16.
+			<span class="langChange" lang="en">Keep in the background.</span>
+			<span class="hidden langChange" lang="jp">引っ込み思案である</span><br>
+			<input type="radio" name="q16_e" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q16_e" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q16_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q16_e" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q16_e" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			17.
+			<span class="langChange" lang="en">Sympathize with others' feelings.</span>
+			<span class="hidden langChange" lang="jp">人に共感しやすい</span><br>
+			<input type="radio" name="q17_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q17_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q17_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q17_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q17_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			18.
+			<span class="langChange" lang="en">Make a mess of things.</span>
+			<span class="hidden langChange" lang="jp">無茶なことをする</span><br>
+			<input type="radio" name="q18_c" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q18_c" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q18_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q18_c" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q18_c" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			19.
+			<span class="langChange" lang="en">Seldom feel blue.</span>
+			<span class="hidden langChange" lang="jp">落ち込むことはめったにない</span><br>
+			<input type="radio" name="q19_n" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q19_n" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q19_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q19_n" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q19_n" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			20.
+			<span class="langChange" lang="en">Am not interested in abstract ideas.</span>
+			<span class="hidden langChange" lang="jp">抽象的な考えには興味がない</span><br>
+			<input type="radio" name="q20_o" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q20_o" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q20_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q20_o" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q20_o" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			21.
+			<span class="langChange" lang="en">Start conversations.</span>
+			<span class="hidden langChange" lang="jp">自分から話しかけるほうである</span><br>
+			<input type="radio" name="q21_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q21_e" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q21_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q21_e" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q21_e" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			22.
+			<span class="langChange" lang="en">Am not interested in other people's problems.</span>
+			<span class="hidden langChange" lang="jp">他人の問題には興味がない</span><br>
+			<input type="radio" name="q22_a" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q22_a" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q22_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q22_a" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q22_a" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			23.
+			<span class="langChange" lang="en">Get chores done right away.</span>
+			<span class="hidden langChange" lang="jp">すぐに雑用を済ませる</span><br>
+			<input type="radio" name="q23_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q23_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q23_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q23_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q23_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			24.
+			<span class="langChange" lang="en">Am easily disturbed.</span>
+			<span class="hidden langChange" lang="jp">動揺しやすい</span><br>
+			<input type="radio" name="q24_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q24_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q24_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q24_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q24_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			25.
+			<span class="langChange" lang="en">Have excellent ideas.</span>
+			<span class="hidden langChange" lang="jp">素晴らしいアイディアを持っている</span><br>
+			<input type="radio" name="q25_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q25_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q25_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q25_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q25_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			26.
+			<span class="langChange" lang="en">Have little to say.</span>
+			<span class="hidden langChange" lang="jp">あまり話すことがない</span><br>
+			<input type="radio" name="q26_e" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q26_e" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q26_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q26_e" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q26_e" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			27.
+			<span class="langChange" lang="en">Have a soft heart.</span>
+			<span class="hidden langChange" lang="jp">優しい心を持っている</span><br>
+			<input type="radio" name="q27_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q27_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q27_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q27_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q27_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			28.
+			<span class="langChange" lang="en">Often forget to put things back in their proper place.</span>
+			<span class="hidden langChange" lang="jp">整理整頓を怠りがち</span><br>
+			<input type="radio" name="q28_c" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q28_c" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q28_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q28_c" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q28_c" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br>
+
+			29.
+			<span class="langChange" lang="en">Get upset easily.</span>
+			<span class="hidden langChange" lang="jp">慌てやすい</span><br>
+			<input type="radio" name="q29_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q29_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q29_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q29_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q29_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			30.
+			<span class="langChange" lang="en">Do not have a good imagination.</span>
+			<span class="hidden langChange" lang="jp">アイディアが乏しいほうだ</span><br>
+			<input type="radio" name="q30_o" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q30_o" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q30_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q30_o" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q30_o" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			31.
+			<span class="langChange" lang="en">Talk to a lot of different people at parties.</span>
+			<span class="hidden langChange" lang="jp">パーティでは色々な人と話すほうだ</span><br>
+			<input type="radio" name="q31_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q31_e" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q31_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q31_e" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q31_e" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			32.
+			<span class="langChange" lang="en">Am not really interested in others.</span>
+			<span class="hidden langChange" lang="jp">他人には全く興味がない</span><br>
+			<input type="radio" name="q32_a" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q32_a" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q32_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q32_a" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q32_a" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			33.
+			<span class="langChange" lang="en">Like order.</span>
+			<span class="hidden langChange" lang="jp">整頓するのが好きである</span><br>
+			<input type="radio" name="q33_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q33_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q33_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q33_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q33_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			34.
+			<span class="langChange" lang="en">Change my mood a lot.</span>
+			<span class="hidden langChange" lang="jp">気分をコロコロ変える</span><br>
+			<input type="radio" name="q34_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q34_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q34_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q34_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q34_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			35.
+			<span class="langChange" lang="en">Am quick to understand things.</span>
+			<span class="hidden langChange" lang="jp">ものわかりが良いほうだ</span><br>
+			<input type="radio" name="q35_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q35_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q35_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q35_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q35_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			36.
+			<span class="langChange" lang="en">Don't like to draw attention to myself.</span>
+			<span class="hidden langChange" lang="jp">人から注目を浴びるのは好きではない</span><br>
+			<input type="radio" name="q36_e" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q36_e" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q36_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q36_e" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q36_e" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			37.
+			<span class="langChange" lang="en">Take time out for others.</span>
+			<span class="hidden langChange" lang="jp">他の人のために時間を割くほうだ</span><br>
+			<input type="radio" name="q37_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q37_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q37_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q37_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q37_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			38.
+			<span class="langChange" lang="en">Shirk my duties.</span>
+			<span class="hidden langChange" lang="jp">仕事や学習をサボることが多い</span><br>
+			<input type="radio" name="q38_c" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q38_c" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q38_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q38_c" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q38_c" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			39.
+			<span class="langChange" lang="en">Have frequent mood swings.</span>
+			<span class="hidden langChange" lang="jp">気分が著しく変化するほうだ</span><br>
+			<input type="radio" name="q39_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q39_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q39_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q39_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q39_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			40.
+			<span class="langChange" lang="en">Use difficult words.</span>
+			<span class="hidden langChange" lang="jp">難しい言葉を使うほうだ</span><br>
+			<input type="radio" name="q40_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q40_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q40_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q40_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q40_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			41.
+			<span class="langChange" lang="en">Don't mind being the center of attention.</span>
+			<span class="hidden langChange" lang="jp">注目の的になるのは嫌ではない</span><br>
+			<input type="radio" name="q41_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q41_e" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q41_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q41_e" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q41_e" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			42.
+			<span class="langChange" lang="en">Feel others' emotions.</span>
+			<span class="hidden langChange" lang="jp">他の人の気持ちがわかる</span><br>
+			<input type="radio" name="q42_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q42_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q42_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q42_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q42_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			43.
+			<span class="langChange" lang="en">Follow a schedule.</span>
+			<span class="hidden langChange" lang="jp">予定に従うほうだ</span><br>
+			<input type="radio" name="q43_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q43_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q43_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q43_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q43_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			44.
+			<span class="langChange" lang="en">Get irritated easily.</span>
+			<span class="hidden langChange" lang="jp">イライラしやすい</span><br>
+			<input type="radio" name="q44_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q44_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q44_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q44_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q44_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			45.
+			<span class="langChange" lang="en">Spend time reflecting on things.</span>
+			<span class="hidden langChange" lang="jp">いろんなことを反省しては時間を過ごす</span><br>
+			<input type="radio" name="q45_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q45_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q45_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q45_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q45_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			46.
+			<span class="langChange" lang="en">Am quiet around strangers.</span>
+			<span class="hidden langChange" lang="jp">人見知りする</span><br>
+			<input type="radio" name="q46_e" value="5"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q46_e" value="4"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q46_e" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q46_e" value="2"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q46_e" value="1"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			47.
+			<span class="langChange" lang="en">Make people feel at ease.</span>
+			<span class="hidden langChange" lang="jp">人を安心させる</span><br>
+			<input type="radio" name="q47_a" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q47_a" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q47_a" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q47_a" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q47_a" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			48.
+			<span class="langChange" lang="en">Am exacting in my work.</span>
+			<span class="hidden langChange" lang="jp">張り切って仕事や学習に取り組むほうだ</span><br>
+			<input type="radio" name="q48_c" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q48_c" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q48_c" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q48_c" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q48_c" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			49.
+			<span class="langChange" lang="en">Often feel blue.</span>
+			<span class="hidden langChange" lang="jp">落ち込むことが多い</span><br>
+			<input type="radio" name="q49_n" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q49_n" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q49_n" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q49_n" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q49_n" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			50.
+			<span class="langChange" lang="en">Am full of ideas.</span>
+			<span class="hidden langChange" lang="jp">アイディアが豊富である</span><br>
+			<input type="radio" name="q50_o" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
+			<input type="radio" name="q50_o" value="2"><label><span class="langChange" lang="en">Moderately Inaccurate</span><span class="hidden langChange" lang="jp">あまり当てはまらない</span></label>
+			<input type="radio" name="q50_o" value="3"><label><span class="langChange" lang="en">Neither Accurate Nor Inaccurate</span><span class="hidden langChange" lang="jp">どちらともいえない</span></label>
+			<input type="radio" name="q50_o" value="4"><label><span class="langChange" lang="en">Moderately Accurate</span><span class="hidden langChange" lang="jp">やや当てはまる</span></label>
+			<input type="radio" name="q50_o" value="5"><label><span class="langChange" lang="en">Very Accurate</span><span class="hidden langChange" lang="jp">よく当てはまる</span></label>
+			<br><br>
+
+			<div class="buttonWrapper">
+				<input type="button" value="hoge">
+			</div>
+			<hr>
+
+		</div>
+		<!--<div id="japanese_q" class=" hidden langChange" lang="jp">
+
+			<h1>事前アンケート</h1><br>
+			1. 盛り上げ役である<br>
+			<input type="radio" name="jp_q1_e" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q1_e" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q1_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q1_e" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q1_e" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			2. 他人を気づかうことはない<br>
+			<input type="radio" name="jp_q2_a" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q2_a" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q2_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q2_a" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q2_a" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			3. いつも用意周到である<br>
+			<input type="radio" name="jp_q3_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q3_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q3_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q3_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q3_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			4. すぐにストレスがたまってしまう<br>
+			<input type="radio" name="jp_q4_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q4_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q4_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q4_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q4_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			5. 語彙が豊富である<br>
+			<input type="radio" name="jp_q5_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q5_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q5_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q5_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q5_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			6. おしゃべりではない<br>
+			<input type="radio" name="jp_q6_e" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q6_e" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q6_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q6_e" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q6_e" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			7. 他人に興味がある<br>
+			<input type="radio" name="jp_q7_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q7_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q7_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q7_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q7_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			8. 持ち物が整理できないほうだ<br>
+			<input type="radio" name="jp_q8_c" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q8_c" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q8_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q8_c" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q8_c" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			9. いつもリラックスしていることが多い<br>
+			<input type="radio" name="jp_q9_n" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q9_n" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q9_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q9_n" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q9_n" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			10. 抽象的な考えを理解するのが苦手だ<br>
+			<input type="radio" name="jp_q10_o" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q10_o" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q10_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q10_o" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q10_o" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			11. 人前でもあがらない<br>
+			<input type="radio" name="jp_q11_e" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q11_e" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q11_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q11_e" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q11_e" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			12. 人を馬鹿にするほうだ<br>
+			<input type="radio" name="jp_q12_a" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q12_a" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q12_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q12_a" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q12_a" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			13. 細かいことに気がつく<br>
+			<input type="radio" name="jp_q13_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q13_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q13_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q13_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q13_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			14. 心配性である<br>
+			<input type="radio" name="jp_q14_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q14_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q14_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q14_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q14_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			15. 想像力が豊かである<br>
+			<input type="radio" name="jp_q15_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q15_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q15_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q15_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q15_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			16. 引っ込み思案である<br>
+			<input type="radio" name="jp_q16_e" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q16_e" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q16_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q16_e" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q16_e" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			17. 人に共感しやすい<br>
+			<input type="radio" name="jp_q17_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q17_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q17_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q17_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q17_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			18. 無茶なことをする<br>
+			<input type="radio" name="jp_q18_c" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q18_c" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q18_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q18_c" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q18_c" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			19. 落ち込むことはめったにない<br>
+			<input type="radio" name="jp_q19_n" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q19_n" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q19_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q19_n" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q19_n" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			20. 抽象的な考えには興味がない<br>
+			<input type="radio" name="jp_q20_o" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q20_o" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q20_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q20_o" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q20_o" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			21. 自分から話しかけるほうである<br>
+			<input type="radio" name="jp_q21_e" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q21_e" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q21_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q21_e" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q21_e" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			22. 他人の問題には興味がない<br>
+			<input type="radio" name="jp_q22_a" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q22_a" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q22_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q22_a" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q22_a" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			23. すぐに雑用を済ませる<br>
+			<input type="radio" name="jp_q23_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q23_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q23_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q23_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q23_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			24. 動揺しやすい<br>
+			<input type="radio" name="jp_q24_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q24_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q24_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q24_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q24_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			25. 素晴らしいアイディアを持っている<br>
+			<input type="radio" name="jp_q25_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q25_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q25_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q25_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q25_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			26. あまり話すことがない<br>
+			<input type="radio" name="jp_q26_e" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q26_e" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q26_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q26_e" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q26_e" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			27. 優しい心を持っている<br>
+			<input type="radio" name="jp_q27_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q27_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q27_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q27_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q27_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			28. 整理整頓を怠りがち<br>
+			<input type="radio" name="jp_q28_c" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q28_c" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q28_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q28_c" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q28_c" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			29. 慌てやすい<br>
+			<input type="radio" name="jp_q29_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q29_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q29_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q29_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q29_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			30. アイディアが乏しいほうだ<br>
+			<input type="radio" name="jp_q30_o" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q30_o" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q30_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q30_o" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q30_o" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			31. パーティでは色々な人と話すほうだ<br>
+			<input type="radio" name="jp_q31_e" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q31_e" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q31_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q31_e" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q31_e" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			32. 他人には全く興味がない<br>
+			<input type="radio" name="jp_q32_a" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q32_a" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q32_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q32_a" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q32_a" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			33. 整頓するのが好きである<br>
+			<input type="radio" name="jp_q33_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q33_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q33_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q33_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q33_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			34. 気分をコロコロ変える<br>
+			<input type="radio" name="jp_q34_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q34_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q34_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q34_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q34_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			35. ものわかりが良いほうだ<br>
+			<input type="radio" name="jp_q35_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q35_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q35_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q35_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q35_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			36. 人から注目を浴びるのは好きではない<br>
+			<input type="radio" name="jp_q36_e" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q36_e" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q36_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q36_e" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q36_e" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			37. 他の人のために時間を割くほうだ<br>
+			<input type="radio" name="jp_q37_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q37_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q37_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q37_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q37_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			38. 仕事や学習をサボることが多い<br>
+			<input type="radio" name="jp_q38_c" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q38_c" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q38_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q38_c" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q38_c" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			39. 気分が著しく変化するほうだ<br>
+			<input type="radio" name="jp_q39_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q39_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q39_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q39_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q39_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			40. 難しい言葉を使うほうだ<br>
+			<input type="radio" name="jp_q40_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q40_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q40_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q40_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q40_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			41. 注目の的になるのは嫌ではない<br>
+			<input type="radio" name="jp_q41_e" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q41_e" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q41_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q41_e" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q41_e" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			42. 他の人の気持ちがわかる<br>
+			<input type="radio" name="jp_q42_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q42_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q42_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q42_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q42_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			43. 予定に従うほうだ<br>
+			<input type="radio" name="jp_q43_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q43_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q43_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q43_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q43_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			44. イライラしやすい<br>
+			<input type="radio" name="jp_q44_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q44_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q44_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q44_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q44_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			45. いろんなことを反省しては時間を過ごす<br>
+			<input type="radio" name="jp_q45_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q45_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q45_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q45_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q45_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			46. 人見知りする<br>
+			<input type="radio" name="jp_q46_e" value="5"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q46_e" value="4"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q46_e" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q46_e" value="2"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q46_e" value="1"><label>よく当てはまる</label>
+			<br><br>
+
+			47. 人を安心させる<br>
+			<input type="radio" name="jp_q47_a" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q47_a" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q47_a" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q47_a" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q47_a" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			48. 張り切って仕事や学習に取り組むほうだ<br>
+			<input type="radio" name="jp_q48_c" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q48_c" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q48_c" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q48_c" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q48_c" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			49. 落ち込むことが多い<br>
+			<input type="radio" name="jp_q49_n" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q49_n" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q49_n" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q49_n" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q49_n" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			50. アイディアが豊富である<br>
+			<input type="radio" name="jp_q50_o" value="1"><label>まったく当てはまらない</label>
+			<input type="radio" name="jp_q50_o" value="2"><label>あまり当てはまらない</label>
+			<input type="radio" name="jp_q50_o" value="3"><label>どちらともいえない</label>
+			<input type="radio" name="jp_q50_o" value="4"><label>やや当てはまる</label>
+			<input type="radio" name="jp_q50_o" value="5"><label>よく当てはまる</label>
+			<br><br>
+
+			<hr>
+
+		</div>
+		-->
+	</div>
+	<div id="hidden mainpage">
 	<div class="welcome instructions">
 		
 	</div>

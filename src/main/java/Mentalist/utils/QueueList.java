@@ -6,12 +6,13 @@ import java.util.Iterator;
 public class QueueList<T>{
     private ArrayList<T> items;
     private int subSize;
+    private double preWeight;
 
-    public QueueList(int size){
+    public QueueList(int size, double weight){
         items = new ArrayList<>();
         subSize = size;
+        preWeight = weight;
     }
-
 
     public boolean isEmpty(){ return items.isEmpty(); }
 
@@ -35,20 +36,36 @@ public class QueueList<T>{
         return items.size() <= subSize ? items : new ArrayList<T>(items.subList(items.size() - subSize, items.size()));
     }
 
+    public ArrayList<T> getPreQueue(){
+        return items.size() <= subSize ? new ArrayList<T>() : new ArrayList<T>(items.subList(0, items.size() - subSize));
+    }
+
     public ArrayList<T> getExceptZeroQueue(){
-        return (items.size() - 1) <= subSize ? new ArrayList<T>(items.subList(1, items.size() + 1)) : new ArrayList<T>(items.subList(items.size() - subSize, items.size()));
+        return items.size() <= subSize ? new ArrayList<T>(items.subList(1, items.size())) : new ArrayList<T>(items.subList(items.size() - subSize, items.size()));
+    }
+
+    public ArrayList<T> getExceptZeroPreQueue(){
+        return items.size() <= subSize ? new ArrayList<T>() : new ArrayList<T>(items.subList(1, items.size() - subSize));
     }
 
     public T getLastElement(){ return items.get(items.size() - 1); }
 
-    public int sum(){
+    public double sum(){
         int sum = 0;
         Iterator<T> iter = getQueue().iterator();
         while(iter.hasNext()){
             sum += (Integer)iter.next();
         }
-        return sum;
+        int preSum = 0;
+        iter = getPreQueue().iterator();
+        while(iter.hasNext()){
+            preSum += (Integer)iter.next();
+        }
+
+        return preSum * preWeight + sum;
     }
+
+    public double getPreWeight(){ return preWeight; }
 
     public int getFullSize(){ return items.size(); }
 
