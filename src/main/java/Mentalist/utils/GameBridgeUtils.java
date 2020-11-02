@@ -48,6 +48,11 @@ public class GameBridgeUtils {
     private String menuLoc = "root";
     private History history = new History();
     private String webDir;
+    private int questionnaireNeuroticism = 0;
+    private int questionnaireExtraversion = 0;
+    private int questionnaireOpenness = 0;
+    private int questionnaireConscientiouness = 0;
+    private int questionnaireAgreeableness = 0;
 
     enum AcceptanceState {
         NO_ACCEPTANCE, USER_ACCEPTED, OPPONENT_ACCEPTED, FULL_ACCEPTANCE;
@@ -143,6 +148,11 @@ public class GameBridgeUtils {
             this.MTurkID = (String) this.httpSession.getAttribute("MTurkID");
             this.userName = this.MTurkID;
         }
+        this.questionnaireNeuroticism = (Integer)httpSession.getAttribute("neuroticism");
+        this.questionnaireExtraversion = (Integer)httpSession.getAttribute("extraversion");
+        this.questionnaireOpenness = (Integer)httpSession.getAttribute("openness");
+        this.questionnaireConscientiouness = (Integer)httpSession.getAttribute("conscientiousness");
+        this.questionnaireAgreeableness = (Integer)httpSession.getAttribute("agreeableness");
         ServletUtils.log("Registering user to game session: " + this.userName, ServletUtils.DebugLevels.DEBUG);
         this.user = new GeneralNegotiator(this.userName, this.spec, this.wsSession);
         WebSocketUtils.newUser(this.user);
@@ -352,6 +362,11 @@ public class GameBridgeUtils {
         String q4 = request.getParameter("qualtricsQ4");
         String qFlag = request.getParameter("qualtricsFlag");
         String condition = request.getParameter("condition");
+        int neuroticism = Integer.parseInt(request.getParameter("neuroticism"));
+        int extravesioin = Integer.parseInt(request.getParameter("extraversion"));
+        int openness = Integer.parseInt(request.getParameter("openness"));
+        int conscientiousness = Integer.parseInt(request.getParameter("conscientiousness"));
+        int agreeableness = Integer.parseInt(request.getParameter("agreeableness"));
         ServletUtils.log("Found mturk id: " + MTurkID, ServletUtils.DebugLevels.DEBUG);
         ServletUtils.log("Found expression: " + expressionChoice, ServletUtils.DebugLevels.DEBUG);
         ServletUtils.log("Found behavior: " + behaviorChoice, ServletUtils.DebugLevels.DEBUG);
@@ -386,6 +401,11 @@ public class GameBridgeUtils {
         request.getSession().setAttribute("qualtricsQ4", q4);
         request.getSession().setAttribute("qualtricsFlag", qFlag);
         request.getSession().setAttribute("condition", condition);
+        request.getSession().setAttribute("neuroticism", neuroticism);
+        request.getSession().setAttribute("extraversion", extravesioin);
+        request.getSession().setAttribute("openness", openness);
+        request.getSession().setAttribute("conscientiousness", conscientiousness);
+        request.getSession().setAttribute("agreeableness", agreeableness);
         request.getRequestDispatcher("iago.jsp").forward((ServletRequest) request, (ServletResponse) response);
     }
 
@@ -1051,7 +1071,7 @@ public class GameBridgeUtils {
             body += "," + title;
         for (String key : this.surveyData.keySet())
             body += "," + key;
-        body += ",Cooperativeness,Assertiveness,Neuroticism,Extraversioin,Openness,Agreeableness,Conscientiousness";
+        body += ",QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness";
         body += "\n";
         body += this.MTurkID + ",";
         if (!this.isMultiAgent) {
@@ -1265,6 +1285,12 @@ public class GameBridgeUtils {
         ArrayList<String> parameter = new ArrayList<>();
 
         if (this.selectedAgent1 instanceof MentalistCoreVH) {
+            parameter.add(Integer.toString(this.questionnaireNeuroticism));
+            parameter.add(Integer.toString(this.questionnaireExtraversion));
+            parameter.add(Integer.toString(this.questionnaireOpenness));
+            parameter.add(Integer.toString(this.questionnaireAgreeableness));
+            parameter.add(Integer.toString(this.questionnaireConscientiouness));
+
             MentalistCoreBehavior behavior = ((MentalistCoreVH) this.selectedAgent1).getBehavior();
             parameter.add(((MentalistRepeatedFavorBehavior) behavior).getCooperativeness());
             parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAssertiveness());

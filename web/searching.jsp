@@ -66,7 +66,7 @@
 		}
 		else{
 			document.getElementById("searchText").innerHTML = "<h2>Connecting to agent server.  This may take a few seconds, please do not disconnect or reload the page!</h2>";
-		} 
+		}
 	</script>
 	<br>
 	<div id="complete" style="visibility: hidden;text-align:center;color:green"><h2>Connected!  Please wait for game to load...</h2></div>
@@ -87,5 +87,12 @@
 	<input id="gameChoice" name="gameChoice" type="hidden" value=<%= request.getParameter("gameChoice")%>>
 	<input id="condition" name="condition" type="hidden" value=<%= request.getParameter("condition")%>>
 	<input id="MTurkID" name="MTurkID" type="hidden" value=<%= request.getParameter("MTurkID")%>>
+
+	<input id="neuroticism" name="neuroticism" type="hidden" value=<%= request.getParameter("neuroticism")%>>
+	<input id="extraversion" name="extraversion" type="hidden" value=<%= request.getParameter("extraversion")%>>
+	<input id="openness" name="openness" type="hidden" value=<%= request.getParameter("openness")%>>
+	<input id="conscientiousness" name="conscientiousness" type="hidden" value=<%= request.getParameter("conscientiousness")%>>
+	<input id="agreeableness" name="agreeableness" type="hidden" value=<%= request.getParameter("agreeableness")%>>
+
 </form>
 </html>

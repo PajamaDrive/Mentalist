@@ -375,3 +375,16 @@ input[type=radio]:not([name*="lang"]) + label {
 .buttonWrapper {
     text-align: center;
 }
+
+#warning {
+    color: #E82020;
+}
+
+.notYet > span {
+    color: #E82020;
+    font-weight: bold;
+}
+
+button.questionnaireButton {
+
+}

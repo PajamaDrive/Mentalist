@@ -58,6 +58,11 @@ public class GameBridge extends HttpServlet  {
 	private String globalMTurkID;		//this gets passed back into Qualtrics after the game ends if the user is coming from a Qualtrics study
 	private boolean programmed;		//this lets us know whether or not the system is in programming mode
 	private static String webDir;
+	private int questionnaireNeuroticism = 0;
+	private int questionnaireExtraversion = 0;
+	private int questionnaireOpenness = 0;
+	private int questionnaireConscientiouness = 0;
+	private int questionnaireAgreeableness = 0;
 
 	//private Logger LOGGER = LogManager.getLogger(GameBridge.class.getName());
 	Logger logger = Logger.getLogger(GameBridge.class.getName());
@@ -210,6 +215,13 @@ public class GameBridge extends HttpServlet  {
 			String qFlag = (String)httpSession.getAttribute("qualtricsFlag");				//determines if user is coming from Qualtrics survey or not
 			globalMTurkID= (String)httpSession.getAttribute("MTurkID");
 			globalCondition = (String)httpSession.getAttribute("condition");
+
+			questionnaireNeuroticism = (Integer)httpSession.getAttribute("neuroticism");
+			questionnaireExtraversion = (Integer)httpSession.getAttribute("extraversion");
+			questionnaireOpenness = (Integer)httpSession.getAttribute("openness");
+			questionnaireConscientiouness = (Integer)httpSession.getAttribute("conscientiousness");
+			questionnaireAgreeableness = (Integer)httpSession.getAttribute("agreeableness");
+
 			if (globalMTurkID == null || globalMTurkID.equals(""))
 				globalMTurkID = "MISSING";
 			if (globalCondition == null || globalCondition.equals(""))
@@ -239,6 +251,12 @@ public class GameBridge extends HttpServlet  {
 			ServletUtils.log("Game Choice: " + gameChoice, ServletUtils.DebugLevels.DEBUG);
 			ServletUtils.log("Qualtrics Flag: " + qFlag, ServletUtils.DebugLevels.DEBUG);
 			ServletUtils.log("MTurkID: " + globalMTurkID, ServletUtils.DebugLevels.DEBUG);
+			ServletUtils.log("Neuroticism: " + questionnaireNeuroticism, ServletUtils.DebugLevels.DEBUG);
+			ServletUtils.log("Extraversion: " + questionnaireExtraversion, ServletUtils.DebugLevels.DEBUG);
+			ServletUtils.log("Openness: " + questionnaireOpenness, ServletUtils.DebugLevels.DEBUG);
+			ServletUtils.log("Conscientiouness: " + questionnaireConscientiouness, ServletUtils.DebugLevels.DEBUG);
+			ServletUtils.log("Agreeableness: " + questionnaireAgreeableness, ServletUtils.DebugLevels.DEBUG);
+
 
 			if (vhQualifiedName0 == null && gameChoice.equals("agent") && programmed) //agent is being programed via q1-q4
 			{

@@ -233,9 +233,69 @@ window.onload = function() {
                 $(".langChange[lang=en]").addClass("hidden");
                 $(".langChange[lang=jp]").removeClass("hidden");
 			}
+			if($("input[name^=q]:checked")) {
+                $("input[name^=q]:checked").parent().removeClass("notYet");
+                if(allChecked()){
+                    $("#warning").addClass("hidden");
+                    $("#finish").removeClass("hidden");
+				}
+            }
 		});
 	});
 
+    $(function() {
+        $("#butQuestionnaireDone").click(function(e) {
+        	if(allChecked()) {
+                $("#big5").addClass("hidden");
+                $("#mainpage").removeClass("hidden");
+                setBigFiveValue();
+                scrollTo(0, 0);
+            }
+            else {
+				$("#warning").removeClass("hidden");
+				promptNotYet();
+			}
+        });
+    });
 };
 
+function allChecked(){
+	var element = $("input[name^=q]:checked");
+	if(element.length == 50)
+		return true;
+	else
+		return false;
+}
 
+function promptNotYet(){
+    var names = $("input[name^=q]:checked").map(function(index, element){return element.name});
+	if(names.length != 0) {
+        for (var i = 1; i <= 50; i++) {
+            if (names.filter(function(index, value){ return value.match(new RegExp("^q" + i + "_.$")); }).length > 0) {
+                $(".questionArea#" + i).removeClass("notYet");
+            }
+            else {
+                $(".questionArea#" + i).addClass("notYet");
+            }
+        }
+    }
+	else {
+        $(".questionArea").addClass("notYet");
+    }
+}
+
+function setBigFiveValue(){
+	var values = $("input[name^=q]:checked").map(function(index, element){return element.value});
+	var sum = [0, 0, 0, 0, 0];
+	for(var i = 0; i < 50; i++){
+		sum[i % 5] += parseInt(values[i], 10);
+	}
+
+	document.getElementById("extraversion").value = String(sum[0]);
+	document.getElementById("agreeableness").value = String(sum[1]);
+	document.getElementById("conscientiousness").value = String(sum[2]);
+    document.getElementById("neuroticism").value = String(sum[3]);
+	document.getElementById("openness").value = String(sum[4]);
+
+
+}

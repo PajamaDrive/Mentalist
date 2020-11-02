@@ -110,7 +110,7 @@ public class GoogleSpreadSheetUtils{
         ));
 
         if(!parameter.isEmpty()){
-            ranges.add("Data5!A2:G");
+            ranges.add("Data5!A2:L");
             data.add(new ValueRange().setValues(Arrays.asList(Arrays.asList(
                     parameter.toArray()
             ))));
