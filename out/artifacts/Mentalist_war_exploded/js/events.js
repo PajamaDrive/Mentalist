@@ -114,7 +114,7 @@ function SEND_EXPRESSION(event, socket) {
             else if (artChar == "Ellie")
                 $("#vhImg").attr('src', "img/ChrEllie/ChrEllie_Surprise.png");
             else if (artChar == "Rens")
-                $("#vhImg").attr('src', "img/ChrRens/ChrRens_Suprise.jpg");
+                $("#vhImg").attr('src', "img/ChrRens/ChrRens_Surprise.jpg");
             else if (artChar == "Laura")
                 $("#vhImg").attr('src', "img/ChrLaura/ChrLaura_Surprise.jpg");
         }
@@ -302,7 +302,7 @@ function SEND_MESSAGE__PREF_REQUEST(event, socket) {
 }
 
 function SEND_MESSAGE__PREF_INFO(event, socket) {
-	messageProcessGeneric(event, socket)
+    messageProcessGeneric(event, socket)
 }
 
 function SEND_MESSAGE__PREF_SPECIFIC_REQUEST(event, socket) {
@@ -354,7 +354,32 @@ function SEND_MESSAGE__OFFER_REJECT(event, socket) {
 }
 
 function SEND_MESSAGE__GENERIC_POS(event, socket) {
-	messageProcessGeneric(event, socket)
+    if (event.data.message == "Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+        || event.data.message == "Thanks for the information. You can ask for my preference via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+        || event.data.message == "Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".") {
+
+        $("#butYouLike").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butYouLike").css("box-shadow", "");
+        }, 3000);
+
+        $("#butCustom1").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1").css("box-shadow", "");
+        }, 3000);
+
+        $("#butCustom1_3").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1_3").css("box-shadow", "");
+        }, 5000);
+
+        $("#butExpl31").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butExpl31").css("box-shadow", "");
+        }, 7000);
+    }
+
+    messageProcessGeneric(event, socket)
 }
 
 function SEND_MESSAGE__GENERIC_NEG(event, socket) {
@@ -362,6 +387,34 @@ function SEND_MESSAGE__GENERIC_NEG(event, socket) {
 }
 
 function SEND_MESSAGE__TIMING(event, socket) {
+    if (event.data.message == "If you can't think of a good offer, please send a message \"Would you please make an offer?\" or \"What wrong with you? Hurry up and make an offer!\". I would think of an offer instead."
+    || event.data.message == "If you want me to send you an Offer, please send me a message saying \"Would you please make an offer?\" or \"What wrong with you? Hurry up and make an offer!\".") {
+        $("#butCustom1").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1").css("box-shadow", "");
+        }, 3000);
+
+        $("#butCustom1_1").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1_1").css("box-shadow", "");
+        }, 5000);
+
+        $("#butCustom1_2").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1_2").css("box-shadow", "");
+        }, 5000);
+
+        $("#butExpl5").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butExpl5").css("box-shadow", "");
+        }, 7000);
+
+        $("#butExpl15").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butExpl15").css("box-shadow", "");
+        }, 7000);
+    }
+
 	messageProcessGeneric(event, socket)
 }
 

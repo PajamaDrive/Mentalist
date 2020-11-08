@@ -24,6 +24,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 	private boolean disable = false;	//adding a disabler check to help with agent vs. P++ functionality (note this will only be added to corevh and not the ++ version)
 	private int currentGameCount = 0;
 	private Ledger myLedger = new Ledger();
+	private int timingThreshold = 6;
 
 	private class Ledger
 	{
@@ -274,8 +275,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 				((MentalistRepeatedFavorBehavior) behavior).addExpression(emotion);
 				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
-				((MentalistRepeatedFavorBehavior) behavior).addFastResponseNum();
-				((MentalistRepeatedFavorBehavior) behavior).setPreBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 
 
 			}
@@ -363,12 +362,17 @@ public abstract class MentalistCoreVH extends GeneralVH
 		if(e.getType().equals(EventClass.TIME))
 		{
 			noResponse += 1;
-			for(int i = getHistory().getHistory().size() - 1 ; i > 0 && i > getHistory().getHistory().size() - 6; i--)//if something from anyone for four time intervals
+			if (behavior instanceof MentalistRepeatedFavorBehavior) {
+				this.timingThreshold = ((MentalistRepeatedFavorBehavior) behavior).getTimingThreshold();
+			}
+			for(int i = getHistory().getHistory().size() - 1 ; i > 0 && i > getHistory().getHistory().size() - timingThreshold; i--)//if something from anyone for four time intervals
 			{
 				Event e1 = getHistory().getHistory().get(i);
-				if(e1.getType() != EventClass.TIME)
+				if(e1.getType() != EventClass.TIME) {
 					noResponse = 0;
+				}
 			}
+			ServletUtils.log("noResponse: " + noResponse, ServletUtils.DebugLevels.DEBUG);
 
 			if(noResponse >= 2)
 			{
@@ -394,6 +398,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 				else
 				{
+					Event e1 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "sad", 2000, (int) (700*game.getMultiplier()));
+					resp.add(e1);
 					resp.add(e0);
 				}
 
@@ -402,14 +408,19 @@ public abstract class MentalistCoreVH extends GeneralVH
 			else if(noResponse >= 1 && noResponseFlag)
 			{
 				noResponseFlag = false;
-				Event e2 = new Event(this.getID(), EventClass.SEND_OFFER, behavior.getTimingOffer(getHistory()), 0);
-				if(e2.getOffer() != null)
-				{
-					Event e3 = new Event(this.getID(), EventClass.OFFER_IN_PROGRESS, 0);
-					resp.add(e3);
-					Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game),  (int) (1000*game.getMultiplier()));
-					resp.add(e4);
-					resp.add(e2);
+				if(messages instanceof MentalistRepeatedFavorMessage) {
+					Event e1 = new Event(this.getID(), Event.EventClass.SEND_MESSAGE, Event.SubClass.PREF_INFO, ((MentalistRepeatedFavorMessage) messages).prefToEnglishRand(game), (int) (2000 * game.getMultiplier()));
+					resp.add(e1);
+				}
+				else {
+					Event e2 = new Event(this.getID(), EventClass.SEND_OFFER, behavior.getTimingOffer(getHistory()), 0);
+					if (e2.getOffer() != null) {
+						Event e3 = new Event(this.getID(), EventClass.OFFER_IN_PROGRESS, 0);
+						resp.add(e3);
+						Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game), (int) (1000 * game.getMultiplier()));
+						resp.add(e4);
+						resp.add(e2);
+					}
 				}
 			}
 
@@ -536,15 +547,19 @@ public abstract class MentalistCoreVH extends GeneralVH
 				{
 					resp.add(eExpr);
 				}
-				Event e0 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_ACCEPT, messages.getVHAcceptLang(getHistory(), game), (int) (700*game.getMultiplier()));
 
-				resp.add(e0);
 				ServletUtils.log("ACCEPTED OFFER!", ServletUtils.DebugLevels.DEBUG);
 				behavior.updateAllocated(this.lastOfferReceived);
 
 				Event eFinalize = new Event(this.getID(), EventClass.FORMAL_ACCEPT, 0);
 				if(utils.isFullOffer(o))
 					resp.add(eFinalize);
+				else {
+					Event e0 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_ACCEPT, messages.getVHAcceptLang(getHistory(), game), (int) (700 * game.getMultiplier()));
+					resp.add(e0);
+				}
+
+
 			}
 			else
 			{
@@ -581,10 +596,9 @@ public abstract class MentalistCoreVH extends GeneralVH
 		//what to do when the player sends a message (including offer acceptances and rejections)
 		if(e.getType().equals(EventClass.SEND_MESSAGE))
 		{
+			boolean containFlag = false;
 			if (behavior instanceof MentalistRepeatedFavorBehavior) {
 				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
-				((MentalistRepeatedFavorBehavior) behavior).addFastResponseNum();
-				((MentalistRepeatedFavorBehavior) behavior).setPreBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 			}
 			Preference p;
 			if (e.getPreference() == null)
@@ -593,6 +607,11 @@ public abstract class MentalistCoreVH extends GeneralVH
 			} else {
 				p = new Preference(e.getPreference().getIssue1(), e.getPreference().getIssue2(), e.getPreference().getRelation(), e.getPreference().isQuery());
 			}
+
+			if (messages instanceof MentalistRepeatedFavorMessage) {
+				containFlag = ((MentalistRepeatedFavorMessage) messages).containSomething(p);
+			}
+
 
 			if(p != null && p.isQuery()){
 				if (behavior instanceof MentalistRepeatedFavorBehavior) {
@@ -622,17 +641,21 @@ public abstract class MentalistCoreVH extends GeneralVH
 						drop += "\"" + s + "\", and ";
 					drop = drop.substring(0, drop.length() - 6);//remove last 'and'
 
+
+					Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "afraid", 2000, (int) (700*game.getMultiplier()));
 					Event e1 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.CONFUSION,
 							messages.getContradictionResponse(drop), (int) (2000*game.getMultiplier()));
 					e1.setFlushable(false);
+					resp.add(e0);
 					resp.add(e1);
 					if (behavior instanceof MentalistRepeatedFavorBehavior) {
 						((MentalistRepeatedFavorBehavior) behavior).addLieNum();
 					}
+					return resp;
 				}
 			}
 
-			String expr = expression.getExpression(getHistory());
+			String expr = containFlag ? "afraid" : expression.getExpression(getHistory());
 			if (expr != null)
 			{
 				Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, expr, 2000, (int) (700*game.getMultiplier()));

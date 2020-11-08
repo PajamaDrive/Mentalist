@@ -228,7 +228,7 @@ public abstract class GameSpec {
         menuBecauseNeg.put("butExpl11", "If you don't split this evenly there will be consequences!");
         menuBecauseNeg.put("butExpl12", "I just want us to get our most valuable items so this can be over with!");
         menuBecauseNeg.put("butExpl13", "You need to try a LOT harder to find a deal that benefits us both!");
-        menuBecauseNeg.put("butExpl14", "Younot even trying to find something remotely fair to both of us!");
+        menuBecauseNeg.put("butExpl14", "You not even trying to find something remotely fair to both of us!");
         menuBecauseNeg.put("butExpl15", "What wrong with you? Hurry up and make an offer!");
         menuBecauseNeg.put("butExpl16", "You making me want to walk away from this!");
         menuBecause.put("butBack", "<Back>");
