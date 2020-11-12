@@ -8,7 +8,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 	
 	protected String getSemiFairEmotion()
 	{
-		return "happy";
+		return "insincereSmile";
 	}
 	
 	protected String getFairEmotion()
@@ -26,17 +26,18 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 	{
 		Event last = history.getUserHistory().getLast();
 		if(last.getType().equals(Event.EventClass.SEND_EXPRESSION)){
-			if(last.getMessage().equals("sad") || last.getMessage().equals("neutral"))
+			if(last.getMessage().equals("sad"))
 				return "sad";
 			else if(last.getMessage().equals("happy"))
 				return "happy";
 			else if(last.getMessage().equals("surprised"))
-				return "neutral";
+				return "surprised";
 			else if(last.getMessage().equals("angry"))
 				return "sad";
-			else
-				return null;
-		} 
+			else if(last.getMessage().equals("neutral"))
+				return "insincereSmile";
+			else return null;
+		}
 		else if (last.getType().equals(Event.EventClass.SEND_MESSAGE))
 		{
 			Event.SubClass type = last.getSubClass();
@@ -61,7 +62,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case GENERIC_POS:
 					return "happy";
 				case NONE:
-					return null;
+					return "neutral";
 				case OFFER_ACCEPT:
 					return "happy";
 				case OFFER_REJECT:
@@ -69,7 +70,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case OFFER_REQUEST_NEG:
 					return "sad";
 				case OFFER_REQUEST_POS:
-					return null;
+					return "insincereSmile";
 				case PREF_INFO:
 					return "happy";
 				case PREF_REQUEST:
@@ -79,7 +80,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case PREF_WITHHOLD:
 					return "sad";
 				case THREAT_NEG:
-					return "sad";
+					return "disgusted";
 				case THREAT_POS:
 					return "sad";
 				case OFFER_PROPOSE:
@@ -87,11 +88,11 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case TIMING:
 					return null;
 				default:
-					return null;			
+					return null;
 			}
 		}
 		else
 			return null;
-		
+
 	}
 }

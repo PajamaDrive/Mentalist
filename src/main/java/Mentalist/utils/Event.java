@@ -177,12 +177,14 @@ public class Event {
             case 2:
             case 3:
             case 4:
+            case 26:
                 this.sc = SubClass.GENERIC_POS;
                 break;
             case 11:
             case 12:
             case 13:
             case 14:
+            case 27:
                 this.sc = SubClass.GENERIC_NEG;
                 break;
             case 22:

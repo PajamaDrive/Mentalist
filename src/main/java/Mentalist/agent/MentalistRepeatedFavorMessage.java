@@ -17,6 +17,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 	private ArrayList<Integer> vhRejectRand = new ArrayList<>();
 	private ArrayList<Integer> vhWaitingRand = new ArrayList<>();
 	private ArrayList<Integer> expressionResponseRand = new ArrayList<>();
+	private ArrayList<Integer> genericPosRand = new ArrayList<>();
+	private ArrayList<Integer> genericNegRand = new ArrayList<>();
+	private ArrayList<Integer> negativeEmotionRand = new ArrayList<>();
+	private ArrayList<Integer> happyEmotionRand = new ArrayList<>();
+	private ArrayList<Integer> surpriseEmotionRand = new ArrayList<>();
+	private ArrayList<Integer> neutralEmotionRand = new ArrayList<>();
 
 	protected final String[] proposal = {
 			"I think this deal is good for the both of us.",
@@ -109,6 +115,69 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
 	};
 
+	private final String[] genericPos = {
+			"I agree!  Why don't we make sure you get your favorite item, and I get mine?",
+			"I think so, too!",
+			"I'll do my best to make a fair offer as possible!",
+			"I agree!",
+			"I want to make a mutually acceptable deal.",
+			"Let's keep each other informed and try to get a fair deal!",
+			"I need the information to make a fair deal... Could you tell me your preferences via \"Tell your own preferences\"?",
+			"If you tell me your information using \"Tell your own preferences\", perhaps I can make better offer.",
+			"Agreed! If you want to know my information, using \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
+			"If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+	};
+
+	private final String[] genericNeg = {
+			"I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.",
+			"Sorry... I'm trying to do my best...",
+			"I think we need to be a little more cooperative or it won't be good for both of us.",
+			"Forgive me, let's pull ourselves together and work together from now on to get the best deal possible.",
+			"Let's work together to negotiate, because I don't think it will benefit either of us if we don't.",
+			"I'm sure there are ideas that are fair and mutually beneficial. Let's not give up and keep going.",
+			"Okay... I don't know what kind of offer you want so can you send it to me?",
+			"Well... I think we can negotiate better if we have more information... Tell me your preference using \"Tell your own preferences\".",
+			"It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
+			"I'm sorry... could you send me an offer so I can know what you think?"
+	};
+
+	private final String[] negativeEmotion = {
+			"What's wrong?",
+			"I'm sorry... Did I do something wrong?",
+			"What's going on?",
+			"What's the matter?",
+			"I'm sorry... I have no animosity towards you...",
+			"I'm sorry. I didn't mean to provoke you.",
+			"What's the problem?",
+			"I don't know why, but I'm sorry anyway...",
+			"Let's keep negotiating together without that negativity!",
+			"Was there anything about my behavior that you didn't like...?"
+	};
+
+	private final String[] happyEmotion = {
+			"Well, at least you're happy!",
+			"I'm glad you're happy, too.",
+			"Let's have fun!",
+			"Let's continue to negotiate positively.",
+			"Great!",
+			"I'm so glad you're pleased.",
+			"I'm happy too!",
+			"Good!",
+	};
+
+	private final String[] surpriseEmotion = {
+			"What, did I surprise you?",
+			"Why are you surprised?",
+			"Wow!",
+			"Is everything ok?"
+	};
+
+	private final String[] neutralEmotion = {
+			"Okay.",
+			"I see.",
+			"All right."
+	};
+
 	public boolean isWithholding;
 	public boolean lying;
 	private LedgerBehavior lb;
@@ -145,6 +214,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		initialRandList(vhRejectRand, vhReject.length);
 		initialRandList(vhWaitingRand, vhWaiting.length);
 		initialRandList(expressionResponseRand, expressionResponse.length);
+		initialRandList(genericPosRand, genericPos.length);
+		initialRandList(genericNegRand, genericNeg.length);
+		initialRandList(negativeEmotionRand, negativeEmotion.length);
+		initialRandList(happyEmotionRand, happyEmotion.length);
+		initialRandList(surpriseEmotionRand, surpriseEmotion.length);
+		initialRandList(neutralEmotionRand, neutralEmotion.length);
 	}
 
 	public void initialRandList(ArrayList<Integer> arrays, int size){
@@ -207,11 +282,53 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		return lying;
 	}
 
-	public String getExpressionResponse(){
+	public String getExpressionResponseLang(){
 		int index = expressionResponseRand.remove(0);
 		if(expressionResponseRand.isEmpty())
 			initialRandList(expressionResponseRand, expressionResponse.length);
 		return expressionResponse[index];
+	}
+
+	public String getGenericPosLang(){
+		int index = genericPosRand.remove(0);
+		if(genericPosRand.isEmpty())
+			initialRandList(genericPosRand, genericPos.length);
+		return genericPos[index];
+	}
+
+	public String getGenericNegLang(){
+		int index = genericNegRand.remove(0);
+		if(genericNegRand.isEmpty())
+			initialRandList(genericNegRand, genericNeg.length);
+		return genericNeg[index];
+	}
+
+	public String getNegativeEmotionLang(){
+		int index = negativeEmotionRand.remove(0);
+		if(negativeEmotionRand.isEmpty())
+			initialRandList(negativeEmotionRand, negativeEmotion.length);
+		return negativeEmotion[index];
+	}
+
+	public String getHappyEmotionLang(){
+		int index = happyEmotionRand.remove(0);
+		if(happyEmotionRand.isEmpty())
+			initialRandList(happyEmotionRand, happyEmotion.length);
+		return happyEmotion[index];
+	}
+
+	public String getSurpriseEmotionLang(){
+		int index = surpriseEmotionRand.remove(0);
+		if(surpriseEmotionRand.isEmpty())
+			initialRandList(surpriseEmotionRand, surpriseEmotion.length);
+		return surpriseEmotion[index];
+	}
+
+	public String getNeutralEmotionLang(){
+		int index = neutralEmotionRand.remove(0);
+		if(neutralEmotionRand.isEmpty())
+			initialRandList(neutralEmotionRand, neutralEmotion.length);
+		return neutralEmotion[index];
 	}
 
 	private String getEmotionResponse(History history, GameSpec game, Event e) {
@@ -219,13 +336,11 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		if (e.getType() != Event.EventClass.SEND_EXPRESSION)
 			throw new UnsupportedOperationException("The last event wasn't an expresion--this method is inappropriate.");
 		if(e.getMessage().equals("sad") || e.getMessage().equals("angry"))
-			return "What's wrong?";
+			return getNegativeEmotionLang();
 		else if(e.getMessage().equals("happy"))
-			return "Well, at least you're happy!";
+			return getHappyEmotionLang();
 		else if(e.getMessage().equals("surprised"))
-			return "What, did I surprise you?";
-		else if(e.getMessage().equals("neutral"))
-			return null;
+			return getSurpriseEmotionLang();
 		return "I don't know what face you just made!";
 	}
 
@@ -270,7 +385,6 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 	public String prefToEnglishRand(GameSpec game)
 	{
 		int issue1 = new Random().nextInt(game.getNumIssues());
-		ServletUtils.log("issue1: " + issue1, ServletUtils.DebugLevels.DEBUG);
 
 		int issue2;
 		Relation relation;
@@ -278,7 +392,6 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 		do{
 			relation = Relation.values()[new Random().nextInt(Relation.values().length)];
-			ServletUtils.log("relation: " + relation, ServletUtils.DebugLevels.DEBUG);
 		}while(relation == Relation.EQUAL || (relation == Relation.BEST && utils.getMyOrdering().get(issue1) != 1) || (relation == Relation.WORST && utils.getMyOrdering().get(issue1) != game.getNumIssues())
 				|| (relation == Relation.GREATER_THAN && utils.getMyOrdering().get(issue1) == game.getNumIssues()) || (relation == Relation.LESS_THAN && utils.getMyOrdering().get(issue1) == 1));
 
@@ -293,7 +406,6 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				ans += "more than ";
 				do{
 					issue2 = new Random().nextInt(game.getNumIssues());
-					ServletUtils.log("issue2: " + issue2, ServletUtils.DebugLevels.DEBUG);
 				}while(utils.getMyOrdering().get(issue1) >= utils.getMyOrdering().get(issue2));
 				if (issue2 >= 0)
 					ans += game.getIssuePluralNames()[issue2];
@@ -304,7 +416,6 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				ans += "less than ";
 				do{
 					issue2 = new Random().nextInt(game.getNumIssues());
-					ServletUtils.log("issue2: " + issue2, ServletUtils.DebugLevels.DEBUG);
 				}while(utils.getMyOrdering().get(issue1) <= utils.getMyOrdering().get(issue2));
 				if (issue2 >= 0)
 					ans += game.getIssuePluralNames()[issue2];
@@ -342,9 +453,14 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 		if (ePrime.getType() == Event.EventClass.SEND_EXPRESSION && !game.isMultiAgent())
 		{
-			String str = getEmotionResponse(history, game, ePrime);
-			Event resp = new Event(agentID, Event.EventClass.SEND_MESSAGE, Event.SubClass.GENERIC_POS, str, delay);
-			return resp;
+			if(!ePrime.getMessage().equals("neutral") && Math.random() >= 0.5) {
+				String str = getEmotionResponse(history, game, ePrime);
+				Event resp = new Event(agentID, Event.EventClass.SEND_MESSAGE, Event.SubClass.GENERIC_POS, str, delay);
+				return resp;
+			}
+			else{
+				return null;
+			}
 		} 
 		else if (ePrime.getType() == Event.EventClass.SEND_EXPRESSION)
 		{
@@ -415,7 +531,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		//MAIN RESPONSE
 		switch(ePrime.getSubClass())
 		{
-		case GENERIC_POS: 
+		case GENERIC_POS:
+			sc = Event.SubClass.GENERIC_POS;
+			str = getGenericPosLang();
+			this.behavior.addPosMessageNum();
+
+			/*
 			sc = Event.SubClass.PREF_INFO;
 			this.behavior.addPosMessageNum();
 			if(best < 0) 
@@ -431,17 +552,23 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				relation = Relation.BEST;
 				isQuery = true;
 			}
+			*/
 			break;
 	
 		case GENERIC_NEG:
-			str = "I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.";
 			sc = Event.SubClass.GENERIC_NEG;
-
+			str = getGenericNegLang();
 			this.behavior.addNegMessageNum();
+
+			/*
+			sc = Event.SubClass.GENERIC_NEG;
+			str = "I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.";
+
 			if(!isFull)
 				str += "  Besides, what about the rest of the undecided items?";
-
+			*/
 			break;
+		/*
 		case OFFER_REJECT:
 			sc = Event.SubClass.GENERIC_POS;
 			if (offerCount > 0)
@@ -469,7 +596,8 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			if(!isFull)
 				str += "  Also, what about the rest of the undecided items?";
 			
-			break;	
+			break;
+		*/
 		case TIMING: //note: agent responds to this, but this event no longer is a user available action
 			sc = Event.SubClass.GENERIC_POS;
 			int time = 0;
@@ -513,7 +641,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			break;
 		case OFFER_REQUEST_POS:
 		case OFFER_REQUEST_NEG:
-			str = "Alright, what do you think of this?";
+			str = getProposalLang(history, game);
 			sc = Event.SubClass.OFFER_PROPOSE;
 			if(ePrime.getSubClass() == Event.SubClass.OFFER_REQUEST_POS){
 				this.behavior.addPosMessageNum();
@@ -632,7 +760,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				relation = Relation.BEST;
 				isQuery = false;
 				//str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the best.";
-				str = getExpressionResponse();
+				str = getExpressionResponseLang();
 
 			}
 			else if (p.getRelation() == Relation.WORST)
@@ -642,7 +770,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				relation = Relation.WORST;
 				isQuery = false;
 				//str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the least.";
-				str = getExpressionResponse();
+				str = getExpressionResponseLang();
 			}
 			else
 			{
@@ -662,15 +790,15 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 					else
 						relation = Relation.EQUAL;
 					//str = prefToEnglish(new Preference(p.getIssue1(), p.getIssue2(), relation, false), game);
-					str = getExpressionResponse();
+					str = getExpressionResponseLang();
 					isQuery = false;
 				}
 			}
 			break;
-		//case OFFER_REJECT: 
-		//	sc = Event.SubClass.GENERIC_NEG;
-		//	str = this.getRejectLang(history, game);
-		//	break;
+		case OFFER_REJECT:
+			sc = Event.SubClass.GENERIC_NEG;
+			str = this.getRejectLang(history, game);
+			break;
 		case OFFER_ACCEPT:
 			sc = Event.SubClass.GENERIC_POS;
 			str = this.getAcceptLang(history, game);
@@ -679,6 +807,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case BATNA_INFO:
 			if (ePrime.getValue() != -1)
 			{
+				this.behavior.addBATNAExpressionNum();
 				utils.adversaryBATNA = ePrime.getValue();
 				if (!utils.conflictBATNA(utils.myPresentedBATNA, utils.adversaryBATNA))
 				{	
@@ -713,6 +842,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 			break;
 		case BATNA_REQUEST:
+			this.behavior.addBATNAAskNum();
 			str += "I already have an offer for " + utils.myPresentedBATNA + " points, so anything that gets me more than " 
 					+ utils.myPresentedBATNA + " points will do.";
 			value = utils.myPresentedBATNA;
@@ -782,8 +912,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			}
 			break;
 		case NONE:
-			ServletUtils.log("Agent didn't have a subclass to respond to...", ServletUtils.DebugLevels.DEBUG);
-			return null;
+			sc = Event.SubClass.NONE;
+			str = this.getNeutralEmotionLang();
+			break;
 		case OFFER_PROPOSE: //impossible to accomplish, human can't do this
 			return null;
 		default:

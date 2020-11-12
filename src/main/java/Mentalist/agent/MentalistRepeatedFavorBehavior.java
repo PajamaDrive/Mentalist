@@ -39,19 +39,21 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	private double behaviorFrequency;
 	private QueueList<Integer> preferenceAskNum;
 	private QueueList<Integer> preferenceExpressionNum;
-	private QueueList<Integer> posEmotionNum;
-	private QueueList<Integer> negEmotionNum;
+	private QueueList<Double> posEmotionNum;
+	private QueueList<Double> negEmotionNum;
 	private QueueList<Integer> posMessageNum;
 	private QueueList<Integer> negMessageNum;
 	private QueueList<Integer> emotionQueue;
+	private QueueList<Integer> acceptNum;
 	private int preEmotion;
 	private int lieNum;
 	private int threatNum;
 	private int prefRequestNum;
-	private int acceptNum;
 	private int favorReturnNum;
 	private int fastBehaviorNum;
 	private int timingThreshold;
+	private int batnaAskNum;
+	private int batnaExpressionNum;
 	private QueueList<Integer> behaviorTimings;
 	private ArrayList<Double> neuroticism;
 	private ArrayList<Double> extraversion;
@@ -218,12 +220,12 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		}
 		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != posEmotionNum.getFullSize()){
 			for(int i = posEmotionNum.getFullSize(); i < behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1; i++){
-				posEmotionNum.enQueue(0);
+				posEmotionNum.enQueue(0.0);
 			}
 		}
 		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != negEmotionNum.getFullSize()){
 			for(int i = negEmotionNum.getFullSize(); i < behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1; i++){
-				negEmotionNum.enQueue(0);
+				negEmotionNum.enQueue(0.0);
 			}
 		}
 		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != posMessageNum.getFullSize()){
@@ -234,6 +236,11 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != negMessageNum.getFullSize()){
 			for(int i = negMessageNum.getFullSize(); i < behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1; i++){
 				negMessageNum.enQueue(0);
+			}
+		}
+		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != acceptNum.getFullSize()){
+			for(int i = acceptNum.getFullSize(); i < behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1; i++){
+				acceptNum.enQueue(0);
 			}
 		}
 		if((behaviorTimings.getFullSize() - previousOffers.getFullSize() + 1) != emotionQueue.getFullSize()){
@@ -427,10 +434,11 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double choiceDummyPlayerVariance = calcChoiceVariance(dummyPlayerOffers.getPreQueue(), 2) * PRE_WEIGHT + calcChoiceVariance(dummyPlayerOffers.getQueue(), 2);
 		double choiceDummyOpponentVariance = calcChoiceVariance(dummyAgentOffers.getPreQueue(), 0) * PRE_WEIGHT + calcChoiceVariance(dummyAgentOffers.getQueue(), 0);
 		double choiceVariancePoint = max(normarize(choicePlayerVariance, max(UTILITY_MAX_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance), min(UTILITY_MIN_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance)), normarize(choiceOpponentVariance, max(UTILITY_MAX_WEIGHT * choiceDummyOpponentVariance, choiceOpponentVariance), min(UTILITY_MIN_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance)));
-		double expressionPoint = normarize(preferenceExpressionNum.sum(), max(maxAskNum(), preferenceExpressionNum.sum()), 0.0);
+
 		double askPoint = normarize(preferenceAskNum.sum(), max(maxAskNum(), preferenceAskNum.sum()), 0.0);
 		double requestPoint = normarize(prefRequestNum, max(SPECIAL_MES_MAX, prefRequestNum), -SPECIAL_MES_MAX);
-		double openBehaviorPoint = expressionPoint + askPoint + requestPoint;
+		double batnaAskPoint = normarize(batnaAskNum, max(SPECIAL_MES_MAX * 2, batnaAskNum), -SPECIAL_MES_MAX * 2);
+		double openBehaviorPoint = askPoint + requestPoint + batnaAskPoint;
 		if(abs(openBehaviorPoint) > 1.0){
 			openBehaviorPoint = signum(openBehaviorPoint);
 		}
@@ -467,7 +475,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 
 		double liePoint = normarize(lieNum, max(SPECIAL_MES_MAX, lieNum), -SPECIAL_MES_MAX);
 		double fastBehaviorPoint = normarize(fastBehaviorNum, max(fastBehaviorNum, FAST_BEH_MAX), 0.0);
-		double conscientBehaviorPoint = liePoint + fastBehaviorPoint;
+		double expressionPoint = normarize(preferenceExpressionNum.sum(), max(maxAskNum(), preferenceExpressionNum.sum()), 0.0);
+		double batnaExpressionPoint = normarize(batnaExpressionNum, max(SPECIAL_MES_MAX, batnaExpressionNum), -SPECIAL_MES_MAX);
+		double conscientBehaviorPoint = liePoint + fastBehaviorPoint + expressionPoint + batnaExpressionPoint;
 		if(abs(conscientBehaviorPoint) > 1.0){
 			conscientBehaviorPoint = signum(conscientBehaviorPoint);
 		}
@@ -497,7 +507,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		if(abs(agreeOfferPoint) > 1.0){
 			agreeOfferPoint = signum(agreeOfferPoint);
 		}
-		double acceptPoint = normarize(acceptNum, max(ACCEPT_MAX, acceptNum), 0.0);
+		double acceptPoint = normarize(acceptNum.sum(), max(ACCEPT_MAX, acceptNum.sum()), 0.0);
 		double favorReturnPoint = normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
 		double posEmotionPoint = emoFlag ? normarize(posEmotionNum.sum(), max(EMO_MAX, posEmotionNum.sum()), 0.0) : 0.0;
 		double posMessagePoint = messageFlag ? normarize(posMessageNum.sum(), max(MES_MAX, posMessageNum.sum()), 0.0) : 0.0;
@@ -767,22 +777,22 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 
 		switch(emotion){
 			case "angry":
-				negEmotionNum.enQueue(1);
+				negEmotionNum.enQueue(1.0);
 				emotionQueue.enQueue(1);
 				break;
 			case "sad":
-				negEmotionNum.enQueue(1);
+				negEmotionNum.enQueue(0.5);
 				emotionQueue.enQueue(2);
 				break;
 			case "neutral":
 				emotionQueue.enQueue(3);
 				break;
 			case "surprised":
-				posEmotionNum.enQueue(1);
+				posEmotionNum.enQueue(0.5);
 				emotionQueue.enQueue(4);
 				break;
 			case "happy":
-				posEmotionNum.enQueue(1);
+				posEmotionNum.enQueue(1.0);
 				emotionQueue.enQueue(5);
 				break;
 
@@ -797,7 +807,13 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public void addBehaviorTiming(int frequency){ this.behaviorTimings.enQueue(frequency); }
 
 	//acceptの回数
-	public void addAcceptNum(){ this.acceptNum += 1; }
+	public void addAcceptNum(){ this.acceptNum.enQueue(1); }
+
+	//BATNA聞いた回数
+	public void addBATNAAskNum(){ this.batnaAskNum += 1; }
+
+	//BATNA教えた回数
+	public void addBATNAExpressionNum(){ this.batnaExpressionNum += 1; }
 
 	//FAVOR_RETURNの回数
 	public void addFavorReturnNum(){ this.favorReturnNum += 1; }
@@ -887,14 +903,16 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		this.lieNum = 0;
 		this.threatNum = 0;
 		this.prefRequestNum = 0;
-		this.acceptNum = 0;
 		this.favorReturnNum = 0;
 		this.timingThreshold = 3;
+		this.batnaAskNum = 0;
+		this.batnaExpressionNum = 0;
 		this.posMessageNum = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
 		this.negMessageNum = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
-		this.posEmotionNum = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
-		this.negEmotionNum = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
+		this.posEmotionNum = new QueueList<Double>(BEH_SIZE, PRE_WEIGHT);
+		this.negEmotionNum = new QueueList<Double>(BEH_SIZE, PRE_WEIGHT);
 		this.emotionQueue = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
+		this.acceptNum = new QueueList<Integer>(BEH_SIZE, PRE_WEIGHT);
 		this.behaviorTimings = new QueueList<Integer>(BEH_SIZE + OFF_SIZE, PRE_WEIGHT);
 		this.neuroticism = new ArrayList<Double>();
 		this.extraversion = new ArrayList<Double>();

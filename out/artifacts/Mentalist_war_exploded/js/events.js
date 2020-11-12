@@ -120,7 +120,7 @@ function SEND_EXPRESSION(event, socket) {
         }
     }
     if (event.data.message == "disgusted") {
-        emotion = emotionImg('img/shocked_face.png');
+        emotion = emotionImg('img/angry_face.png');
         if (event.data.owner == 1) {
             if (artChar == "Brad")
                 $("#vhImg").attr('src', "img/ChrBrad/ChrBrad_Disgust.png");
@@ -356,7 +356,9 @@ function SEND_MESSAGE__OFFER_REJECT(event, socket) {
 function SEND_MESSAGE__GENERIC_POS(event, socket) {
     if (event.data.message == "Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
         || event.data.message == "Thanks for the information. You can ask for my preference via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
-        || event.data.message == "Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".") {
+        || event.data.message == "Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+        || event.data.message == "If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+        || event.data.message == "Agreed! If you want to know my information, using \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".") {
 
         $("#butYouLike").css("box-shadow", "0 0 15px Red inset");
         setTimeout(function () {
@@ -379,10 +381,60 @@ function SEND_MESSAGE__GENERIC_POS(event, socket) {
         }, 7000);
     }
 
+    if(event.data.message == "I need the information to make a fair deal... Could you tell me your preferences via \"Tell your own preferences\"?"
+        || event.data.message == "If you tell me your information using \"Tell your own preferences\", perhaps I can make better offer."){
+        $("#butILike").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butILike").css("box-shadow", "");
+        }, 3000);
+    }
+
     messageProcessGeneric(event, socket)
 }
 
 function SEND_MESSAGE__GENERIC_NEG(event, socket) {
+    if(event.data.message == "Okay... I don't know what kind of offer you want so can you send it to me?"
+        || event.data.message == "I'm sorry... could you send me an offer so I can know what you think?"){
+        $("#butStartOffer").css("box-shadow", "0 0 10px Red inset");
+        setTimeout(function () {
+            $("#butStartOffer").css("box-shadow", "");
+        }, 3000);
+        $("#butSendOffer").css("box-shadow", "0 0 10px Red inset");
+        setTimeout(function () {
+            $("#butSendOffer").css("box-shadow", "");
+        }, 3000);
+    }
+
+    if(event.data.message == "Well... I think we can negotiate better if we have more information... Tell me your preference using \"Tell your own preferences\"."
+        || event.data.message == "It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."){
+        $("#butILike").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butILike").css("box-shadow", "");
+        }, 3000);
+    }
+
+    if(event.data.message == "It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."){
+        $("#butYouLike").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butYouLike").css("box-shadow", "");
+        }, 3000);
+
+        $("#butCustom1").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1").css("box-shadow", "");
+        }, 3000);
+
+        $("#butCustom1_3").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butCustom1_3").css("box-shadow", "");
+        }, 5000);
+
+        $("#butExpl31").css("box-shadow", "0 0 15px Red inset");
+        setTimeout(function () {
+            $("#butExpl31").css("box-shadow", "");
+        }, 7000);
+    }
+
 	messageProcessGeneric(event, socket)
 }
 

@@ -372,7 +372,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 					noResponse = 0;
 				}
 			}
-			ServletUtils.log("noResponse: " + noResponse, ServletUtils.DebugLevels.DEBUG);
 
 			if(noResponse >= 2)
 			{
@@ -398,8 +397,10 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 				else
 				{
-					Event e1 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "sad", 2000, (int) (700*game.getMultiplier()));
-					resp.add(e1);
+					if(Math.random() >= 0.3) {
+						Event e1 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "sad", 2000, (int) (700 * game.getMultiplier()));
+						resp.add(e1);
+					}
 					resp.add(e0);
 				}
 
@@ -641,8 +642,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 						drop += "\"" + s + "\", and ";
 					drop = drop.substring(0, drop.length() - 6);//remove last 'and'
 
-
-					Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "afraid", 2000, (int) (700*game.getMultiplier()));
+					Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, "surprised", 2000, (int) (700*game.getMultiplier()));
 					Event e1 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.CONFUSION,
 							messages.getContradictionResponse(drop), (int) (2000*game.getMultiplier()));
 					e1.setFlushable(false);
@@ -655,7 +655,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 			}
 
-			String expr = containFlag ? "afraid" : expression.getExpression(getHistory());
+			String expr = containFlag ? "surprised" : expression.getExpression(getHistory());
 			if (expr != null)
 			{
 				Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, expr, 2000, (int) (700*game.getMultiplier()));
@@ -722,8 +722,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 						Event e3 = new Event(this.getID(), EventClass.OFFER_IN_PROGRESS, 0);
 						resp.add(e3);
 
-						Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game), (int) (1000*game.getMultiplier()));
-						resp.add(e4);
+						//Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game), (int) (1000*game.getMultiplier()));
+						//resp.add(e4);
 						this.lastOfferSent = e2.getOffer();
 						if(favorOfferIncoming)
 						{
