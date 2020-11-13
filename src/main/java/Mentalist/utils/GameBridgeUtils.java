@@ -3,6 +3,7 @@ package Mentalist.utils;
 import Mentalist.agent.MentalistCoreBehavior;
 import Mentalist.agent.MentalistCoreVH;
 import Mentalist.agent.MentalistRepeatedFavorBehavior;
+import Mentalist.agent.QuestionnaireMentalistBehavior;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
@@ -107,6 +108,21 @@ public class GameBridgeUtils {
     }
 
     public void setwebDir(String webDir){ this.webDir = webDir; }
+
+    public void setNewAgent(GeneralVH vh){
+        this.selectedAgent1 = vh;
+        this.runner1.setVH(vh);
+        WebSocketUtils.newVH(this.selectedAgent1);
+        if (this.isMultiAgent) {
+            WebSocketUtils.newVH(this.selectedAgent0);
+            this.selectedAgent0.pairWith(this.selectedAgent1);
+            this.history.addNegotiator(this.selectedAgent0);
+        } else {
+            this.user.pairWith(this.selectedAgent1);
+            this.history.addNegotiator(this.user);
+        }
+        this.history.addNegotiator(this.selectedAgent1);
+    }
 
     public void setGameSpec(GameSpec spec) {
         this.spec = spec;
@@ -1292,13 +1308,24 @@ public class GameBridgeUtils {
             parameter.add(Integer.toString(this.questionnaireConscientiouness));
 
             MentalistCoreBehavior behavior = ((MentalistCoreVH) this.selectedAgent1).getBehavior();
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getCooperativeness());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAssertiveness());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getNeuroticism());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getExtraversion());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpenness());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeableness());
-            parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousness());
+            if(behavior instanceof MentalistRepeatedFavorBehavior) {
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getCooperativeness());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAssertiveness());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getNeuroticism());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getExtraversion());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpenness());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeableness());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousness());
+            }
+            else if(behavior instanceof QuestionnaireMentalistBehavior){
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getCooperativeness());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getAssertiveness());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getNeuroticism());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getExtraversion());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getOpenness());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getAgreeableness());
+                parameter.add(((QuestionnaireMentalistBehavior) behavior).getConscientiousness());
+            }
             for(int i = 0; i < parameter.size(); i++){
                 body += "," + parameter.get(i);
             }

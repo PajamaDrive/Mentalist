@@ -391,6 +391,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double dummyEmotionVariance = calcEmotionVariance(dummyEmotions.getPreQueue()) * PRE_WEIGHT + calcEmotionVariance(dummyEmotions.getQueue());
 		double emotionRatio = emoFlag ? normarize(emotionVariance, max(MAX_WEIGHT * dummyEmotionVariance, emotionVariance), min(MIN_WEIGHT * dummyEmotionVariance, emotionVariance)) : 0.0;
 		double neuroBehaviorPoint = negEmotionPoint + negMessagePoint + emotionRatio;
+		ServletUtils.log("emotion: " + emotionVariance, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("dummy emotion: " + dummyEmotionVariance, ServletUtils.DebugLevels.DEBUG);
+
 		if(abs(neuroBehaviorPoint) > 1.0){
 			neuroBehaviorPoint = signum(neuroBehaviorPoint);
 		}
@@ -533,16 +536,19 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double mean = 0;
 		double sum = 0;
 
-		for(int i: emotions) {
-			mean += i;
-		}
-		mean /= emotions.size();
+		if(!emotions.isEmpty()) {
+			for (int i : emotions) {
+				mean += i;
+			}
+			mean /= emotions.size();
 
-		for(int i: emotions) {
-			sum += abs(i - mean);
+			for (int i : emotions) {
+				sum += abs(i - mean);
+			}
+			sum /= sqrt(emotions.size());
 		}
 
-		return sum / sqrt(emotions.size());
+		return sum;
 	}
 
 	//メッセージの割合
@@ -593,9 +599,10 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 					sum += abs(offers.get(i).getItem(j)[1] - offers.get(i - 1).getItem(j)[1]);
 				}
 			}
+			sum /= (offers.size() - 1);
 		}
 
-		return sum / (offers.size() - 1) ;
+		return sum;
 	}
 
 	//選択肢の分散(ここでは標準偏差)

@@ -62,7 +62,9 @@ public abstract class MentalistCoreVH extends GeneralVH
 		this.behavior.setUtils(utils);
 
 		if(messages instanceof MentalistRepeatedFavorMessage){
-			((MentalistRepeatedFavorMessage)messages).setBehavior((MentalistRepeatedFavorBehavior) behavior);
+			if (behavior instanceof MentalistRepeatedFavorBehavior){
+				((MentalistRepeatedFavorMessage)messages).setBehavior((MentalistRepeatedFavorBehavior) behavior);
+			}
 		}
 	}
 
@@ -365,6 +367,9 @@ public abstract class MentalistCoreVH extends GeneralVH
 			if (behavior instanceof MentalistRepeatedFavorBehavior) {
 				this.timingThreshold = ((MentalistRepeatedFavorBehavior) behavior).getTimingThreshold();
 			}
+			else if(behavior instanceof QuestionnaireMentalistBehavior) {
+				this.timingThreshold = ((QuestionnaireMentalistBehavior) behavior).getTimingThreshold();
+			}
 			for(int i = getHistory().getHistory().size() - 1 ; i > 0 && i > getHistory().getHistory().size() - timingThreshold; i--)//if something from anyone for four time intervals
 			{
 				Event e1 = getHistory().getHistory().get(i);
@@ -504,6 +509,11 @@ public abstract class MentalistCoreVH extends GeneralVH
 				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 				((MentalistRepeatedFavorBehavior) behavior).printParameter();
 			}
+			else if (behavior instanceof QuestionnaireMentalistBehavior){
+			((QuestionnaireMentalistBehavior) behavior).setPrevious(o);
+			((QuestionnaireMentalistBehavior) behavior).addPreviousOffer();
+			((QuestionnaireMentalistBehavior) behavior).printParameter();
+		}
 
 			if (behavior instanceof MentalistCompetitiveBehavior)
 			{

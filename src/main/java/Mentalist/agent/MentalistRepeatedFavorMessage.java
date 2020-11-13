@@ -534,7 +534,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case GENERIC_POS:
 			sc = Event.SubClass.GENERIC_POS;
 			str = getGenericPosLang();
-			this.behavior.addPosMessageNum();
+			if(behavior != null) {
+				this.behavior.addPosMessageNum();
+			}
 
 			/*
 			sc = Event.SubClass.PREF_INFO;
@@ -558,8 +560,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case GENERIC_NEG:
 			sc = Event.SubClass.GENERIC_NEG;
 			str = getGenericNegLang();
-			this.behavior.addNegMessageNum();
-
+			if(behavior != null) {
+				this.behavior.addNegMessageNum();
+			}
 			/*
 			sc = Event.SubClass.GENERIC_NEG;
 			str = "I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.";
@@ -644,9 +647,13 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			str = getProposalLang(history, game);
 			sc = Event.SubClass.OFFER_PROPOSE;
 			if(ePrime.getSubClass() == Event.SubClass.OFFER_REQUEST_POS){
-				this.behavior.addPosMessageNum();
+				if(behavior != null) {
+					this.behavior.addPosMessageNum();
+				}
 			}else if(ePrime.getSubClass() == Event.SubClass.OFFER_REQUEST_NEG){
-				this.behavior.addNegMessageNum();
+				if(behavior != null) {
+					this.behavior.addNegMessageNum();
+				}
 			}
 			break;
 		case THREAT_POS: // "I'm sorry but I think I'm going to have to walk away.");
@@ -669,16 +676,24 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				sc = Event.SubClass.BATNA_REQUEST;
 			}
 			if(ePrime.getSubClass() == Event.SubClass.THREAT_POS){
-				this.behavior.addPosMessageNum();
+				if(behavior != null) {
+					this.behavior.addPosMessageNum();
+				}
 			}else if(ePrime.getSubClass() == Event.SubClass.THREAT_NEG){
-				this.behavior.addNegMessageNum();
+				if(behavior != null) {
+					this.behavior.addNegMessageNum();
+				}
 			}
-			this.behavior.addThreatNum();
+			if(behavior != null) {
+				this.behavior.addThreatNum();
+			}
 			break;
 		case PREF_REQUEST:
 				sc = Event.SubClass.PREF_INFO;
 				if(ePrime.getSubClass() == Event.SubClass.PREF_REQUEST) {
-					this.behavior.addPrefRequest();
+					if(behavior != null) {
+						this.behavior.addPrefRequest();
+					}
 				}
 				if (p == null && !isWithholding)
 				{
@@ -737,7 +752,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case PREF_WITHHOLD:
 			sc = Event.SubClass.GENERIC_POS;
 			if(ePrime.getSubClass() == Event.SubClass.PREF_REQUEST) {
-				this.behavior.addPrefRequest();
+				if(behavior != null) {
+					this.behavior.addPrefRequest();
+				}
 			}
 			if (p == null && !isWithholding)
 			{
@@ -802,17 +819,23 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		case OFFER_ACCEPT:
 			sc = Event.SubClass.GENERIC_POS;
 			str = this.getAcceptLang(history, game);
-			this.behavior.addAcceptNum();
+			if(behavior != null) {
+				this.behavior.addAcceptNum();
+			}
 			break;
 		case BATNA_INFO:
 			if (ePrime.getValue() != -1)
 			{
-				this.behavior.addBATNAExpressionNum();
+				if(behavior != null) {
+					this.behavior.addBATNAExpressionNum();
+				}
 				utils.adversaryBATNA = ePrime.getValue();
 				if (!utils.conflictBATNA(utils.myPresentedBATNA, utils.adversaryBATNA))
 				{	
 					if(opponentBATNA != utils.adversaryBATNA && opponentBATNA != -1) {
-						this.behavior.addLieNum();
+						if(behavior != null) {
+							this.behavior.addLieNum();
+						}
 						str = "Oh it is? I thought you needed more than " + opponentBATNA + " points. ";
 					}
 
@@ -825,7 +848,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				else
 				{
 					if(opponentBATNA != utils.adversaryBATNA && opponentBATNA != -1) {
-						this.behavior.addLieNum();
+						if(behavior != null) {
+							this.behavior.addLieNum();
+						}
 					}
 
 					opponentBATNA =  utils.adversaryBATNA;
@@ -842,7 +867,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 			break;
 		case BATNA_REQUEST:
-			this.behavior.addBATNAAskNum();
+			if(behavior != null) {
+				this.behavior.addBATNAAskNum();
+			}
 			str += "I already have an offer for " + utils.myPresentedBATNA + " points, so anything that gets me more than " 
 					+ utils.myPresentedBATNA + " points will do.";
 			value = utils.myPresentedBATNA;
@@ -854,7 +881,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			break;
 		case FAVOR_ACCEPT:
 			str += "Oh wonderful!  I will make sure to pay you back in the next game!";
-			this.behavior.addAcceptNum();
+			if(behavior != null) {
+				this.behavior.addAcceptNum();
+			}
 			utils.modifyVerbalLedger(-1);
 			sc = Event.SubClass.FAVOR_ACCEPT;
 			break;
@@ -898,7 +927,9 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			}			
 			break;
 		case FAVOR_RETURN:
-			this.behavior.addFavorReturnNum();
+			if(behavior != null) {
+				this.behavior.addFavorReturnNum();
+			}
 			if (utils.getLedger() > 0)//note: agent has no way of knowing if you're being honest
 			{
 				str += "Thanks for returning the favor from before!";

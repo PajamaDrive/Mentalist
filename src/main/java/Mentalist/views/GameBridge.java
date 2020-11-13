@@ -1,5 +1,7 @@
 package Mentalist.views;
 
+import Mentalist.agent.MentalistVH;
+import Mentalist.agent.QuestionnaireMentalistVH;
 import com.google.gson.Gson;
 import Mentalist.utils.*;
 import Mentalist.utils.GameBridgeUtils.NegotiationMode;
@@ -50,6 +52,7 @@ public class GameBridge extends HttpServlet  {
 	private String vhQualifiedName0;
 	private String vhQualifiedName1;
 	private ArrayList<String> allGameSpecNames;
+	private ArrayList<String> allStoredVHNames;
 	private int currentGame = 0;
 	private GeneralVH storedVH0;
 	private GeneralVH storedVH1;
@@ -63,6 +66,7 @@ public class GameBridge extends HttpServlet  {
 	private int questionnaireOpenness = 0;
 	private int questionnaireConscientiouness = 0;
 	private int questionnaireAgreeableness = 0;
+	private javax.websocket.Session globalSession;
 
 	//private Logger LOGGER = LogManager.getLogger(GameBridge.class.getName());
 	Logger logger = Logger.getLogger(GameBridge.class.getName());
@@ -143,6 +147,7 @@ public class GameBridge extends HttpServlet  {
 
 		//account for multiple games
 		allGameSpecNames = new ArrayList<String> (Arrays.asList(gameSpecMultiName.split("\\s*,\\s*")));
+		allStoredVHNames = new ArrayList<String> (Arrays.asList(vhQualifiedName1.split("\\s*,\\s*")));
 		ServletUtils.log("We found the following GameSpecs: " + allGameSpecNames.toString(), ServletUtils.DebugLevels.DEBUG);
 
 		GameSpec gs = null;
@@ -221,6 +226,8 @@ public class GameBridge extends HttpServlet  {
 			questionnaireOpenness = (Integer)httpSession.getAttribute("openness");
 			questionnaireConscientiouness = (Integer)httpSession.getAttribute("conscientiousness");
 			questionnaireAgreeableness = (Integer)httpSession.getAttribute("agreeableness");
+
+			globalSession = session;
 
 			if (globalMTurkID == null || globalMTurkID.equals(""))
 				globalMTurkID = "MISSING";
@@ -304,40 +311,7 @@ public class GameBridge extends HttpServlet  {
 				storedVH0 = vh0;
 			}
 
-			GeneralVH vh1 = null;
-			if (vhQualifiedName1 != null) {
-				@SuppressWarnings("unchecked")
-				Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(vhQualifiedName1);
-
-				//Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(agentChoice);
-				Constructor<? extends GeneralVH> ctor1 = vhClass1.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class);
-				vh1 = ctor1.newInstance(new Object [] {"defaultAgent", gs, session});
-			}
-			else
-			{ //human-human case
-				ServletUtils.log("Computer agent is null, should be human-human case", ServletUtils.DebugLevels.DEBUG);
-
-				SessionState state = Governor.getSessionState(httpSession);
-				if(state == SessionState.NEGOTIATING) {
-					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("ERR", "You have an unclosed negotiation already.")), session);
-					return;
-				}
-				nRoom = Governor.findUserByHttpSession(httpSession);
-				if(nRoom == null) {
-					ServletUtils.log("Error, no previous connection", ServletUtils.DebugLevels.DEBUG);
-				} else { //update new websocket
-					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("MSG", "Test")), session);
-					nRoom.setGBU(httpSession, this.u);
-					nRoom.updateSocket(httpSession, session);
-					Governor.startNegotiating(httpSession);
-				}
-
-				//UserSession user = nRoom.getAdversary(httpSession); //opponent's session info
-				//u.setSessionOther(user.getHttpSession(), user.getWsSession());
-
-				u.setNegotiationMode(NegotiationMode.HUMAN_HUMAN);
-				u.setNRoom(nRoom);
-			}
+			GeneralVH vh1 = generateAgent();
 
 			u.setMultiplayer(gameChoice.equals("agent") ? true : false);
 			//vh1.setAgentVsAgent(gameChoice);
@@ -499,9 +473,81 @@ public class GameBridge extends HttpServlet  {
 			storedVH0.setGameSpec(gs);
 			gs.setMultiAgent(true);
 		}
+		storedVH1 = generateAgent();
+		u.setNewAgent(storedVH1);
 		storedVH1.setGameSpec(gs);
 		this.gs = gs;
 
 
+	}
+
+	private GeneralVH generateAgent(){
+
+		if(allStoredVHNames.size() == 1)
+			vhQualifiedName1 = allStoredVHNames.get(0);
+		else
+			vhQualifiedName1 = allStoredVHNames.remove(0);
+
+		//The following loads the appropriate agents based on the received input:
+		try {
+			GeneralVH vh1 = null;
+			javax.websocket.Session session = globalSession;
+			if (vhQualifiedName1 != null) {
+
+				//Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(agentChoice);
+				if (vhQualifiedName1.contains(".MentalistVH")) {
+					Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(vhQualifiedName1);
+					Constructor<? extends GeneralVH> ctor1 = vhClass1.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class);
+					vh1 = ctor1.newInstance(new Object[]{"defaultAgent", gs, session});
+				} else if (vhQualifiedName1.contains(".QuestionnaireMentalistVH")) {
+					Constructor<QuestionnaireMentalistVH> ctor1 = QuestionnaireMentalistVH.class.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class, int.class, int.class, int.class, int.class, int.class);
+					vh1 = ctor1.newInstance(new Object[]{"defaultAgent", gs, session, questionnaireNeuroticism, questionnaireExtraversion, questionnaireOpenness, questionnaireConscientiouness, questionnaireAgreeableness});
+				}
+			} else { //human-human case
+				ServletUtils.log("Computer agent is null, should be human-human case", ServletUtils.DebugLevels.DEBUG);
+
+				SessionState state = Governor.getSessionState(httpSession);
+				if (state == SessionState.NEGOTIATING) {
+					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils().new JsonObject("ERR", "You have an unclosed negotiation already.")), session);
+					return null;
+				}
+				nRoom = Governor.findUserByHttpSession(httpSession);
+				if (nRoom == null) {
+					ServletUtils.log("Error, no previous connection", ServletUtils.DebugLevels.DEBUG);
+				} else { //update new websocket
+					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils().new JsonObject("MSG", "Test")), session);
+					nRoom.setGBU(httpSession, this.u);
+					nRoom.updateSocket(httpSession, session);
+					Governor.startNegotiating(httpSession);
+				}
+
+				//UserSession user = nRoom.getAdversary(httpSession); //opponent's session info
+				//u.setSessionOther(user.getHttpSession(), user.getWsSession());
+
+				u.setNegotiationMode(NegotiationMode.HUMAN_HUMAN);
+				u.setNRoom(nRoom);
+			}
+			return vh1;
+		} catch (ClassNotFoundException e) {
+			System.err.println("We were unable to load the primary VH file from the class name provided in the configuration file.");
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			System.err.println("You have not provided a constructor that meets the requirements!");
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (ClassCastException e) {
+			System.err.println("Your VH did not cast properly.  Did it extend GeneralVH?");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

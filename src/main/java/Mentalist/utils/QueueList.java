@@ -54,12 +54,12 @@ public class QueueList<T>{
         int sum = 0;
         Iterator<T> iter = getQueue().iterator();
         while(iter.hasNext()){
-            sum += (Integer)iter.next();
+            sum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
         }
         int preSum = 0;
         iter = getPreQueue().iterator();
         while(iter.hasNext()){
-            preSum += (Integer)iter.next();
+            preSum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
         }
 
         return preSum * preWeight + sum;
