@@ -21,7 +21,7 @@ public class QuestionnaireMentalistVH extends MentalistCoreVH {
 	 */
 	public QuestionnaireMentalistVH(String name, GameSpec game, Session session, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness)
 	{
-		super("QuestionnaireSympathizer", game, session, new QuestionnaireMentalistBehavior(QuestionnaireMentalistBehavior.LedgerBehavior.FAIR, neuroticism, extraversion, openness, conscientiousness, agreeableness), new MentalistRepeatedFavorExpression(),
+		super("QuestionnaireMentalist", game, session, new QuestionnaireMentalistBehavior(QuestionnaireMentalistBehavior.LedgerBehavior.FAIR, neuroticism, extraversion, openness, conscientiousness, agreeableness), new MentalistRepeatedFavorExpression(),
 				new MentalistRepeatedFavorMessage(false, false, MentalistRepeatedFavorBehavior.LedgerBehavior.FAIR));
 		
 		super.safeForMultiAgent = true;

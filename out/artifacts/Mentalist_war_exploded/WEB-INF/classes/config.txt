@@ -5,7 +5,7 @@
 #Mentalist.agent.QuestionnaireMentalistVH
 #Mentalist.agent.MentalistVH
 agent0=
-agent1= Mentalist.agent.MentalistVH,Mentalist.agent.QuestionnaireMentalistVH
+agent1= Mentalist.agent.MentalistVH,Mentalist.agent.PilotStudyVH,Mentalist.agent.QuestionnaireMentalistVH
 #PERSONAL NOTE: Gamespec specified which game will be loaded into the system.
 gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
 

@@ -250,6 +250,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			}
 		}
 	}
+
 	public Offer makeMaxAgentDummyOffer(Offer o){
 		Offer p = new Offer(game.getNumIssues());
 		//未定義のアイテムをissueごとに把握
@@ -357,11 +358,11 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double dummyMean = calcMean(dummyPlayerOffers.getExceptZeroPreQueue()) * PRE_WEIGHT + calcMean(dummyPlayerOffers.getExceptZeroQueue());
 		double meanPoint = -normarize(mean, max(UTILITY_MAX_WEIGHT * dummyMean, mean), min(UTILITY_MIN_WEIGHT * dummyMean, mean));
 
-		/*
+
 		ServletUtils.log("mean: " + mean, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy mean: " + dummyMean, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("cooperative: " + meanPoint, ServletUtils.DebugLevels.DEBUG);
-		*/
+
 
 		this.cooperativeness.add(meanPoint);
 	}
@@ -372,11 +373,11 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double dummyVariance = calcVariance(dummyPlayerOffers.getPreQueue()) * PRE_WEIGHT + calcVariance(dummyPlayerOffers.getQueue());
 		double variancePoint = -normarize(variance, max(UTILITY_MAX_WEIGHT * dummyVariance, variance), min(UTILITY_MIN_WEIGHT * dummyVariance, variance));
 
-		/*
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("variance: " + variance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy variance: " + dummyVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("assertive: " + variancePoint, ServletUtils.DebugLevels.DEBUG);
-		*/
+
 
 		this.assertiveness.add(variancePoint);
 	}
@@ -391,21 +392,22 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double dummyEmotionVariance = calcEmotionVariance(dummyEmotions.getPreQueue()) * PRE_WEIGHT + calcEmotionVariance(dummyEmotions.getQueue());
 		double emotionRatio = emoFlag ? normarize(emotionVariance, max(MAX_WEIGHT * dummyEmotionVariance, emotionVariance), min(MIN_WEIGHT * dummyEmotionVariance, emotionVariance)) : 0.0;
 		double neuroBehaviorPoint = negEmotionPoint + negMessagePoint + emotionRatio;
-		ServletUtils.log("emotion: " + emotionVariance, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("dummy emotion: " + dummyEmotionVariance, ServletUtils.DebugLevels.DEBUG);
 
 		if(abs(neuroBehaviorPoint) > 1.0){
 			neuroBehaviorPoint = signum(neuroBehaviorPoint);
 		}
 
-		/*
-		ServletUtils.log("nice + concession: " + neuroOfferPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("negEmo sum: " + negEmotionNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("negMes sum: " + negMessageNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("negEmo: " + negEmotionPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("negMes: " + negMessagePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("nice + concession: " + niceNum.sum() + concessionNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("nice + concession point: " + neuroOfferPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("negEmo: " + negEmotionNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("negEmo point: " + negEmotionPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("negMes: " + negMessageNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("negMes point: " + negMessagePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("emo var: " + emotionVariance, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("emo var point: " + emotionRatio, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("neuroticism: " + neuroOfferPoint * offerRatio + (negEmotionPoint + negMessagePoint) / 2 * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
-		*/
+
 
 		this.neuroticism.add(neuroOfferPoint * offerRatio + neuroBehaviorPoint * behaviorRatio);
 	}
@@ -418,14 +420,15 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double threatPoint = normarize(threatNum, max(SPECIAL_MES_MAX, threatNum), -SPECIAL_MES_MAX);
 		double behaviorFrequencyPoint = -normarize(behaviorFrequency, max(behaviorFrequency, 45.0),  min(behaviorFrequency, 15.0));
 
-		/*
-		ServletUtils.log("selfish + fortunate: " + extraOfferPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("threat sum: " + threatNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("behavior sum: " + behaviorFrequency, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("threat: " + threatPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("behavior: " + behaviorFrequencyPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("extraversion: " + extraOfferPoint * offerRatio + (threatPoint + behaviorFrequencyPoint) / 2 * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
-		*/
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("selfish + fortunate: " + selfishNum.sum() + fortunateNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("selfish + fortunate point: " + extraOfferPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("threat: " + threatNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("threat point: " + threatPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("behavior: " + behaviorFrequency, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("behavior point: " + behaviorFrequencyPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("extraversion: " + min(1.0, extraOfferPoint * offerRatio + behaviorFrequencyPoint * behaviorRatio + threatPoint), ServletUtils.DebugLevels.DEBUG);
+
 
 		this.extraversion.add(min(1.0, extraOfferPoint * offerRatio + behaviorFrequencyPoint * behaviorRatio + threatPoint));
 	}
@@ -446,18 +449,20 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			openBehaviorPoint = signum(openBehaviorPoint);
 		}
 
-		/*
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("player choice: " + choicePlayerVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("opponent choice: " + choiceOpponentVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy player choice: " + choiceDummyPlayerVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy opponent choice: " + choiceDummyOpponentVariance, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("choice: " + choiceVariancePoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("preference exp sum: " + preferenceExpressionNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("preference ask sum: " + preferenceAskNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("preference exp: " + preferenceExpressionPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("preference ask: " + preferenceAskPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("openness: " + choiceVariancePoint * offerRatio + (preferenceExpressionPoint + preferenceAskPoint) / 2 * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
-		*/
+		ServletUtils.log("choice point: " + choiceVariancePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("ask: " + preferenceAskNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("ask point: " + askPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("batna ask: " + batnaAskNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("batna ask point: " + batnaAskPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("pref req: " + prefRequestNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("pref req point: " + requestPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("openness: " + choiceVariancePoint * offerRatio + openBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
+
 
 		this.openness.add(choiceVariancePoint * offerRatio + openBehaviorPoint * behaviorRatio);
 	}
@@ -476,27 +481,35 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			conscientOfferPoint = signum(conscientOfferPoint);
 		}
 
-		double liePoint = normarize(lieNum, max(SPECIAL_MES_MAX, lieNum), -SPECIAL_MES_MAX);
+		double liePoint = -normarize(lieNum, max(SPECIAL_MES_MAX, lieNum), -SPECIAL_MES_MAX);
 		double fastBehaviorPoint = normarize(fastBehaviorNum, max(fastBehaviorNum, FAST_BEH_MAX), 0.0);
 		double expressionPoint = normarize(preferenceExpressionNum.sum(), max(maxAskNum(), preferenceExpressionNum.sum()), 0.0);
 		double batnaExpressionPoint = normarize(batnaExpressionNum, max(SPECIAL_MES_MAX, batnaExpressionNum), -SPECIAL_MES_MAX);
-		double conscientBehaviorPoint = liePoint + fastBehaviorPoint + expressionPoint + batnaExpressionPoint;
+		double conscientBehaviorPoint = fastBehaviorPoint + expressionPoint + batnaExpressionPoint;
 		if(abs(conscientBehaviorPoint) > 1.0){
 			conscientBehaviorPoint = signum(conscientBehaviorPoint);
 		}
 
-		/*
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("variance: " + variance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy variance: " + dummyVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("variance point: " + variancePoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("fastresponse sum: " + fastResponseNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("lie sum: " + lieNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("fastresponse: " + fastResponsePoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("lie: " + liePoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("conscientiousness: " + variancePoint * offerRatio + (fastResponsePoint + liePoint) / 2 * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
-		*/
+		ServletUtils.log("undefined rate: " + undefined, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("undefined rate point : " + undefinedRatePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("fast undefined: " + calcUndefinedNum(o), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("fast undefined point : " + fastUndefinedPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("fast beh: " + fastBehaviorNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("fast beh point : " + fastBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("exp: " + preferenceExpressionNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("exp point : " + expressionPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("batna exp: " + batnaExpressionNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("batna exp point : " + batnaExpressionPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("lie: " + lieNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("lie point: " + liePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("conscientiousness: " + max(-1.0, conscientOfferPoint * offerRatio + conscientBehaviorPoint * behaviorRatio + liePoint), ServletUtils.DebugLevels.DEBUG);
 
-		this.conscientiousness.add(conscientOfferPoint * offerRatio + conscientBehaviorPoint * behaviorRatio);
+
+		this.conscientiousness.add(max(-1.0, conscientOfferPoint * offerRatio + conscientBehaviorPoint * behaviorRatio + liePoint));
 	}
 
 	/**** ビッグファイブ協調性 ****/
@@ -519,14 +532,23 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			agreeBehaviorPoint = signum(agreeBehaviorPoint);
 		}
 
-		/*
-		ServletUtils.log("behavior sence: " + behaviorSencePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("behavior sence: " + behaviorSence, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("behavior sence point: " + behaviorSencePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("H util: " + humanUtil, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("A util: " + agentUtil, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("firstoffer point: " + firstOfferRatio, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("accept: " + acceptNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("accept point: " + acceptPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("favor return: " + favorReturnNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("favor return point: " + favorReturnPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("posEmo sum: " + posEmotionNum.sum(), ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("posEmo point: " + posEmotionPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("posMes sum: " + posMessageNum.sum(), ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("posEmo: " + posEmotionPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("posMes: " + posMessagePoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("agreeableness: " + behaviorSencePoint * offerRatio + (posEmotionPoint + posMessagePoint) / 2 * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
-		*/
+		ServletUtils.log("posMes point: " + posMessagePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("agreeableness: " + agreeOfferPoint * offerRatio + agreeBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
+
 
 		this.agreeableness.add(agreeOfferPoint * offerRatio + agreeBehaviorPoint * behaviorRatio);
 	}

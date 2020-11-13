@@ -495,7 +495,7 @@ public class GameBridge extends HttpServlet  {
 			if (vhQualifiedName1 != null) {
 
 				//Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(agentChoice);
-				if (vhQualifiedName1.contains(".MentalistVH")) {
+				if (vhQualifiedName1.contains(".MentalistVH") || vhQualifiedName1.contains(".PilotStudyVH")) {
 					Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(vhQualifiedName1);
 					Constructor<? extends GeneralVH> ctor1 = vhClass1.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class);
 					vh1 = ctor1.newInstance(new Object[]{"defaultAgent", gs, session});

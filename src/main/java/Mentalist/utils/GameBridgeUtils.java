@@ -1,9 +1,6 @@
 package Mentalist.utils;
 
-import Mentalist.agent.MentalistCoreBehavior;
-import Mentalist.agent.MentalistCoreVH;
-import Mentalist.agent.MentalistRepeatedFavorBehavior;
-import Mentalist.agent.QuestionnaireMentalistBehavior;
+import Mentalist.agent.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
@@ -1325,6 +1322,15 @@ public class GameBridgeUtils {
                 parameter.add(((QuestionnaireMentalistBehavior) behavior).getOpenness());
                 parameter.add(((QuestionnaireMentalistBehavior) behavior).getAgreeableness());
                 parameter.add(((QuestionnaireMentalistBehavior) behavior).getConscientiousness());
+            }
+            else if(behavior instanceof PilotStudyBehavior){
+                parameter.add("-10");
+                parameter.add("-10");
+                parameter.add("-10");
+                parameter.add("-10");
+                parameter.add("-10");
+                parameter.add("-10");
+                parameter.add("-10");
             }
             for(int i = 0; i < parameter.size(); i++){
                 body += "," + parameter.get(i);

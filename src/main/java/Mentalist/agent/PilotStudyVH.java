@@ -9,7 +9,7 @@ import javax.websocket.Session;
  * @author mell
  * 
  */
-public class MentalistVH extends MentalistCoreVH {
+public class PilotStudyVH extends MentalistCoreVH {
 
 	/**
 	 * @author mell
@@ -19,17 +19,17 @@ public class MentalistVH extends MentalistCoreVH {
 	 * @param game: gamespec value
 	 * @param session: the session
 	 */
-	public MentalistVH(String name, GameSpec game, Session session)
+	public PilotStudyVH(String name, GameSpec game, Session session)
 	{
-		super("Mentalist", game, session, new MentalistRepeatedFavorBehavior(MentalistRepeatedFavorBehavior.LedgerBehavior.FAIR), new MentalistRepeatedFavorExpression(),
-				new MentalistRepeatedFavorMessage(false, false, MentalistRepeatedFavorBehavior.LedgerBehavior.FAIR));
+		super("PilotStudy", game, session, new PilotStudyBehavior(PilotStudyBehavior.LedgerBehavior.FAIR), new PilotStudyRepeatedFavorExpression(),
+				new PilotStudyRepeatedFavorMessage(false, false, PilotStudyBehavior.LedgerBehavior.FAIR));
 		
 		super.safeForMultiAgent = true;
 	}
 
 	@Override
 	public String getArtName() {
-		return "Rens";
+		return "Brad";
 	}
 
 	@Override
