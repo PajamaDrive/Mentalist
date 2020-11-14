@@ -386,6 +386,7 @@ function buttonHandler(button) {
 		updateButtonPanelItem("butReject", false, undefined)
 		updateButtonPanelItem("butAcceptFavor", false, undefined)
 		updateButtonPanelItem("butRejectFavor", false, undefined)
+		updateButtonPanelItem("butFormalAccept", false, undefined)
 
 		disableExchangeTable(false)
 	}

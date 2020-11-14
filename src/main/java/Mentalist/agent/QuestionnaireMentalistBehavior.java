@@ -277,8 +277,8 @@ public class QuestionnaireMentalistBehavior extends MentalistCoreBehavior implem
 
 	/**** TKI協調性 ****/
 	public void calcCooperativeness(){
-		double mean = calcMean(previousOffers.getExceptZeroPreQueue()) * PRE_WEIGHT + calcMean(previousOffers.getExceptZeroQueue());
-		double dummyMean = calcMean(dummyPlayerOffers.getExceptZeroPreQueue()) * PRE_WEIGHT + calcMean(dummyPlayerOffers.getExceptZeroQueue());
+		double mean = calcMean(previousOffers.getPreQueue()) * PRE_WEIGHT + calcMean(previousOffers.getQueue());
+		double dummyMean = calcMean(dummyPlayerOffers.getPreQueue()) * PRE_WEIGHT + calcMean(dummyPlayerOffers.getQueue());
 		double meanPoint = -normarize(mean, max(UTILITY_MAX_WEIGHT * dummyMean, mean), min(UTILITY_MIN_WEIGHT * dummyMean, mean));
 
 		/*
@@ -319,7 +319,7 @@ public class QuestionnaireMentalistBehavior extends MentalistCoreBehavior implem
 	//offerと行動の割合を計算
 	public void calcWeight(){
 		offerRatio = (double)previousOffers.getFullSize() / (behaviorTimings.getFullSize() + 1);
-		behaviorRatio = (double)(behaviorTimings.getFullSize() + 1 - previousOffers.getFullSize()) / (behaviorTimings.getFullSize() + 1);
+		behaviorRatio = (double)(behaviorTimings.getFullSize() - previousOffers.getFullSize()) / (behaviorTimings.getFullSize() + 1);
 	}
 
 	public void addRound(){ this.t += 1; }
@@ -394,9 +394,6 @@ public class QuestionnaireMentalistBehavior extends MentalistCoreBehavior implem
 		this.dummyPlayerOffers = new QueueList<Offer>(OFF_SIZE, PRE_WEIGHT);
 		this.dummyAgentOffers = new QueueList<Offer>(OFF_SIZE, PRE_WEIGHT);
 		this.dummyUndefinedOffers = new QueueList<Offer>(OFF_SIZE, PRE_WEIGHT);
-		this.previousOffers.enQueue(allocated);
-		this.dummyPlayerOffers.enQueue(allocated);
-		this.dummyAgentOffers.enQueue(allocated);
 		this.dummyUndefinedOffers.enQueue(allocated);
 		//target function関連
 		this.gamma_min = 0.3;

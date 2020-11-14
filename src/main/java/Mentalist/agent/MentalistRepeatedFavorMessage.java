@@ -776,9 +776,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				issue2 = -1;
 				relation = Relation.BEST;
 				isQuery = false;
-				//str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the best.";
-				str = getExpressionResponseLang();
-
+				if(p.isQuery()) {
+					str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the best.";
+				}
+				else {
+					str = getExpressionResponseLang();
+				}
 			}
 			else if (p.getRelation() == Relation.WORST)
 			{
@@ -786,8 +789,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				issue2 = -1;
 				relation = Relation.WORST;
 				isQuery = false;
-				//str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the least.";
-				str = getExpressionResponseLang();
+				if(p.isQuery()) {
+					str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the least.";
+				}
+				else {
+					str = getExpressionResponseLang();
+				}
 			}
 			else
 			{
@@ -806,8 +813,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 						relation = Relation.LESS_THAN;
 					else
 						relation = Relation.EQUAL;
-					//str = prefToEnglish(new Preference(p.getIssue1(), p.getIssue2(), relation, false), game);
-					str = getExpressionResponseLang();
+					if(p.isQuery()) {
+						str = prefToEnglish(new Preference(p.getIssue1(), p.getIssue2(), relation, false), game);
+					}
+					else {
+						str = getExpressionResponseLang();
+					}
 					isQuery = false;
 				}
 			}

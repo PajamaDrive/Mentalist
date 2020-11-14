@@ -4,6 +4,7 @@ import Mentalist.utils.*;
 import Mentalist.utils.Preference.Relation;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Map;
 
@@ -426,9 +427,20 @@ class MentalistAgentUtilsExtension
 		boolean reversed = isFixedPie;
 		int valueHeuristic = 0;
 		int minimax = reversed ? Integer.MAX_VALUE : 0;
-		ArrayList<Integer> ans = null;
+		ArrayList<Integer> ans = new ArrayList<>();
+
+
 		// Just in case this hasn't been run yet
 		reconcileContradictions();
+		ArrayList<Integer> points = new ArrayList<>();
+		ArrayList<Integer> sortedPoints = new ArrayList<>(game.getSimplePoints(0).values());
+		Collections.sort(sortedPoints, Collections.reverseOrder());
+
+		for(int i = 0; i < game.getNumIssues(); i++){
+			ans.add(sortedPoints.indexOf(game.getSimplePoints(0).get(game.getIssuePluralNames()[i])) + 1);
+		}
+
+		/*
 		for(ArrayList<Integer> order: orderings) // Goes through each order in orderings
 		{
 			valueHeuristic = 0;
@@ -453,6 +465,7 @@ class MentalistAgentUtilsExtension
 				}
 			}
 		}
+		*/
 		return ans;
 	}
 	

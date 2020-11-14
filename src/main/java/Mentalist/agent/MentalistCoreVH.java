@@ -232,10 +232,11 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 				resp.add(e2);
 			}
-
+			/*
 			String revealBATNA = "Just so you know, I already have an offer for " + utils.myPresentedBATNA + " points, so I won't accept anything less.   What about you?";
 			Event e5 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.BATNA_INFO, utils.myPresentedBATNA, revealBATNA,  (int) (1000*game.getMultiplier()));
 			resp.add(e5);
+			*/
 			disable = false;
 
 			Event e6 = messages.getFavorBehavior(getHistory(), game, e);

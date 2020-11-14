@@ -16,10 +16,10 @@ class FavorGameSpecPart1 extends GameSpec{
 		HashMap<String, Integer> simpleVHPoints = new HashMap<String, Integer>();
 		HashMap<String, Integer> simplePlayerPoints = new HashMap<String, Integer>();
 		
-		simpleVHPoints.put(getIssuePluralNames()[0], 4);
-		simpleVHPoints.put(getIssuePluralNames()[1], 3);
-		simpleVHPoints.put(getIssuePluralNames()[2], 2);
-		simpleVHPoints.put(getIssuePluralNames()[3], 8);
+		simpleVHPoints.put(getIssuePluralNames()[0], 3);
+		simpleVHPoints.put(getIssuePluralNames()[1], 2);
+		simpleVHPoints.put(getIssuePluralNames()[2], 1);
+		simpleVHPoints.put(getIssuePluralNames()[3], 4);
 		
 		simplePlayerPoints.put(getIssuePluralNames()[0], 2);
 		simplePlayerPoints.put(getIssuePluralNames()[1], 3);
