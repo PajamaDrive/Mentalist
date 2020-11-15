@@ -486,18 +486,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 			int playerDiff = (utils.adversaryValue(o, utils.getMinimaxOrdering()) - utils.adversaryValue(allocated, utils.getMinimaxOrdering()));
 			ServletUtils.log("Player Difference: " + playerDiff, ServletUtils.DebugLevels.DEBUG);
 
-			/*
-			if (behavior instanceof MentalistRepeatedFavorBehavior){
-				if(utils.myActualOfferValue(o) >= ((MentalistRepeatedFavorBehavior) behavior).getConcessionValue())
-					localFair = true;
-				ServletUtils.log("Concession Value: " + ((MentalistRepeatedFavorBehavior) behavior).getConcessionValue(), ServletUtils.DebugLevels.DEBUG);
-				((MentalistRepeatedFavorBehavior) behavior).calcAlpha(o, Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
-				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
-				((MentalistRepeatedFavorBehavior) behavior).addPreviousOffer();
-				((MentalistRepeatedFavorBehavior) behavior).updateConcession();
-			}
-			else
-			*/
 			if(utils.myActualOfferValue(o) > utils.myActualOfferValue(allocated))
 			{//net positive (o is a better offer than allocated)
 				int myValue = utils.myActualOfferValue(o) - utils.myActualOfferValue(allocated) + behavior.getAcceptMargin();
@@ -506,7 +494,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 				if(myValue > opponentValue)
 					localFair = true;//offer improvement is within one max value item of the same for me and my opponent
 			}
-
 
 			if (behavior instanceof MentalistRepeatedFavorBehavior){
 				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
@@ -524,6 +511,56 @@ public abstract class MentalistCoreVH extends GeneralVH
 				((PilotStudyBehavior) behavior).printParameter();
 				((PilotStudyBehavior) behavior).addPreviousOffer();
 			}
+
+			/*
+			if (behavior instanceof MentalistRepeatedFavorBehavior){
+				if(utils.myActualOfferValue(o) >= ((MentalistRepeatedFavorBehavior) behavior).getConcessionValue())
+					localFair = true;
+				ServletUtils.log("Concession Value: " + ((MentalistRepeatedFavorBehavior) behavior).getConcessionValue(), ServletUtils.DebugLevels.DEBUG);
+				((MentalistRepeatedFavorBehavior) behavior).calcAlpha(o, Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
+				((MentalistRepeatedFavorBehavior) behavior).addPreviousOffer();
+				((MentalistRepeatedFavorBehavior) behavior).updateConcession();
+			}
+			else
+			*/
+
+			/*
+			if (behavior instanceof MentalistRepeatedFavorBehavior) {
+				if(!((MentalistRepeatedFavorBehavior) behavior).isFirstOffer() &&
+					(utils.myActualOfferValue(o) > ((MentalistRepeatedFavorBehavior) behavior).getPreviousValue()
+					|| utils.myActualOfferValue(o) > ((MentalistRepeatedFavorBehavior) behavior).calcPreviousMean()
+					|| utils.myActualOfferValue(o) > ((MentalistRepeatedFavorBehavior) behavior).getPreviousMaxValue())){
+						localFair = true;
+				}
+			}
+			else if(behavior instanceof QuestionnaireMentalistBehavior){
+				if(!((QuestionnaireMentalistBehavior) behavior).isFirstOffer() &&
+					(utils.myActualOfferValue(o) > ((QuestionnaireMentalistBehavior) behavior).getPreviousValue()
+					|| utils.myActualOfferValue(o) > ((QuestionnaireMentalistBehavior) behavior).calcPreviousMean()
+					|| utils.myActualOfferValue(o) > ((QuestionnaireMentalistBehavior) behavior).getPreviousMaxValue())){
+						localFair = true;
+				}
+			}
+			else if(behavior instanceof PilotStudyBehavior){
+				if(!((PilotStudyBehavior) behavior).isFirstOffer() &&
+					(utils.myActualOfferValue(o) > ((PilotStudyBehavior) behavior).getPreviousValue()
+					|| utils.myActualOfferValue(o) > ((PilotStudyBehavior) behavior).calcPreviousMean()
+					|| utils.myActualOfferValue(o) > ((PilotStudyBehavior) behavior).getPreviousMaxValue())){
+						localFair = true;
+				}
+			}
+			else{
+				if(utils.myActualOfferValue(o) > utils.myActualOfferValue(allocated))
+				{//net positive (o is a better offer than allocated)
+					int myValue = utils.myActualOfferValue(o) - utils.myActualOfferValue(allocated) + behavior.getAcceptMargin();
+					ServletUtils.log("My target: " + myValue, ServletUtils.DebugLevels.DEBUG);
+					int opponentValue = utils.adversaryValue(o, utils.getMinimaxOrdering()) - utils.adversaryValue(allocated, utils.getMinimaxOrdering());
+					if(myValue > opponentValue)
+						localFair = true;//offer improvement is within one max value item of the same for me and my opponent
+				}
+			}
+			*/
 
 			if (behavior instanceof MentalistCompetitiveBehavior)
 			{
@@ -593,6 +630,37 @@ public abstract class MentalistCoreVH extends GeneralVH
 				resp.add(e0);
 				behavior.updateAdverseEvents(1);
 				Event lastTime = utils.lastEvent(getHistory().getHistory(), EventClass.TIME);
+
+				/*
+				Event e3;
+				if (behavior instanceof MentalistRepeatedFavorBehavior){
+					if(((MentalistRepeatedFavorBehavior) behavior).isFirstOffer()){
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, ((MentalistRepeatedFavorBehavior) behavior).getFirstOffer(), (int) (700*game.getMultiplier()));
+					}
+					else{
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
+					}
+				}
+				else if (behavior instanceof QuestionnaireMentalistBehavior){
+					if(((QuestionnaireMentalistBehavior) behavior).isFirstOffer()){
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, ((QuestionnaireMentalistBehavior) behavior).getFirstOffer(), (int) (700*game.getMultiplier()));
+					}
+					else{
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
+					}
+				}
+				else if (behavior instanceof PilotStudyBehavior){
+					if(((PilotStudyBehavior) behavior).isFirstOffer()){
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, ((PilotStudyBehavior) behavior).getFirstOffer(), (int) (700*game.getMultiplier()));
+					}
+					else{
+						e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
+					}
+				}
+				else{
+					e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
+				}
+				*/
 				Event e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
 				if(e3.getOffer() != null)
 				{
@@ -609,7 +677,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 					resp.add(e3);
 				}
 			}
-
 
 			return resp;
 		}

@@ -7,7 +7,7 @@
 agent0=
 agent1= Mentalist.agent.MentalistVH,Mentalist.agent.PilotStudyVH,Mentalist.agent.QuestionnaireMentalistVH
 #PERSONAL NOTE: Gamespec specified which game will be loaded into the system.
-gamespec=Mentalist.views.FavorGameSpecPart3,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
+gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
 
 
 #Sets the mail credentials for this servlet, which allows it to send email notifications.  Leaving blank is fine; will disable email config.

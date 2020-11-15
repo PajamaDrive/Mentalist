@@ -4,6 +4,7 @@ import Mentalist.utils.*;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import static java.lang.Math.*;
@@ -15,6 +16,7 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 	private Offer allocated;
 	private Offer concession;
 	private Offer previous;
+	private ArrayList<Offer> myPrevious;
 	private ArrayList<Offer> previousOffers;
 	private LedgerBehavior lb = LedgerBehavior.NONE;
 	private int adverseEvents = 0;
@@ -75,6 +77,48 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 		return mean;
 	}
 
+	//前回のOfferの効用を計算
+	public double getPreviousValue(){
+		return utils.myActualOfferValue(myPrevious.get(myPrevious.size() - 1));
+	}
+
+	//今までの効用の平均を計算
+	public double calcPreviousMean(){
+		double mean = 0.0;
+		ArrayList<Offer> offers = previousOffers;
+		if(!offers.isEmpty()){
+			for(Offer o: offers){
+				mean += utils.myActualOfferValue(o);
+			}
+			mean /= offers.size();
+		}
+		return mean;
+	}
+
+	//今までの効用の最大値を計算
+	public double getPreviousMaxValue(){
+		double max = 0.0;
+		ArrayList<Offer> offers = previousOffers;
+		if(!offers.isEmpty()){
+			for(Offer o: offers){
+				max = max(max, utils.myActualOfferValue(o));
+			}
+		}
+
+		offers = myPrevious;
+		if(!offers.isEmpty()){
+			for(Offer o: offers){
+				max = max(max, utils.myActualOfferValue(o));
+			}
+		}
+
+		return max;
+	}
+
+	public boolean isFirstOffer(){
+		return previousOffers.size() == 0 ? true : false;
+	}
+
 	public void printParameter(){
 		addRound();
 		setConcessionParameter();
@@ -108,10 +152,9 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 
 	public void setPrevious(Offer o){ this.previous = o; }
 
-	public void addPreviousOffer(){
-		this.previousOffers.add(this.previous);
-	}
+	public void addPreviousOffer(){ this.previousOffers.add(this.previous); }
 
+	public void addMyPrevious(Offer o){ myPrevious.add(o);}
 
 	//譲歩関数のパラメータを特性によって変更
 	public void setConcessionParameter(){
@@ -152,6 +195,8 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 		return p;
 	}
 
+
+
 	@Override
 	protected void setUtils(MentalistAgentUtilsExtension utils)
 	{
@@ -171,6 +216,7 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 			concession.setItem(i, init);
 		}
 		this.previous = this.allocated;
+		this.myPrevious = new ArrayList<>();
 		this.previousOffers = new ArrayList<Offer>();
 		//target function関連
 		this.gamma_min = 0.3;
@@ -204,6 +250,25 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 		return concession;
 	}
 
+	public Offer getFirstOffer(){
+		int[] free = new int[game.getNumIssues()];
+		ArrayList<Integer> order = utils.getMyOrdering();
+		ArrayList<Integer> index = utils.getMyOrdering();
+		Collections.sort(index);
+		Offer o = new Offer(game.getNumIssues());
+		do {
+			o.setItem(order.indexOf(index.get(0)), new int[]{o.getItem(order.indexOf(index.get(0)))[0] + 1, 0, 0});
+			free[order.indexOf(index.get(0))]--;
+			if(free[order.indexOf(index.get(0))] == 0){
+				index.remove(0);
+			}
+		}while(calcUndefinedNum(o) != 0 && ((double)this.utils.myActualOfferValue(concession) * 0.7 > (double)this.utils.myActualOfferValue(o)));
+
+		addMyPrevious(o);
+
+		return o;
+	}
+
 	@Override
 	protected Offer getFinalOffer(History history)
 	{
@@ -220,6 +285,9 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 			propose = getNextOffer(history);
 			updateAllocated(propose);
 		} while(totalFree > 0); // Continue calling getNextOffer while there are still items left unclaimed
+
+		addMyPrevious(propose);
+
 		return propose;
 	}
 
@@ -346,6 +414,8 @@ public class PilotStudyBehavior extends MentalistCoreBehavior implements Behavio
 		}while(calcUndefinedNum(propose) != 0 && getConcessionValue() > (double)this.utils.myActualOfferValue(propose));
 
 		allocated = preAllocated;
+
+		addMyPrevious(propose);
 
 		return propose;
 	}
