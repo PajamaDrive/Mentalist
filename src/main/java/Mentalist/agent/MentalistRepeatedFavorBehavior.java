@@ -92,8 +92,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	protected final double UTILITY_MAX_WEIGHT = 0.65;
 	protected final double VARIANCE_MIN_WEIGHT = 0.4;
 	protected final double VARIANCE_MAX_WEIGHT = 0.8;
-	protected final double CHOICE_VARIANCE_MIN_WEIGHT = 0.2;
-	protected final double CHOICE_VARIANCE_MAX_WEIGHT = 0.8;
+	protected final double CHOICE_VARIANCE_MIN_WEIGHT = 0.1;
+	protected final double CHOICE_VARIANCE_MAX_WEIGHT = 0.7;
 	protected final double MAX_WEIGHT = 0.8;
 	protected final double MIN_WEIGHT = 0.2;
 	protected final double RATE_MAX = 0.75;
@@ -145,6 +145,10 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		return game.getNumIssues() % 2 == 0 ? game.getNumIssues() * (game.getNumIssues() / 2 - 0.5) : Math.floor(game.getNumIssues() / 2) * game.getNumIssues();
 	}
 
+	public double calcPlayerUtil(Offer o){
+		return (double)utils.adversaryValue(o, utils.getMinimaxOrdering()) / utils.getMaxPossiblePoints();
+	}
+
 /*
 	//効用の分散を計算(ここでは標準偏差)
 	public double calcVariance(ArrayList<Offer> offers){
@@ -184,7 +188,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double mean = 0.0;
 		if(!offers.isEmpty()) {
 			for (Offer o : offers) {
-				mean += this.utils.adversaryValue(o, this.utils.getMinimaxOrdering());
+				mean += calcPlayerUtil(o);
 			}
 			mean /= offers.size();
 		}
@@ -199,7 +203,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			if(!preOffers.isEmpty()) {
 				double mean = calcMean(preOffers);
 				for (Offer o : preOffers) {
-					variance += abs(this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) - mean);
+					variance += abs(calcPlayerUtil(o) - mean);
 				}
 				variance /= sqrt(preOffers.size());
 				variance *= offers.getPreWeight();
@@ -209,7 +213,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 				double currentVariance = 0.0;
 				double mean = calcMean(currentOffers);
 				for (Offer o : currentOffers) {
-					currentVariance += abs(this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) - mean);
+					currentVariance += abs(calcPlayerUtil(o) - mean);
 				}
 				currentVariance /= sqrt(currentOffers.size());
 				variance += currentVariance;
@@ -221,7 +225,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			if (!preOffers.isEmpty()) {
 				double mean = calcMean(preOffers);
 				for (Offer o : preOffers) {
-					variance += abs(this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) - mean);
+					variance += abs(calcPlayerUtil(o) - mean);
 				}
 				variance /= sqrt(preOffers.size());
 				variance *= offers.getPreWeight();
@@ -232,22 +236,21 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 				double mean = calcMean(currentOffers);
 				double currentVariance = 0.0;
 				for (Offer o : currentOffers) {
-					double dummyUtil = utils.adversaryValue(o, utils.getMinimaxOrdering());
-					if(dummyUtil > utils.getMaxPossiblePoints() * 0.75)
-						currentVariance += abs(dummyUtil - mean) * (1.0 + sqrt(dummyUtil / utils.getMaxPossiblePoints() * 1.5) * 0.5);
+					double dummyUtil = calcPlayerUtil(o);
+					if(dummyUtil > 0.75)
+						currentVariance += abs(dummyUtil - mean) * (1.0 + sqrt(dummyUtil * 1.25) * 0.7);
 					else
 						currentVariance += abs(dummyUtil - mean);
 				}
 
 				currentVariance /= sqrt(currentOffers.size());
 
-				currentVariance +=  1 / ((1.1 - calcMean(currentOffers) / utils.getMaxPossiblePoints()) * currentVariance + 0.05);
+				currentVariance +=  1 / ((1.1 - calcMean(currentOffers)) * currentVariance * utils.getMaxPossiblePoints() + 0.01) * 0.01;
 				variance += currentVariance;
 			}
 		}
 		return variance;
 	}
-
 
 	//効用の平均を計算
 	public double calcMean(QueueList<Offer> offers, boolean isDummy){
@@ -299,10 +302,10 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			free[issue] = o.getItem(issue)[1];
 		}
 
-		if(this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) > utils.getMaxPossiblePoints() * 0.75) {
-			return this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) * (1.0 + pow((double)this.utils.adversaryValue(o, this.utils.getMinimaxOrdering()) / utils.getMaxPossiblePoints(), 1.5) * 0.2);
+		if(calcPlayerUtil(o) > 0.75) {
+			return calcPlayerUtil(o) * (1.0 + pow(calcPlayerUtil(o), 1.5) * 0.2);
 		}else
-			return this.utils.adversaryValue(o, this.utils.getMinimaxOrdering());
+			return calcPlayerUtil(o);
 	}
 
 	//前回のOfferの効用を計算
@@ -889,9 +892,11 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 				}
 			}
 			if(isDummy) {
-				variances += 1 / (variances + 0.05);
-				if(calcMean(dummyPlayerOffers.getQueue()) > utils.getMaxPossiblePoints() * 0.75)
-					variances = max(variances - offers.size() / 2, 0.0);
+				if(calcMean(dummyPlayerOffers.getQueue()) <= 0.75)
+					variances = max(variances - (offers.size() - 1) * (1 - calcMean(dummyPlayerOffers.getQueue()) * 0.75) , 0.0);
+				else
+					variances = max(variances - (offers.size() - 1) * (calcMean(dummyPlayerOffers.getQueue()) * 0.25) , 0.0);
+				variances += 1 / (0.25 * variances + 0.05);
 			}
 			resultVariance = variances / sqrt((game.getNumIssues() * offers.size()));
 		}
