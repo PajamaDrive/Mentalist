@@ -15,6 +15,7 @@ class MentalistAgentUtilsExtension
 	private ArrayList<ArrayList<Integer>> orderings = new ArrayList<ArrayList<Integer>>();
 	private int[][] permutations;
 	private LinkedList<Preference> preferences = new LinkedList<Preference>();
+	private LinkedList<Preference> lies = new LinkedList<Preference>();
 	public int adversaryBATNA = -1;
 	public int myPresentedBATNA = -1;
 	public final double LIE_THRESHOLD = 0.6;
@@ -87,6 +88,7 @@ class MentalistAgentUtilsExtension
 	 */
 	protected Preference dequeuePref()
 	{
+		lies.remove(preferences.get(0));
 		return preferences.remove(0);
 	}
 	
@@ -334,7 +336,7 @@ class MentalistAgentUtilsExtension
 				for (int x = 0; x < orderings.size(); x++)
 				{
 					ArrayList<Integer> o = orderings.get(x);
-					if(o.get(pref.getIssue1()) != 1)//if the ordering does not have the item as number 1 
+					if(o.get(pref.getIssue1()) != 1)//if the ordering does not have the item as number 1
 						toRemove.add(o);
 				}
 			}
@@ -346,7 +348,7 @@ class MentalistAgentUtilsExtension
 				for (int x = 0; x < orderings.size(); x++)
 				{
 					ArrayList<Integer> o = orderings.get(x);
-					if(o.get(pref.getIssue1()) != game.getNumIssues())//if the ordering does not have the item as the last place 
+					if(o.get(pref.getIssue1()) != game.getNumIssues())//if the ordering does not have the item as the last place
 						toRemove.add(o);
 				}
 			}
@@ -370,7 +372,7 @@ class MentalistAgentUtilsExtension
 				for (int x = 0; x < orderings.size(); x++)
 				{
 					ArrayList<Integer> o = orderings.get(x);
-					if(o.get(pref.getIssue1()) < o.get(pref.getIssue2()))//if the ordering does not have the item lesser 
+					if(o.get(pref.getIssue1()) < o.get(pref.getIssue2()))//if the ordering does not have the item lesser
 						toRemove.add(o);
 				}
 			}
@@ -382,7 +384,7 @@ class MentalistAgentUtilsExtension
 				for (int x = 0; x < orderings.size(); x++)
 				{
 					ArrayList<Integer> o = orderings.get(x);
-					if(Math.abs(o.get(pref.getIssue1()) - o.get(pref.getIssue2())) == 1)//if the ordering does not have the items adjacent 
+					if(Math.abs(o.get(pref.getIssue1()) - o.get(pref.getIssue2())) == 1)//if the ordering does not have the items adjacent
 						toRemove.add(o);
 				}
 			}
@@ -394,6 +396,106 @@ class MentalistAgentUtilsExtension
 		}
 		//ServletUtils.log(orderings.toString(), ServletUtils.DebugLevels.DEBUG);
 		
+		if(orderings.size() == 0)
+		{
+			detectLie();
+			return true;
+		}
+		return false;
+	}
+
+	protected boolean detectLie()
+	{
+		ArrayList<ArrayList<Integer>> orderings = new ArrayList<ArrayList<Integer>>();
+		orderings.add(getMinimaxOrdering());
+
+		LinkedList<Preference> preferences = new LinkedList<Preference>();
+		preferences.addAll(this.preferences);
+		for(Preference pref: lies) {
+			preferences.remove(pref);
+		}
+
+
+		for (Preference pref: preferences)
+		{
+			//ServletUtils.log(pref.toString(), ServletUtils.DebugLevels.DEBUG);
+			Relation r = pref.getRelation();
+			ArrayList<ArrayList<Integer>> toRemove = new ArrayList<ArrayList<Integer>>();
+			if(r == Relation.BEST)
+			{
+				//kludge when vague information is supplied
+				if (pref.getIssue1() == -1)//if information not filled in
+					continue;
+				for (int x = 0; x < orderings.size(); x++) {
+					ArrayList<Integer> o = orderings.get(x);
+					if (o.get(pref.getIssue1()) != 1){//if the ordering does not have the item as number 1
+						toRemove.add(o);
+						lies.add(pref);
+					}
+				}
+			}
+			else if(r == Relation.WORST)
+			{
+				//kludge when vague information is supplied
+				if (pref.getIssue1() == -1)//if information not filled in
+					continue;
+				for (int x = 0; x < orderings.size(); x++)
+				{
+					ArrayList<Integer> o = orderings.get(x);
+					if(o.get(pref.getIssue1()) != game.getNumIssues()) {//if the ordering does not have the item as the last place
+						toRemove.add(o);
+						lies.add(pref);
+					}
+				}
+			}
+			else if(r == Relation.GREATER_THAN)
+			{
+				//kludge when vague information is supplied
+				if (pref.getIssue1() == -1 || pref.getIssue2() == -1)//if information not filled in
+					continue;
+				for (int x = 0; x < orderings.size(); x++)
+				{
+					ArrayList<Integer> o = orderings.get(x);
+					if(o.get(pref.getIssue1()) > o.get(pref.getIssue2())) {//if the ordering does not have the item greater
+						toRemove.add(o);
+						lies.add(pref);
+					}
+				}
+			}
+			else if(r == Relation.LESS_THAN)
+			{
+				//kludge when vague information is supplied
+				if (pref.getIssue1() == -1 || pref.getIssue2() == -1)//if information not filled in
+					continue;
+				for (int x = 0; x < orderings.size(); x++)
+				{
+					ArrayList<Integer> o = orderings.get(x);
+					if(o.get(pref.getIssue1()) < o.get(pref.getIssue2())) {//if the ordering does not have the item lesser
+						toRemove.add(o);
+						lies.add(pref);
+					}
+				}
+			}
+			else if(r == Relation.EQUAL)
+			{
+				//kludge when vague information is supplied
+				if (pref.getIssue1() == -1 || pref.getIssue2() == -1)//if information not filled in
+					continue;
+				for (int x = 0; x < orderings.size(); x++)
+				{
+					ArrayList<Integer> o = orderings.get(x);
+					if(Math.abs(o.get(pref.getIssue1()) - o.get(pref.getIssue2())) == 1) {//if the ordering does not have the items adjacent
+						toRemove.add(o);
+						lies.add(pref);
+					}
+				}
+			}
+
+			for(ArrayList<Integer> al : toRemove)
+				orderings.remove(al);
+
+		}
+
 		if(orderings.size() == 0)
 		{
 			return true;
@@ -431,7 +533,7 @@ class MentalistAgentUtilsExtension
 
 
 		// Just in case this hasn't been run yet
-		reconcileContradictions();
+		//reconcileContradictions();
 		ArrayList<Integer> points = new ArrayList<>();
 		ArrayList<Integer> sortedPoints = new ArrayList<>(game.getSimplePoints(0).values());
 		Collections.sort(sortedPoints, Collections.reverseOrder());

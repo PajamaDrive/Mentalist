@@ -277,7 +277,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 					emotion = last.getMessage();
 				}
 				((MentalistRepeatedFavorBehavior) behavior).addExpression(emotion);
-				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(utils.lastEvent(getHistory().getHistory(), EventClass.TIME) == null ? 0 :Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 
 
 			}
@@ -498,7 +498,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 			if (behavior instanceof MentalistRepeatedFavorBehavior){
 				((MentalistRepeatedFavorBehavior) behavior).setPrevious(o);
 				((MentalistRepeatedFavorBehavior) behavior).addPreviousOffer();
-				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(utils.lastEvent(getHistory().getHistory(), EventClass.TIME) == null ? 0 :Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 				((MentalistRepeatedFavorBehavior) behavior).printParameter();
 			}
 			else if (behavior instanceof QuestionnaireMentalistBehavior){
@@ -661,7 +661,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 					e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
 				}
 				*/
-				Event e3 =  Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
+				Event e3 = lastTime != null && Integer.parseInt(lastTime.getMessage()) + 30 > game.getTotalTime() ? new Event(this.getID(), EventClass.SEND_OFFER, behavior.getFinalOffer(getHistory()), 0) : new Event(this.getID(), EventClass.SEND_OFFER, behavior.getNextOffer(getHistory()), (int) (700*game.getMultiplier()));
 				if(e3.getOffer() != null)
 				{
 					Event e1 = new Event(this.getID(), EventClass.OFFER_IN_PROGRESS, 0);
@@ -686,7 +686,7 @@ public abstract class MentalistCoreVH extends GeneralVH
 		{
 			boolean containFlag = false;
 			if (behavior instanceof MentalistRepeatedFavorBehavior) {
-				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
+				((MentalistRepeatedFavorBehavior) behavior).addBehaviorTiming(utils.lastEvent(getHistory().getHistory(), EventClass.TIME) == null ? 0 :Integer.parseInt(utils.lastEvent(getHistory().getHistory(), EventClass.TIME).getMessage()));
 			}
 			Preference p;
 			if (e.getPreference() == null)
@@ -739,6 +739,12 @@ public abstract class MentalistCoreVH extends GeneralVH
 						((MentalistRepeatedFavorBehavior) behavior).addLieNum();
 					}
 					return resp;
+				}
+				else{
+					if (behavior instanceof MentalistRepeatedFavorBehavior) {
+						if(utils.detectLie())
+							((MentalistRepeatedFavorBehavior) behavior).addLieNum();
+					}
 				}
 			}
 

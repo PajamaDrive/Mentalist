@@ -353,7 +353,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 	}
 
 	protected String getContradictionResponse(String drop) {
-		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct?";
+		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct? Please tell me your correct preferences!";
 	}
 
 	@Override
@@ -436,8 +436,20 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 	public boolean containSomething(Preference preference)
 	{
-		if (preference != null && (preference.getIssue1() == -1 || preference.getIssue2() == -1))
-			return true;
+		if (preference != null)
+			switch(preference.getRelation()){
+				case GREATER_THAN:
+				case LESS_THAN:
+				case EQUAL:
+					if (preference.getIssue1() == -1 || preference.getIssue2() == -1)
+						return true;
+					break;
+				case BEST:
+				case WORST:
+					if (preference.getIssue1() == -1)
+						return true;
+					break;
+			}
 
 		return false;
 	}
@@ -776,12 +788,17 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 				issue2 = -1;
 				relation = Relation.BEST;
 				isQuery = false;
-				if(p.isQuery()) {
+				if (p.isQuery()) {
 					str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the best.";
+				} else {
+					if(p.getIssue1() == -1) {
+						str = "Can you be a little more specific? Saying \"something\" is confusing.";
+						sc = Event.SubClass.PREF_SPECIFIC_REQUEST;
+					}
+					else
+						str = getExpressionResponseLang();
 				}
-				else {
-					str = getExpressionResponseLang();
-				}
+
 			}
 			else if (p.getRelation() == Relation.WORST)
 			{
@@ -793,7 +810,12 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 					str = "I like " + utils.getSpec().getIssuePluralNames()[issue1] + " the least.";
 				}
 				else {
-					str = getExpressionResponseLang();
+					if(p.getIssue1() == -1) {
+						str = "Can you be a little more specific? Saying \"something\" is confusing.";
+						sc = Event.SubClass.PREF_SPECIFIC_REQUEST;
+					}
+					else
+						str = getExpressionResponseLang();
 				}
 			}
 			else

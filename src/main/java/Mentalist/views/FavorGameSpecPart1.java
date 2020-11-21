@@ -101,7 +101,7 @@ class FavorGameSpecPart1 extends GameSpec{
 
 	@Override
 	public String getStudyName() {
-		return "FavorPart1";
+		return "Dinamic";
 	}
 	
 	@Override

@@ -21,10 +21,10 @@ class FavorGameSpecPart2 extends GameSpec{
 		simpleVHPoints.put(getIssuePluralNames()[2], 3);
 		simpleVHPoints.put(getIssuePluralNames()[3], 4);
 		
-		simplePlayerPoints.put(getIssuePluralNames()[0], 8);
-		simplePlayerPoints.put(getIssuePluralNames()[1], 4);
-		simplePlayerPoints.put(getIssuePluralNames()[2], 3);
-		simplePlayerPoints.put(getIssuePluralNames()[3], 2);
+		simplePlayerPoints.put(getIssuePluralNames()[0], 4);
+		simplePlayerPoints.put(getIssuePluralNames()[1], 3);
+		simplePlayerPoints.put(getIssuePluralNames()[2], 2);
+		simplePlayerPoints.put(getIssuePluralNames()[3], 1);
 		
 		//Privileged calls -- cannot be called outside package.
 		setSimpleOpponentPoints(simpleVHPoints);
@@ -101,7 +101,7 @@ class FavorGameSpecPart2 extends GameSpec{
 
 	@Override
 	public String getStudyName() {
-		return "FavorPart2";
+		return "Static";
 	}
 	
 	@Override

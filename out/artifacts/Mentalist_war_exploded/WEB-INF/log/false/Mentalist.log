@@ -29,3 +29,291 @@ false,player,Mentalist,0,50,false,false,1,0,0,0,0,0,0,2,0,0,0,0,2,3,0,0,0,0,0,0,
 : false__GAME_END,NONE,null
 
 
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,favorYes,QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness
+false,player,Mentalist,12,12,true,false,17,9,17,15,1,0,18,53,7,0,0,0,0,22,0,0,0,10,0,3,0,0,0,FavorPart1,0,600,600,0,0,0,0,0,0,0,0,3,5,0,0,0,0,0,0,0,5,2,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,18,0,0,0,0,0,0,0,0,2,0,0,0,0,0,15,1,7,9,9,0,0,4,1,0,0,0,0,5,3.0,Yes,42,27,38,34,34,,,,,,,
+
+: Survey Results: 
+: false__TIME,NONE,5
+: false__SEND_MESSAGE,PREF_INFO,Do you like lamps more than boxes of records?,1: 0 2: 2 GREATER_THAN true
+: false__TIME,NONE,10
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,GENERIC_POS,I like lamps more than boxes of records.,1: 0 2: 2 GREATER_THAN false
+: false__TIME,NONE,15
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 5, 0], [0, 5, 0] ]
+: false__SEND_EXPRESSION,NONE,sad
+: false__TIME,NONE,20
+: false__SEND_MESSAGE,OFFER_REJECT,There has to be a better agreement... Let's work together to find the best deal!
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,25
+: false__SEND_MESSAGE,OFFER_PROPOSE,I would be very happy if you accept this deal.
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [1, 4, 0] ]
+: false__TIME,NONE,30
+: false__TIME,NONE,35
+: false__TIME,NONE,40
+: false__TIME,NONE,45
+: false__TIME,NONE,50
+: false__TIME,NONE,55
+: false__SEND_MESSAGE,TIMING,If you can't think of a good offer, please send a message "Would you please make an offer?" or "What wrong with you? Hurry up and make an offer!". I would think of an offer instead.
+: false__TIME,NONE,60
+: false__TIME,NONE,65
+: false__TIME,NONE,70
+: false__TIME,NONE,75
+: false__TIME,NONE,80
+: false__SEND_MESSAGE,PREF_INFO,I like paintings less than lamps.
+: false__TIME,NONE,85
+: false__SEND_MESSAGE,PREF_INFO,I like lamps more than boxes of records.,1: 0 2: 2 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [1, 4, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,Thank you! It's going to make the negotiations go smoothly!,1: 0 2: 2 GREATER_THAN false
+: false__TIME,NONE,90
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,OFFER_ACCEPT,This offer is great!
+: false__TIME,NONE,95
+: false__SEND_MESSAGE,PREF_REQUEST,By the way, will you tell me a little about your preferences?
+: false__TIME,NONE,100
+: false__TIME,NONE,105
+: false__SEND_MESSAGE,PREF_INFO,I like paintings more than cuckoo clocks.,1: 1 2: 3 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [1, 4, 0] ]
+: false__TIME,NONE,110
+: false__SEND_MESSAGE,GENERIC_POS,Should I share my preferences with you as well? If you want to know, ask from "Ask your opponent's preference" or "So could you tell me about your preferences?".,1: 1 2: 3 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,Could you concede a little more?
+: false__TIME,NONE,115
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,OFFER_PROPOSE,Please consider this deal?
+: false__TIME,NONE,120
+: false__SEND_MESSAGE,PREF_INFO,I like paintings best.,1: 1 2: 3 BEST false
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,GENERIC_POS,Thanks for the information. You can ask for my preference via "Ask your opponent's preference" or "So could you tell me about your preferences?".,1: 3 2: -1 BEST false
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,125
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [1, 4, 0] ]
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,Apologies, but that won't work for me.
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,130
+: false__SEND_MESSAGE,OFFER_PROPOSE,What do you think about this arrangement?
+: false__TIME,NONE,135
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 3, 2], [2, 3, 0] ]
+: false__TIME,NONE,140
+: false__TIME,NONE,145
+: false__SEND_MESSAGE,PREF_INFO,I like lamps less than paintings.,1: 0 2: 1 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,150
+: false__SEND_MESSAGE,GENERIC_POS,This is very informative! Thank you!,1: 0 2: 1 GREATER_THAN false
+: false__TIME,NONE,155
+: false__TIME,NONE,160
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 3, 2], [2, 3, 0] ]
+: false__TIME,NONE,165
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,OFFER_ACCEPT,That seems like a good deal.
+: false__TIME,NONE,170
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,175
+: false__SEND_MESSAGE,PREF_INFO,I like boxes of records best.,1: 2 2: 1 BEST false
+: false__SEND_EXPRESSION,NONE,surprised
+: false__TIME,NONE,180
+: false__SEND_MESSAGE,CONFUSION,I'm sorry.  I must be misunderstanding.  Earlier, you said: "I like lamps more than boxes of records.", and "I like paintings more than cuckoo clocks.", and "I like paintings the best." Was that not correct? Please tell me your correct preferences!
+: false__TIME,NONE,185
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 3, 2], [2, 3, 0] ]
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,I could accept your offer if you'd more concede, but...
+: false__TIME,NONE,190
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,OFFER_PROPOSE,I think this arrangement would be beneficial to both.
+: false__TIME,NONE,195
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [3, 2, 0] ]
+: false__TIME,NONE,200
+: false__TIME,NONE,205
+: false__TIME,NONE,210
+: false__TIME,NONE,215
+: false__TIME,NONE,220
+: false__TIME,NONE,225
+: false__SEND_MESSAGE,TIMING,Can I do anything to help us reach a deal that's good for us both?
+: false__SEND_MESSAGE,PREF_INFO,I like cuckoo clocks less than paintings.,1: 3 2: 1 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,230
+: false__SEND_MESSAGE,GENERIC_POS,Thank you for sharing your preference.,1: 3 2: 1 GREATER_THAN false
+: false__TIME,NONE,235
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [3, 2, 0] ]
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,OFFER_ACCEPT,Your offer is good!
+: false__TIME,NONE,240
+: false__TIME,NONE,245
+: false__TIME,NONE,250
+: false__TIME,NONE,255
+: false__TIME,NONE,260
+: false__SEND_MESSAGE,PREF_INFO,I like lamps less than cuckoo clocks.
+: false__TIME,NONE,265
+: false__SEND_MESSAGE,PREF_INFO,I like lamps less than paintings.,1: 0 2: 1 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__TIME,NONE,270
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,GENERIC_POS,Thank you! If you want to know my preference, use the "Ask your opponent's preference" or "So could you tell me about your preferences?".,1: 0 2: 1 GREATER_THAN false
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [3, 2, 0] ]
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but this offer is unacceptable.
+: false__TIME,NONE,275
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,OFFER_PROPOSE,I think this deal will interest you.
+: false__TIME,NONE,280
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [4, 1, 0] ]
+: false__TIME,NONE,285
+: false__TIME,NONE,290
+: false__SEND_MESSAGE,PREF_INFO,I like lamps least.,1: 0 2: 1 WORST false
+: false__SEND_EXPRESSION,NONE,happy
+: false__TIME,NONE,295
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [4, 1, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,This is useful information for me as we negotiate!,1: 2 2: -1 WORST false
+: false__SEND_EXPRESSION,NONE,happy
+: false__TIME,NONE,300
+: false__SEND_MESSAGE,OFFER_ACCEPT,This is a good offer for me. I hope it is good for you as well.
+: false__TIME,NONE,305
+: false__TIME,NONE,310
+: false__TIME,NONE,315
+: false__TIME,NONE,320
+: false__SEND_MESSAGE,PREF_INFO,I like boxes of records more than lamps.,1: 2 2: 0 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,325
+: false__SEND_MESSAGE,GENERIC_POS,I'm starting to get to know you a little better.,1: 2 2: 0 LESS_THAN false
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 2, 3], [4, 1, 0] ]
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,Could you assign a few more items to me?
+: false__TIME,NONE,330
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,OFFER_PROPOSE,I think this deal is the best idea ever.
+: false__TIME,NONE,335
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 1, 4], [5, 0, 0] ]
+: false__TIME,NONE,340
+: false__TIME,NONE,345
+: false__TIME,NONE,350
+: false__TIME,NONE,355
+: false__TIME,NONE,360
+: false__TIME,NONE,365
+: false__SEND_MESSAGE,PREF_INFO,I like lamps best.,1: 0 2: 0 BEST false
+: false__SEND_EXPRESSION,NONE,sad
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,TIMING,I'd like to know a little more about you so that we can successfully negotiate.
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 1, 4], [5, 0, 0] ]
+: false__TIME,NONE,370
+: false__SEND_EXPRESSION,NONE,surprised
+: false__SEND_MESSAGE,CONFUSION,I'm sorry.  I must be misunderstanding.  Earlier, you said: "I like lamps less than paintings.", and "I like boxes of records the best.", and "I like cuckoo clocks less than paintings.", and "I like lamps less than paintings.", and "I like lamps the least.", and "I like boxes of records more than lamps." Was that not correct? Please tell me your correct preferences!
+: false__TIME,NONE,375
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: false__TIME,NONE,380
+: false__TIME,NONE,385
+: false__TIME,NONE,390
+: false__TIME,NONE,395
+: false__SEND_MESSAGE,PREF_INFO,I like lamps more than cuckoo clocks.,1: 0 2: 3 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 1, 4], [5, 0, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,I got it.,1: 0 2: 3 LESS_THAN false
+: false__TIME,NONE,400
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but I don't think that's fair to me.
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,405
+: false__SEND_MESSAGE,OFFER_PROPOSE,How about a deal like this?
+: false__SEND_OFFER,NONE,null,[ [1, 4, 0], [0, 5, 0], [0, 0, 5], [5, 0, 0] ]
+: false__TIME,NONE,410
+: false__TIME,NONE,415
+: false__TIME,NONE,420
+: false__TIME,NONE,425
+: false__TIME,NONE,430
+: false__SEND_MESSAGE,PREF_INFO,I like cuckoo clocks the best.
+: false__TIME,NONE,435
+: false__TIME,NONE,440
+: false__TIME,NONE,445
+: false__TIME,NONE,450
+: false__TIME,NONE,455
+: false__TIME,NONE,460
+: false__SEND_MESSAGE,TIMING,If you want me to send you an Offer, please send me a message saying "Would you please make an offer?" or "What wrong with you? Hurry up and make an offer!".
+: false__TIME,NONE,465
+: false__TIME,NONE,470
+: false__TIME,NONE,475
+: false__TIME,NONE,480
+: false__SEND_MESSAGE,PREF_INFO,I like boxes of records more than paintings.,1: 2 2: 1 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,GENERIC_POS,I see... I'll refer to it when I think about the offer.,1: 2 2: 1 LESS_THAN false
+: false__TIME,NONE,485
+: false__SEND_OFFER,NONE,null,[ [1, 4, 0], [0, 5, 0], [0, 0, 5], [5, 0, 0] ]
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,OFFER_ACCEPT,Let's keep the negotiation going at this rate!
+: false__TIME,NONE,490
+: false__TIME,NONE,495
+: false__TIME,NONE,500
+: false__TIME,NONE,505
+: false__TIME,NONE,510
+: false__SEND_MESSAGE,PREF_INFO,I like paintings more than boxes of records.
+: false__TIME,NONE,515
+: false__TIME,NONE,520
+: false__TIME,NONE,525
+: false__SEND_MESSAGE,PREF_INFO,I like paintings less than lamps.,1: 1 2: 0 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,530
+: false__SEND_OFFER,NONE,null,[ [1, 4, 0], [0, 5, 0], [0, 0, 5], [5, 0, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,Thanks for the information. You can ask for my preference via "Ask your opponent's preference" or "So could you tell me about your preferences?".,1: 1 2: 0 LESS_THAN false
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,Perhaps we should spend more time finding a solution that's good for us both...
+: false__TIME,NONE,535
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_MESSAGE,OFFER_PROPOSE,This is a very good agreement for me, but what about you?
+: false__TIME,NONE,540
+: false__SEND_OFFER,NONE,null,[ [2, 3, 0], [0, 4, 1], [0, 0, 5], [5, 0, 0] ]
+: false__TIME,NONE,545
+: false__GAME_START,NONE,null
+: false__SEND_MESSAGE,PREF_INFO,I like cuckoo clocks least.,1: 3 2: 0 WORST false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,550
+: false__SEND_OFFER,NONE,null,[ [2, 3, 0], [0, 4, 1], [0, 0, 5], [5, 0, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,This is useful information for me as we negotiate!,1: 2 2: -1 WORST false
+: false__SEND_EXPRESSION,NONE,happy
+: false__TIME,NONE,555
+: false__SEND_MESSAGE,OFFER_ACCEPT,Yes. This deal will work.
+: false__TIME,NONE,560
+: false__TIME,NONE,565
+: false__SEND_MESSAGE,PREF_INFO,I like boxes of records more than cuckoo clocks.,1: 2 2: 3 GREATER_THAN false
+: false__TIME,NONE,570
+: false__SEND_EXPRESSION,NONE,happy
+: false__SEND_MESSAGE,GENERIC_POS,I'm starting to get to know you a little better.,1: 2 2: 3 LESS_THAN false
+: false__TIME,NONE,575
+: false__SEND_MESSAGE,TIMING,We're almost out of time!  Accept this quickly!
+: false__SEND_OFFER,NONE,null,[ [5, 0, 0], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: false__TIME,NONE,580
+: false__SEND_MESSAGE,PREF_INFO,I like lamps more than paintings.,1: 0 2: 1 GREATER_THAN false
+: false__SEND_EXPRESSION,NONE,happy
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [5, 0, 0], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: false__SEND_MESSAGE,GENERIC_POS,I see... I'll refer to it when I think about the offer.,1: 0 2: 1 GREATER_THAN false
+: false__TIME,NONE,585
+: false__SEND_EXPRESSION,NONE,sad
+: false__SEND_MESSAGE,OFFER_REJECT,I won't be able to accept that.  So sorry. :(
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__TIME,NONE,590
+: false__SEND_MESSAGE,OFFER_PROPOSE,I think this deal is good for the both of us.
+: false__SEND_OFFER,NONE,null,[ [5, 0, 0], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: false__TIME,NONE,595
+: false__SEND_MESSAGE,PREF_INFO,I like paintings best.,1: 1 2: 1 BEST false
+: false__SEND_EXPRESSION,NONE,surprised
+: false__OFFER_IN_PROGRESS,NONE,null
+: false__SEND_OFFER,NONE,null,[ [5, 0, 0], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: false__TIME,NONE,600
+: false__GAME_START,NONE,null
+: false__SEND_MESSAGE,NONE,It's good to see you again!  Let's get ready to negotiate again.
+: false__GAME_END,NONE,null
+
+

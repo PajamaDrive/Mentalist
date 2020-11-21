@@ -107,7 +107,7 @@ class FavorGameSpecPart3 extends GameSpec{
 
 	@Override
 	public String getStudyName() {
-		return "FavorPart3";
+		return "Pilot";
 	}
 	
 	@Override
