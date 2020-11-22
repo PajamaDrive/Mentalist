@@ -748,7 +748,12 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 			}
 
-			String expr = containFlag ? "surprised" : expression.getExpression(getHistory());
+			boolean batnaLieFlag = false;
+			if (messages instanceof MentalistRepeatedFavorMessage) {
+					batnaLieFlag = ((MentalistRepeatedFavorMessage) messages).lieBatna(e);
+			}
+
+			String expr = containFlag || batnaLieFlag ? "surprised" : expression.getExpression(getHistory());
 			if (expr != null)
 			{
 				Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, expr, 2000, (int) (700*game.getMultiplier()));

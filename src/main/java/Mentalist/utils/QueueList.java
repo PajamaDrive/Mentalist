@@ -65,20 +65,37 @@ public class QueueList<T>{
         return preSum * preWeight + sum;
     }
 
-    public double mean(){
-        int sum = 0;
+    public double doubleSum(){
+        double sum = 0.0;
         Iterator<T> iter = getQueue().iterator();
         while(iter.hasNext()){
             sum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
         }
-        sum /= queueSize();
-        int preSum = 0;
+        double preSum = 0.0;
         iter = getPreQueue().iterator();
         while(iter.hasNext()){
             preSum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
         }
 
-        preSum /= (getFullSize() - queueSize());
+        return preSum * preWeight + sum;
+    }
+
+    public double mean(){
+        double sum = 0.0;
+        Iterator<T> iter = getQueue().iterator();
+        while(iter.hasNext()){
+            sum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
+        }
+        if(!getQueue().isEmpty())
+            sum /= queueSize();
+        double preSum = 0;
+        iter = getPreQueue().iterator();
+        while(iter.hasNext()){
+            preSum += items.get(0) instanceof Integer ? (Integer)iter.next() : (Double)iter.next();
+        }
+
+        if(!getPreQueue().isEmpty())
+            preSum /= getFullSize();
 
         return preSum * preWeight + sum;
     }

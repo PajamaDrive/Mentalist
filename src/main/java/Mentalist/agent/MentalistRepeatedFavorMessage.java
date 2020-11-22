@@ -454,6 +454,27 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 		return false;
 	}
 
+	public boolean lieBatna(Event ePrime){
+		if(ePrime.getSubClass() == Event.SubClass.BATNA_INFO) {
+			if (ePrime.getValue() != -1) {
+				int batna = ePrime.getValue();
+				utils.adversaryBATNA = ePrime.getValue();
+				if (!utils.conflictBATNA(utils.myPresentedBATNA, batna)) {
+					if (opponentBATNA != batna && opponentBATNA != -1) {
+						return true;
+					}
+				} else {
+					if (opponentBATNA != batna && opponentBATNA != -1) {
+						return true;
+					}
+
+				}
+			}
+		}
+
+		return false;
+	}
+
 	public Event getVerboseMessageResponse(History history, GameSpec game, Event ePrime) {
 		
 		int delay = (int) (2000*game.getMultiplier()); 
