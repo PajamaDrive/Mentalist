@@ -11,7 +11,6 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
-import java.sql.DatabaseMetaData;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -1084,7 +1083,7 @@ public class GameBridgeUtils {
             body += "," + title;
         for (String key : this.surveyData.keySet())
             body += "," + key;
-        body += ",QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness";
+        body += ",QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t";
         body += "\n";
         body += this.MTurkID + ",";
         if (!this.isMultiAgent) {
@@ -1313,25 +1312,23 @@ public class GameBridgeUtils {
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpenness());
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeableness());
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousness());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getNeuroticismOffer());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getExtraversionOffer());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpennessOffer());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeablenessOffer());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousnessOffer());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getNeuroticismBehavior());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getExtraversionBehavior());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOpennessBehavior());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgreeablenessBehavior());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getConscientiousnessBehavior());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOfferWeight());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getBehaviorWeight());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgentUtil());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getPlayerUtil());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getT());
             }
-            else if(behavior instanceof QuestionnaireMentalistBehavior){
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getCooperativeness());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getAssertiveness());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getNeuroticism());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getExtraversion());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getOpenness());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getAgreeableness());
-                parameter.add(((QuestionnaireMentalistBehavior) behavior).getConscientiousness());
-            }
-            else if(behavior instanceof PilotStudyBehavior){
-                parameter.add("-10");
-                parameter.add("-10");
-                parameter.add("-10");
-                parameter.add("-10");
-                parameter.add("-10");
-                parameter.add("-10");
-                parameter.add("-10");
-            }
+
             for(int i = 0; i < parameter.size(); i++){
                 body += "," + parameter.get(i);
             }

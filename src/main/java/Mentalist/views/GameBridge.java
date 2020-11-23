@@ -1,7 +1,7 @@
 package Mentalist.views;
 
 import Mentalist.agent.MentalistVH;
-import Mentalist.agent.QuestionnaireMentalistVH;
+import Mentalist.agent.StaticMentalistVH;
 import com.google.gson.Gson;
 import Mentalist.utils.*;
 import Mentalist.utils.GameBridgeUtils.NegotiationMode;
@@ -499,8 +499,8 @@ public class GameBridge extends HttpServlet  {
 					Class<? extends GeneralVH> vhClass1 = (Class<? extends GeneralVH>) Class.forName(vhQualifiedName1);
 					Constructor<? extends GeneralVH> ctor1 = vhClass1.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class);
 					vh1 = ctor1.newInstance(new Object[]{"defaultAgent", gs, session});
-				} else if (vhQualifiedName1.contains(".QuestionnaireMentalistVH")) {
-					Constructor<QuestionnaireMentalistVH> ctor1 = QuestionnaireMentalistVH.class.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class, int.class, int.class, int.class, int.class, int.class);
+				} else if (vhQualifiedName1.contains(".StaticMentalistVH")) {
+					Constructor<StaticMentalistVH> ctor1 = StaticMentalistVH.class.getConstructor(String.class, GameSpec.class, javax.websocket.Session.class, int.class, int.class, int.class, int.class, int.class);
 					vh1 = ctor1.newInstance(new Object[]{"defaultAgent", gs, session, questionnaireNeuroticism, questionnaireExtraversion, questionnaireOpenness, questionnaireConscientiouness, questionnaireAgreeableness});
 				}
 			} else { //human-human case

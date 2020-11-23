@@ -68,7 +68,7 @@ class FavorGameSpecPart2 extends GameSpec{
 
 	@Override
 	public int getTotalTime() {
-		return 420;
+		return 30;
 	}
 	
 	@Override
@@ -106,7 +106,7 @@ class FavorGameSpecPart2 extends GameSpec{
 	
 	@Override
 	public String getSurvey() {
-		return "favorSurvey.jsp";
+		return "favorSurveyMentalist.jsp";
 	}
 
 }

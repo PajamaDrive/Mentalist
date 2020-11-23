@@ -2,10 +2,11 @@
 
 
 #PERSONAL NOTE: If agent0 is left blank, then the user will play against agent1.  If agent0 and agent1 are occupied, those two agents play against each other.
-#Mentalist.agent.QuestionnaireMentalistVH
+#Mentalist.agent.StaticMentalistVH
 #Mentalist.agent.MentalistVH
+#Mentalist.agent.PilotStudyVH
 agent0=
-agent1= Mentalist.agent.MentalistVH,Mentalist.agent.PilotStudyVH,Mentalist.agent.QuestionnaireMentalistVH
+agent1= Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
 #PERSONAL NOTE: Gamespec specified which game will be loaded into the system.
 gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
 

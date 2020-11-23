@@ -636,6 +636,7 @@ function GAME_END(event, socket) {
     clearChat()
 
     updateButtonPanelItem("butFormalAccept", false, true)
+    updateButtonPanelItem("butReject", false, undefined)
     updateButtonPanelItem("butFormalQuit", false, true)
 
     var newGamePing = new Object();

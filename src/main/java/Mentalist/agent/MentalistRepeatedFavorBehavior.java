@@ -64,6 +64,21 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	protected QueueList<Integer> concessionNum;
 	protected QueueList<Integer> unfortunateNum;
 	protected double behaviorSense;
+	//保存用
+	protected ArrayList<Double> neuroticismBehavior;
+	protected ArrayList<Double> extraversionBehavior;
+	protected ArrayList<Double> opennessBehavior;
+	protected ArrayList<Double> conscientiousnessBehavior;
+	protected ArrayList<Double> agreeablenessBehavior;
+	protected ArrayList<Double> neuroticismOffer;
+	protected ArrayList<Double> extraversionOffer;
+	protected ArrayList<Double> opennessOffer;
+	protected ArrayList<Double> conscientiousnessOffer;
+	protected ArrayList<Double> agreeablenessOffer;
+	protected ArrayList<Double> offerWeightList;
+	protected ArrayList<Double> behaviorWeightList;
+	protected ArrayList<Double> agentUtilList;
+	protected ArrayList<Double> playerUtilList;
 	//その他
 	protected double offerRatio;
 	protected double behaviorRatio;
@@ -75,8 +90,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	protected final double SENSE_MAX = 1.75;
 	protected final double SPECIAL_MES_MAX = 1.0;
 	protected final double FAST_BEH_MAX = 10.0;
+	protected final double BEH_NUM_MAX = 7.5;
 	protected final int BEH_SIZE = 10;
-	protected final int OFF_SIZE = 3;
+	protected int OFF_SIZE = 3;
 	protected final int SENSE_SIZE = 5;
 	protected final double OFFER_PRE_WEIGHT = 0.1;
 	protected final double BEHAVIOR_PRE_WEIGHT = 0.5;
@@ -114,6 +130,73 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	{
 		super();
 		this.lb = lb;
+
+		this.myPrevious = new ArrayList<>();
+		this.previousOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
+		this.dummyPlayerOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
+		this.dummyVarianceOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
+		this.dummyEmotions = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		//target function関連
+		this.gamma_min = 0.3;
+		this.gamma_max = 1.0;
+		this.n = 15;
+		this.t = 0;
+		this.utility_bias = 0.0;
+		this.utility_weight = 1.0;
+		this.alpha = 0.01;
+		//TKI関連
+		this.assertiveness = new ArrayList<Double>();
+		this.cooperativeness = new ArrayList<Double>();
+		//big5関連
+		this.behaviorFrequency = 0.0;
+		this.preferenceAskNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.preferenceExpressionNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.preEmotion = 1;
+		this.lieNum = 0;
+		this.threatNum = 0;
+		this.prefRequestNum = 0;
+		this.favorReturnNum = 0;
+		this.timingThreshold = 3;
+		this.batnaAskNum = 0;
+		this.batnaExpressionNum = 0;
+		this.posMessageNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.negMessageNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.posEmotionNum = new QueueList<Double>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.negEmotionNum = new QueueList<Double>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.emotionQueue = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.acceptNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.behaviorTimings = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
+		this.neuroticism = new ArrayList<Double>();
+		this.extraversion = new ArrayList<Double>();
+		this.openness = new ArrayList<Double>();
+		this.conscientiousness = new ArrayList<Double>();
+		this.agreeableness = new ArrayList<Double>();
+		//behavior sence関連
+		this.silentNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.niceNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.fortunateNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.selfishNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.concessionNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.unfortunateNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
+		this.behaviorSense = 0.0;
+		//保存用
+		this.neuroticismBehavior = new ArrayList<Double>();
+		this.extraversionBehavior =new ArrayList<Double>();
+		this.opennessBehavior = new ArrayList<Double>();
+		this.conscientiousnessBehavior = new ArrayList<Double>();
+		this.agreeablenessBehavior = new ArrayList<Double>();
+		this.neuroticismOffer = new ArrayList<Double>();
+		this.extraversionOffer = new ArrayList<Double>();
+		this.opennessOffer = new ArrayList<Double>();
+		this.conscientiousnessOffer = new ArrayList<Double>();
+		this.agreeablenessOffer = new ArrayList<Double>();
+		this.offerWeightList = new ArrayList<Double>();
+		this.behaviorWeightList = new ArrayList<Double>();
+		this.agentUtilList = new ArrayList<Double>();
+		this.playerUtilList = new ArrayList<Double>();
+		//その他
+		this.offerRatio = 0.0;
+		this.behaviorRatio = 0.0;
 	}
 
 	//譲歩関数
@@ -451,7 +534,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double neuroOfferPoint = normarize(niceConcession, max(RATE_MAX, niceConcession), min(RATE_MIN, niceConcession));
 
 		double neuroBehavior = negEmotionNum.doubleSum() + negMessageNum.sum();
-		double neuroBehaviorPoint = normarize(neuroBehavior, max(BEH_SIZE, neuroBehavior), 0.0);
+		double neuroBehaviorPoint = normarize(neuroBehavior, max(BEH_NUM_MAX, neuroBehavior), 0.0);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("nice + concession: " + niceNum.mean() + concessionNum.mean(), ServletUtils.DebugLevels.DEBUG);
@@ -462,6 +545,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("neuroBeh: " + neuroBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("neuroticism: " + neuroOfferPoint * offerRatio + neuroBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
 
+		this.neuroticismOffer.add(neuroOfferPoint);
+		this.neuroticismBehavior.add(neuroBehaviorPoint);
 		this.neuroticism.add(neuroOfferPoint * offerRatio + neuroBehaviorPoint * behaviorRatio);
 	}
 
@@ -472,7 +557,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double extraOfferPoint = normarize(selfishFortunate, max(RATE_MAX, selfishFortunate), min(RATE_MIN, selfishFortunate));
 
 		double threatPoint = normarize(threatNum, max(SPECIAL_MES_MAX, threatNum), -SPECIAL_MES_MAX);
-		double behaviorFrequencyPoint = min(1.0, -normarize(behaviorFrequency, max(behaviorFrequency, 40.0),  min(behaviorFrequency, 10.0)) + threatPoint);
+		double extraBehaviorPoint = min(1.0, -normarize(behaviorFrequency, max(behaviorFrequency, 40.0),  min(behaviorFrequency, 10.0)) + threatPoint);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("selfish + fortunate: " + selfishNum.mean() + fortunateNum.mean(), ServletUtils.DebugLevels.DEBUG);
@@ -480,36 +565,40 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("threat: " + threatNum, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("threat point: " + threatPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("behavior: " + behaviorFrequency, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("behavior point: " + behaviorFrequencyPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("extraBeh: " + extraBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("extraOffer: " + extraOfferPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("pre behavior: " + behaviorTimings.getPreQueue(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("behavior: " + behaviorTimings, ServletUtils.DebugLevels.DEBUG);
 
-		ServletUtils.log("extraversion: " + extraOfferPoint * offerRatio + behaviorFrequencyPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("extraversion: " + extraOfferPoint * offerRatio + extraBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
 
-		this.extraversion.add(extraOfferPoint * offerRatio + behaviorFrequencyPoint * behaviorRatio);
+		this.extraversionOffer.add(extraOfferPoint);
+		this.extraversionBehavior.add(extraBehaviorPoint);
+		this.extraversion.add(extraOfferPoint * offerRatio + extraBehaviorPoint * behaviorRatio);
 	}
 
 	/**** ビッグファイブ経験への開放性 ****/
 	public void calcOpenness(){
 		double choicePlayerVariance = calcChoiceVariance(previousOffers.getPreQueue(), 2, false) * OFFER_PRE_WEIGHT + calcChoiceVariance(previousOffers.getQueue(), 2, false);
 		double choiceDummyPlayerVariance = calcChoiceVariance(dummyVarianceOffers.getPreQueue(), 2, false) * OFFER_PRE_WEIGHT + calcChoiceVariance(dummyVarianceOffers.getQueue(), 2, true);
-		double choiceVariancePoint = normarize(choicePlayerVariance, max(CHOICE_VARIANCE_MAX_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance), min(CHOICE_VARIANCE_MIN_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance));
+		double openOfferPoint = normarize(choicePlayerVariance, max(CHOICE_VARIANCE_MAX_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance), min(CHOICE_VARIANCE_MIN_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance));
 
 		double openBehavior = preferenceAskNum.sum() + prefRequestNum + batnaAskNum;
-		double openBehaviorPoint = normarize(openBehavior, max(BEH_SIZE, openBehavior), 0.0);
+		double openBehaviorPoint = normarize(openBehavior, max(BEH_NUM_MAX, openBehavior), 0.0);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("player choice: " + choicePlayerVariance, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("dummy player choice: " + choiceDummyPlayerVariance, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("choice point: " + choiceVariancePoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("choice point: " + openOfferPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("ask: " + preferenceAskNum.sum(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("batna ask: " + batnaAskNum, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("pref req: " + prefRequestNum, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("openBeh: " + openBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("openness: " + choiceVariancePoint * offerRatio + openBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("openness: " + openOfferPoint * offerRatio + openBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
 
-		this.openness.add(choiceVariancePoint * offerRatio + openBehaviorPoint * behaviorRatio);
+		this.opennessOffer.add(openOfferPoint);
+		this.opennessBehavior.add(openBehaviorPoint);
+		this.openness.add(openOfferPoint * offerRatio + openBehaviorPoint * behaviorRatio);
 	}
 
 	/**** ビッグファイブ誠実性 ****/
@@ -524,7 +613,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double liePoint = -normarize(lieNum, max(SPECIAL_MES_MAX, lieNum), -SPECIAL_MES_MAX);
 		double fastBehaviorPoint = normarize(fastBehaviorNum, max(fastBehaviorNum, FAST_BEH_MAX), 0.0);
 		double conscientBehavior = preferenceExpressionNum.sum() + batnaExpressionNum;
-		double conscientBehaviorPoint = max(-1.0, (normarize(conscientBehavior, max(BEH_SIZE, conscientBehavior), 0.0) + fastBehaviorPoint) / 2 + liePoint);
+		double conscientBehaviorPoint = max(-1.0, (normarize(conscientBehavior, max(BEH_NUM_MAX, conscientBehavior), 0.0) + fastBehaviorPoint) / 2 + liePoint);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("variance: " + variance, ServletUtils.DebugLevels.DEBUG);
@@ -542,6 +631,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("consciBeh: " + conscientBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("conscientiousness: " + conscientOfferPoint * offerRatio + conscientBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
 
+		this.conscientiousnessOffer.add(conscientOfferPoint);
+		this.conscientiousnessBehavior.add(conscientBehaviorPoint);
 		this.conscientiousness.add(conscientOfferPoint * offerRatio + conscientBehaviorPoint * behaviorRatio);
 	}
 
@@ -553,7 +644,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double agreeOfferPoint = (behaviorSensePoint + utilRatio) / 2;
 
 		double agreeBehavior = acceptNum.sum() + posEmotionNum.doubleSum() + posMessageNum.sum() + favorReturnNum;
-		double agreeBehaviorPoint = normarize(agreeBehavior, max(BEH_SIZE, agreeBehavior), 0.0);
+		double agreeBehaviorPoint = normarize(agreeBehavior, max(BEH_NUM_MAX, agreeBehavior), 0.0);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("behavior sense: " + behaviorSense, ServletUtils.DebugLevels.DEBUG);
@@ -569,6 +660,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("agreeableness: " + agreeOfferPoint * offerRatio + agreeBehaviorPoint * behaviorRatio, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 
+		this.agreeablenessOffer.add(agreeOfferPoint);
+		this.agreeablenessBehavior.add(agreeBehaviorPoint);
 		this.agreeableness.add(agreeOfferPoint * offerRatio + agreeBehaviorPoint * behaviorRatio);
 	}
 
@@ -791,6 +884,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public void calcWeight() {
 		offerRatio = max(0.5, 1.0 - (behaviorTimings.getFullSize() - previousOffers.getFullSize()) / (2.0 * BEH_SIZE));
 		behaviorRatio = min(0.5, (behaviorTimings.getFullSize() - previousOffers.getFullSize()) / (2.0 * BEH_SIZE));
+		offerWeightList.add(offerRatio);
+		behaviorWeightList.add(behaviorRatio);
 	}
 
 	public void addRound(){ this.t += 1; }
@@ -804,6 +899,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		this.previousOffers.enQueue(this.previous);
 		addDummyPlayerOffer(this.previous);
 		addDummyVarianceOffer(this.previous);
+		agentUtilList.add(calcAgentUtil(previous));
+		playerUtilList.add(calcPlayerUtil(previous));
 	}
 
 	//脅しの回数
@@ -950,6 +1047,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("TKI n: " + tkiN, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("BIG5 n: " + big5N, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("n: " + n, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("t: " + t, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("TKI alpha: " + tkiAlpha, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("BIG5 alpha: " + big5Alpha, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("alpha: " + alpha, ServletUtils.DebugLevels.DEBUG);
@@ -960,7 +1058,6 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("concession value: " + getConcessionValue(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
-
 	}
 
 
@@ -983,59 +1080,6 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			concession.setItem(i, init);
 		}
 		this.previous = this.allocated;
-		this.myPrevious = new ArrayList<>();
-		this.previousOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
-		this.dummyPlayerOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
-		//this.dummyVarianceAgentOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
-		this.dummyVarianceOffers = new QueueList<Offer>(OFF_SIZE, OFFER_PRE_WEIGHT);
-		this.dummyEmotions = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		//this.dummyVarianceOffers.enQueue(allocated);
-		//target function関連
-		this.gamma_min = 0.3;
-		this.gamma_max = 1.0;
-		this.n = max(1, (int)(game.getTotalTime() / 30));
-		this.t = 1;
-		this.utility_bias = 0.0;
-		this.utility_weight = 1.0;
-		this.alpha = 0.01;
-		//TKI関連
-		this.assertiveness = new ArrayList<Double>();
-		this.cooperativeness = new ArrayList<Double>();
-		//big5関連
-		this.behaviorFrequency = 0.0;
-		this.preferenceAskNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.preferenceExpressionNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.preEmotion = 1;
-		this.lieNum = 0;
-		this.threatNum = 0;
-		this.prefRequestNum = 0;
-		this.favorReturnNum = 0;
-		this.timingThreshold = 3;
-		this.batnaAskNum = 0;
-		this.batnaExpressionNum = 0;
-		this.posMessageNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.negMessageNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.posEmotionNum = new QueueList<Double>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.negEmotionNum = new QueueList<Double>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.emotionQueue = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.acceptNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.behaviorTimings = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
-		this.neuroticism = new ArrayList<Double>();
-		this.extraversion = new ArrayList<Double>();
-		this.openness = new ArrayList<Double>();
-		this.conscientiousness = new ArrayList<Double>();
-		this.agreeableness = new ArrayList<Double>();
-		//behavior sence関連
-		this.silentNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.niceNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.fortunateNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.selfishNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.concessionNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.unfortunateNum = new QueueList<Integer>(SENSE_SIZE, SENSE_PRE_WEIGHT);
-		this.behaviorSense = 0.0;
-		//その他
-		this.offerRatio = 0.0;
-		this.behaviorRatio = 0.0;
 	}
 
 	@Override
@@ -1067,7 +1111,6 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	protected Offer getFinalOffer(History history)
 	{
 		Offer propose = new Offer(game.getNumIssues());
-		this.t = this.n;
 		int totalFree = 0;
 		do
 		{
@@ -1080,6 +1123,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			updateAllocated(propose);
 		} while(totalFree > 0); // Continue calling getNextOffer while there are still items left unclaimed
 
+		ServletUtils.log("final concession: " + getConcessionValue(), ServletUtils.DebugLevels.DEBUG);
 		addMyPrevious(propose);
 
 		return propose;
@@ -1265,4 +1309,22 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public String getOpenness(){ return String.join(":", openness.toString().replaceAll("[\\[\\] ]", "").split(",")); }
 	public String getAgreeableness() { return String.join(":", agreeableness.toString().replaceAll("[\\[\\] ]", "").split(",")); }
 	public String getConscientiousness() { return String.join(":", conscientiousness.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+
+	public String getNeuroticismOffer(){ return String.join(":", neuroticismOffer.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getExtraversionOffer(){ return String.join(":", extraversionOffer.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getOpennessOffer(){ return String.join(":", opennessOffer.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getAgreeablenessOffer() { return String.join(":", agreeablenessOffer.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getConscientiousnessOffer() { return String.join(":", conscientiousnessOffer.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+
+	public String getNeuroticismBehavior(){ return String.join(":", neuroticismBehavior.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getExtraversionBehavior(){ return String.join(":", extraversionBehavior.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getOpennessBehavior(){ return String.join(":", opennessBehavior.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getAgreeablenessBehavior() { return String.join(":", agreeablenessBehavior.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getConscientiousnessBehavior() { return String.join(":", conscientiousnessBehavior.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+
+	public String getOfferWeight(){ return String.join(":", offerWeightList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getBehaviorWeight(){ return String.join(":", behaviorWeightList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getAgentUtil(){ return String.join(":", agentUtilList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getPlayerUtil(){ return String.join(":", playerUtilList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getT() { return Integer.toString(t); }
 }

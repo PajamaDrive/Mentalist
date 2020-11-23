@@ -308,20 +308,52 @@ main footer small {
 
 .iagoSurvey .survey-form-item {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     height: 20px;
-    margin: 0px 15px;    
+    margin-right: 60px;
+    margin-left: 60px;
 }
 
 .iagoSurvey .iagoCheckableQuestion {
-    margin-bottom: 2px;
+
 }
 
 .iagoSurvey label {
     margin: 0 5px;
-    line-height: 1.5;   
+    line-height: 1.5;
 }
 
+.survey-label{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+
+.survey-question{
+    font-size: 14px;
+}
+
+.survey-label > label{
+    vertical-align: bottom;
+    width: 120px;
+    text-align: center;
+}
+
+.survey.instructions{
+    font-size: 16px;
+}
+
+
+#surveySubmit {
+    padding: 9px 10px 0px 10px;
+}
+
+.modal#surveyModalDialog {
+    max-height: 100%;
+    overflow-y: auto;
+}
 
 /* global */
 
@@ -330,6 +362,7 @@ main footer small {
     animation: fadeinout 1s linear forwards;
     opacity: 1;
 }
+
 
 @-webkit-keyframes fadeinout {
   50% { opacity: 0; }

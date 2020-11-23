@@ -1,56 +1,20 @@
 package Mentalist.agent;
 
-import Mentalist.utils.Offer;
 import Mentalist.utils.ServletUtils;
 
-import static java.lang.Math.*;
+import static java.lang.Math.abs;
+import static java.lang.Math.max;
+import static java.lang.Math.min;
 
-public class PilotStudyBehavior extends MentalistRepeatedFavorBehavior {
-    private final double ALPHA_INCREASE = 0.1;
-    private final double GAMMA_MIN = 0.3;
-    private final double GAMMA_MAX = 1.0;
-    private final int N = 15;
-
-    public PilotStudyBehavior(LedgerBehavior lb)
+public class StaticMentalistBehavior extends MentalistRepeatedFavorBehavior {
+    public StaticMentalistBehavior(LedgerBehavior lb, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness)
     {
         super(lb);
-        this.neuroticism.add(-10.0);
-        this.extraversion.add(-10.0);
-        this.openness.add(-10.0);
-        this.conscientiousness.add(-10.0);
-        this.agreeableness.add(-10.0);
-        this.timingThreshold = 6;
-        this.OFF_SIZE = 100;
-    }
-
-    //譲歩関数
-    public double getConcessionValue(){
-        Offer maxOffer = makeMaxAgentDummyOffer(previous);
-        return calcAgentUtil(maxOffer) < 1.0 / utils.getMaxPossiblePoints() ? 1.0 / utils.getMaxPossiblePoints() : (GAMMA_MIN + (GAMMA_MAX - GAMMA_MIN) * (1 - (calcAgentUtil(previous) / calcAgentUtil(maxOffer)) * pow((double)t / N,(1 / alpha)))) * calcAgentUtil(maxOffer);
-    }
-
-    //譲歩関数のパラメータを特性によって変更
-    public void setConcessionParameter(){
-        double mean = 0.0;
-        double variance = 0.0;
-        if(previousOffers.queueSize() > 0){
-            mean = calcMean(previousOffers, false);
-            variance = calcVariance(previousOffers, false);
-        }
-        double utility = this.utils.adversaryValue(previous, this.utils.getMinimaxOrdering());
-        double sigma = abs(utility - mean);
-        if((utility == mean && variance == sigma)||(utility < mean && variance < sigma))
-            this.alpha = min(0.95, alpha + ALPHA_INCREASE);
-
-        ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("n: " + N, ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("t: " + t, ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("alpha: " + alpha, ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("gamma min: " + GAMMA_MIN, ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("timing threshold: " + timingThreshold, ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("concession value: " + getConcessionValue(), ServletUtils.DebugLevels.DEBUG);
-        ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
+        this.neuroticism.add(normarize(neuroticism, 50.0, 10.0));
+        this.extraversion.add(normarize(extraversion, 50.0, 10.0));
+        this.openness.add(normarize(openness, 50.0, 10.0));
+        this.conscientiousness.add(normarize(conscientiousness, 50.0, 10.0));
+        this.agreeableness.add(normarize(agreeableness, 50.0, 10.0));
     }
 
     /**** ビッグファイブ神経症傾向 ****/

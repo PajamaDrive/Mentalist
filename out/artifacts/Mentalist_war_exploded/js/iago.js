@@ -471,32 +471,94 @@ function buttonHandler(button) {
 }
 
 function submitAll() {
-	submitAll(true);
+    submitAll(true);
 }
 
 function submitAll(validSurvey) {
-	if(validSurvey === undefined || validSurvey) {
+    if(allChecked()) {
+        if (validSurvey === undefined || validSurvey) {
 //		if ($('input:iagoCheckableQuestion', this).is(':checked')){
 //			console.log("something was checked");
-			var survey = "{" + $(".iagoCheckableQuestion:checked").map(function() {
-				return ("\"" + $(this).attr("id") + "\":\"" + $(this).val() + "\"");
-			}).get() + "}";
-			var surveyObj= new Object();
-			surveyObj.data = JSON.parse(survey);
-			surveyObj.tag = "survey";
-			webSocket.send(JSON.stringify(surveyObj));
+            var survey = "{" + $(".iagoCheckableQuestion:checked").map(function () {
+                return ("\"" + $(this).attr("id") + "\":\"" + $(this).val() + "\"");
+            }).get() + "}";
+            var surveyObj = new Object();
+            surveyObj.data = JSON.parse(survey);
+            surveyObj.tag = "survey";
+            webSocket.send(JSON.stringify(surveyObj));
 //			
 //		    } else {
 //		    	console.log("nothing was checked");
 //		        alert("Please answer all the questions on the survey and press the submit button when you're finished making your selections.");
 //		        return false;
 //		    }
-	}
+        }
 
-	webSocket.send(JSON.stringify({ tag: "dialogClosed", data: "" }))
-    $(".gameWrapper").removeClass("hidden")
-    toggleSurveyDiag(false, "")
+        webSocket.send(JSON.stringify({tag: "dialogClosed", data: ""}))
+        $(".gameWrapper").removeClass("hidden")
+        toggleSurveyDiag(false, "")
+    }
+    else {
+        $("#warning").removeClass("hidden");
+        promptNotYet();
+    }
 }
+
+function allChecked(){
+    var element = $("input[name^=q]:checked");
+    if(element.length == 13)
+        return true;
+    else
+        return false;
+}
+
+function promptNotYet(){
+    var names = $("input[name^=q]:checked").map(function(index, element){return element.name});
+    if(names.length != 0) {
+        for (var i = 1; i <= 13; i++) {
+            if (names.filter(function(index, value){ return value.match(new RegExp("^q" + i + "_.*$")); }).length > 0) {
+                $(".questionArea#" + i).removeClass("notYet");
+            }
+            else {
+                $(".questionArea#" + i).addClass("notYet");
+                if(i >= 4 && i <= 9)
+                    $(".questionArea#0").addClass("notYet");
+            }
+        }
+    }
+    else {
+        $(".questionArea").addClass("notYet");
+    }
+}
+function radioChecked(){
+    if($("input[name^=q]:checked")) {
+        $("input[name^=q]:checked").parent().parent().removeClass("notYet");
+
+        var names = $("input[name^=q]:checked").map(function(index, element){return element.name});
+        var i = 4;
+        for (; i <= 9; i++) {
+            if (names.filter(function(index, value){ return value.match(new RegExp("^q" + i + "_.*$")); }).length == 0) {
+                break;
+            }
+        }
+        if(i == 10){
+            $(".questionArea#0").removeClass("notYet");
+        }
+        if (allChecked()) {
+            $("#warning").addClass("hidden");
+        }
+    }
+
+    if($("input[name=lang]:checked").val() == "0"){
+        $(".langChange[lang=en]").removeClass("hidden");
+        $(".langChange[lang=jp]").addClass("hidden");
+    }
+    else{
+        $(".langChange[lang=en]").addClass("hidden");
+        $(".langChange[lang=jp]").removeClass("hidden");
+    }
+}
+
 
 ////////////////////////////FOLLOWING RUNS AFTER ELEMENTS LOADED \\\\\\\\\\\\\\\\\\\\\\\\\\\\
 $(document).ready(function() 

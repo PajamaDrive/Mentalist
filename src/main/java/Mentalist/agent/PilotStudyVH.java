@@ -21,8 +21,8 @@ public class PilotStudyVH extends MentalistCoreVH {
 	 */
 	public PilotStudyVH(String name, GameSpec game, Session session)
 	{
-		super("PilotStudy", game, session, new PilotStudyBehavior(PilotStudyBehavior.LedgerBehavior.FAIR), new PilotStudyRepeatedFavorExpression(),
-				new PilotStudyRepeatedFavorMessage(false, false, PilotStudyBehavior.LedgerBehavior.FAIR));
+		super("PilotStudy", game, session, new PilotStudyBehavior(PilotStudyBehavior.LedgerBehavior.FAIR), new MentalistRepeatedFavorExpression(),
+				new MentalistRepeatedFavorMessage(false, false, PilotStudyBehavior.LedgerBehavior.FAIR));
 		
 		super.safeForMultiAgent = true;
 	}
