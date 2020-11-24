@@ -73,26 +73,26 @@
 </div>
 </body>
 <form action="game" name="agentdata" method="POST">
-	<input id="expression" name="expression" type="hidden" value=<%= request.getParameter("expression")%>>
-	<input id="behavior" name="behavior" type="hidden" value=<%= request.getParameter("behavior")%>>
-	<input id="message" name="message" type="hidden" value=<%= request.getParameter("message")%>>
-	<input id="withhold" name="withhold" type="hidden" value=<%= request.getParameter("withhold")%>>
-	<input id="honesty" name="honesty" type="hidden" value=<%= request.getParameter("honesty")%>>
+	<input id="expression" name="expression" type="hidden" value=<%= request.getParameter("expression") == null ? "PosNeg" : request.getParameter("expression")%>>
+	<input id="behavior" name="behavior" type="hidden" value=<%= request.getParameter("behavior") == null ? "Building" : request.getParameter("behavior")%>>
+	<input id="message" name="message" type="hidden" value=<%= request.getParameter("message") == null ? "Negative" : request.getParameter("message") %>>
+	<input id="withhold" name="withhold" type="hidden" value=<%= request.getParameter("withhold") == null ? "Withholding" : request.getParameter("withhold") %>>
+	<input id="honesty" name="honesty" type="hidden" value=<%= request.getParameter("honesty") == null ? "Honest" : request.getParameter("honesty") %>>
 	
-	<input id="qualtricsQ1" name="qualtricsQ1" type="hidden" value=<%= request.getParameter("qualtricsQ1")%>>
-	<input id="qualtricsQ2" name="qualtricsQ2" type="hidden" value=<%= request.getParameter("qualtricsQ2")%>>
-	<input id="qualtricsQ3" name="qualtricsQ3" type="hidden" value=<%= request.getParameter("qualtricsQ3")%>>
-	<input id="qualtricsQ4" name="qualtricsQ4" type="hidden" value=<%= request.getParameter("qualtricsQ4")%>>
-	<input id="qualtricsFlag" name="qualtricsFlag" type="hidden" value=<%= request.getParameter("qualtricsFlag")%>>
-	<input id="gameChoice" name="gameChoice" type="hidden" value=<%= request.getParameter("gameChoice")%>>
-	<input id="condition" name="condition" type="hidden" value=<%= request.getParameter("condition")%>>
-	<input id="MTurkID" name="MTurkID" type="hidden" value=<%= request.getParameter("MTurkID")%>>
+	<input id="qualtricsQ1" name="qualtricsQ1" type="hidden" value=<%= request.getParameter("qualtricsQ1") == null ? "Undefined" : request.getParameter("qualtricsQ1") %>>
+	<input id="qualtricsQ2" name="qualtricsQ2" type="hidden" value=<%= request.getParameter("qualtricsQ2") == null ? "Undefined" : request.getParameter("qualtricsQ2") %>>
+	<input id="qualtricsQ3" name="qualtricsQ3" type="hidden" value=<%= request.getParameter("qualtricsQ3") == null ? "Undefined" : request.getParameter("qualtricsQ3") %>>
+	<input id="qualtricsQ4" name="qualtricsQ4" type="hidden" value=<%= request.getParameter("qualtricsQ4") == null ? "Undefined" : request.getParameter("qualtricsQ4") %>>
+	<input id="qualtricsFlag" name="qualtricsFlag" type="hidden" value=<%= request.getParameter("qualtricsFlag") == null ? "OFF" : request.getParameter("qualtricsFlag") %>>
+	<input id="gameChoice" name="gameChoice" type="hidden" value=<%= request.getParameter("gameChoice") == null ? "agent" : request.getParameter("gameChoice") %>>
+	<input id="condition" name="condition" type="hidden" value=<%= request.getParameter("condition") == null ? "false" : request.getParameter("condition") %>>
+	<input id="MTurkID" name="MTurkID" type="hidden" value=<%= request.getParameter("MTurkID") == null ? request.getParameter("beforeMTurkID") : request.getParameter("MTurkID") %>>
 
-	<input id="neuroticism" name="neuroticism" type="hidden" value=<%= request.getParameter("neuroticism")%>>
-	<input id="extraversion" name="extraversion" type="hidden" value=<%= request.getParameter("extraversion")%>>
-	<input id="openness" name="openness" type="hidden" value=<%= request.getParameter("openness")%>>
-	<input id="conscientiousness" name="conscientiousness" type="hidden" value=<%= request.getParameter("conscientiousness")%>>
-	<input id="agreeableness" name="agreeableness" type="hidden" value=<%= request.getParameter("agreeableness")%>>
+	<input id="neuroticism" name="neuroticism" type="hidden" value=<%= request.getParameter("neuroticism") == null ? "-1" : request.getParameter("neuroticism") %>>
+	<input id="extraversion" name="extraversion" type="hidden" value=<%= request.getParameter("extraversion") == null ? "-1" : request.getParameter("extraversion") %>>
+	<input id="openness" name="openness" type="hidden" value=<%= request.getParameter("openness") == null ? "-1" : request.getParameter("openness") %>>
+	<input id="conscientiousness" name="conscientiousness" type="hidden" value=<%= request.getParameter("conscientiousness") == null ? "-1" : request.getParameter("conscientiousness") %>>
+	<input id="agreeableness" name="agreeableness" type="hidden" value=<%= request.getParameter("agreeableness") == null ? "-1" : request.getParameter("agreeableness") %>>
 
 </form>
 </html>

@@ -376,11 +376,11 @@ input[type=radio]:not([name*="lang"]) + label {
     text-align: center;
 }
 
-#warning {
+#warning, #IDwarning, #beforeIDwarning{
     color: #E82020;
 }
 
-.notYet > span {
+.notYet > span, .notYet > label {
     color: #E82020;
     font-weight: bold;
 }

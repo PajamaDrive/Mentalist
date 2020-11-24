@@ -6,10 +6,11 @@
 #Mentalist.agent.MentalistVH
 #Mentalist.agent.PilotStudyVH
 agent0=
-agent1= Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
+agent1=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
+#agent1=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
 #PERSONAL NOTE: Gamespec specified which game will be loaded into the system.
 gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
-
+#gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
 
 #Sets the mail credentials for this servlet, which allows it to send email notifications.  Leaving blank is fine; will disable email config.
 #Must be set before sending mail for each servlet.  Multiple servlets may use identical credentials

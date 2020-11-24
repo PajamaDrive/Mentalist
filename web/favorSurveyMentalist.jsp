@@ -30,9 +30,9 @@
                         Press the submit button when you're finished making your selections.
                     </span>
                     <span class="hidden langChange" lang="jp">
-                        次の交渉に進む前に以下の質問に答えてください．
-                        交渉相手があなたの回答を見ることはありません．<br>
-                        回答が終わったら送信ボタンを押してください．
+                        次の交渉に進む前に以下の質問に答えてください.
+                        交渉相手があなたの回答を見ることはありません.<br>
+                        回答が終わったら送信ボタンを押してください.
                     </span>
                 </div>
                 <br>
@@ -93,11 +93,11 @@
                         <span class="langChange survey-label" lang="en"><label>Uncooperative</label><label>Somewhat uncooperative</label><label>Moderately</label><label>Somewhat cooperative</label><label>Cooperative</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>全く協調的ではない</label><label>やや協調的ではない</label><label>ふつう</label><label>やや協調的だ</label><label>すごく協調的だ</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOpp" id="coopOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOpp" id="coopOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOpp" id="coopOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOpp" id="coopOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOpp" id="coopOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOther" id="coopOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOther" id="coopOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOther" id="coopOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOther" id="coopOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q4_coopOther" id="coopOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -106,11 +106,11 @@
                         <span class="langChange survey-label" lang="en"><label>Unfriendly</label><label>Somewhat unfriendly</label><label>Moderately</label><label>Somewhat friendly</label><label>Friendly</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>全く友好的ではない</label><label>やや友好的ではない</label><label>ふつう</label><label>やや友好的だ</label><label>すごく友好的だ</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOpp" id="friendOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOpp" id="friendOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOpp" id="friendOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOpp" id="friendOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOpp" id="friendOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOther" id="friendOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOther" id="friendOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOther" id="friendOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOther" id="friendOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q5_friendOther" id="friendOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -119,11 +119,11 @@
                         <span class="langChange survey-label" lang="en"><label>Untrustworthy</label><label>Somewhat untrustworthy</label><label>Moderately</label><label>Somewhat trustworthy</label><label>Trustworthy</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>全く信頼できない</label><label>やや信頼できない</label><label>ふつう</label><label>やや信頼できる</label><label>すごく信頼できる</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOpp" id="trustOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOpp" id="trustOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOpp" id="trustOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOpp" id="trustOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOpp" id="trustOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOther" id="trustOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOther" id="trustOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOther" id="trustOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOther" id="trustOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q6_trustOther" id="trustOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -132,11 +132,11 @@
                         <span class="langChange survey-label" lang="en"><label>Short-term focused</label><label>Somewhat short-term focused</label><label>Moderately</label><label>Somewhat long-term focused</label><label>Long-term focused</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>短期的な関係を前提<br>とした行動だ</label><label>やや短期的な関係を<br>前提とした行動だ</label><label>ふつう</label><label>やや長期的な関係を<br>見据えた行動だ</label><label>長期的な関係を<br>見据えた行動だ</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOpp" id="longOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOpp" id="longOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOpp" id="longOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOpp" id="longOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOpp" id="longOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOther" id="longOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOther" id="longOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOther" id="longOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOther" id="longOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q7_longOther" id="longOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -145,11 +145,11 @@
                         <span class="langChange survey-label" lang="en"><label>Selfish</label><label>Somewhat selfish</label><label>Moderately</label><label>Somewhat fair</label><label>Fair</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>自分勝手だ</label><label>やや自分勝手だ</label><label>ふつう</label><label>やや公平だ</label><label>公平だ</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOpp" id="fairOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOpp" id="fairOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOpp" id="fairOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOpp" id="fairOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOpp" id="fairOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOther" id="fairOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOther" id="fairOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOther" id="fairOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOther" id="fairOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q8_fairOther" id="fairOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -158,11 +158,11 @@
                         <span class="langChange survey-label" lang="en"><label>Dishonest</label><label>Somewhat dishonest</label><label>Moderately</label><label>Somewhat honest</label><label>Honest</label></span>
                         <span class="hidden langChange survey-label" lang="jp"><label>全く誠実ではなかった</label><label>やや誠実ではなかった</label><label>ふつう</label><label>やや誠実だった</label><label>誠実だった</label></span>
                         <div class="survey-form-item">
-                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOpp" id="honestOpp1" value="1" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOpp" id="honestOpp2" value="2" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOpp" id="honestOpp3" value="3" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOpp" id="honestOpp4" value="4" onclick="radioChecked()">
-                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOpp" id="honestOpp5" value="5" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOther" id="honestOther1" value="1" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOther" id="honestOther2" value="2" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOther" id="honestOther3" value="3" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOther" id="honestOther4" value="4" onclick="radioChecked()">
+                            <input class="iagoCheckableQuestion" type="radio" name="q9_honestOther" id="honestOther5" value="5" onclick="radioChecked()">
                         </div>
                     </div>
                     <br>
@@ -174,8 +174,8 @@
                         Please rate, on a scale from “Totally realistic” to “Not realistic at all”, how you felt the program acted.
                     </span>
                         <span class="hidden langChange" lang="jp">
-                        交渉相手はプログラムでした．<br>
-                        あなたがプログラムの行動をどのように感じたか"すごく現実的"から"全く現実的ではない"の中から選択してください．
+                        交渉相手はプログラムでした.<br>
+                        あなたがプログラムの行動をどのように感じたか"すごく現実的"から"全く現実的ではない"の中から選択してください.
                     </span>
                     </div>
                     <br>
@@ -245,13 +245,21 @@
                     <br>
                 </div>
             <div class="modal-footer">
-                <div class="hidden" id="warning">
-                    <strong>
-                        <span class="langChange" lang="en">Please answer all questions.</span>
-                        <span class="hidden langChange" lang="jp">すべての設問に回答してください.</span>
-                    </strong>
+                <div>
+                    <div class="hidden" id="warning">
+                        <strong>
+                            <span class="langChange" lang="en">Please answer all questions.</span>
+                            <span class="hidden langChange" lang="jp">すべての設問に回答してください.</span>
+                        </strong>
+                    </div>
+                    <div class="hidden" id="finish">
+                        <strong>
+                            <span class="langChange" lang="en">Please click the button.</span>
+                            <span class="hidden langChange" lang="jp">ボタンをクリックしてください.</span>
+                        </strong>
+                    </div>
                 </div>
-
+                
                 <button type="button" id="surveySubmit" class="btn btn-primary" onclick="submitAll()">
                 <label for="surveySubmit">
                     <span class="langChange" lang="en">Submit</span>

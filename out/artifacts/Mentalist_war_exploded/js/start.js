@@ -103,7 +103,7 @@ function getQueryVariable(variable)
 //The following loads immediately after accessing the page and considers the URL data to determine game type and parameters
 window.onload = function() {
 
-	document.getElementById("MTurkID").value = decodeURI(getQueryVariable("id"));		//user's MTurkID value
+	//document.getElementById("MTurkID").value = decodeURI(getQueryVariable("id"));		//user's MTurkID value
 	document.getElementById("gameMode").value = decodeURI(getQueryVariable("gameMode"));		//gameMode for HH
 	document.getElementById("qualtricsQ1").value = decodeURI(getQueryVariable("q1"));	//q1 represents the user's choice for their agent's behavior
 	q1 = decodeURI(getQueryVariable("q1"));
@@ -257,7 +257,44 @@ window.onload = function() {
 			}
         });
     });
+
+    $(function() {
+        $("#IDSubmitButton").click(function(e) {
+        	var userID = document.getElementById("MTurkID").value;
+            if(userID != "" && !isNaN(userID)) {
+                document.getElementById("formUserData").submit();
+            }
+            else {
+                $("#IDwarning").removeClass("hidden");
+            }
+        });
+    });
+
+    $(function() {
+        $("#beforeIDSubmitButton").click(function(e) {
+            var userID = document.getElementById("beforeMTurkID").value;
+            if(userID != "" && !isNaN(userID)) {
+                document.getElementById("formBefore").submit();
+            }
+            else {
+                $("#beforeIDwarning").removeClass("hidden");
+            }
+        });
+    });
 };
+
+function checkDigit(input){
+    var isDigit = true;
+
+    for (var i = 0; i < input.length(); i++) {
+        isDigit = Character.isDigit(input.charAt(i));
+        if (!isDigit) {
+            break;
+        }
+    }
+
+    return isDigit;
+}
 
 function allChecked(){
 	var element = $("input[name^=q]:checked");

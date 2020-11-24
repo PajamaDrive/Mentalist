@@ -1,3 +1,7 @@
+<%@ page import="java.io.InputStream" %>
+<%@ page import="java.util.Properties" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.util.ArrayList" %>
 <%@ page contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -16,21 +20,36 @@
 <!-- NOTE: Much of the body text on these page appears to be repeated to account for both game conditions.  When users come from Qualtrics the correct text is loaded depending on their condition. -->
 <body>
 	<div id="big5">
-		<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
-		<label for="radio_en">
-			<span class="langChange" lang="en">English</span>
-			<span class="hidden langChange" lang="jp">英語</span>
-		</label>
-		<input type="radio" id="radio_jp" name="lang" value="1">
-		<label for="radio_jp">
-			<span class="langChange" lang="en">Japanese</span>
-			<span class="hidden langChange" lang="jp">日本語</span>
-		</label>
+
 		<div id="questionnaire">
-			<p>
-				<span class="langChange" lang="en">Please fill out the questionnaire.</span>
-				<span class="hidden langChange" lang="jp">事前アンケートにご協力ください．</span>
-			</p><br>
+			<div id="big5Instruction">
+				<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
+				<label for="radio_en">
+					<span class="langChange" lang="en">English</span>
+					<span class="hidden langChange" lang="jp">英語</span>
+				</label>
+				<input type="radio" id="radio_jp" name="lang" value="1">
+				<label for="radio_jp">
+					<span class="langChange" lang="en">Japanese</span>
+					<span class="hidden langChange" lang="jp">日本語</span>
+				</label>
+
+				<p>
+					<span class="langChange" lang="en">Please fill out the questionnaire. <strong>If you answered before</strong>, please enter your ID in the form below.</span>
+					<span class="hidden langChange" lang="jp">事前アンケートにご協力ください．<strong>以前回答した方</strong>は以下のフォームにIDを入力してください．</span>
+				</p>
+
+				<form id="formBefore" target="_self" action="searching.jsp" method="POST">
+					<div style="margin: auto;">
+						<span class="hidden" id="beforeIDwarning">数値のみで構成される文字列を入力してください.</span><br>
+						<strong>Your ID:</strong><input id="beforeMTurkID" name="beforeMTurkID" type="text" value=""><br><br>
+						<input id="beforeIDSubmitButton" type="button" value="Start!" style="height:35px; width:70px;"/>
+					</div>
+				</form>
+			</div>
+			<br>
+			<br>
+
 			<div class="questionArea" id="1">
 				<span class="langChange" lang="en">1. Am the life of the party.</span><span class="hidden langChange" lang="jp">1. 盛り上げ役である</span><br>
 				<input type="radio" name="q1_e" value="1"><label><span class="langChange" lang="en">Very Inaccurate</span><span class="hidden langChange" lang="jp">まったく当てはまらない</span></label>
@@ -549,7 +568,7 @@
 
 
 			<div class="buttonWrapper">
-				<button type="button" id="butQuestionnaireDone" class="questionnaireButton" style="height:50px; width:100px;">
+				<button type="button" id="butQuestionnaireDone" class="questionnaireButton" style="height:35px; width:70px;">
 					<label for="butQuestionnaireDone">
 						<span class="langChange" lang="en">Done</span>
 						<span class="hidden langChange" lang="jp">終了</span>
@@ -748,7 +767,7 @@
 				</form>
 				<div class="hidden wrong" id="wrong3"><em>Oops!  Scroll back up and check the bold sections!</em></div>
 			</div>
-			<form target="_self" action="searching.jsp" method="POST">
+			<form id="formUserData" target="_self" action="searching.jsp" method="POST">
 				<br><br>
 				<!--The below is for internal testing -->
 				<div id="qualtricsHide">
@@ -794,7 +813,6 @@
 					</div>
 				</div>
 				<br><br>
-				<input id="MTurkID" name="MTurkID" type="hidden"  value="">
 				<input id="qualtricsQ1" name="qualtricsQ1" type="hidden" value="">
 				<input id="qualtricsQ2" name="qualtricsQ2" type="hidden" value="">
 				<input id="qualtricsQ3" name="qualtricsQ3" type="hidden" value="">
@@ -857,7 +875,9 @@
 <!-- // 							imgdiv.appendChild(img); -->
 <!-- // 						} -->
 <!-- 				</script> -->
-					<input type="submit" value="Start!" style="height:50px; width:100px;"/>
+					<span class="hidden" id="IDwarning">数値のみで構成される文字列を入力してください.</span><br>
+					<strong>Your ID:</strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>
+					<input id="IDSubmitButton" type="button" value="Start!" style="height:35px; width:70px;"/>
 				</div>
 			</form>
 		</div>

@@ -79,7 +79,7 @@ class FavorGameSpecPart3 extends GameSpec{
 	
 	@Override
 	public String getEndgameMessage() {
-		return "The game has ended!  You'll be redirected to finish soon.";
+		return "The game has ended!  Be prepared, a new game will start with the other opponent soon!";
 	}
 	
 
@@ -92,7 +92,7 @@ class FavorGameSpecPart3 extends GameSpec{
 	@Override
 	public String getRedirectLink()
 	{
-		return "https://usc.qualtrics.com/jfe/form/SV_7QebxGIeZ5sZA7H";
+		return "end.html";
 	}
 
 	@Override

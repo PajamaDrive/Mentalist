@@ -80,7 +80,7 @@ class FavorGameSpecPart1 extends GameSpec{
 
 	@Override
 	public String getEndgameMessage() {
-		return "The game has ended!  Be prepared, a new game will start with the same opponent soon!";
+		return "The game has ended!  Be prepared, a new game will start with the other opponent soon!";
 	}
 	
 	@Override
@@ -92,6 +92,12 @@ class FavorGameSpecPart1 extends GameSpec{
 	@Override
 	public boolean showOpponentScoreOnEnd() {
 		return false;
+	}
+
+	@Override
+	public String getRedirectLink()
+	{
+		return "end.html";
 	}
 
 	@Override

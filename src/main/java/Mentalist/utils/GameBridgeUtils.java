@@ -105,6 +105,8 @@ public class GameBridgeUtils {
 
     public void setwebDir(String webDir){ this.webDir = webDir; }
 
+    public void setNewGameSpec(GameSpec gs){ this.spec = gs; }
+
     public void setNewAgent(GeneralVH vh){
         this.selectedAgent1 = vh;
         this.runner1.setVH(vh);
@@ -120,35 +122,37 @@ public class GameBridgeUtils {
         this.history.addNegotiator(this.selectedAgent1);
     }
 
-    public void setGameSpec(GameSpec spec) {
+    public void setGameSpec(GameSpec spec, boolean flag) {
         this.spec = spec;
-        this.currentGame++;
-        this.surveyData = new HashMap<>();
-        ServletUtils.log("Resetting many things for new game.", ServletUtils.DebugLevels.DEBUG);
         this.issue_locs = new int[spec.getNumIssues()][];
         for (int i = 0; i < spec.getNumIssues(); i++) {
             this.issue_locs[i] = new int[]{0, spec.getIssueQuants()[i], 0};
         }
+        if(flag) {
+            this.currentGame++;
+            this.surveyData = new LinkedHashMap<>();
+            ServletUtils.log("Resetting many things for new game.", ServletUtils.DebugLevels.DEBUG);
 
-        this.menuLoc = "root";
-        this.itemInHand = -1;
-        this.rowInHand = -1;
-        this.quantInHand = 0;
-        this.comparisonItemInHand = -1;
-        this.astate = AcceptanceState.NO_ACCEPTANCE;
-        this.qstate = QuitState.NO_WARNED;
-        this.preferenceState = new Preference();
-        this.oldContents = "something";
-        this.comparisonState = new String[]{" ", "something ", "more than ", "something", " "};
-        WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("intermediate", this.spec.getNewgameMessage())), this.wsSession);
-        this.mediator0.setGameSpec(spec);
-        this.mediator1.setGameSpec(spec);
-        this.dataWritten = false;
-        this.finalOfferWarning = false;
-        configureCustomCursors();
+            this.menuLoc = "root";
+            this.itemInHand = -1;
+            this.rowInHand = -1;
+            this.quantInHand = 0;
+            this.comparisonItemInHand = -1;
+            this.astate = AcceptanceState.NO_ACCEPTANCE;
+            this.qstate = QuitState.NO_WARNED;
+            this.preferenceState = new Preference();
+            this.oldContents = "something";
+            this.comparisonState = new String[]{" ", "something ", "more than ", "something", " "};
+            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("intermediate", this.spec.getNewgameMessage())), this.wsSession);
+            this.mediator0.setGameSpec(spec);
+            this.mediator1.setGameSpec(spec);
+            this.dataWritten = false;
+            this.finalOfferWarning = false;
+            configureCustomCursors();
+        }
     }
 
-    public void onOpenHelper(Session session, EndpointConfig config, GeneralVH agent0, GeneralVH agent1) throws MessagingException {
+    public void onOpenHelper(Session session, EndpointConfig config, GeneralVH agent0, GeneralVH agent1, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness) throws MessagingException {
         if (!ServletUtils.mailReady() && ServletUtils.isDataModeEmail())
             throw new MessagingException("Error: use ServletUtils.setCredentials to set username and password");
         this.wsSession = session;
@@ -160,11 +164,11 @@ public class GameBridgeUtils {
             this.MTurkID = (String) this.httpSession.getAttribute("MTurkID");
             this.userName = this.MTurkID;
         }
-        this.questionnaireNeuroticism = (Integer)httpSession.getAttribute("neuroticism");
-        this.questionnaireExtraversion = (Integer)httpSession.getAttribute("extraversion");
-        this.questionnaireOpenness = (Integer)httpSession.getAttribute("openness");
-        this.questionnaireConscientiouness = (Integer)httpSession.getAttribute("conscientiousness");
-        this.questionnaireAgreeableness = (Integer)httpSession.getAttribute("agreeableness");
+        this.questionnaireNeuroticism = neuroticism;
+        this.questionnaireExtraversion = extraversion;
+        this.questionnaireOpenness = openness;
+        this.questionnaireConscientiouness = conscientiousness;
+        this.questionnaireAgreeableness = agreeableness;
         ServletUtils.log("Registering user to game session: " + this.userName, ServletUtils.DebugLevels.DEBUG);
         this.user = new GeneralNegotiator(this.userName, this.spec, this.wsSession);
         WebSocketUtils.newUser(this.user);

@@ -546,6 +546,7 @@ function radioChecked(){
         }
         if (allChecked()) {
             $("#warning").addClass("hidden");
+            $("#finish").removeClass("hidden");
         }
     }
 

@@ -92,7 +92,7 @@ public class GoogleSpreadSheetUtils{
         // Build a new authorized API client service.
         final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
         final String spreadsheetId = "1AG8eNSX2XYsaxzdE2GMk3vtjIO8c6PovDUEfEKm1q48";
-        List<String> ranges = new ArrayList<>(Arrays.asList("Data1!A2:Y", "Data2!A2:Z", "Data3!A2:Z", "Data4!A2:Y"));
+        List<String> ranges = new ArrayList<>(Arrays.asList("Data1!A2:Y", "Data2!A2:Z", "Data3!A2:Z", "Data4!A2:W", "Data5!A2:M"));
         final List<String> resultRow = Arrays.asList(secondRow.split(","));
         List<ValueRange> data = new ArrayList<>(Arrays.asList(
             new ValueRange().setValues(Arrays.asList(Arrays.asList(
@@ -105,12 +105,15 @@ public class GoogleSpreadSheetUtils{
                 resultRow.subList(51, 77).toArray()
             ))),
             new ValueRange().setValues(Arrays.asList(Arrays.asList(
-                resultRow.subList(77,resultRow.size()).toArray()
+                resultRow.subList(77,100).toArray()
+            ))),
+            new ValueRange().setValues(Arrays.asList(Arrays.asList(
+                resultRow.subList(100,resultRow.size()).toArray()
             )))
         ));
 
         if(!parameter.isEmpty()){
-            ranges.add("Data5!A2:L");
+            ranges.add("Data6!A2:L");
             data.add(new ValueRange().setValues(Arrays.asList(Arrays.asList(
                     parameter.toArray()
             ))));

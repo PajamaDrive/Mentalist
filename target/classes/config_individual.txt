@@ -1,0 +1,6 @@
+agent=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
+gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
+35_agent=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
+35_gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
+12_agent=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
+12_gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3
