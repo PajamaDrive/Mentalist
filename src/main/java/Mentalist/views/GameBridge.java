@@ -1,6 +1,5 @@
 package Mentalist.views;
 
-import Mentalist.agent.MentalistVH;
 import Mentalist.agent.StaticMentalistVH;
 import com.google.gson.Gson;
 import Mentalist.utils.*;
@@ -23,7 +22,6 @@ import java.io.*;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.net.URISyntaxException;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.*;
@@ -208,31 +206,64 @@ public class GameBridge extends HttpServlet  {
 				ServletUtils.log("System class loader is null--cannot load properly.", ServletUtils.DebugLevels.ERROR);
 		}
 
-		if(questionnaireNeuroticism == -1 && questionnaireExtraversion == -1 && questionnaireOpenness == -1 && questionnaireConscientiouness == -1 && questionnaireAgreeableness == -1){
-			try{
-				InputStream big5Input = classLoader.getResourceAsStream("big5_data.txt");
+		try{
+			String folderName = webDir +  "config/" + globalMTurkID ;
+			File folder = new File(folderName);
+			if(!folder.exists()){
+				folder.mkdirs();
+				new File(folderName + "/agent.txt").createNewFile();
+				new File(folderName + "/big5.txt").createNewFile();
+				new File(folderName + "/game.txt").createNewFile();
+			}
 
-				if(big5Input == null) {
-					ServletUtils.log("Configuration file not found!", ServletUtils.DebugLevels.ERROR);
-				}
+			String fileName = folderName + "/big5.txt";
 
-				Properties big5Properties = new Properties();
-				big5Properties.load(big5Input);
+			BufferedReader br = new BufferedReader(new FileReader((new File( fileName))));
 
-				if(big5Properties.getProperty(globalMTurkID + "_neuro") == null || big5Properties.getProperty(globalMTurkID + "_extra") == null || big5Properties.getProperty(globalMTurkID + "_open") == null || big5Properties.getProperty(globalMTurkID + "_consci") == null || big5Properties.getProperty(globalMTurkID + "_agree") == null) {
+			String line;
+			ArrayList<Integer> big5Data = new ArrayList<>();
+
+			while((line = br.readLine()) != null){
+				big5Data.add(Integer.parseInt(line));
+			}
+
+			br.close();
+
+			if(questionnaireNeuroticism == -1 && questionnaireExtraversion == -1 && questionnaireOpenness == -1 && questionnaireConscientiouness == -1 && questionnaireAgreeableness == -1) {
+				if (big5Data.size() != 5)
 					WebSocketUtils.close(session);
-				}
 				else {
-					questionnaireNeuroticism = Integer.parseInt(big5Properties.getProperty(globalMTurkID + "_neuro"));
-					questionnaireExtraversion = Integer.parseInt(big5Properties.getProperty(globalMTurkID + "_extra"));
-					questionnaireOpenness = Integer.parseInt(big5Properties.getProperty(globalMTurkID + "_open"));
-					questionnaireConscientiouness = Integer.parseInt(big5Properties.getProperty(globalMTurkID + "_consci"));
-					questionnaireAgreeableness = Integer.parseInt(big5Properties.getProperty(globalMTurkID + "_agree"));
+					questionnaireNeuroticism = big5Data.get(0);
+					questionnaireExtraversion = big5Data.get(1);
+					questionnaireOpenness = big5Data.get(2);
+					questionnaireConscientiouness = big5Data.get(3);
+					questionnaireAgreeableness = big5Data.get(4);
 				}
 			}
-			catch(Exception e){
-				e.printStackTrace();
+			else {
+				if(big5Data.size() < 5) {
+					try {
+						BufferedWriter bw = new BufferedWriter(new FileWriter((new File(fileName)), true));
+
+						bw.write(Integer.toString(questionnaireNeuroticism));
+						bw.newLine();
+						bw.write(Integer.toString(questionnaireExtraversion));
+						bw.newLine();
+						bw.write(Integer.toString(questionnaireOpenness));
+						bw.newLine();
+						bw.write(Integer.toString(questionnaireConscientiouness));
+						bw.newLine();
+						bw.write(Integer.toString(questionnaireAgreeableness));
+
+						bw.close();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
 			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
 		}
 
 		ServletUtils.log("Neuroticism: " + questionnaireNeuroticism, ServletUtils.DebugLevels.DEBUG);
@@ -242,25 +273,51 @@ public class GameBridge extends HttpServlet  {
 		ServletUtils.log("Agreeableness: " + questionnaireAgreeableness, ServletUtils.DebugLevels.DEBUG);
 
 		try {
-			InputStream individualInput = classLoader.getResourceAsStream("config_individual.txt");
-
-			if(individualInput == null) {
-				ServletUtils.log("Configuration file not found!", ServletUtils.DebugLevels.ERROR);
+			String folderName = webDir +  "config/" + globalMTurkID ;
+			File folder = new File(folderName);
+			if(!folder.exists()){
+				folder.mkdirs();
+				new File(folderName + "/agent.txt").createNewFile();
+				new File(folderName + "/big5.txt").createNewFile();
+				new File(folderName + "/game.txt").createNewFile();
 			}
 
-			Properties individualProperties = new Properties();
-			individualProperties.load(individualInput);
+			String fileName = folderName + "/agent.txt";
+			BufferedReader br = new BufferedReader(new FileReader((new File( fileName))));
+			String line;
+			ArrayList<String> agentData = new ArrayList<>();
 
-			if(individualProperties.getProperty(globalMTurkID + "_agent") == null || individualProperties.getProperty(globalMTurkID + "_gamespec") == null) {
-				ArrayList<String> newConfig = createNewConfig();
+			while((line = br.readLine()) != null){
+				agentData.add(line);
+			}
+
+			br.close();
+
+			fileName = folderName + "/game.txt";
+			br = new BufferedReader(new FileReader((new File( fileName))));
+			ArrayList<String> gameData = new ArrayList<>();
+
+			while((line = br.readLine()) != null){
+				gameData.add(line);
+			}
+
+			br.close();
+
+			ArrayList<String> newConfig = createNewConfig();
+			if(agentData.isEmpty() || gameData.isEmpty()){
 				vhQualifiedName1 = newConfig.get(0);
 				gameSpecMultiName = newConfig.get(1);
 			}
-			else {
-				vhQualifiedName1 = individualProperties.getProperty(globalMTurkID + "_agent");
-				gameSpecMultiName = individualProperties.getProperty(globalMTurkID + "_gamespec");
+			else{
+				ArrayList<String> vhArray = new ArrayList<String>(Arrays.asList(newConfig.get(0).split("\\s*,\\s*")));
+				ArrayList<String> gameArray = new ArrayList<String>(Arrays.asList(newConfig.get(1).split("\\s*,\\s*")));
+				for(int i = 0; i < agentData.size(); i++) {
+					vhArray.remove(agentData.get(i));
+					gameArray.remove(gameData.get(i));
+				}
+				vhQualifiedName1 = vhArray.isEmpty() ? null : String.join(",", vhArray);
+				gameSpecMultiName = gameArray.isEmpty() ? null : String.join(",", gameArray);
 			}
-
 		} catch (IOException e) {
 		}
 
@@ -270,7 +327,7 @@ public class GameBridge extends HttpServlet  {
 		if (gameSpecMultiName == null || gameSpecMultiName.equals(""))
 			gameSpecMultiName =  null;
 
-		if(gameSpecMultiName == null && vhQualifiedName1 == null)
+		if(questionnaireNeuroticism != -1 && gameSpecMultiName == null && vhQualifiedName1 == null)
 			WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", "end.html")), session);
 		else {
 			allGameSpecNames = new ArrayList<String>(Arrays.asList(gameSpecMultiName.split("\\s*,\\s*")));
@@ -549,8 +606,6 @@ public class GameBridge extends HttpServlet  {
 		u.setNewAgent(storedVH1);
 		storedVH1.setGameSpec(gs);
 		this.gs = gs;
-
-
 	}
 
 	private GeneralVH generateAgent(){
@@ -590,8 +645,6 @@ public class GameBridge extends HttpServlet  {
 					Governor.startNegotiating(httpSession);
 				}
 
-				//UserSession user = nRoom.getAdversary(httpSession); //opponent's session info
-				//u.setSessionOther(user.getHttpSession(), user.getWsSession());
 
 				u.setNegotiationMode(NegotiationMode.HUMAN_HUMAN);
 				u.setNRoom(nRoom);
@@ -621,119 +674,33 @@ public class GameBridge extends HttpServlet  {
 	}
 
 	public void updateConfig(){
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-		if(classLoader == null)
-		{
-			ServletUtils.log("Context class loader is null--resources may be improperly loaded", ServletUtils.DebugLevels.WARN);
-			classLoader = ClassLoader.getSystemClassLoader();
-			if (classLoader == null)
-				ServletUtils.log("System class loader is null--cannot load properly.", ServletUtils.DebugLevels.ERROR);
-		}
-
-		LinkedHashMap<String, String> otherProp = new LinkedHashMap<>();
-
-		try {
-			InputStream templateInput = classLoader.getResourceAsStream("config_individual.txt");
-
-			if (templateInput == null) {
-				ServletUtils.log("Configuration file not found!", ServletUtils.DebugLevels.ERROR);
-			}
-
-			Properties templateProperties = new Properties();
-
-			try {
-				templateProperties.load(templateInput);
-
-				Iterator it = templateProperties.keySet().iterator();
-				while (it.hasNext()) {
-					String key = (String) it.next();
-					otherProp.put(key, templateProperties.getProperty(key));
-				}
-
-			} catch (IOException e) {
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
 		try{
-			OutputStream output = new FileOutputStream(new File(classLoader.getResource("config_individual.txt").toURI()));
+			String folderName = webDir +  "config/" + globalMTurkID ;
 
-			Properties properties = new Properties();
-			try {
-				Iterator it = otherProp.keySet().iterator();
-				while(it.hasNext()) {
-					String key = (String) it.next();
-					if(!key.equals(globalMTurkID + "_agent") && !key.equals(globalMTurkID + "_gamespec")) {
-						properties.setProperty(key, otherProp.get(key));
-					}
-				}
+			String fileName = folderName + "/agent.txt";
 
-				properties.setProperty(globalMTurkID + "_agent", String.join(",", allStoredVHNames.subList(currentGame, allStoredVHNames.size())));
-				properties.setProperty(globalMTurkID + "_gamespec", String.join(",",allGameSpecNames.subList(currentGame, allGameSpecNames.size())));
-				properties.store(output, "comments");
+			BufferedWriter bw = new BufferedWriter(new FileWriter((new File( fileName)), true));
 
-			} catch (IOException e) {
-			}
+			bw.write(allStoredVHNames.get(currentGame - 1));
+			bw.newLine();
+
+			bw.close();
+
+			fileName = folderName + "/game.txt";
+
+			bw = new BufferedWriter(new FileWriter((new File( fileName)), true));
+
+			bw.write(allGameSpecNames.get(currentGame - 1));
+			bw.newLine();
+
+			bw.close();
 		}
-		catch(IOException | URISyntaxException e){
-			e.printStackTrace();
-		}
-
-		LinkedHashMap<String, String> otherBig5 = new LinkedHashMap<>();
-
-		try {
-			InputStream templateBig5Input = classLoader.getResourceAsStream("big5_data.txt");
-
-			if (templateBig5Input == null) {
-				ServletUtils.log("Configuration file not found!", ServletUtils.DebugLevels.ERROR);
-			}
-
-			Properties templateBig5Properties = new Properties();
-
-			try {
-				templateBig5Properties.load(templateBig5Input);
-
-				Iterator it = templateBig5Properties.keySet().iterator();
-				while (it.hasNext()) {
-					String key = (String) it.next();
-					otherBig5.put(key, templateBig5Properties.getProperty(key));
-				}
-
-			} catch (IOException e) {
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		try{
-			OutputStream output = new FileOutputStream(new File(classLoader.getResource("big5_data.txt").toURI()));
-
-			Properties properties = new Properties();
-			try {
-				Iterator it = otherBig5.keySet().iterator();
-				while(it.hasNext()) {
-					String key = (String) it.next();
-					if(!key.equals(globalMTurkID + "_neuro") && !key.equals(globalMTurkID + "_extra") && !key.equals(globalMTurkID + "_open") && !key.equals(globalMTurkID + "_consci") && !key.equals(globalMTurkID + "_agree")) {
-						properties.setProperty(key, otherBig5.get(key));
-					}
-				}
-
-				properties.setProperty(globalMTurkID + "_neuro", Integer.toString(questionnaireNeuroticism));
-				properties.setProperty(globalMTurkID + "_extra", Integer.toString(questionnaireExtraversion));
-				properties.setProperty(globalMTurkID + "_open", Integer.toString(questionnaireOpenness));
-				properties.setProperty(globalMTurkID + "_consci", Integer.toString(questionnaireConscientiouness));
-				properties.setProperty(globalMTurkID + "_agree", Integer.toString(questionnaireAgreeableness));
-				properties.store(output, "comments");
-
-			} catch (IOException e) {
-			}
-		}
-		catch(IOException | URISyntaxException e){
-			e.printStackTrace();
+		catch(IOException e){
+			System.out.println(e);
 		}
 	}
 
 	public ArrayList<String> createNewConfig(){
-		ArrayList<String> newConfig = new ArrayList<>();
 		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 		if(classLoader == null)
 		{
@@ -745,10 +712,10 @@ public class GameBridge extends HttpServlet  {
 
 		ArrayList<String> vhArray = new ArrayList<>();
 		ArrayList<String> gameArray = new ArrayList<>();
-		LinkedHashMap<String, String> otherProp = new LinkedHashMap<>();
+		ArrayList<String> newConfig = new ArrayList<>();
 
 		try {
-			InputStream templateInput = classLoader.getResourceAsStream("config_individual.txt");
+			InputStream templateInput = classLoader.getResourceAsStream("config_template.txt");
 
 			if (templateInput == null) {
 				ServletUtils.log("Configuration file not found!", ServletUtils.DebugLevels.ERROR);
@@ -758,14 +725,6 @@ public class GameBridge extends HttpServlet  {
 
 			try {
 				templateProperties.load(templateInput);
-
-				Iterator it = templateProperties.keySet().iterator();
-				while (it.hasNext()) {
-					String key = (String) it.next();
-					otherProp.put(key, templateProperties.getProperty(key));
-					ServletUtils.log("key: " + key + ", value: " + templateProperties.getProperty(key), ServletUtils.DebugLevels.DEBUG);
-				}
-
 				vhArray = new ArrayList<String>(Arrays.asList(templateProperties.getProperty("agent").split("\\s*,\\s*")));
 				gameArray = new ArrayList<String>(Arrays.asList(templateProperties.getProperty("gamespec").split("\\s*,\\s*")));
 
@@ -774,51 +733,29 @@ public class GameBridge extends HttpServlet  {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		try{
-			OutputStream output = new FileOutputStream(new File(classLoader.getResource("config_individual.txt").toURI()));
-
-			Properties properties = new Properties();
-			try {
-				if(Integer.parseInt(globalMTurkID) % 3 == 0){
-					//そのまま
-				}
-				else if(Integer.parseInt(globalMTurkID) % 3 == 1){
-					String vh = vhArray.remove(0);
-					String game = gameArray.remove(0);
-					vhArray.add(vh);
-					gameArray.add(game);
-				}
-				else{
-					ArrayList<String> vh = new ArrayList<>();
-					ArrayList<String> game = new ArrayList<>();
-					vh.add(vhArray.remove(0));
-					vh.add(vhArray.remove(0));
-					game.add(gameArray.remove(0));
-					game.add(gameArray.remove(0));
-					vhArray.addAll(vh);
-					gameArray.addAll(game);
-				}
-
-				Iterator it = otherProp.keySet().iterator();
-				while(it.hasNext()) {
-					String key = (String) it.next();
-					properties.setProperty(key, otherProp.get(key));
-					ServletUtils.log("key: " + key + ", value: " + otherProp.get(key), ServletUtils.DebugLevels.DEBUG);
-				}
-
-				properties.setProperty(globalMTurkID + "_agent", String.join(",", vhArray));
-				properties.setProperty(globalMTurkID + "_gamespec", String.join(",", gameArray));
-				newConfig.add(String.join(",", vhArray));
-				newConfig.add(String.join(",", gameArray));
-
-				properties.store(output, "comments");
-
-			} catch (IOException e) {
-			}
+		if(Integer.parseInt(globalMTurkID) % 3 == 0){
+			//そのまま
 		}
-		catch(IOException | URISyntaxException e){
-			e.printStackTrace();
+		else if(Integer.parseInt(globalMTurkID) % 3 == 1){
+			String vh = vhArray.remove(0);
+			String game = gameArray.remove(0);
+			vhArray.add(vh);
+			gameArray.add(game);
 		}
+		else{
+			ArrayList<String> vh = new ArrayList<>();
+			ArrayList<String> game = new ArrayList<>();
+			vh.add(vhArray.remove(0));
+			vh.add(vhArray.remove(0));
+			game.add(gameArray.remove(0));
+			game.add(gameArray.remove(0));
+			vhArray.addAll(vh);
+			gameArray.addAll(game);
+		}
+
+		newConfig.add(String.join(",", vhArray));
+		newConfig.add(String.join(",", gameArray));
+
 		return newConfig;
 	}
 }

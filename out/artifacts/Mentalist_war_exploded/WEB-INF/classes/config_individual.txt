@@ -1,2 +1,0 @@
-agent=Mentalist.agent.MentalistVH,Mentalist.agent.StaticMentalistVH,Mentalist.agent.PilotStudyVH
-gamespec=Mentalist.views.FavorGameSpecPart1,Mentalist.views.FavorGameSpecPart2,Mentalist.views.FavorGameSpecPart3

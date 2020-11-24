@@ -30,6 +30,8 @@
 							<div class="status text-muted" id="vhDescription">Your
 								opponent will be described here!</div>
 							<div class="alert alert-light" id="vhCurrentUtterance"></div>
+							<div class="userID">Your ID: <span class="userID"><strong><%= request.getParameter("MTurkID")%></strong></span></div>
+
 							<div class="time" id="negoTimer">Time Remaining: Loading</div>
 						</div>
 					</div>

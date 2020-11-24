@@ -385,6 +385,10 @@ input[type=radio]:not([name*="lang"]) + label {
     font-weight: bold;
 }
 
+.userID{
+    font-size: 20px;
+}
+
 button.questionnaireButton {
 
 }
