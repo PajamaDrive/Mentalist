@@ -21,7 +21,7 @@ public class MentalistVH extends MentalistCoreVH {
 	 */
 	public MentalistVH(String name, GameSpec game, Session session)
 	{
-		super("Mentalist", game, session, new MentalistRepeatedFavorBehavior(MentalistRepeatedFavorBehavior.LedgerBehavior.FAIR), new MentalistRepeatedFavorExpression(),
+		super("Mentalist", game, session, new MentalistRepeatedFavorBehavior(MentalistRepeatedFavorBehavior.LedgerBehavior.LIMITED), new MentalistRepeatedFavorExpression(),
 				new MentalistRepeatedFavorMessage(false, false, MentalistRepeatedFavorBehavior.LedgerBehavior.FAIR));
 		
 		super.safeForMultiAgent = true;

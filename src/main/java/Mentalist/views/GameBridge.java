@@ -230,8 +230,10 @@ public class GameBridge extends HttpServlet  {
 			br.close();
 
 			if(questionnaireNeuroticism == -1 && questionnaireExtraversion == -1 && questionnaireOpenness == -1 && questionnaireConscientiouness == -1 && questionnaireAgreeableness == -1) {
-				if (big5Data.size() != 5)
+				if (big5Data.size() != 5) {
+					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", "notyet.html")), session);
 					WebSocketUtils.close(session);
+				}
 				else {
 					questionnaireNeuroticism = big5Data.get(0);
 					questionnaireExtraversion = big5Data.get(1);
@@ -506,8 +508,7 @@ public class GameBridge extends HttpServlet  {
 				else//Otherwise, the user will need to be sent back to Qualtrics to complete the post-game survey:
 				{
 					updateConfig();
-					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd",
-						this.gs.getRedirectLink() + "?id=" + globalMTurkID + "&condition=" + globalCondition)), session);
+					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", this.gs.getRedirectLink())), session);
 					//WebSocketUtils.close(session);
 				}
 			}
@@ -738,19 +739,13 @@ public class GameBridge extends HttpServlet  {
 		}
 		else if(Integer.parseInt(globalMTurkID) % 3 == 1){
 			String vh = vhArray.remove(0);
-			String game = gameArray.remove(0);
 			vhArray.add(vh);
-			gameArray.add(game);
 		}
 		else{
 			ArrayList<String> vh = new ArrayList<>();
-			ArrayList<String> game = new ArrayList<>();
 			vh.add(vhArray.remove(0));
 			vh.add(vhArray.remove(0));
-			game.add(gameArray.remove(0));
-			game.add(gameArray.remove(0));
 			vhArray.addAll(vh);
-			gameArray.addAll(game);
 		}
 
 		newConfig.add(String.join(",", vhArray));

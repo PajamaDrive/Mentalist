@@ -19,36 +19,47 @@
 </head>
 <!-- NOTE: Much of the body text on these page appears to be repeated to account for both game conditions.  When users come from Qualtrics the correct text is loaded depending on their condition. -->
 <body>
+	<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
+	<label for="radio_en">
+		<span class="langChange" lang="en">English</span>
+		<span class="hidden langChange" lang="jp">英語</span>
+	</label>
+	<input type="radio" id="radio_jp" name="lang" value="1">
+	<label for="radio_jp">
+		<span class="langChange" lang="en">Japanese</span>
+		<span class="hidden langChange" lang="jp">日本語</span>
+	</label>
+	<br>
+	<hr>
 	<div id="big5">
-
 		<div id="questionnaire">
 			<div id="big5Instruction">
-				<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
-				<label for="radio_en">
-					<span class="langChange" lang="en">English</span>
-					<span class="hidden langChange" lang="jp">英語</span>
-				</label>
-				<input type="radio" id="radio_jp" name="lang" value="1">
-				<label for="radio_jp">
-					<span class="langChange" lang="en">Japanese</span>
-					<span class="hidden langChange" lang="jp">日本語</span>
-				</label>
-
 				<p>
 					<span class="langChange" lang="en">Please fill out the questionnaire. <strong>If you answered before</strong>, please enter your ID in the form below.</span>
 					<span class="hidden langChange" lang="jp">事前アンケートにご協力ください．<strong>以前回答した方</strong>は以下のフォームにIDを入力してください．</span>
 				</p>
 
 				<form id="formBefore" target="_self" action="searching.jsp" method="POST">
-					<div style="margin: auto;">
-						<span class="hidden" id="beforeIDwarning">数値のみで構成される文字列を入力してください.</span><br>
-						<strong>Your ID:</strong><input id="beforeMTurkID" name="beforeMTurkID" type="text" value=""><br><br>
-						<input id="beforeIDSubmitButton" type="button" value="Start!" style="height:35px; width:70px;"/>
+					<div>
+						<div class="hidden" id="beforeIDWarning">
+							<strong>
+								<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
+								<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+							</strong>
+						</div>
+						<strong>Your ID: </strong><input id="beforeMTurkID" name="beforeMTurkID" type="text" value=""><br><br>
+						<div class="buttonWrapper">
+							<button id="beforeIDSubmitButton" type="button" value="Start"/>
+							<label for="beforeIDSubmitButton">
+								<span class="langChange" lang="en">Start</span>
+								<span class="hidden langChange" lang="jp">スタート</span>
+							</label>
+						</div>
 					</div>
 				</form>
 			</div>
-			<br>
-			<br>
+            <hr>
+            <br>
 
 			<div class="questionArea" id="1">
 				<span class="langChange" lang="en">1. Am the life of the party.</span><span class="hidden langChange" lang="jp">1. 盛り上げ役である</span><br>
@@ -568,7 +579,7 @@
 
 
 			<div class="buttonWrapper">
-				<button type="button" id="butQuestionnaireDone" class="questionnaireButton" style="height:35px; width:70px;">
+				<button type="button" id="butQuestionnaireDone" class="questionnaireButton">
 					<label for="butQuestionnaireDone">
 						<span class="langChange" lang="en">Done</span>
 						<span class="hidden langChange" lang="jp">終了</span>
@@ -576,316 +587,598 @@
 				</button>
 			</div>
 			<hr>
+		</div>
+	</div>
+	<div class="hid" id="mainpage">
+		<div class="welcome instructions">
 
 		</div>
-
-	</div>
-	<div class="hidden" id="mainpage">
-	<div class="welcome instructions">
-		
-	</div>
-	<div class="reminder instructions">
-		<p/>
-		Please read the instructions below. <strong>Pay special attention to the bold sections!</strong>
-	</div>
+		<div class="reminder instructions">
+			<p/>
+			<span class="langChange" lang="en">Please read the instructions below. <strong>Pay special attention to the bold or <span class="attention">red</span> sections!</strong></span>
+			<span class="hidden langChange" lang="jp">以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください!</strong></span>
+		</div>
 	
-	<hr>
-	<div class="reminder instructions">
-		<div id="standardText">
-		
-			<h1>Overview:</h1>
-			<br>
-			<div id="ava1">
-			Your virtual agent is about to engage in a series of negotiation games with a partner.  The objective is to decide how to divide a set of items.<br>
-			If your virtual agent can agree with your partner, you'll receive the points allocated on your side when you agreed.<br>
-			Keep in mind that your agent be playing <strong>3 games</strong>, so watch out for opportunities to do well in the long-run, such as by <strong>exchanging favors!</strong><br>
+		<hr>
+		<div class="reminder instructions">
+			<div id="standardText">
+				<h1>
+					<span class="langChange" lang="en">Overview:</span>
+					<span class="hidden langChange" lang="jp">概要:</span>
+				</h1><br><br>
+				<div id="pva1">
+					<span class="langChange" lang="en">
+						You are about to engage in a series of negotiation games with a partner. <br>
+						The objective is to decide how to divide a set of items.<br>
+						If you can agree with your partner, you'll receive the points allocated on your side when you agreed.<br>
+						You will be playing <strong>3 games</strong>.<br>
+					</span>
+					<span class="hidden langChange" lang="jp">
+						あなたはパートナーとの交渉ゲームに参加しようとしています．<br>
+						交渉の目的は各アイテムをどのように分けるかを決めることです．<br>
+						パートナーと合意に至ることができれば，合意したときに自分の側に割り当てられたポイントを受け取ることができます．<br>
+						交渉は全部で<strong>3回</strong>あります．<br>
+					</span>
+
+				</div>
+				<br>
+				<span class="langChange" lang="en">
+					The <strong>first of 3 games</strong> consists of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks. <br>
+					<strong><span class="attention">Later games may have different items, and they may be worth more or less!  Pay close attention.</span></strong><br>
+					In the first game, you get <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.<br>
+					This means that the records are worth the most to you! <br>
+					Your opponent may want the same items you do, <strong><span class="attention">or they may not</span></strong>. <br>
+					Talking to your partner can help reveal what items they may want.<br>
+				</span>
+
+				<span class="hidden langChange" lang="jp">
+					<strong>最初のゲーム</strong>はレコード，アンティークランプ，絵画，鳩時計の4つのアイテムで構成されています．<br>
+					<strong><span class="attention">2回目以降のゲームは別のアイテムについて交渉する可能性があり、それぞれのアイテムには異なるポイントが割り当てられています! </span></strong><br>
+					最初のゲームでは，<strong>レコード1つにつき4ポイント，絵画1つにつき3ポイント，ランプ1つにつき2ポイント，鳩時計1つにつき1ポイント</strong>を獲得できます．<br>
+					すなわち，このゲームではあなたにとってレコードが一番価値があるということになります．<br>
+					相手はあなたと同じアイテムを<strong><span class="attention">欲しがっているかもしれないし，そうでないかもしれません</span></strong>．<br>
+					相手に尋ねることで，相手が欲しがっているであろうアイテムを知ることができます．<br>
+				</span>
+
+				<br><hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About the Game Board:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						ゲームボード(画面構成)について:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					Below is a picture of the game board. <br>
+					The chat log is on the right, and a picture of your partner on the left. <br>
+					In the bottom half, there is a trade table and buttons.  Near your partner's picture, you may see tips appear to help guide you!<br>
+					In the game, you can send messages and questions to your opponent.<br>
+					You can also move items around on the game board, and send offers. <br>
+					Everything you do will appear in the chat log on the right side of the screen so you can look it over.<br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					下図はゲームボードの画像です．<br>
+					右側にチャットログ，左側に相手の写真があります．<br>
+					下半分にはトレードテーブルとボタンがあります．相手の画像の近くにはヒントが表示されています．<br>
+					ゲーム中には相手にメッセージや質問などを送ることができます．<br>
+					また，ゲームボード上でアイテムを移動させたり，相手に提案を送ったりすることもできます．<br>
+					あなたと相手がしたことはすべて画面右側のチャットログに表示されるので，過去の行動を振り返ることもできます．<br><br>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_whole" alt="Picture of the game board" src="img/instruction_game_board.png" width="650"/>
+				</div>
 			</div>
-			<div id="pva1">
-			You are about to engage in a series of negotiation games with a partner. The objective is to decide how to divide a set of items.<br>
-			If you can agree with your partner, you'll receive the points allocated on your side when you agreed.<br>
-			Keep in mind that you will be playing <strong>3 games</strong>, so watch out for opportunities to do well in the long-run, such as by <strong>exchanging favors!</strong><br>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About the Trade Table:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						トレードテーブルについて:
+					</span>
+				</h1> <br><br>
+				<span class="langChange" lang="en">
+					Below is the trade table. <br>
+					With the trade table <strong>you are able to send offers to your partner</strong>. <br>
+					It will start grayed out.  Click "Start Offer" to enable it. <br>
+					You can click any item to pick it up, then click again to place it.<br>
+					For example, you can click one of the lamps in the middle and then click it to your side.<br>
+					You can click multiple times for more items. <br>
+					Nothing sends until you click "Send Offer".<br><br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					下図はトレードテーブルです．
+					トレードテーブルを使って，<strong>交渉相手に提案を送ることができます</strong>．<br>
+					最初はグレーで表示でされていますが，"Start Offer" をクリックすることでアイテムを配置することが可能になります．<br>
+					アイテムをクリックするとアイテムを掴み，再度クリックすることで配置することができます．<br>
+					例えば，真ん中にあるランプを1回クリックしてから，自分が相手側のランプをクリックすることでランプを割り当てることができます．<br>
+					同じアイテムを複数回クリックすることで複数個掴むことができ，アイテムを1度に複数個割り当てることができます．<br>
+					"Send Offer" をクリックすると相手に提案が送信されますが，クリックするまで何度でもアイテムを再配置することができます．<br><br>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_table1" alt="Picture of the table" src="img/instruction_offer_start.png" width="400" />
+					<img class="instruction-pic" id="instr_table2" alt="Picture of the table" src="img/instruction_offer_send.png" width="400" />
+				</div>
+				<br>
+				<span class="langChange" lang="en">
+					You can also accept or reject <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below. <br>
+					<strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
+					Pressing "Formal Accept" is only possible if ALL items are either on your side or your partner's. <br>
+					If you both agree, the game is finished! <br>
+					<strong><span class="attention">Formal Accept is possible when there are no undecided items</span></strong>, as shown in the figure on the right below.<br><br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					また，下図左に示すように相手があなたに送ってくる<strong>部分的な</strong>提案を受け入れたり(Accept)，拒否したり(Reject)することもできます．<br>
+					<strong>これらの提案を受け入れたりすることによる拘束は特にありませんが，最終的な提案を構築するのに役立ちます</strong>．<br>
+					"Formal Accept" をすることができるのは，すべてのアイテムがあなたもしくは相手に割り当てられているときのみです．<br>
+					両者が "Formal Accept" によって同意した場合，ゲームは終了です．<br>
+					"Formal Accept" は下図右のように，<strong><span class="attention">まだ決まっていない(Undecidedに配置されている)アイテムがない場合に可能です</span></strong>．<br><br>
+				</span>
+				<div>
+					<img class="instruction-pic" id="instr_table3" alt="Picture of the table" src="img/instruction_offer_reaction.png" width="400" />
+					<img class="instruction-pic" id="instr_table4" alt="Picture of the table" src="img/instruction_formal_accept.png" width="400" />
+				</div>
 			</div>
-			<br>
-			The <strong>first of 3 games</strong> consists of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks. <br>
-			<strong>Later games may have different items, and they may be worth more or less!  Pay close attention.</strong>
-			<br>
-			<div id="ava2">
-			In the first game, your agent gets <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.  <br>
-			This means that the records are worth the most to it!  Your opponent may want the same items, <strong>or they may not</strong>.<br>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About Emoticons and Avatars:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						顔文字とアバターについて:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					The buttons you see below can be used to send emoticons in chat!<br>
+					The blinking emoticon is representing your current emotional state. <br>
+					Use it to communicate how you feel about the negotiation!<br>
+					Depending on how you feel about the your opponent's messages or offers, there's a possibility that they may also change their behavior towards you.<br>
+					<strong><span class="attention">Knowing the partner's emotions is also important in negotiations</span></strong>.<br>
+					So <strong>be proactive in expressing your emotions!</strong><br><br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					下図のボタンは，チャットで絵文字を送信するために使用することができます!<br>
+					点滅している顔文字は，あなたが最後に送信した感情を表しています．<br>
+					交渉や相手の行動に対する気持ちを伝えるのに使いましょう．<br>
+					相手のメッセージや提案に対する気持ち次第で，相手もあなたに対する行動を変更する可能性があります．<br>
+					<strong><span class="attention">交渉では，相手の感情を知ることも重要になります</span></strong>．<br>
+					そのため，<strong>積極的に相手に対して顔文字を送信しましょう!</strong><br><br>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_emo" alt="Picture of the emotion buttons" src="img/instruction_emotion.png" width="300"/>
+				</div>
+				<br>
+				<span class="langChange" lang="en">
+					You will be assigned an avatar that will be visible to your partner.  <br>
+					Your avatar will change facial expressions when you send an emoticon. <br>
+					You will be able to see your opponent's avatar across from the chat box.  <br>
+					Their avatar's facial expression will also change when they send emoticons. <br>
+					Below is an example of what your avatar could look like.<br><br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					あなたには固有のアバターが割り当てられており，相手のゲームボードに表示されています．<br>
+					アバターは顔文字を送るとそれに応じて表情が変わります．<br>
+					あなたのゲームボードには相手のアバターが表示されています．<br>
+					相手が顔文字を送ると，あなたのゲームボード上のアバターの表情が変わります．<br>
+					下図は，自分のアバターがどのように見えているかの例です．<br><br>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_avatar" alt="Picture of an avatar" src="img/ChrRens/ChrRens_Smile.jpg" width="200"/>
+				</div>
 			</div>
-			<div id="pva2">
-			In the first game, you get <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.<br>
-			This means that the records are worth the most to you!  Your opponent may want the same items you do, <strong>or they may not</strong>.  Talking to your partner can help reveal what items they may want.<br>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About Sending Messages:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						メッセージ送信について:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					You can send a message using the button at the bottom right of the screen.<br>
+					Sending messages <strong> lets them know how you feel about the negotiations and their offers</strong>.<br>
+					Therefore, <strong><span class="attention">the sending of messages is an important element in facilitating negotiations</span></strong>.Take advantage of it!<br>
+					You can send the following types of messages to your partner.<br>
+					<ul>
+						<li>Asking your partner's preferences</li>
+						<li>Expressing your preferences</li>
+						<li>Reacting to the their behavior</li>
+						<li>Making even better agreement</li>
+					</ul>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					画面右下のボタンでメッセージを送ることができます．<br>
+					メッセージを送ることで<strong>交渉や相手の提案に対してあなたがどう思っているかを相手に伝えることができます</strong>．<br>
+					そのため，<strong><span class="attention">メッセージの送信は交渉を円滑に進める上で重要な要素となります</span></strong>．ぜひ活用しましょう．<br>
+					相手には，以下のようなタイプのメッセージを送ることができます，<br>
+					<ul>
+						<li>相手の好みを聞く</li>
+						<li>あなたの好みを伝える</li>
+						<li>相手の行動に反応する</li>
+						<li>より良い合意案を探る</li>
+					</ul>
+				</span>
+				<div>
+					<img class="instruction-pic" id="instr_message" alt="Picture of the message button" src="img/instruction_message_button.png" width="400" />
+				</div>
 			</div>
-			<br>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About Expressing and Asking Preferences:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						好みを聞く・伝える方法について:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					Below you can find an image of the preference menu. <br>
+					During the negotiation you can <strong>express your own preferences for items and ask your opponent specific questions about their preferences</strong>.<br>
+					Telling your opponent your preferences or asking to their preferences can have <stong> a positive outcome for both parties.</stong><br>
+					Clicking either of the first two buttons on the right side will let you <strong>express your preferences for items</strong>. <br>
+					Just click the item you want to talk about once, then click again in one of the boxes.<br>
+					Here, you can see that you're about to ask that your opponent like "paintings" "more than" "cuckoo clocks".<br>
+					You can also click the "more than" symbol to turn it into different options, like "equal" or "best".<br><br>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					下図に好みについてのメッセージを作成する場面の画像を示します．<br>
+					交渉の際には<strong>あなたの好みを伝えたり，相手の好みについて質問をしたりすることができます</strong>．<br>
+					相手にあなたの好みを伝えたり相手の好みを聞いたりすることで，<strong>双方にとってプラスになることがあります</strong>．<br>
+					ゲームボードの右下にあるボタンをクリックすることで好みについてのメッセージを送信することができます．<br>
+					"Ask your opponent's preferences"で相手の好み，"Tell your own preferences"であなたの好みに関するメッセージを送信できます．<br>
+					上側のアイテムを一度クリックしてから，下側のボックスをクリックすると相手に送る内容を変更することができます．<br>
+					下図では，欲しがっているアイテムは "絵画" ">" "鳩時計" ですか？と相手に聞こうとしています．<br>
+					また ">" のマークをクリックすると，"=" や "一番好き" のように別の聞き方をすることができます。<br><br>
+				</span>
+				<div>
+					<img class="instruction-pic" id="instr_relation" alt="Picture of the relation options" src="img/instruction_preference.png" width="400" />
+				</div>
+			</div>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About Sending Friendly/Unfriendly/Neutral Messages:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						ポジティブ・ネガティブ・ニュートラルメッセージの送信について:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					You can tell your partner how you feel by sending each message.<br>
+					There are positive, negative and neutral messages.<br>
+					You can send these messages by clicking the third button from the top on the right side of the game board.<br>
+					Many messages convey your feelings in the moment to them, but some of these messages may prompt them to take certain actions.<br>
+					There are messages that <strong>request them to send an offer</strong>, respectively, as folllows.<br>
+					<ul>
+						<li>Friendly options: <strong>Would you please make an offer?</strong></li>
+						<li>Unfriendly options: <strong>What wrong with you? Hurry up and make an offer!</strong></li>
+					</ul>
+
+					There are also messages that threaten the opponent.<br>
+					<ul>
+						<li>Friendly options: I'm sorry but I think I may walk away.</li>
+						<li>Unfriendly options: You making me want to walk away from this!</li>
+					</ul>
+
+					The following message also <strong>asks them to tell you about them preferences</strong>.<br>
+					<ul>
+						<li>Neutral options: <strong>So could you tell me about your preferences?</strong></li>
+					</ul>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					各メッセージを送ることで，相手に自分の気持ちなどを伝えることができます．<br>
+					ポジティブなメッセージ，ネガティブなメッセージ，中立なメッセージなどがあります．<br>
+					これらのメッセージはゲームボード右下の "Use emotion to influence your opponent" をクリックすることで送信できます．<br>
+					多くのメッセージはそのときの気持ちを相手に伝えるものですが，中には相手に特定の行動を促すメッセージもあります．<br>
+					<strong>相手に提案してもらうように促す</strong>メッセージは以下の通りです．<br>
+					<ul>
+						<li>Friendly options: <strong>Would you please make an offer?</strong></li>
+						<li>Unfriendly options: <strong>What wrong with you? Hurry up and make an offer!</strong></li>
+					</ul>
+					相手を脅すメッセージもあります．<br>
+					<ul>
+						<li>Friendly options: I'm sorry but I think I may walk away.</li>
+						<li>Unfriendly options: You making me want to walk away from this!</li>
+					</ul>
+					<strong>相手の好みを何でもいいから知りたいとき</strong>は以下のメッセージを使用してください．<br>
+					<ul>
+						<li>Neutral options: <strong>So could you tell me about your preferences?</strong></li>
+					</ul>
+				</span>
+				<div>
+					<img class="instruction-pic" id="instr_message_general" alt="Picture of the message button" src="img/instruction_message.png" width="400" />
+					<img class="instruction-pic" id="instr_message_friendly" alt="Picture of the friendly message button" src="img/instruction_message_friendly.png" width="400" /><br><br>
+					<img class="instruction-pic" id="instr_message_unfriendly" alt="Picture of the unfriendly message button" src="img/instruction_message_unfriendly.png" width="400" />
+					<img class="instruction-pic" id="instr_message_neutral" alt="Picture of the neutral message button" src="img/instruction_message_other.png" width="400" />
+				</div>
+			</div>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						About Sending Other Messages:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						その他のメッセージ送信について:
+					</span>
+				</h1><br><br>
+				<span class="langChange" lang="en">
+					The green button in the lower right of the screen allows you to exchange information with your partner, including information that is more directly related to the outcome of the negotiation.<br>
+					You can use the following messages to <strong>convey the points you already have at the start of the negotiation (called BATNA)</strong> to them.<br>
+					You can change what you tell them by moving the slider.<br>
+					<ul>
+						<li>My bottom line is...</li>
+					</ul>
+					If you want to know their BATNA, please send the following message.<br>
+					<ul>
+						<li>So could you tell me what's your bottom line?</li>
+					</ul>
+					Use the message below to ask them to send you a good offer.<br>
+					<ul>
+						<li>Would you please send a good deal in exchange for a favor?</li>
+					</ul>
+					If they send you a good offer by the above message, give them return the favor and they will be happy too!<br>
+					Let them know that you will repay them with the following message.<br>
+					<ul>
+						<li>I'm returning the favor to you! Give me a deal good for you.</li>
+					</ul>
+				</span>
+				<span class="hidden langChange" lang="jp">
+					画面右下の緑色のボタンを押すと，交渉の結果に直結する情報などを相手とやりとりすることができます．<br>
+					<strong>あなたが交渉開始時点ですでに持っているポイント(BATNAといいます)</strong>を相手に伝えるには，以下のようなメッセージを使用します．<br>
+					スライダーを動かすことで相手に伝える内容を変えることができます．
+					<ul>
+						<li>My bottom line is...</li>
+					</ul>
+					相手のBATNAを知りたい場合は，以下のメッセージを送ってください．<br>
+					<ul>
+						<li>So could you tell me what's your bottom line?</li>
+					</ul>
+					あなたにとって良い提案をしてもらいたい場合は以下のメッセージを使用します．<br>
+					<ul>
+						<li>Would you please send a good deal in exchange for a favor?</li>
+					</ul>
+					上記のメッセージで相手が良い提案を送ってくれたら，あなたもお返しをしてあげると相手も喜んでくれるはずです！<br>
+					以下のメッセージを使って，お返しをする旨を伝えましょう．<br>
+					<ul>
+						<li>I'm returning the favor to you! Give me a deal good for you.</li>
+					</ul>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_message_info" alt="Picture of the other message button" src="img/instruction_other_info.png" width="400" />
+					<img class="instruction-pic" id="instr_message_batna" alt="Picture of the batna" src="img/instruction_batna.png" width="400" /><br>
+				</div>
+			</div>
+
+			<div>
+				<hr>
+				<h1>
+					<span class="langChange" lang="en">
+						Some Final Important Notes:
+					</span>
+					<span class="hidden langChange" lang="jp">
+						その他重要事項:
+					</span>
+				</h1><br>
+				<span class="langChange" lang="en">
+					<ul>
+						<li>The items and your preferences WILL CHANGE for each game if you are playing multiple games, so make sure to click the "<strong>View Payoffs</strong>" button at the bottom left of the screen if you need a reminder what you're looking for.
+							A pop-up will appear, as shown below.
+							You can see the value you get with each item and your BATNA. Negotiate to get a better value than BATNA!</li>
+						<li>The ONLY way to finish the game is to press "Formal Accept" and have your partner also press it, or for time to run out.  Pressing "Accept (non-binding)" will not work.</li>
+						<li>When negotiation time is run out, you get the points you have as BATNA. <strong>Since BATNA is considerably less value, <span class="attention">try to reach a "Formal Accept" in time as much as possible!</span></strong></li>
+						<li><strong>You don't necessarily have to tell the truth about preferences or BATNA</strong>. However, be aware that <strong>lying can be difficult to negotiate</strong>.</li>
+						<li><strong>Your partner may lie as well.</strong></li>
+					</ul>
+				</span>
+
+				<span class="hidden langChange" lang="jp">
+					<ul>
+						<li>ゲームが複数回あるときは各ゲームでアイテムや好みが変わるので，あなたが何を好んでいるのか確認したい場合は，画面左下の <strong>"View Payoffs"</strong> ボタンをクリックしてください．
+							下図のようなポップアップが表示されます．
+							各アイテムのポイントとBATNAで得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
+						<li>ゲームは "Formal Accept" を両者が押すか，時間切れになると終了します．"Accept (non-binding)" を押しても交渉が終了するわけではありません．</li>
+						<li>交渉時間がなくなるとBATNAとして持っているポイントが獲得できます．<strong>しかしBATNAの価値はかなり低いので，<span class="attention">できるだけ時間内に "Formal Accept" にたどり着くようにしましょう!</span></strong></li>
+						<li>好みやBATNAについて<strong>必ずしも本当のことを言わなければならないわけではありません</strong>．しかし嘘をつくと<strong>交渉が難しくなる場合がある</strong>ので注意しましょう．</li>
+						<li><strong>同様に相手も嘘をつく可能性があります．</strong></li>
+					</ul>
+				</span>
+
+				<div>
+					<img class="instruction-pic" id="instr_payoff" alt="Picture of the view payoff" src="img/instruction_payoff.png" width="400" />
+				</div>
+			</div>
 			<hr>
-			<h1>About the Game Board:</h1>
-			<br>
-			Below is a picture of the game board. The chat log is on the right, and a picture of your partner on the left. In the bottom half, there is a trade table and buttons.  Near your partner's picture, you may see tips appear to help guide you!
-			<br>
-			<div id="pva3">
-			In the game, you can send messages and questions to your opponent. You can also move items around on the game board, and send offers. <br>
-			Everything you do will appear in the chat log on the right side of the screen so you can look it over.<br>
-			</div>
-			
-			<div id="ava3">
-			In the game, your agent can send messages and questions to your opponent. It can also move items around on the game board, and send offers. <br>
-			Everything it does will appear in the chat log on the right side of the screen so you can look it over.<br>
-			</div>
-		    <br>
-		</div>
-		<div>
-			<img class="instruction-pic" id="instr_whole" alt="Picture of the game board" src="img/instr_whole.PNG" width="590" height="426" />
 		</div>
 
-		<hr>
-		<br>
-		<h1>About the Trade Table:</h1> <br>
-		<div id="ava4">
-		Below is the trade table. With the trade table <strong>your agent can send offers to your partner</strong>.  You cannot interact with this interface and must watch your agent do so for you.
-		    Your agent can click any item to pick it up, then click again to place it.
-			For example, it can click one of the lamps in the middle and then click it to your side.  It can click multiple times for more items.  Nothing sends until it clicks "Send Offer".<br><br>
-			It can also accept or reject <strong>PARTIAL</strong> offers that your partner sends it. <strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
-			Pressing "Formal Accept" is only possible if ALL items are either on its side or your partner's.  If they both agree, the game is finished!  <br><br>
-		</div>
-		<div id="pva4">
-		Below is the trade table. With the trade table <strong>you are able to send offers to your partner</strong>.  It will start grayed out.  Click "Start Offer" to enable it.  You can click any item to pick it up, then click again to place it.<br>
-			For example, you can click one of the lamps in the middle and then click it to your side.  You can click multiple times for more items.  Nothing sends until you click "Send Offer".<br><br>
-			You can also accept or reject <strong>PARTIAL</strong> offers that your partner sends you. <strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
-			Pressing "Formal Accept" is only possible if ALL items are either on your side or your partner's.  If you both agree, the game is finished!  <br><br>
-		</div>
-			
-		<div>
-			<img class="instruction-pic" id="instr_table" alt="Picture of the table" src="img/instr_table.PNG" width="543" height="347" />
-		</div>
-		<br>
-		<hr>
-		<br>
-		<h1>About Emoticons and Avatars:</h1>
-		<br> 
-		<div id="pva5">
-		The buttons you see below can be used to send emoticons in chat! The blinking emoticon is representing your current emotional state. Use it to communicate how you feel about the negotiation!<br><br>
-		</div>
-		<div id="ava5">
-		The buttons you see below can be used by your agent to send emoticons in chat! The blinking emoticon is representing your current emotional state. Your agent can use it to communicate how it feels about the negotiation!<br><br>
-		</div>
-		<div>
-			<img class="instruction-pic" id="instr_emo" alt="Picture of the emotion buttons" src="img/instr_emo.PNG" width="316" height="90" />
-		</div>
-		<br>
-		<div id="pva6">
-		You will be assigned an avatar that will be visible to your partner.  Your avatar will change facial expressions when you send an emoticon.  You will be able
-		to see your opponent's avatar across from the chat box.  <br> Their avatar's facial expression will also change when they send emoticons.  Below is an example of what your avatar could look like.
-		</div>
-		<div id="ava6">
-		Your agent will be assigned an avatar that will be visible to your partner.  Your agent's avatar will change facial expressions when it sends an emoticon.  You will be able
-		to see your opponent's avatar across from the chat box.  <br> Their avatar's facial expression will also change when they send emoticons.  Below is an example of what your agent's avatar could look like.
-		</div>
-		<br>
-		<img class="instruction-pic" id="instr_table" alt="Picture of an avatar" src="img/ChrBrad/ChrBrad_SmallSmile.png"/>
-		<div>
-		<br>
-		<hr>
-		<br>	
-		<h1>About Expressing Preferences:</h1>
-		<br>
-		<div id="pva7">
-		<br>
-		Below you can find an image of the preference menu. During the negotiation you can <strong>express your own preferences for items and ask your opponent specific questions about their preferences</strong>.
-		<br>
-		Clicking either of the first two buttons on the right side will let you <strong>express your preferences for items</strong>. Just click the item you want to talk about once,
-		then click again in one of the boxes.  
-		<br>
-		Here, you can see that you're about to say that you like "lamps" "less than" "paintings".  You can also click the "less than" symbol to turn it into different
-		options, like "equal" or "best".<br><br>	
-		</div>				
-		<div id="ava7">
-		<br>
-		Below you can find an image of the preference menu. During the negotiation your agent can <strong>express its preferences for items and ask your opponent specific questions about their preferences</strong>.
-		<br>
-		Clicking either of the first two buttons on the right side will let it <strong>express its preferences for items</strong>. 
-		<br>
-		Here, you can see that it's about to say that it likes "lamps" "less than" "paintings".  It can also click the "less than" symbol to turn it into different
-		options, like "equal" or "best".<br><br>	
-		</div>
-		</div>
-		<div>
-			<img class="instruction-pic" id="instr_relation" alt="Picture of the relation options" src="img/instr_relation.PNG" width="560" height="276" />
-		</div>
-		<div>
-		<br>
-		<hr>
-		<br>
-		<h1>Some Final Important Notes:</h1>	
-		<div id="pva8">
-		<ul>
-		<li>The ONLY way to finish the game is to press "Formal Accept" and have your partner also press it, or for time to run out.  Pressing "Accept (non-binding)" will not work.</li>
-		<li>The items and your preferences WILL CHANGE for each game if you are playing multiple games, so make sure to click the "View Payoffs" button if you need a reminder what you're looking for.</li>
-		</ul>
-		</div>
-		<div id="ava8">
-		<ul>
-		<li> <strong>Your interface will be disabled and you will watch your agent play for you against your opponent.</strong></li>
-		<li>The ONLY way to finish the game is for your agent to press "Formal Accept" and have your partner also press it, or for time to run out.  Pressing "Accept (non-binding)" will not work.</li>
-		<li>The items and your preferences WILL CHANGE for each game if you are playing multiple games, so make sure to click the "View Payoffs" button if you need a reminder what you're looking for.</li>
-		</ul>
-		</div>
-		</div>
-		<hr>
-	</div>	
-			<br><br><strong>If you are coming from Qualtrics, you only need to answer the 3 quiz questions below and click 'Start!' to begin the game.  If you are not coming from Qualtrics and do not want MTurk credit 
-			then there will be a form below which you can fill in with your game preferences.<br> <br> <br> </strong>
-			<div id="quiz" align="left">
+		<div id="quiz" align="left">
+			<span class="langChange" lang="en">
 				<br><br>Answer the below questions for the 'start' button to appear!<br><br>
 				1) What item is worth the most to you?
-				<form action="">
-					<input type="radio" name="item" value="wrong"> lamps<br>
-					<input type="radio" name="item" value="wrong"> paintings<br>
-					<input id="ans1" type="radio" name="item" value="right"> boxes of records<br>
-					<input type="radio" name="item" value="wrong"> cuckoo clocks<br>
-				</form>
-				<div class="hidden wrong" id="wrong1"><em>Oops!  Scroll back up and check the bold sections!</em></div>
-		
-				<br><br>
-				2) What item is worth the least to you?
-				<form action="">
-					<input id="ans2" type="radio" name="pref" value="right"> cuckoo clocks<br>
-		
-					<input type="radio" name="pref" value="wrong"> paintings<br>
-					<input type="radio" name="pref" value="wrong"> lamps<br>
-					<input type="radio" name="pref" value="wrong"> boxes of records
-				</form>
-				
-				<div class="hidden wrong" id="wrong2"><em>Oops!  Scroll back up and check the bold sections!</em></div>
-				<br><br>
-				3) Which item is worth the same amount of points to you and your opponent?
-				<form action="">
-					<input type="radio" name="offer" value="wrong"> lamps<br>
-					<input type="radio" name="offer" value="wrong"> paintings<br>
-					<input type="radio" name="offer" value="wrong"> It's impossible to know this.<br>
-					<input id="ans3" type="radio" name="offer" value="right"> It depends on the opponent's preferences which can be discovered by asking them questions.
-				</form>
-				<div class="hidden wrong" id="wrong3"><em>Oops!  Scroll back up and check the bold sections!</em></div>
-			</div>
-			<form id="formUserData" target="_self" action="searching.jsp" method="POST">
-				<br><br>
-				<!--The below is for internal testing -->
-				<div id="qualtricsHide">
-				<h2>Testing Agent vs Agent Form Section:</h2>
-				<p>Note: The following form is intended for internal testing.  This form can be submitted to create an agent as if the user had come from Qualtrics.</p>
-					<input type="radio" name="gameChoice" value="self" onclick="hideDiv()"> I want to play the game for myself<br>
-				  	<input type="radio" name="gameChoice" value="agent" onclick="showDiv()"> I want to make an agent to play for me (click to fill in form)<br>
-				  	<br><br>
-				  	<div id="survey" style="display:none;">
-					Select expression:
-					<select name="expression">
-					  <option value="PosNeg">Positive Negative</option>
-					  <option value="Neutral">Neutral</option>
-					  <option value="Happy">Happy</option>
-					  <option value="Angry">Angry</option>
-					</select>
-					<br><br>
-					Select behavior:
-					<select name="behavior">
-					  <option value="Building">Building</option>
-					  <option value="Competitive">Competitive</option>
-					</select>
-					<br><br>
-					Select messages:
-					<select name="message">
-					  <option value="Negative">Negative</option>
-					  <option value="Neutral">Neutral</option>
-					  <option value="Positive">Positive</option>
-					  <option value="PosNeg">Positive Negative</option>
-					</select>
-					<br><br>
-					Select withholding information:
-					<select name="withhold">
-					  <option value="Withholding">Able to withhold</option>
-					  <option value="Open">Unable to withhold</option>
-					</select>
-					<br><br>
-					Select honesty:
-					<select name="honesty">
-					  <option value="Honest">Honest</option>
-					  <option value="Lying">Lying</option>
-					</select>
-					</div>
-				</div>
-				<br><br>
-				<input id="qualtricsQ1" name="qualtricsQ1" type="hidden" value="">
-				<input id="qualtricsQ2" name="qualtricsQ2" type="hidden" value="">
-				<input id="qualtricsQ3" name="qualtricsQ3" type="hidden" value="">
-				<input id="qualtricsQ4" name="qualtricsQ4" type="hidden" value="">
-				<input id="qualtricsFlag" name="qualtricsFlag" type="hidden" value="ON">
-				<input id="gameChoice" name="gameChoice" type="hidden" value="">
-				<input id="gameMode" name="gameMode" type="hidden" value="">
-				<input id="condition" name="condition" type="hidden" value="">
+			</span>
+			<span class="hidden langChange" lang="jp">
+				<br><br>以下の質問に答えて "スタート" ボタンを押してください!<br><br>
+				1) あなたにとって最も価値のあるアイテムは何ですか?
+			</span>
 
-				<input id="neuroticism" name="neuroticism" type="hidden" value="">
-				<input id="extraversion" name="extraversion" type="hidden" value="">
-				<input id="openness" name="openness" type="hidden" value="">
-				<input id="conscientiousness" name="conscientiousness" type="hidden" value="">
-				<input id="agreeableness" name="agreeableness" type="hidden" value="">
-
-				<div class="post instructions hidden" style="margin: auto;">
-					Congratulations, you answered all three questions correctly.  The 'Start!' button below is now available.  However, we <strong>highly</strong>
-					 recommend that you first experiment in the <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank">sandbox</a> first.  You can experiment with the interface in a new window before matching with your opponent!
-					<br>
-					<br>
-					<div id="reminderText"></div>
-					<br>
-					<div id="reminderPhoto"></div>
-<!-- 					<script> -->
-<!-- // 						var img = new Image(); -->
-<!-- // 						var imgdiv = document.getElementById('reminderPhoto'); -->
-<!-- // 						var remtxt = document.getElementById('reminderText'); -->
-<!-- // 						var cond = decodeURI(getQueryVariable("condition")); -->
-<!-- // 						//The followiung logic loads the correct opponent image depending on whether user is playing against agent or human: -->
-<!-- // 						if(cond === "hpva") -->
-<!-- // 						{ -->
-<!-- // 							img.src = "img/pcondition.jpg"; -->
-<!-- // 							img.width = 300; -->
-<!-- // 							img.height = 300; -->
-<!-- // 							remtxt.append("REMINDER: You will negotiate against another human.  You will be connected once a match is found. ") -->
-<!-- // 							imgdiv.appendChild(img); -->
-<!-- // 						} -->
-<!-- // 						else if(cond === "hava") -->
-<!-- // 						{ -->
-<!-- // 							img.src = "img/pcondition.jpg"; -->
-<!-- // 							img.width = 300; -->
-<!-- // 							img.height = 300; -->
-<!-- // 							remtxt.append("REMINDER: You will program a virtual agent to negotiate against a human.  You will be connected once a match is found. ") -->
-<!-- // 							imgdiv.appendChild(img); -->
-<!-- // 						} -->
-<!-- // 						else if(cond === "apva" ) -->
-<!-- // 						{ -->
-<!-- // 							img.src = "img/acondition.png"; -->
-<!-- // 							img.width = 300; -->
-<!-- // 							img.height = 300; -->
-<!-- // 							remtxt.append("REMINDER: You will negotiate against a virtual agent. You will be connected once a connection to the agent's server is established.") -->
-<!-- // 							imgdiv.appendChild(img); -->
-<!-- // 						} -->
-<!-- // 						else if(cond === "aava" ) -->
-<!-- // 						{ -->
-<!-- // 							img.src = "img/acondition.png"; -->
-<!-- // 							img.width = 300; -->
-<!-- // 							img.height = 300; -->
-<!-- // 							remtxt.append("REMINDER: You will program a virtual agent to negotiate against another virtual agent.  You will be connected once a connection to the agent's server is established.") -->
-<!-- // 							imgdiv.appendChild(img); -->
-<!-- // 						} -->
-<!-- 				</script> -->
-					<span class="hidden" id="IDwarning">数値のみで構成される文字列を入力してください.</span><br>
-					<strong>Your ID:</strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>
-					<input id="IDSubmitButton" type="button" value="Start!" style="height:35px; width:70px;"/>
-				</div>
+			<form action="">
+				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
+				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
+				<input id="ans1" type="radio" name="item" value="right"><label><span class="langChange" lang="en">boxes of records</span><span class="hidden langChange" lang="jp">レコード</span></label><br>
+				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
 			</form>
+			<div class="hidden wrong" id="wrong1"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
+
+			<br><br>
+			<span class="langChange" lang="en">
+				2) What item is worth the least to you?
+			</span>
+			<span class="hidden langChange" lang="jp">
+				2) あなたにとって最も価値のないアイテムは何ですか?
+			</span>
+			<form action="">
+				<input id="ans2" type="radio" name="pref" value="right"><label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
+				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
+				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
+				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">boxes of records</span><span class="hidden langChange" lang="jp">レコード</span></label>
+			</form>
+
+			<div class="hidden wrong" id="wrong2"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
+
+
+			<br><br>
+			<span class="langChange" lang="en">
+				3) Which item is worth the same amount of points to you and your opponent?
+			</span>
+			<span class="hidden langChange" lang="jp">
+				3) あなたと相手，両者にとって同じ価値があるアイテムはどれですか?
+			</span>
+			<form action="">
+				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
+				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
+				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">It's impossible to know this.</span><span class="hidden langChange" lang="jp">相手の好みを知ることは不可能なのでわからない</span></label><br>
+				<input id="ans3" type="radio" name="offer" value="right"><label><span class="langChange" lang="en">It depends on the opponent's preferences which can be discovered by asking them questions.</span><span class="hidden langChange" lang="jp">質問して知った相手の好みによる</span></label>
+			</form>
+			<div class="hidden wrong" id="wrong3"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
 		</div>
-		<div id="wait" class="hidden">
-			<h1>Please waiting for others to join...</h1>
-		</div>
-		<div id="in-use" class="hidden">
-			<h1>You are already in a room.</h1>
-		</div>
+		<form id="formUserData" target="_self" action="searching.jsp" method="POST">
+			<br><br>
+			<!--The below is for internal testing -->
+			<div id="qualtricsHide">
+			<h2>Testing Agent vs Agent Form Section:</h2>
+			<p>Note: The following form is intended for internal testing.  This form can be submitted to create an agent as if the user had come from Qualtrics.</p>
+				<input type="radio" name="gameChoice" value="self" onclick="hideDiv()"> I want to play the game for myself<br>
+				<input type="radio" name="gameChoice" value="agent" onclick="showDiv()"> I want to make an agent to play for me (click to fill in form)<br>
+				<br><br>
+				<div id="survey" style="display:none;">
+				Select expression:
+				<select name="expression">
+				  <option value="PosNeg">Positive Negative</option>
+				  <option value="Neutral">Neutral</option>
+				  <option value="Happy">Happy</option>
+				  <option value="Angry">Angry</option>
+				</select>
+				<br><br>
+				Select behavior:
+				<select name="behavior">
+				  <option value="Building">Building</option>
+				  <option value="Competitive">Competitive</option>
+				</select>
+				<br><br>
+				Select messages:
+				<select name="message">
+				  <option value="Negative">Negative</option>
+				  <option value="Neutral">Neutral</option>
+				  <option value="Positive">Positive</option>
+				  <option value="PosNeg">Positive Negative</option>
+				</select>
+				<br><br>
+				Select withholding information:
+				<select name="withhold">
+				  <option value="Withholding">Able to withhold</option>
+				  <option value="Open">Unable to withhold</option>
+				</select>
+				<br><br>
+				Select honesty:
+				<select name="honesty">
+				  <option value="Honest">Honest</option>
+				  <option value="Lying">Lying</option>
+				</select>
+				</div>
+			</div>
+			<br><br>
+			<input id="qualtricsQ1" name="qualtricsQ1" type="hidden" value="">
+			<input id="qualtricsQ2" name="qualtricsQ2" type="hidden" value="">
+			<input id="qualtricsQ3" name="qualtricsQ3" type="hidden" value="">
+			<input id="qualtricsQ4" name="qualtricsQ4" type="hidden" value="">
+			<input id="qualtricsFlag" name="qualtricsFlag" type="hidden" value="ON">
+			<input id="gameChoice" name="gameChoice" type="hidden" value="">
+			<input id="gameMode" name="gameMode" type="hidden" value="">
+			<input id="condition" name="condition" type="hidden" value="">
+
+			<input id="neuroticism" name="neuroticism" type="hidden" value="">
+			<input id="extraversion" name="extraversion" type="hidden" value="">
+			<input id="openness" name="openness" type="hidden" value="">
+			<input id="conscientiousness" name="conscientiousness" type="hidden" value="">
+			<input id="agreeableness" name="agreeableness" type="hidden" value="">
+
+			<div class="post instructions hidden" style="margin: auto;">
+				<span class="langChange" lang="en">
+					Congratulations, you answered all three questions correctly.  The 'Start!' button below is now available.<br>
+					However, we <strong>highly</strong> recommend that you first experiment in the <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: larger; font-weight: bolder">sandbox</span></a> first.  <br>
+					You can experiment with the interface in a new window before matching with your opponent!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					すべての質問に正解しました．以下の "スタート" ボタンをクリックしてください．<br>
+					まずは<a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: larger; font-weight: bolder">ここ</span></a>で動作の確認をしてみることを<strong>強く</strong>お勧めします．<br>
+					相手とマッチングする前に，インターフェイスを試してみてください．
+				</span>
+				<br>
+				<br>
+				<div id="reminderText"></div>
+				<br>
+				<div id="reminderPhoto"></div>
+				<div class="hidden" id="IDWarning">
+					<strong>
+						<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
+						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+					</strong>
+				</div>
+				<strong>Your ID: </strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>
+				<div class="buttonWrapper">
+					<button id="IDSubmitButton" type="button" value="Start"/>
+					<label for="IDSubmitButton">
+						<span class="langChange" lang="en">Start</span>
+						<span class="hidden langChange" lang="jp">スタート</span>
+					</label>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="wait" class="hidden">
+		<h1>Please waiting for others to join...</h1>
+	</div>
+	<div id="in-use" class="hidden">
+		<h1>You are already in a room.</h1>
+	</div>
 </body>
 </html>

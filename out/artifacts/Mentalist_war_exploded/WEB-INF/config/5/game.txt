@@ -1,3 +1,2 @@
-Mentalist.views.FavorGameSpecPart3
 Mentalist.views.FavorGameSpecPart1
 Mentalist.views.FavorGameSpecPart2

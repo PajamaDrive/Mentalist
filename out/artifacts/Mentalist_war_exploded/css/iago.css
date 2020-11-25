@@ -374,9 +374,22 @@ input[type=radio]:not([name*="lang"]) + label {
 
 .buttonWrapper {
     text-align: center;
+    position: relative;
+    height: 60px;
 }
 
-#warning, #IDwarning, #beforeIDwarning{
+.buttonWrapper > button {
+    position: absolute;
+    left: 30px;
+    height: 40px;
+    width: 75px;
+}
+
+.buttonWrapper > label {
+    font-size: 14px;
+}
+
+#warning, #IDWarning, #beforeIDWarning{
     color: #E82020;
 }
 
@@ -391,4 +404,8 @@ input[type=radio]:not([name*="lang"]) + label {
 
 button.questionnaireButton {
 
+}
+
+.attention {
+    color: #E82020;
 }

@@ -717,9 +717,6 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 					this.behavior.addNegMessageNum();
 				}
 			}
-			if(behavior != null) {
-				this.behavior.addThreatNum();
-			}
 			break;
 		case PREF_REQUEST:
 				sc = Event.SubClass.PREF_INFO;
@@ -978,7 +975,10 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			{
 				str += "No way!  You still owe me from before...";
 				sc = Event.SubClass.FAVOR_REJECT;
-			}			
+			}
+			if(behavior != null) {
+				this.behavior.addFavorRequestNum();
+			}
 			break;
 		case FAVOR_RETURN:
 			if(behavior != null) {

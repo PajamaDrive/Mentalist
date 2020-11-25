@@ -43,7 +43,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	protected QueueList<Integer> acceptNum;
 	protected int preEmotion;
 	protected int lieNum;
-	protected int threatNum;
+	protected int favorRequestNum;
 	protected int prefRequestNum;
 	protected int favorReturnNum;
 	protected int fastBehaviorNum;
@@ -153,7 +153,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		this.preferenceExpressionNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
 		this.preEmotion = 1;
 		this.lieNum = 0;
-		this.threatNum = 0;
+		this.favorRequestNum = 0;
 		this.prefRequestNum = 0;
 		this.favorReturnNum = 0;
 		this.timingThreshold = 3;
@@ -556,14 +556,14 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double selfishFortunate = selfishNum.mean() + fortunateNum.mean();
 		double extraOfferPoint = normarize(selfishFortunate, max(RATE_MAX, selfishFortunate), min(RATE_MIN, selfishFortunate));
 
-		double threatPoint = normarize(threatNum, max(SPECIAL_MES_MAX, threatNum), -SPECIAL_MES_MAX);
-		double extraBehaviorPoint = min(1.0, -normarize(behaviorFrequency, max(behaviorFrequency, 40.0),  min(behaviorFrequency, 10.0)) + threatPoint);
+		double favorRequestPoint = normarize(favorRequestNum, max(SPECIAL_MES_MAX, favorRequestNum), -SPECIAL_MES_MAX);
+		double extraBehaviorPoint = min(1.0, -normarize(behaviorFrequency, max(behaviorFrequency, 40.0),  min(behaviorFrequency, 10.0)) + favorRequestPoint);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("selfish + fortunate: " + selfishNum.mean() + fortunateNum.mean(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("selfish + fortunate point: " + extraOfferPoint, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("threat: " + threatNum, ServletUtils.DebugLevels.DEBUG);
-		ServletUtils.log("threat point: " + threatPoint, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("favor request: " + favorRequestNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("favor request point: " + favorRequestPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("behavior: " + behaviorFrequency, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("extraBeh: " + extraBehaviorPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("extraOffer: " + extraOfferPoint, ServletUtils.DebugLevels.DEBUG);
@@ -643,8 +643,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double utilRatio = normarize(calcUtilRate(previousOffers), max(0.7, calcUtilRate(previousOffers)), min(0.2, calcUtilRate(previousOffers)));
 		double agreeOfferPoint = (behaviorSensePoint + utilRatio) / 2;
 
-		double agreeBehavior = acceptNum.sum() + posEmotionNum.doubleSum() + posMessageNum.sum() + favorReturnNum;
-		double agreeBehaviorPoint = normarize(agreeBehavior, max(BEH_NUM_MAX, agreeBehavior), 0.0);
+		double favorReturnPoint = -normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
+		double agreeBehavior = acceptNum.sum() + posEmotionNum.doubleSum() + posMessageNum.sum();
+		double agreeBehaviorPoint = min(1.0, normarize(agreeBehavior, max(BEH_NUM_MAX, agreeBehavior), 0.0) + favorReturnPoint);
 
 		ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("behavior sense: " + behaviorSense, ServletUtils.DebugLevels.DEBUG);
@@ -653,6 +654,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		ServletUtils.log("offer rate point: " + utilRatio, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("accept: " + acceptNum.sum(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("favor return: " + favorReturnNum, ServletUtils.DebugLevels.DEBUG);
+		ServletUtils.log("favor return point: " + favorReturnPoint, ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("posEmo sum: " + posEmotionNum.doubleSum(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("posMes sum: " + posMessageNum.sum(), ServletUtils.DebugLevels.DEBUG);
 		ServletUtils.log("agreeOffer: " + agreeOfferPoint, ServletUtils.DebugLevels.DEBUG);
@@ -904,7 +906,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	}
 
 	//脅しの回数
-	public void addThreatNum(){ this.threatNum += 1; }
+	public void addFavorRequestNum(){ this.favorRequestNum += 1; }
 
 	//選好に関する質問の回数
 	public void addPreferenceAskNum(){ this.preferenceAskNum.enQueue(1); }
@@ -1181,8 +1183,8 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 					//we will naively cash them immediately regardless of game importance
 					//take entire category
 					utils.modifyOfferLedger(-1);
-					propose.setItem(opponentFave, new int[]{allocated.getItem(opponentFave)[0] + free[opponentFave], 0, allocated.getItem(opponentFave)[2]});
-					free[opponentFave] = 0;
+					propose.setItem(opponentFave, new int[]{allocated.getItem(opponentFave)[0] + 1, free[opponentFave] - 1, allocated.getItem(opponentFave)[2]});
+					free[opponentFave] -= 1;
 					return propose;
 				} else if (utils.getVerbalLedger() > 0) //we have favors to return!
 				{

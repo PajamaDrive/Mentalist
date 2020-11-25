@@ -265,7 +265,7 @@ window.onload = function() {
                 document.getElementById("formUserData").submit();
             }
             else {
-                $("#IDwarning").removeClass("hidden");
+                $("#IDWarning").removeClass("hidden");
             }
         });
     });
@@ -277,7 +277,7 @@ window.onload = function() {
                 document.getElementById("formBefore").submit();
             }
             else {
-                $("#beforeIDwarning").removeClass("hidden");
+                $("#beforeIDWarning").removeClass("hidden");
             }
         });
     });

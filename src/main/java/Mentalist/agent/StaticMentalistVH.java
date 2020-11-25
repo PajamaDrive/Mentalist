@@ -21,7 +21,7 @@ public class StaticMentalistVH extends MentalistCoreVH {
 	 */
 	public StaticMentalistVH(String name, GameSpec game, Session session, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness)
 	{
-		super("StaticMentalist", game, session, new StaticMentalistBehavior(StaticMentalistBehavior.LedgerBehavior.FAIR, neuroticism, extraversion, openness, conscientiousness, agreeableness), new MentalistRepeatedFavorExpression(),
+		super("StaticMentalist", game, session, new StaticMentalistBehavior(StaticMentalistBehavior.LedgerBehavior.LIMITED, neuroticism, extraversion, openness, conscientiousness, agreeableness), new MentalistRepeatedFavorExpression(),
 				new MentalistRepeatedFavorMessage(false, false, StaticMentalistBehavior.LedgerBehavior.FAIR));
 		
 		super.safeForMultiAgent = true;
