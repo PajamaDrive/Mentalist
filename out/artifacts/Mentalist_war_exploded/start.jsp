@@ -600,7 +600,7 @@
 				The underlines correspond to <strong>the areas highlighted in the image</strong>.
 			</span>
 			<span class="hidden langChange" lang="jp">
-				以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください!</strong><br>
+				以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください! </strong>
 				下線部分は<strong>画像で強調している部分</strong>と対応しています．<br>
 			</span>
 		</div>
@@ -620,9 +620,9 @@
 						You will be playing <strong>3 games</strong>.<br>
 					</span>
 					<span class="hidden langChange" lang="jp">
-						あなたは相手との交渉ゲームに参加しようとしています．<br>
-						交渉の目的は各アイテムをどのように分けるかを決定することです．<br>
-						相手と合意に至ることができれば，合意したときに自分の側に割り当てられたポイントを受け取ることができます．<br>
+						あなたは相手との交渉ゲームに参加しようとしています．
+						交渉の目的は各アイテムをどのように分けるかを決定することです．
+						相手と合意に至ることができれば，合意したときに自分の側に割り当てられたポイントを受け取ることができます．
 						交渉は全部で<strong>3回</strong>あります．<br>
 					</span>
 
@@ -638,11 +638,11 @@
 				</span>
 
 				<span class="hidden langChange" lang="jp">
-					<strong>最初のゲーム</strong>はレコード，アンティークランプ，絵画，鳩時計の4つのアイテムで構成されています．<br>
+					<strong>最初のゲーム</strong>はレコード，アンティークランプ，絵画，鳩時計の4つのアイテムで構成されています．
 					<strong><span class="attention">2回目以降のゲームは別のアイテムについて交渉する可能性があり、それぞれのアイテムには異なるポイントが割り当てられています! </span></strong><br>
-					最初のゲームでは，<strong>レコード1つにつき4ポイント，絵画1つにつき3ポイント，ランプ1つにつき2ポイント，鳩時計1つにつき1ポイント</strong>を獲得できます．<br>
+					最初のゲームでは，<strong>レコード1つにつき4ポイント，絵画1つにつき3ポイント，ランプ1つにつき2ポイント，鳩時計1つにつき1ポイント</strong>を獲得できます．
 					すなわち，このゲームではあなたにとってレコードが一番価値があるということになります．<br>
-					相手はあなたと同じアイテムを<strong><span class="attention">欲しがっているかもしれないし，そうでないかもしれません</span></strong>．<br>
+					相手はあなたと同じアイテムを<strong><span class="attention">欲しがっているかもしれないし，そうでないかもしれません</span></strong>．
 					相手に尋ねることで，相手が欲しがっているであろうアイテムを知ることができます．<br>
 				</span>
 
@@ -664,9 +664,9 @@
 					Everything you do will appear in the chat log on the right side of the screen so you can look it over.<br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					下図はゲームボードの画像です．<br>
-					右側にチャットログ，左側に相手の写真があります．<br>
-					下半分にはトレードテーブルとボタンがあります．相手の画像の近くにはヒントが表示されています．<br>
+					下図はゲームボードの画像です．
+					右側にチャットログ，左側に相手の写真があります．
+					下半分にはトレードテーブルとボタンがあります．相手の画像の近くにはヒントが表示されています．
 					ゲーム中には相手にメッセージや質問などを送ることができます．<br>
 					また，ゲームボード上でアイテムを移動させたり，相手に提案を送ったりすることもできます．<br>
 					あなたと相手がしたことはすべて画面右側のチャットログに表示されるので，過去の行動を振り返ることもできます．<br><br>
@@ -698,10 +698,10 @@
 				</span>
 				<span class="hidden langChange" lang="jp">
 					下図はトレードテーブルです．
-					トレードテーブルを使って，<strong>交渉相手に提案を送ることができます</strong>．<br>
-					最初はグレーで表示でされていますが，<span class="underLine colorBlue">"Start an Offer"</span> をクリックすることでアイテムを配置することが可能になります．<br>
-					アイテムを<span class="underLine colorRed">クリックするとアイテムを掴み</span>，<span class="underLine colorRed">再度クリックすることで配置</span>することができます．<br>
-					例えば，真ん中にあるランプを1回クリックしてから，自分が相手側のランプをクリックすることでランプを割り当てることができます．<br>
+					トレードテーブルを使って，<strong>交渉相手に提案を送ることができます</strong>．
+					最初はグレーで表示されていますが，<span class="underLine colorBlue">"Start an Offer"</span> をクリックすることでアイテムを配置することが可能になります．<br>
+					アイテムを<span class="underLine colorRed">クリックするとアイテムを掴み</span>，<span class="underLine colorRed">再度クリックすることで配置</span>することができます．
+					例えば，真ん中にあるランプを1回クリックしてから，自分が相手側のランプをクリックすることでランプを割り当てることができます．
 					同じアイテムを<span class="underLine colorRed">複数回クリックすることで複数個掴む</span>ことができ，アイテムを1度に複数個割り当てることができます．<br>
 					<span class="underLine colorBlue">"Send your Offer"</span> をクリックすると相手に提案が送信されますが，クリックするまで何度でもアイテムを再配置することができます．<br><br>
 				</span>
@@ -724,10 +724,10 @@
 					<strong><span class="attention">Formal Accept is possible when there are no undecided items</span></strong>, as shown in the figure on the right below.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					また，下図左に示すように相手があなたに送ってくる<strong>部分的な</strong>提案を<span class="underLine colorGreen">受け入れたり(Accept)</span>，<span class="underLine colorRed">拒否したり(Reject)</span>することもできます．<br>
+					また，下図左に示すように相手があなたに送ってくる<strong>部分的な</strong>提案を<span class="underLine colorGreen">受け入れたり(Accept)</span>，<span class="underLine colorRed">拒否したり(Reject)</span>することもできます．
 					<strong>これらの提案を受け入れたりすることによる拘束は特にありませんが，最終的な提案を構築するのに役立ちます</strong>．<br>
-					<span class="underLine colorBlue">"Formal Accept"</span> をすることができるのは，すべてのアイテムがあなたもしくは相手に割り当てられているときのみです．<br>
-					両者が "Formal Accept" によって同意した場合，ゲームは終了です．<br>
+					<span class="underLine colorBlue">"Formal Accept"</span> をすることができるのは，すべてのアイテムがあなたもしくは相手に割り当てられているときのみです．
+					両者が "Formal Accept" によって同意した場合，ゲームは終了です．
 					"Formal Accept" は下図右のように，<strong><span class="attention">まだ決まっていない(Undecidedに配置されている)アイテムがない場合に可能です</span></strong>．<br><br>
 				</span>
 				<div>
@@ -755,11 +755,11 @@
 					So <strong>be proactive in expressing your emotions!</strong><br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					下図は，顔文字を送信するボタンです．<br>
-					点滅している顔文字は，あなたが最後に送信した感情を表しています．<br>
+					下図は，顔文字を送信するボタンです．
+					点滅している顔文字は，あなたが最後に送信した感情を表しています．
 					交渉や相手の行動に対する気持ちを伝えるのに使いましょう．<br>
-					相手のメッセージや提案に対する気持ち次第で，相手もあなたに対する行動を変更する可能性があります．<br>
-					<strong><span class="attention">交渉では，相手の感情を知ることも重要になります</span></strong>．<br>
+					相手のメッセージや提案に対する気持ち次第で，相手もあなたに対する行動を変更する可能性があります．
+					<strong><span class="attention">交渉では，相手の感情を知ることも重要になります</span></strong>．
 					そのため，<strong>積極的に相手に対して顔文字を送信しましょう!</strong><br><br>
 				</span>
 
@@ -775,10 +775,10 @@
 					Below is an example of what your avatar could look like.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					あなたには固有のアバターが割り当てられており，相手のゲームボードに表示されています．<br>
+					あなたには固有のアバターが割り当てられており，相手のゲームボードに表示されています．
 					アバターは顔文字を送るとそれに応じて表情が変わります．<br>
-					あなたのゲームボードには相手のアバターが表示されています．<br>
-					相手が顔文字を送ると，あなたのゲームボード上のアバターの表情が変わります．<br>
+					あなたのゲームボードには相手のアバターが表示されています．
+					相手が顔文字を送ると，あなたのゲームボード上のアバターの表情が変わります．
 					下図は，自分のアバターがどのように見えているかの例です．<br><br>
 				</span>
 
@@ -810,9 +810,9 @@
 					</ul>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					画面右下のボタンでメッセージを送ることができます．<br>
-					メッセージを送ることで<strong>交渉や相手の提案に対してあなたがどう思っているかを相手に伝えることができます</strong>．<br>
-					そのため，<strong><span class="attention">メッセージの送信は交渉を円滑に進める上で重要な要素となります</span></strong>．ぜひ活用しましょう．<br>
+					画面右下のボタンでメッセージを送ることができます．
+					メッセージを送ることで<strong>交渉や相手の提案に対してあなたがどう思っているかを相手に伝えることができます</strong>．
+					そのため，<strong><span class="attention">メッセージの送信は交渉を円滑に進める上で重要な要素となります</span></strong>．ぜひ活用しましょう．
 					相手には，以下のようなタイプのメッセージを送ることができます，<br>
 					<ul>
 						<li>相手の好みを聞く</li>
@@ -846,13 +846,13 @@
 					You can also <span class="underLine colorGreen">click the "more than" symbol</span> to turn it into different options, like "equal" or "best".<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					下図に好みについてのメッセージを作成する場面の画像を示します．<br>
-					交渉の際には<strong>あなたの好みを伝えたり，相手の好みについて質問をしたりすることができます</strong>．<br>
+					下図に好みについてのメッセージを作成する場面の画像を示します．
+					交渉の際には<strong>あなたの好みを伝えたり，相手の好みについて質問をしたりすることができます</strong>．
 					相手にあなたの好みを伝えたり相手の好みを聞いたりすることで，<strong>双方にとってプラスになることがあります</strong>．<br>
-					ゲームボードの右下にあるボタンをクリックすることで好みについてのメッセージを送信することができます．<br>
+					ゲームボードの右下にあるボタンをクリックすることで好みについてのメッセージを送信することができます．
 					"Ask your opponent's preferences"で相手の好み，"Tell your own preferences"であなたの好みに関するメッセージを送信できます．<br>
-					<span class="underLine colorRed">上側のアイテムを一度クリック</span>してから，<span class="underLine colorBlue">下側のボックスをクリック</span>すると相手に送る内容を変更することができます．<br>
-					下図では，欲しがっているアイテムは "絵画" ">" "鳩時計" ですか？と相手に聞こうとしています．<br>
+					<span class="underLine colorRed">上側のアイテムを一度クリック</span>してから，<span class="underLine colorBlue">下側のボックスをクリック</span>すると相手に送る内容を変更することができます．
+					下図では，欲しがっているアイテムは "絵画" ">" "鳩時計" ですか？と相手に聞こうとしています．
 					また．<span class="underLine colorGreen"> ">" のマークをクリック</span>すると "=" や "一番好き" のように別の聞き方をすることができます．<br><br>
 				</span>
 				<div>
@@ -898,10 +898,10 @@
 					</ul>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					各メッセージを送ることで，相手に自分の気持ちなどを伝えることができます．<br>
-					ポジティブなメッセージ，ネガティブなメッセージ，中立なメッセージなどがあります．<br>
+					各メッセージを送ることで，相手に自分の気持ちなどを伝えることができます．
+					ポジティブなメッセージ，ネガティブなメッセージ，中立なメッセージなどがあります．
 					これらのメッセージはゲームボード右下の "Use emotion to influence your opponent" をクリックすることで送信できます．<br>
-					多くのメッセージはそのときの気持ちを相手に伝えるものですが，中には相手に特定の行動を促すメッセージもあります．<br>
+					多くのメッセージはそのときの気持ちを相手に伝えるものですが，中には相手に特定の行動を促すメッセージもあります．
 					<strong>相手に提案してもらうように促す</strong>メッセージは以下の通りです．<br>
 					<ul>
 						<li>Friendly options: <span class="underLine colorBlue"><strong>Would you please make an offer?</strong></span></li>
@@ -972,8 +972,8 @@
 					</ul>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					画面右下の緑色のボタンを押すと，交渉の結果に直結する情報などを相手とやりとりすることができます．<br>
-					<strong>あなたが交渉開始時点ですでに持っているポイント(BATNAといいます)</strong>を相手に伝えるには，以下のようなメッセージを使用します．<br>
+					画面右下の緑色のボタンを押すと，交渉の結果に直結する情報などを相手とやりとりすることができます．
+					<strong>あなたが交渉開始時点ですでに持っているポイント(BATNAといいます)</strong>を相手に伝えるには，以下のようなメッセージを使用します．
 					スライダーを動かすことで相手に伝える内容を変えることができます．
 					<ul>
 						<li><span class="underLine colorRed">My bottom line is...</span></li>
@@ -986,7 +986,7 @@
 					<ul>
 						<li><span class="underLine colorGreen">Would you please send a good deal in exchange for a favor?</span></li>
 					</ul>
-					上記のメッセージで相手が良い提案を送ってくれたら，あなたもお返しをしてあげると相手も喜んでくれるはずです！<br>
+					上記のメッセージで相手が良い提案を送ってくれたら，あなたもお返しをしてあげると相手も喜んでくれるはずです！
 					以下のメッセージを使って，お返しをする旨を伝えましょう．<br>
 					<ul>
 						<li><span class="underLine colorOrange">I'm returning the favor to you! Give me a deal good for you.</span></li>
@@ -1257,18 +1257,18 @@
 
 			<div class="post instructions hidden" style="margin: auto;">
 				<span class="langChange" lang="en">
-					Congratulations, you answered all three questions correctly.  The 'Start!' button below is now available.<br>
 					However, we <strong>highly</strong> recommend to check the operation <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">here</span></a> first.  <br>
 					This is only a confirmation of the operation, <strong>not an action from your partner</strong>.<br><br>
 					Be sure to <span class="attention"><strong>confirm that the ID displayed to the right of your partner's avatar is yours</strong></span> when you start negotiating.<br>
-					We recommend <span class="attention"><strong>duplicating this page</strong></span> so you can play it while checking the operation.
+					We recommend <span class="attention"><strong>duplicating this page</strong></span> so you can play it while checking the operation.<br>
+					When you're ready, click the 'Start!' button below.<br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					すべての質問に正解しました．以下の "スタート" ボタンをクリックしてください．<br>
-					まずは<a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">ここ</span></a>で操作の確認をしてみることを<strong>強く</strong>おすすめします．<br>
+					まずは<a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">ここ</span></a>で操作の確認をしてみることを<strong>強く</strong>おすすめします．
 					あくまで操作の確認なので<strong>相手から何か行動してくるわけではありません</strong>．<br><br>
-					交渉が開始したら必ず<span class="attention"><strong>相手のアバターの右に表示されているIDがあなたのものか確認</strong></span>してください．<br>
-					<strong>交渉は英語で行われます!</strong><span class="attention"><strong>このページを複製する</strong></span>と操作を確認しながらプレイできるのでおすすめです．
+					交渉が開始したら必ず<span class="attention"><strong>相手のアバターの右に表示されているIDがあなたのものか確認</strong></span>してください．
+					<strong>交渉は英語で行われます! 適宜</strong><span class="attention"><strong>説明賞を確認</strong></span>しながら交渉を行うと操作を確認しながらプレイできるのでおすすめです．<br>
+					準備ができましたら以下の "スタート" ボタンをクリックしてください．<br>
 				</span>
 				<br>
 				<br>
