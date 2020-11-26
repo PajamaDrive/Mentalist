@@ -595,8 +595,14 @@
 		</div>
 		<div class="reminder instructions">
 			<p/>
-			<span class="langChange" lang="en">Please read the instructions below. <strong>Pay special attention to the bold or <span class="attention">red</span> sections!</strong></span>
-			<span class="hidden langChange" lang="jp">以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください!</strong></span>
+			<span class="langChange" lang="en">
+				Please read the instructions below. <strong>Pay special attention to the bold or <span class="attention">red</span> sections!</strong><br>
+				The underlines correspond to <strong>the areas highlighted in the image</strong>.
+			</span>
+			<span class="hidden langChange" lang="jp">
+				以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください!</strong><br>
+				下線部分は<strong>画像で強調している部分</strong>と対応しています．<br>
+			</span>
 		</div>
 	
 		<hr>
@@ -614,9 +620,9 @@
 						You will be playing <strong>3 games</strong>.<br>
 					</span>
 					<span class="hidden langChange" lang="jp">
-						あなたはパートナーとの交渉ゲームに参加しようとしています．<br>
-						交渉の目的は各アイテムをどのように分けるかを決めることです．<br>
-						パートナーと合意に至ることができれば，合意したときに自分の側に割り当てられたポイントを受け取ることができます．<br>
+						あなたは相手との交渉ゲームに参加しようとしています．<br>
+						交渉の目的は各アイテムをどのように分けるかを決定することです．<br>
+						相手と合意に至ることができれば，合意したときに自分の側に割り当てられたポイントを受け取ることができます．<br>
 						交渉は全部で<strong>3回</strong>あります．<br>
 					</span>
 
@@ -684,44 +690,49 @@
 				<span class="langChange" lang="en">
 					Below is the trade table. <br>
 					With the trade table <strong>you are able to send offers to your partner</strong>. <br>
-					It will start grayed out.  Click "Start Offer" to enable it. <br>
-					You can click any item to pick it up, then click again to place it.<br>
+					It will start grayed out.  Click <span class="underLine colorBlue">"Start an Offer"</span> to enable it. <br>
+					You can <span class="underLine colorRed">click any item to pick it up</span>, then <span class="underLine colorRed">click again to place it</span>.<br>
 					For example, you can click one of the lamps in the middle and then click it to your side.<br>
-					You can click multiple times for more items. <br>
-					Nothing sends until you click "Send Offer".<br><br>
+					You can <span class="underLine colorRed">click multiple times for more items</span>. <br>
+					Nothing sends until you click <span class="underLine colorBlue">"Send your Offer"</span>.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
 					下図はトレードテーブルです．
 					トレードテーブルを使って，<strong>交渉相手に提案を送ることができます</strong>．<br>
-					最初はグレーで表示でされていますが，"Start Offer" をクリックすることでアイテムを配置することが可能になります．<br>
-					アイテムをクリックするとアイテムを掴み，再度クリックすることで配置することができます．<br>
+					最初はグレーで表示でされていますが，<span class="underLine colorBlue">"Start an Offer"</span> をクリックすることでアイテムを配置することが可能になります．<br>
+					アイテムを<span class="underLine colorRed">クリックするとアイテムを掴み</span>，<span class="underLine colorRed">再度クリックすることで配置</span>することができます．<br>
 					例えば，真ん中にあるランプを1回クリックしてから，自分が相手側のランプをクリックすることでランプを割り当てることができます．<br>
-					同じアイテムを複数回クリックすることで複数個掴むことができ，アイテムを1度に複数個割り当てることができます．<br>
-					"Send Offer" をクリックすると相手に提案が送信されますが，クリックするまで何度でもアイテムを再配置することができます．<br><br>
+					同じアイテムを<span class="underLine colorRed">複数回クリックすることで複数個掴む</span>ことができ，アイテムを1度に複数個割り当てることができます．<br>
+					<span class="underLine colorBlue">"Send your Offer"</span> をクリックすると相手に提案が送信されますが，クリックするまで何度でもアイテムを再配置することができます．<br><br>
 				</span>
 
 				<div>
 					<img class="instruction-pic" id="instr_table1" alt="Picture of the table" src="img/instruction_offer_start.png" width="400" />
-					<img class="instruction-pic" id="instr_table2" alt="Picture of the table" src="img/instruction_offer_send.png" width="400" />
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_table2" alt="Picture of the table" src="img/instruction_offer_send.png" width="500" style="margin-left: 50px;"/>
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_table2_jp" alt="Picture of the table" src="img/instruction_offer_send_jp.png" width="520" style="margin-left: 50px;"/>
+					</span>
 				</div>
 				<br>
 				<span class="langChange" lang="en">
-					You can also accept or reject <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below. <br>
+					You can also <span class="underLine colorGreen">accept</span> or <span class="underLine colorRed">reject</span> <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below. <br>
 					<strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
-					Pressing "Formal Accept" is only possible if ALL items are either on your side or your partner's. <br>
+					Pressing <span class="underLine colorBlue">"Formal Accept"</span> is only possible if ALL items are either on your side or your partner's. <br>
 					If you both agree, the game is finished! <br>
 					<strong><span class="attention">Formal Accept is possible when there are no undecided items</span></strong>, as shown in the figure on the right below.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					また，下図左に示すように相手があなたに送ってくる<strong>部分的な</strong>提案を受け入れたり(Accept)，拒否したり(Reject)することもできます．<br>
+					また，下図左に示すように相手があなたに送ってくる<strong>部分的な</strong>提案を<span class="underLine colorGreen">受け入れたり(Accept)</span>，<span class="underLine colorRed">拒否したり(Reject)</span>することもできます．<br>
 					<strong>これらの提案を受け入れたりすることによる拘束は特にありませんが，最終的な提案を構築するのに役立ちます</strong>．<br>
-					"Formal Accept" をすることができるのは，すべてのアイテムがあなたもしくは相手に割り当てられているときのみです．<br>
+					<span class="underLine colorBlue">"Formal Accept"</span> をすることができるのは，すべてのアイテムがあなたもしくは相手に割り当てられているときのみです．<br>
 					両者が "Formal Accept" によって同意した場合，ゲームは終了です．<br>
 					"Formal Accept" は下図右のように，<strong><span class="attention">まだ決まっていない(Undecidedに配置されている)アイテムがない場合に可能です</span></strong>．<br><br>
 				</span>
 				<div>
 					<img class="instruction-pic" id="instr_table3" alt="Picture of the table" src="img/instruction_offer_reaction.png" width="400" />
-					<img class="instruction-pic" id="instr_table4" alt="Picture of the table" src="img/instruction_formal_accept.png" width="400" />
+					<img class="instruction-pic" id="instr_table4" alt="Picture of the table" src="img/instruction_formal_accept.png" width="400" style="margin-left: 50px;"/>
 				</div>
 			</div>
 
@@ -744,7 +755,7 @@
 					So <strong>be proactive in expressing your emotions!</strong><br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
-					下図のボタンは，チャットで絵文字を送信するために使用することができます!<br>
+					下図は，顔文字を送信するボタンです．<br>
 					点滅している顔文字は，あなたが最後に送信した感情を表しています．<br>
 					交渉や相手の行動に対する気持ちを伝えるのに使いましょう．<br>
 					相手のメッセージや提案に対する気持ち次第で，相手もあなたに対する行動を変更する可能性があります．<br>
@@ -830,9 +841,9 @@
 					During the negotiation you can <strong>express your own preferences for items and ask your opponent specific questions about their preferences</strong>.<br>
 					Telling your opponent your preferences or asking to their preferences can have <stong> a positive outcome for both parties.</stong><br>
 					Clicking either of the first two buttons on the right side will let you <strong>express your preferences for items</strong>. <br>
-					Just click the item you want to talk about once, then click again in one of the boxes.<br>
+					Just <span class="underLine colorRed">click the item you want to talk about once</span>, then <span class="underLine colorBlue">click again in one of the boxes</span>.<br>
 					Here, you can see that you're about to ask that your opponent like "paintings" "more than" "cuckoo clocks".<br>
-					You can also click the "more than" symbol to turn it into different options, like "equal" or "best".<br><br>
+					You can also <span class="underLine colorGreen">click the "more than" symbol</span> to turn it into different options, like "equal" or "best".<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
 					下図に好みについてのメッセージを作成する場面の画像を示します．<br>
@@ -840,12 +851,17 @@
 					相手にあなたの好みを伝えたり相手の好みを聞いたりすることで，<strong>双方にとってプラスになることがあります</strong>．<br>
 					ゲームボードの右下にあるボタンをクリックすることで好みについてのメッセージを送信することができます．<br>
 					"Ask your opponent's preferences"で相手の好み，"Tell your own preferences"であなたの好みに関するメッセージを送信できます．<br>
-					上側のアイテムを一度クリックしてから，下側のボックスをクリックすると相手に送る内容を変更することができます．<br>
+					<span class="underLine colorRed">上側のアイテムを一度クリック</span>してから，<span class="underLine colorBlue">下側のボックスをクリック</span>すると相手に送る内容を変更することができます．<br>
 					下図では，欲しがっているアイテムは "絵画" ">" "鳩時計" ですか？と相手に聞こうとしています．<br>
-					また ">" のマークをクリックすると，"=" や "一番好き" のように別の聞き方をすることができます。<br><br>
+					また．<span class="underLine colorGreen"> ">" のマークをクリック</span>すると "=" や "一番好き" のように別の聞き方をすることができます．<br><br>
 				</span>
 				<div>
-					<img class="instruction-pic" id="instr_relation" alt="Picture of the relation options" src="img/instruction_preference.png" width="400" />
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_relation" alt="Picture of the relation options" src="img/instruction_preference.png" width="450" />
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_relation_jp" alt="Picture of the relation options" src="img/instruction_preference_jp.png" width="450" />
+					</span>
 				</div>
 			</div>
 
@@ -866,19 +882,19 @@
 					Many messages convey your feelings in the moment to them, but some of these messages may prompt them to take certain actions.<br>
 					There are messages that <strong>request them to send an offer</strong>, respectively, as folllows.<br>
 					<ul>
-						<li>Friendly options: <strong>Would you please make an offer?</strong></li>
-						<li>Unfriendly options: <strong>What wrong with you? Hurry up and make an offer!</strong></li>
+						<li>Friendly options: <span class="underLine colorBlue"><strong>Would you please make an offer?</strong></span></li>
+						<li>Unfriendly options: <span class="underLine colorRed"><strong>What wrong with you? Hurry up and make an offer!</strong></span></li>
 					</ul>
 
 					There are also messages that threaten the opponent.<br>
 					<ul>
-						<li>Friendly options: I'm sorry but I think I may walk away.</li>
-						<li>Unfriendly options: You making me want to walk away from this!</li>
+						<li>Friendly options: <span class="underLine colorBlue">I'm sorry but I think I may walk away.</span></li>
+						<li>Unfriendly options: <span class="underLine colorRed">You making me want to walk away from this!</span></li>
 					</ul>
 
 					The following message also <strong>asks them to tell you about them preferences</strong>.<br>
 					<ul>
-						<li>Neutral options: <strong>So could you tell me about your preferences?</strong></li>
+						<li>Neutral options: <span class="underLine colorGreen"><strong>So could you tell me about your preferences?</strong></span></li>
 					</ul>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -888,24 +904,39 @@
 					多くのメッセージはそのときの気持ちを相手に伝えるものですが，中には相手に特定の行動を促すメッセージもあります．<br>
 					<strong>相手に提案してもらうように促す</strong>メッセージは以下の通りです．<br>
 					<ul>
-						<li>Friendly options: <strong>Would you please make an offer?</strong></li>
-						<li>Unfriendly options: <strong>What wrong with you? Hurry up and make an offer!</strong></li>
+						<li>Friendly options: <span class="underLine colorBlue"><strong>Would you please make an offer?</strong></span></li>
+						<li>Unfriendly options: <span class="underLine colorRed"><strong>What wrong with you? Hurry up and make an offer!</strong></span></li>
 					</ul>
 					相手を脅すメッセージもあります．<br>
 					<ul>
-						<li>Friendly options: I'm sorry but I think I may walk away.</li>
-						<li>Unfriendly options: You making me want to walk away from this!</li>
+						<li>Friendly options: <span class="underLine colorBlue">I'm sorry but I think I may walk away.</span></li>
+						<li>Unfriendly options: <span class="underLine colorRed">You making me want to walk away from this!</span></li>
 					</ul>
 					<strong>相手の好みを何でもいいから知りたいとき</strong>は以下のメッセージを使用してください．<br>
 					<ul>
-						<li>Neutral options: <strong>So could you tell me about your preferences?</strong></li>
+						<li>Neutral options: <span class="underLine colorGreen"><strong>So could you tell me about your preferences?</strong></span></li>
 					</ul>
 				</span>
 				<div>
-					<img class="instruction-pic" id="instr_message_general" alt="Picture of the message button" src="img/instruction_message.png" width="400" />
-					<img class="instruction-pic" id="instr_message_friendly" alt="Picture of the friendly message button" src="img/instruction_message_friendly.png" width="400" /><br><br>
-					<img class="instruction-pic" id="instr_message_unfriendly" alt="Picture of the unfriendly message button" src="img/instruction_message_unfriendly.png" width="400" />
-					<img class="instruction-pic" id="instr_message_neutral" alt="Picture of the neutral message button" src="img/instruction_message_other.png" width="400" />
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_message_friendly" alt="Picture of the friendly message button" src="img/instruction_message_friendly.png" width="490"/>
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_message_friendly_jp" alt="Picture of the friendly message button" src="img/instruction_message_friendly_jp.png" width="490"/>
+					</span>
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_message_unfriendly" alt="Picture of the unfriendly message button" src="img/instruction_message_unfriendly.png" width="490" style="margin-left: 30px;"/><br><br>
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_message_unfriendly_jp" alt="Picture of the unfriendly message button" src="img/instruction_message_unfriendly_jp.png" width="490" style="margin-left: 30px;"/><br><br>
+					</span>
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_message_neutral" alt="Picture of the neutral message button" src="img/instruction_message_other.png" width="370"/>
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_message_neutral_jp" alt="Picture of the neutral message button" src="img/instruction_message_other_jp.png" width="370"/>
+					</span>
+					<img class="instruction-pic" id="instr_message_general" alt="Picture of the message button" src="img/instruction_message.png" width="380" style="margin-left: 150px; margin-bottom: 10px" />
 				</div>
 			</div>
 
@@ -924,20 +955,20 @@
 					You can use the following messages to <strong>convey the points you already have at the start of the negotiation (called BATNA)</strong> to them.<br>
 					You can change what you tell them by moving the slider.<br>
 					<ul>
-						<li>My bottom line is...</li>
+						<li><span class="underLine colorRed">My bottom line is...</span></li>
 					</ul>
 					If you want to know their BATNA, please send the following message.<br>
 					<ul>
-						<li>So could you tell me what's your bottom line?</li>
+						<li><span class="underLine colorBlue">So could you tell me what's your bottom line?</span></li>
 					</ul>
 					Use the message below to ask them to send you a good offer.<br>
 					<ul>
-						<li>Would you please send a good deal in exchange for a favor?</li>
+						<li><span class="underLine colorGreen">Would you please send a good deal in exchange for a favor?</span></li>
 					</ul>
 					If they send you a good offer by the above message, give them return the favor and they will be happy too!<br>
 					Let them know that you will repay them with the following message.<br>
 					<ul>
-						<li>I'm returning the favor to you! Give me a deal good for you.</li>
+						<li><span class="underLine colorOrange">I'm returning the favor to you! Give me a deal good for you.</span></li>
 					</ul>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -945,26 +976,31 @@
 					<strong>あなたが交渉開始時点ですでに持っているポイント(BATNAといいます)</strong>を相手に伝えるには，以下のようなメッセージを使用します．<br>
 					スライダーを動かすことで相手に伝える内容を変えることができます．
 					<ul>
-						<li>My bottom line is...</li>
+						<li><span class="underLine colorRed">My bottom line is...</span></li>
 					</ul>
 					相手のBATNAを知りたい場合は，以下のメッセージを送ってください．<br>
 					<ul>
-						<li>So could you tell me what's your bottom line?</li>
+						<li><span class="underLine colorBlue">So could you tell me what's your bottom line?</span></li>
 					</ul>
 					あなたにとって良い提案をしてもらいたい場合は以下のメッセージを使用します．<br>
 					<ul>
-						<li>Would you please send a good deal in exchange for a favor?</li>
+						<li><span class="underLine colorGreen">Would you please send a good deal in exchange for a favor?</span></li>
 					</ul>
 					上記のメッセージで相手が良い提案を送ってくれたら，あなたもお返しをしてあげると相手も喜んでくれるはずです！<br>
 					以下のメッセージを使って，お返しをする旨を伝えましょう．<br>
 					<ul>
-						<li>I'm returning the favor to you! Give me a deal good for you.</li>
+						<li><span class="underLine colorOrange">I'm returning the favor to you! Give me a deal good for you.</span></li>
 					</ul>
 				</span>
 
 				<div>
-					<img class="instruction-pic" id="instr_message_info" alt="Picture of the other message button" src="img/instruction_other_info.png" width="400" />
-					<img class="instruction-pic" id="instr_message_batna" alt="Picture of the batna" src="img/instruction_batna.png" width="400" /><br>
+					<span class="langChange" lang="en">
+						<img class="instruction-pic" id="instr_message_info" alt="Picture of the other message button" src="img/instruction_other_info.png" width="600" />
+					</span>
+					<span class="hidden langChange" lang="jp">
+						<img class="instruction-pic" id="instr_message_info_jp" alt="Picture of the other message button" src="img/instruction_other_info_jp.png" width="580" />
+					</span>
+					<img class="instruction-pic" id="instr_message_batna" alt="Picture of the batna" src="img/instruction_batna.png" width="400" style="margin-left: 50px;" /><br>
 				</div>
 			</div>
 
@@ -980,30 +1016,39 @@
 				</h1><br>
 				<span class="langChange" lang="en">
 					<ul>
-						<li>The items and your preferences WILL CHANGE for each game if you are playing multiple games, so make sure to click the "<strong>View Payoffs</strong>" button at the bottom left of the screen if you need a reminder what you're looking for.
+						<li>The items and your preferences WILL CHANGE for each game if you are playing multiple games, so make sure to click the <span class="underLine colorBlue"><strong>"View Payoffs"</strong></span> button at the bottom left of the screen if you need a reminder what you're looking for.
 							A pop-up will appear, as shown below.
-							You can see the value you get with each item and your BATNA. Negotiate to get a better value than BATNA!</li>
+							You can see the value you get with each item and your <span class="underLine colorRed">BATNA</span>. Negotiate to get a better value than BATNA!</li>
 						<li>The ONLY way to finish the game is to press "Formal Accept" and have your partner also press it, or for time to run out.  Pressing "Accept (non-binding)" will not work.</li>
 						<li>When negotiation time is run out, you get the points you have as BATNA. <strong>Since BATNA is considerably less value, <span class="attention">try to reach a "Formal Accept" in time as much as possible!</span></strong></li>
 						<li><strong>You don't necessarily have to tell the truth about preferences or BATNA</strong>. However, be aware that <strong>lying can be difficult to negotiate</strong>.</li>
-						<li><strong>Your partner may lie as well.</strong></li>
+						<li>Your partner may lie as well.</li>
+						<li>In rare cases, <strong>the screen at the start of the negotiation may be mis-sized and cut off</strong>. Please <span class="attention"><strong>reload the page</strong></span> in that case.</li>
+						<li><strong>We recommend that you finish the three negotiations at once</strong>. However, if you want to interrupt the negotiations, such as when it is difficult to do so continuously, <strong>close the browser tab</strong> and end the negotiations.
+							To resume negotiations, enter your ID in the form at the top of the page.</li>
+						<li>If you have any trouble or questions about negotiations or experiments, please contact <span class="attention"><strong><a href="mailto:s198680w@st.go.tuat.ac.jp">s198680w@st.go.tuat.ac.jp</a></strong></span>.</li>
 					</ul>
 				</span>
 
 				<span class="hidden langChange" lang="jp">
 					<ul>
-						<li>ゲームが複数回あるときは各ゲームでアイテムや好みが変わるので，あなたが何を好んでいるのか確認したい場合は，画面左下の <strong>"View Payoffs"</strong> ボタンをクリックしてください．
+						<li>ゲームが複数回あるときは各ゲームでアイテムや好みが変わります，あなたが何を好んでいるのか確認したい場合は，画面左下の <span class="underLine colorBlue"><strong>"View Payoffs"</strong></span> ボタンをクリックしてください．
 							下図のようなポップアップが表示されます．
-							各アイテムのポイントとBATNAで得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
+							各アイテムのポイントと<span class="underLine colorRed">BATNA</span>で得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
 						<li>ゲームは "Formal Accept" を両者が押すか，時間切れになると終了します．"Accept (non-binding)" を押しても交渉が終了するわけではありません．</li>
 						<li>交渉時間がなくなるとBATNAとして持っているポイントが獲得できます．<strong>しかしBATNAの価値はかなり低いので，<span class="attention">できるだけ時間内に "Formal Accept" にたどり着くようにしましょう!</span></strong></li>
 						<li>好みやBATNAについて<strong>必ずしも本当のことを言わなければならないわけではありません</strong>．しかし嘘をつくと<strong>交渉が難しくなる場合がある</strong>ので注意しましょう．</li>
-						<li><strong>同様に相手も嘘をつく可能性があります．</strong></li>
+						<li>同様に相手も嘘をつく可能性があります．</li>
+						<li>まれに<strong>交渉開始時の画面サイズがおかしくなり画面が見切れる</strong>場合があります．その場合は<span class="attention"><strong>ページをリロード</strong></span>してください．</li>
+						<li><strong>交渉は3回一気に終わらせてしまうことをおすすめします</strong>．しかし，時間的に連続で行うのが難しい場合など交渉を中断する場合は<strong>ブラウザのタブを閉じて</strong>交渉を終了してください．
+							交渉を再開する場合はページ上部のフォームにIDを入力してください．</li>
+						<li>交渉や実験についてトラブルが発生したり質問がある場合は<span class="attention"><strong><a href="mailto:s198680w@st.go.tuat.ac.jp">s198680w@st.go.tuat.ac.jp</a></strong></span>までご連絡ください．</li>
 					</ul>
 				</span>
 
 				<div>
-					<img class="instruction-pic" id="instr_payoff" alt="Picture of the view payoff" src="img/instruction_payoff.png" width="400" />
+					<img class="instruction-pic" id="instr_payoff_place" alt="Picture of the view payoff" src="img/instruction_payoff_place.png" width="400" />
+					<img class="instruction-pic" id="instr_payoff" alt="Picture of the view payoff" src="img/instruction_payoff.png" width="400" style="margin-left: 50px;"/>
 				</div>
 			</div>
 			<hr>
@@ -1011,19 +1056,19 @@
 
 		<div id="quiz" align="left">
 			<span class="langChange" lang="en">
-				<br><br>Answer the below questions for the 'start' button to appear!<br><br>
+				<br>Answer the below questions for the 'start' button to appear!<br><br><br>
 				1) What item is worth the most to you?
 			</span>
 			<span class="hidden langChange" lang="jp">
-				<br><br>以下の質問に答えて "スタート" ボタンを押してください!<br><br>
+				<br>以下の質問に答えて "スタート" ボタンを押してください!<br><br><br>
 				1) あなたにとって最も価値のあるアイテムは何ですか?
 			</span>
 
 			<form action="">
-				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
-				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
-				<input id="ans1" type="radio" name="item" value="right"><label><span class="langChange" lang="en">boxes of records</span><span class="hidden langChange" lang="jp">レコード</span></label><br>
-				<input type="radio" name="item" value="wrong"><label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
+				<input type="radio" name="item" value="wrong"> <label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
+				<input type="radio" name="item" value="wrong"> <label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
+				<input id="ans1" type="radio" name="item" value="right"> <label><span class="langChange" lang="en">boxes of records</span><span class="hidden langChange" lang="jp">レコード</span></label><br>
+				<input type="radio" name="item" value="wrong"> <label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
 			</form>
 			<div class="hidden wrong" id="wrong1"><em>
 				<span class="langChange" lang="en">
@@ -1042,7 +1087,7 @@
 				2) あなたにとって最も価値のないアイテムは何ですか?
 			</span>
 			<form action="">
-				<input id="ans2" type="radio" name="pref" value="right"><label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
+				<input id="ans2" type="radio" name="pref" value="right"> <label><span class="langChange" lang="en">cuckoo clocks</span><span class="hidden langChange" lang="jp">鳩時計</span></label><br>
 				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
 				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
 				<input type="radio" name="pref" value="wrong"> <label><span class="langChange" lang="en">boxes of records</span><span class="hidden langChange" lang="jp">レコード</span></label>
@@ -1069,9 +1114,78 @@
 				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">lamps</span><span class="hidden langChange" lang="jp">ランプ</span></label><br>
 				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">paintings</span><span class="hidden langChange" lang="jp">絵画</span></label><br>
 				<input type="radio" name="offer" value="wrong"> <label><span class="langChange" lang="en">It's impossible to know this.</span><span class="hidden langChange" lang="jp">相手の好みを知ることは不可能なのでわからない</span></label><br>
-				<input id="ans3" type="radio" name="offer" value="right"><label><span class="langChange" lang="en">It depends on the opponent's preferences which can be discovered by asking them questions.</span><span class="hidden langChange" lang="jp">質問して知った相手の好みによる</span></label>
+				<input id="ans3" type="radio" name="offer" value="right"> <label><span class="langChange" lang="en">It depends on the opponent's preferences which can be discovered by asking them questions.</span><span class="hidden langChange" lang="jp">質問して知った相手の好みによる</span></label>
 			</form>
 			<div class="hidden wrong" id="wrong3"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
+
+
+			<br><br>
+			<span class="langChange" lang="en">
+				4) Which statement is correct in the use of trade tables?
+			</span>
+			<span class="hidden langChange" lang="jp">
+				4) トレードテーブルの使い方で正しい記述はどれですか?
+			</span>
+			<form action="">
+				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Drag and drop items to move them</span><span class="hidden langChange" lang="jp">ドラッグアンドドロップでアイテムを移動させる</span></label><br>
+				<input id="ans4" type="radio" name="trade" value="right"> <label><span class="langChange" lang="en">Click to move the item</span><span class="hidden langChange" lang="jp">クリックしてアイテムを移動させる</span></label><br>
+				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Items once assigned cannot be moved</span><span class="hidden langChange" lang="jp">一度割り当てられたアイテムは動かすことはできない</span></label><br>
+				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Can not move the item by yourself</span><span class="hidden langChange" lang="jp">自分でアイテムを動かすことはできない</span></label>
+			</form>
+			<div class="hidden wrong" id="wrong4"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
+
+
+			<br><br>
+			<span class="langChange" lang="en">
+				5) Which statement is <strong>WRONG</strong> about BATNA?
+			</span>
+			<span class="hidden langChange" lang="jp">
+				5) BATNAについて<strong>間違っている</strong>記述はどれですか?
+			</span>
+			<form action="">
+				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">Click the "View Payoffs" button and you can check BATNA</span><span class="hidden langChange" lang="jp">"View Payoffs" ボタンをクリックすると確認できる</span></label><br>
+				<input id="ans5" type="radio" name="batna" value="right"> <label><span class="langChange" lang="en">You can not know your partner's BATNA</span><span class="hidden langChange" lang="jp">相手のBATNAを知ることはできない</span></label><br>
+				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">If time runs out, you can only get points that are set in BATNA</span><span class="hidden langChange" lang="jp">時間切れになった場合はBATNAに設定されているポイントしか獲得できない</span></label><br>
+				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">You can tell your partner a lie BATNA</span><span class="hidden langChange" lang="jp">相手に嘘のBATNAを教えても良い</span></label>
+			</form>
+			<div class="hidden wrong" id="wrong5"><em>
+				<span class="langChange" lang="en">
+					Oops!  Scroll back up and check the bold sections!
+				</span>
+				<span class="hidden langChange" lang="jp">
+					違います!スクロールして太字部分をチェックしてみてください!
+				</span>
+			</em></div>
+
+
+			<br><br>
+			<span class="langChange" lang="en">
+				6) Which is correct about messages and emoticons?
+			</span>
+			<span class="hidden langChange" lang="jp">
+				6) メッセージや顔文字について正しいものはどれですか?
+			</span>
+			<form action="">
+				<input type="radio" name="behavior" value="wrong"> <label><span class="langChange" lang="en">There is no particular meaning to send a message or emoticons</span><span class="hidden langChange" lang="jp">メッセージや顔文字を送信する意味は特にない</span></label><br>
+				<input type="radio" name="behavior" value="wrong"> <label><span class="langChange" lang="en">You can never know your partner's preferences</span><span class="hidden langChange" lang="jp">相手の好みを聞く方法はない</span></label><br>
+				<input type="radio" name="behavior" value="wrong"> <label><span class="langChange" lang="en">There is no message to encourage partners to act</span><span class="hidden langChange" lang="jp">相手に行動を促すようなメッセージはない</span></label><br>
+				<input id="ans6" type="radio" name="behavior" value="right"> <label><span class="langChange" lang="en">You can tell the your partner your feeling by sending emoticons and messages</span><span class="hidden langChange" lang="jp">顔文字やメッセージを送信するとあなたの様子を相手に伝えることができる</span></label><br>
+			</form>
+			<div class="hidden wrong" id="wrong6"><em>
 				<span class="langChange" lang="en">
 					Oops!  Scroll back up and check the bold sections!
 				</span>
@@ -1144,13 +1258,17 @@
 			<div class="post instructions hidden" style="margin: auto;">
 				<span class="langChange" lang="en">
 					Congratulations, you answered all three questions correctly.  The 'Start!' button below is now available.<br>
-					However, we <strong>highly</strong> recommend that you first experiment in the <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: larger; font-weight: bolder">sandbox</span></a> first.  <br>
-					You can experiment with the interface in a new window before matching with your opponent!
+					However, we <strong>highly</strong> recommend to check the operation <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">here</span></a> first.  <br>
+					This is only a confirmation of the operation, <strong>not an action from your partner</strong>.<br><br>
+					Be sure to <span class="attention"><strong>confirm that the ID displayed to the right of your partner's avatar is yours</strong></span> when you start negotiating.<br>
+					We recommend <span class="attention"><strong>duplicating this page</strong></span> so you can play it while checking the operation.
 				</span>
 				<span class="hidden langChange" lang="jp">
 					すべての質問に正解しました．以下の "スタート" ボタンをクリックしてください．<br>
-					まずは<a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: larger; font-weight: bolder">ここ</span></a>で動作の確認をしてみることを<strong>強く</strong>お勧めします．<br>
-					相手とマッチングする前に，インターフェイスを試してみてください．
+					まずは<a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">ここ</span></a>で操作の確認をしてみることを<strong>強く</strong>おすすめします．<br>
+					あくまで操作の確認なので<strong>相手から何か行動してくるわけではありません</strong>．<br><br>
+					交渉が開始したら必ず<span class="attention"><strong>相手のアバターの右に表示されているIDがあなたのものか確認</strong></span>してください．<br>
+					<strong>交渉は英語で行われます!</strong><span class="attention"><strong>このページを複製する</strong></span>と操作を確認しながらプレイできるのでおすすめです．
 				</span>
 				<br>
 				<br>

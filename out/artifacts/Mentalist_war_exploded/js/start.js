@@ -205,8 +205,7 @@ window.onload = function() {
 	
 	$(function() {
 		$("input").click(function(e) {
-			if($("input[name=item]:checked").val() == "right" && $("input[name=pref]:checked").val() == "right" && $("input[name=offer]:checked").val() == "right")
-			{
+			if(rightAllQuestion()) {
 				$('.post').removeClass("hidden");
 				$('html, body').animate({
 			        scrollTop: $('.post').offset().top - 20
@@ -224,6 +223,19 @@ window.onload = function() {
 				$("#wrong3").removeClass("hidden");
 			else
 				$("#wrong3").addClass("hidden");
+            if($("input[name=trade]:checked").val() == "wrong")
+                $("#wrong4").removeClass("hidden");
+            else
+                $("#wrong4").addClass("hidden");
+            if($("input[name=batna]:checked").val() == "wrong")
+                $("#wrong5").removeClass("hidden");
+            else
+                $("#wrong5").addClass("hidden");
+            if($("input[name=behavior]:checked").val() == "wrong")
+                $("#wrong6").removeClass("hidden");
+            else
+                $("#wrong6").addClass("hidden");
+
 
 			if($("input[name=lang]:checked").val() == "0"){
 				$(".langChange[lang=en]").removeClass("hidden");
@@ -283,17 +295,10 @@ window.onload = function() {
     });
 };
 
-function checkDigit(input){
-    var isDigit = true;
-
-    for (var i = 0; i < input.length(); i++) {
-        isDigit = Character.isDigit(input.charAt(i));
-        if (!isDigit) {
-            break;
-        }
-    }
-
-    return isDigit;
+function rightAllQuestion(){
+    if($("input[name=item]:checked").val() == "right" && $("input[name=pref]:checked").val() == "right" && $("input[name=offer]:checked").val() == "right" && $("input[name=trade]:checked").val() == "right" && $("input[name=batna]:checked").val() == "right" && $("input[name=behavior]:checked").val() == "right")
+		return true;
+    return false;
 }
 
 function allChecked(){

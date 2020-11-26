@@ -26,7 +26,7 @@ h2 {
 }
 
 .wrong {
-    color: red;
+    color: #E82020;
 }
 
 /* unused currently; flex is much better*/
@@ -408,4 +408,26 @@ button.questionnaireButton {
 
 .attention {
     color: #E82020;
+}
+
+.underLine{
+    border-bottom:solid;
+    border-width:2px;
+    padding-bottom: 2px;
+}
+
+.underLine.colorRed{
+    border-color: #DD3646;
+}
+
+.underLine.colorBlue{
+    border-color: #0880FF;
+}
+
+.underLine.colorGreen{
+    border-color: #34AD50;
+}
+
+.underLine.colorOrange{
+    border-color: #DD9242;
 }
