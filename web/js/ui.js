@@ -142,6 +142,13 @@ function dialogRedirect(content) {
     })
 }
 
+function dialogNotYetRedirect(content) {
+    showDialog("You are not allowed to use that form yet!", function(event) {
+        window.location.replace(content);
+        closeSocket();
+    })
+}
+
 function showDialog(content, onOk) {
 	$('#modalDialogBody').html(content)
 	$('#modalDialog').modal('show')

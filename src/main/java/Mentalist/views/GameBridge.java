@@ -65,6 +65,8 @@ public class GameBridge extends HttpServlet  {
 	private int questionnaireAgreeableness = 0;
 	private javax.websocket.Session globalSession;
 
+	private String startCheck = "OK";
+
 	//private Logger LOGGER = LogManager.getLogger(GameBridge.class.getName());
 	Logger logger = Logger.getLogger(GameBridge.class.getName());
 
@@ -231,8 +233,9 @@ public class GameBridge extends HttpServlet  {
 
 			if(questionnaireNeuroticism == -1 && questionnaireExtraversion == -1 && questionnaireOpenness == -1 && questionnaireConscientiouness == -1 && questionnaireAgreeableness == -1) {
 				if (big5Data.size() != 5) {
-					WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", "notyet.html")), session);
-					WebSocketUtils.close(session);
+					//WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", "notyet.html")), session);
+					//WebSocketUtils.close(session);
+					startCheck = "NOT_YET";
 				}
 				else {
 					questionnaireNeuroticism = big5Data.get(0);
@@ -329,8 +332,10 @@ public class GameBridge extends HttpServlet  {
 		if (gameSpecMultiName == null || gameSpecMultiName.equals(""))
 			gameSpecMultiName =  null;
 
-		if(questionnaireNeuroticism != -1 && gameSpecMultiName == null && vhQualifiedName1 == null)
-			WebSocketUtils.send(new Gson().toJson(new WebSocketUtils(). new JsonObject("trueEnd", "end.html")), session);
+		if(questionnaireNeuroticism != -1 && gameSpecMultiName == null && vhQualifiedName1 == null) {
+			//WebSocketUtils.send(new Gson().toJson(new WebSocketUtils().new JsonObject("trueEnd", "end.html")), session);
+			startCheck = "FINISHED";
+		}
 		else {
 			allGameSpecNames = new ArrayList<String>(Arrays.asList(gameSpecMultiName.split("\\s*,\\s*")));
 			allStoredVHNames = new ArrayList<String>(Arrays.asList(vhQualifiedName1.split("\\s*,\\s*")));
@@ -444,7 +449,7 @@ public class GameBridge extends HttpServlet  {
 				u.setMultiplayer(gameChoice.equals("agent") ? true : false);
 				//vh1.setAgentVsAgent(gameChoice);
 				//PERSONAL NOTE: onOpenHelper method activates here, linking to GBUtils class:
-				u.onOpenHelper(session, config, vh0, vh1, questionnaireNeuroticism, questionnaireExtraversion, questionnaireOpenness, questionnaireConscientiouness, questionnaireAgreeableness);
+				u.onOpenHelper(session, config, vh0, vh1, questionnaireNeuroticism, questionnaireExtraversion, questionnaireOpenness, questionnaireConscientiouness, questionnaireAgreeableness, startCheck.equals("OK"));
 
 				storedVH1 = vh1;
 				ServletUtils.log("We found the following computer agent: " + storedVH1.toString(), ServletUtils.DebugLevels.DEBUG);
@@ -492,6 +497,7 @@ public class GameBridge extends HttpServlet  {
 			}
 
 		});
+
 		if(joIn.tag.equals("ngPing"))
 		{
 			ServletUtils.log("Ping received for new game", ServletUtils.DebugLevels.DEBUG);
@@ -521,6 +527,11 @@ public class GameBridge extends HttpServlet  {
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+			}
+		}
+		else if(joIn.tag.equals("experimentFirstCheck")){
+			if(startCheck.equals("FINISHED")){
+				WebSocketUtils.send(new Gson().toJson(new WebSocketUtils().new JsonObject("trueEnd", "end.html")), session);
 			}
 		}
 		else

@@ -1281,7 +1281,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 
 	@Override
 	protected Offer getTimingOffer(History history) {
-		return getNextOffer(history);
+		return null;
 	}
 
 	@Override

@@ -612,6 +612,10 @@ function trueEnd(event, socket) {
     dialogRedirect(event.data);
 }
 
+function notyetEnd(event, socket) {
+    dialogNotYetRedirect(event.data);
+}
+
 function negotiationEnd(event, socket) {
     removeWaitingMessage();
     dialogWaitForEnd(event.data);

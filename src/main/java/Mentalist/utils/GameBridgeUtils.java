@@ -105,6 +105,8 @@ public class GameBridgeUtils {
 
     public void setwebDir(String webDir){ this.webDir = webDir; }
 
+    public void terminateNegotiation(){ this.selectedAgent1 = null;}
+
     public void setNewGameSpec(GameSpec gs){ this.spec = gs; }
 
     public void setNewAgent(GeneralVH vh){
@@ -152,7 +154,7 @@ public class GameBridgeUtils {
         }
     }
 
-    public void onOpenHelper(Session session, EndpointConfig config, GeneralVH agent0, GeneralVH agent1, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness) throws MessagingException {
+    public void onOpenHelper(Session session, EndpointConfig config, GeneralVH agent0, GeneralVH agent1, int neuroticism, int extraversion, int openness, int conscientiousness, int agreeableness, boolean flag) throws MessagingException {
         if (!ServletUtils.mailReady() && ServletUtils.isDataModeEmail())
             throw new MessagingException("Error: use ServletUtils.setCredentials to set username and password");
         this.wsSession = session;
@@ -192,7 +194,10 @@ public class GameBridgeUtils {
         }
         this.history.addNegotiator(this.selectedAgent1);
         configureCustomCursors();
-        WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("intermediate", this.spec.getNewgameMessage())), this.wsSession);
+        if(flag)
+            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("intermediate", this.spec.getNewgameMessage())), this.wsSession);
+        else
+            WebSocketUtils.send(new Gson().toJson(new WebSocketUtils().new JsonObject("notyetEnd", "notyet.html")), session);
     }
 
     private void setRunnerSpecs() {
@@ -245,11 +250,11 @@ public class GameBridgeUtils {
         } else if (joIn.tag.equals("request-max-time")) {
             WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("max-time", Integer.valueOf(this.spec.getTotalTime()))), session);
         } else if (joIn.tag.equals("request-agent-description")) {
-            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("agent-description", this.selectedAgent1.agentDescription())), session);
+            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("agent-description", this.selectedAgent1 != null ? this.selectedAgent1.agentDescription(): "")), session);
         } else if (joIn.tag.equals("request-disable")) {
             WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("interfaceDisabled", Boolean.valueOf(this.multi))), session);
         } else if (joIn.tag.equals("request-agent-art")) {
-            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("config-character-art", this.selectedAgent1.getArtName())), session);
+            WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("config-character-art", this.selectedAgent1 != null ? this.selectedAgent1.getArtName() : "")), session);
         } else if (joIn.tag.equals("request-visibility")) {
             if (joIn.data.equals("vh-points"))
                 WebSocketUtils.send((new Gson()).toJson(new WebSocketUtils().new JsonObject("visibility-points-vh", Boolean.valueOf(this.spec.showOpponentScore()))), session);

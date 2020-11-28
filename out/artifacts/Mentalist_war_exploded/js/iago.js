@@ -323,7 +323,12 @@ function startup(event, useEvent) {
 		debug.data = debugdata;
 		webSocket.send(JSON.stringify(debug));
 	}
-	var obj = new Object();
+	var obj0 = new Object();
+	obj0.tag = "experimentFirstCheck";
+	obj0.data = "";
+    webSocket.send(JSON.stringify(obj0));
+
+    var obj = new Object();
 	obj.tag = "button";
 	obj.data = "root";
 	webSocket.send(JSON.stringify(obj));
@@ -374,6 +379,7 @@ function startup(event, useEvent) {
 	obj12.tag = "request-disable";
 	obj12.data = "";
 	webSocket.send(JSON.stringify(obj12));
+
 }
 
 function buttonHandler(button) {
@@ -413,7 +419,7 @@ function buttonHandler(button) {
 		var obj = new Object();
 		obj.tag = "sendBATNA";
 		obj.data = ""+playerPresentedBATNA; //This needs to be a String for GameBridgeUtils to parse it correctly.
-		webSocket.send(JSON.stringify(obj));	
+		webSocket.send(JSON.stringify(obj));
 	}
 
 	if(button.data == "butItemComparison") {
