@@ -1,2 +1,3 @@
 Mentalist.agent.MentalistVH
 Mentalist.agent.StaticMentalistVH
+Mentalist.agent.PilotStudyVH

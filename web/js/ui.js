@@ -136,7 +136,7 @@ function dialogStartGame(content) {
 }
 
 function dialogRedirect(content) {
-	showDialog("Thanks for playing!  Please click ok to be redirected to the final survey!", function(event) {
+	showDialog("Thanks for playing!  Please click ok to be redirected to the finish page!", function(event) {
         window.location.replace(content);
         closeSocket();
     })

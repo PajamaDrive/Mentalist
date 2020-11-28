@@ -20,7 +20,6 @@ public class PilotStudyBehavior extends MentalistRepeatedFavorBehavior {
         this.conscientiousness.add(-10.0);
         this.agreeableness.add(-10.0);
         this.timingThreshold = 6;
-        this.OFF_SIZE = 100;
     }
 
     //譲歩関数
@@ -164,7 +163,7 @@ public class PilotStudyBehavior extends MentalistRepeatedFavorBehavior {
         double utilRatio = normarize(calcUtilRate(previousOffers), max(0.7, calcUtilRate(previousOffers)), min(0.2, calcUtilRate(previousOffers)));
         double agreeOfferPoint = (behaviorSensePoint + utilRatio) / 2;
 
-        double favorReturnPoint = -normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
+        double favorReturnPoint = normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
         double agreeBehavior = acceptNum.sum() + posEmotionNum.doubleSum() + posMessageNum.sum();
         double agreeBehaviorPoint = min(1.0, normarize(agreeBehavior, max(BEH_NUM_MAX, agreeBehavior), 0.0) + favorReturnPoint);
 

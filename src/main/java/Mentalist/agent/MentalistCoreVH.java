@@ -237,6 +237,11 @@ public abstract class MentalistCoreVH extends GeneralVH
 			Event e5 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.BATNA_INFO, utils.myPresentedBATNA, revealBATNA,  (int) (1000*game.getMultiplier()));
 			resp.add(e5);
 			*/
+
+			String contactMessage = "I'm glad to see you! Let's start negotiating!";
+			Event e5 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.NONE, contactMessage,  (int) (1000*game.getMultiplier()));
+			resp.add(e5);
+
 			disable = false;
 
 			Event e6 = messages.getFavorBehavior(getHistory(), game, e);
@@ -412,8 +417,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 			{
 				noResponseFlag = false;
 				if(messages instanceof MentalistRepeatedFavorMessage) {
-					Event e1 = new Event(this.getID(), Event.EventClass.SEND_MESSAGE, Event.SubClass.PREF_INFO, ((MentalistRepeatedFavorMessage) messages).prefToEnglishRand(game), (int) (2000 * game.getMultiplier()));
-					resp.add(e1);
+					//Event e1 = new Event(this.getID(), Event.EventClass.SEND_MESSAGE, Event.SubClass.PREF_INFO, ((MentalistRepeatedFavorMessage) messages).prefToEnglishRand(game), (int) (2000 * game.getMultiplier()));
+					//resp.add(e1);
 				}
 				else {
 					Event e2 = new Event(this.getID(), EventClass.SEND_OFFER, behavior.getTimingOffer(getHistory()), 0);

@@ -1,1 +1,0 @@
-Mentalist.views.FavorGameSpecPart1

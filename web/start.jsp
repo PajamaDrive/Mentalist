@@ -44,7 +44,7 @@
 						<div class="hidden" id="beforeIDWarning">
 							<strong>
 								<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
-								<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+								<span class="hidden langChange" lang="jp">数値のみで構成される文字列を半角で入力してください.</span>
 							</strong>
 						</div>
 						<strong>Your ID: </strong><input id="beforeMTurkID" name="beforeMTurkID" type="text" value=""><br><br>
@@ -589,7 +589,7 @@
 			<hr>
 		</div>
 	</div>
-	<div class="hid" id="mainpage">
+	<div class="hidden" id="mainpage">
 		<div class="welcome instructions">
 
 		</div>
@@ -629,7 +629,7 @@
 				</div>
 				<br>
 				<span class="langChange" lang="en">
-					The <strong>first of 3 games</strong> consists of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks.
+					The <strong>first of 3 games</strong> consist of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks.
 					<strong><span class="attention">Later games may have different items, and they may be worth more or less!  Pay close attention.</span></strong><br>
 					In the first game, you get <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.
 					This means that the records are worth the most to you! <br>
@@ -718,7 +718,7 @@
 				<br>
 				<span class="langChange" lang="en">
 					You can also <span class="underLine colorGreen">accept</span> or <span class="underLine colorRed">reject</span> <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below.
-					<strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
+					<strong>These offers aren't binding, but those are helpful in building towards a full offer</strong>.<br>
 					Pressing <span class="underLine colorBlue">"Formal Accept"</span> is only possible if ALL items are either on your side or your partner's.
 					If you both agree, the game is finished!
 					<strong><span class="attention">Formal Accept is possible when there are no undecided items</span></strong>, as shown in the figure on the right below.<br><br>
@@ -750,7 +750,7 @@
 					The buttons you see below can be used to send emoticons in chat!
 					The blinking emoticon is representing your current emotional state.
 					Use it to communicate how you feel about the negotiation!<br>
-					Depending on how you feel about the your opponent's messages or offers, there's a possibility that they may also change their behavior towards you.
+					Depending on how you feel about your opponent's messages or offers, there's a possibility that they may also change their behavior towards you.
 					<strong><span class="attention">Knowing the partner's emotions is also important in negotiations</span></strong>.
 					So <strong>be proactive in expressing your emotions!</strong><br><br>
 				</span>
@@ -800,12 +800,13 @@
 				<span class="langChange" lang="en">
 					You can send a message using the button at the bottom right of the screen.
 					Sending messages <strong> lets them know how you feel about the negotiations and their offers</strong>.
-					Therefore, <strong><span class="attention">the sending of messages is an important element in facilitating negotiations</span></strong>.Take advantage of it!
+					Therefore, <strong><span class="attention">the sending of messages is an important element in facilitating negotiations</span></strong>.
+					Take advantage of it!
 					You can send the following types of messages to your partner.<br>
 					<ul>
 						<li>Asking your partner's preferences</li>
 						<li>Expressing your preferences</li>
-						<li>Reacting to the their behavior</li>
+						<li>Reacting to their behavior</li>
 						<li>Making even better agreement</li>
 					</ul>
 				</span>
@@ -880,7 +881,7 @@
 					There are positive, negative and neutral messages.
 					You can send these messages by clicking the third button from the top on the right side of the game board.<br>
 					Many messages convey your feelings in the moment to them, but some of these messages may prompt them to take certain actions.
-					There are messages that <strong>request them to send an offer</strong>, respectively, as folllows.<br>
+					There are messages that <strong>request them to send an offer</strong>, respectively, as follows.<br>
 					<ul>
 						<li>Friendly options: <span class="underLine colorBlue"><strong>Would you please make an offer?</strong></span></li>
 						<li>Unfriendly options: <span class="underLine colorRed"><strong>What wrong with you? Hurry up and make an offer!</strong></span></li>
@@ -965,7 +966,7 @@
 					<ul>
 						<li><span class="underLine colorGreen">Would you please send a good deal in exchange for a favor?</span></li>
 					</ul>
-					If they send you a good offer by the above message, give them return the favor and they will be happy too!<br>
+					If they send you a good offer by the above message, give them return the favor and they will be happy too!
 					Let them know that you will repay them with the following message.<br>
 					<ul>
 						<li><span class="underLine colorOrange">I'm returning the favor to you! Give me a deal good for you.</span></li>
@@ -1034,7 +1035,7 @@
 					<ul>
 						<li>ゲームが複数回あるときは各ゲームでアイテムや好みが変わります，あなたが何を好んでいるのか確認したい場合は，画面左下の <span class="underLine colorBlue"><strong>"View Payoffs"</strong></span> ボタンをクリックしてください．
 							下図のようなポップアップが表示されます．
-							各アイテムのポイントと<span class="underLine colorRed">BATNA</span>で得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
+							各アイテムのポイントとあなたが<span class="underLine colorRed">BATNA</span>で得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
 						<li>ゲームは "Formal Accept" を両者が押すか，時間切れになると終了します．"Accept (non-binding)" を押しても交渉が終了するわけではありません．</li>
 						<li>交渉時間がなくなるとBATNAとして持っているポイントが獲得できます．<strong>しかしBATNAの価値はかなり低いので，<span class="attention">できるだけ時間内に "Formal Accept" にたどり着くようにしましょう!</span></strong></li>
 						<li>好みやBATNAについて<strong>必ずしも本当のことを言わなければならないわけではありません</strong>．しかし嘘をつくと<strong>交渉が難しくなる場合がある</strong>ので注意しましょう．</li>
@@ -1278,7 +1279,7 @@
 				<div class="hidden" id="IDWarning">
 					<strong>
 						<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
-						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を半角で入力してください.</span>
 					</strong>
 				</div>
 				<strong>Your ID: </strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>

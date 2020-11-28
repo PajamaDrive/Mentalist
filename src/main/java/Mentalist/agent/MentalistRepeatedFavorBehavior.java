@@ -156,7 +156,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		this.favorRequestNum = 0;
 		this.prefRequestNum = 0;
 		this.favorReturnNum = 0;
-		this.timingThreshold = 3;
+		this.timingThreshold = 6;
 		this.batnaAskNum = 0;
 		this.batnaExpressionNum = 0;
 		this.posMessageNum = new QueueList<Integer>(BEH_SIZE, BEHAVIOR_PRE_WEIGHT);
@@ -643,7 +643,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 		double utilRatio = normarize(calcUtilRate(previousOffers), max(0.7, calcUtilRate(previousOffers)), min(0.2, calcUtilRate(previousOffers)));
 		double agreeOfferPoint = (behaviorSensePoint + utilRatio) / 2;
 
-		double favorReturnPoint = -normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
+		double favorReturnPoint = normarize(favorReturnNum, max(SPECIAL_MES_MAX, favorReturnNum), -SPECIAL_MES_MAX);
 		double agreeBehavior = acceptNum.sum() + posEmotionNum.doubleSum() + posMessageNum.sum();
 		double agreeBehaviorPoint = min(1.0, normarize(agreeBehavior, max(BEH_NUM_MAX, agreeBehavior), 0.0) + favorReturnPoint);
 

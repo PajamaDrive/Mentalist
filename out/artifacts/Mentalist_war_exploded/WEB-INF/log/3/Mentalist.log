@@ -1,29 +1,55 @@
-id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like3,satisfy2,satisfyOther2,coopOther3,friendOther2,trustOther2,longOther2,fairOther2,honestOther2,emotionOther5,messageOther2,offerOther3,generalOther2,QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t
-3,player,Mentalist,35,35,false,false,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Dinamic,0,15,30,0,0,0,5,5,0,0,0,5,5,0,0,5,0,0,5,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,3.0,2.0,2.0,3.0,2.0,2.0,2.0,2.0,2.0,5.0,2.0,3.0,2.0,28,26,30,37,31,,,,,,,,,,,,,,,,,,,,,,0
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like5,satisfy1,satisfyOther3,coopOther4,friendOther4,trustOther4,longOther4,fairOther4,honestOther4,emotionOther1,messageOther1,offerOther2,generalOther3,QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t
+3,player,Mentalist,29,39,false,false,3,1,0,1,1,0,3,7,0,0,0,0,1,6,1,0,0,2,0,0,0,0,0,Dinamic,0,85,600,0,0,0,0,1,0,0,0,3,5,0,0,0,0,0,1,0,5,2,0,5,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,1,1,1,0,0,0,0,0,0,0,0,0,5.0,1.0,3.0,4.0,4.0,4.0,4.0,4.0,4.0,1.0,1.0,2.0,3.0,34,10,42,38,30,-0.21428571428571352:0.828307411958429:0.7412268490765763,1.0:1.0:1.0,-0.9466666666666668:-0.9333333333333333:-0.9333333333333333,1.0:1.0:1.0,-0.9466666666666668:-0.30323522757656185:-0.2647221284392012,0.38666666666666677:0.4833333333333332:0.4983606557377051,0.5466666666666667:-0.025000000000000022:-0.10833333333333339,-1.0:-1.0:-1.0,1.0:1.0:1.0,-1.0:-0.15986919232430463:-0.10851839347449044,0.6000000000000001:0.711111111111111:0.7311475409836068,0.8333333333333334:0.16666666666666663:0.05555555555555547,-0.7333333333333334:-0.7333333333333334:-0.7333333333333334,1.0:1.0:1.0,-0.7333333333333334:-0.7333333333333334:-0.7333333333333334,-0.4666666666666667:-0.19999999999999996:-0.19999999999999996,-0.6:-0.6:-0.6,0.8:0.75:0.75,0.2:0.25:0.25,0.08:0.52:0.78,0.08:0.4:0.58,3
 
 : Survey Results: 
 : 3__TIME,NONE,5
-: 3__SEND_MESSAGE,TIMING,We're almost out of time!  Accept this quickly!
-: 3__SEND_OFFER,NONE,null,[ [5, 0, 0], [0, 0, 5], [0, 0, 5], [5, 0, 0] ]
+: 3__SEND_EXPRESSION,NONE,angry
+: 3__SEND_EXPRESSION,NONE,sad
 : 3__TIME,NONE,10
-: 3__FORMAL_ACCEPT,NONE,null
-: 3__FORMAL_ACCEPT,NONE,null
-: 3__GAME_START,NONE,null
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__SEND_MESSAGE,GENERIC_POS,I'm happy too!
 : 3__TIME,NONE,15
-: 3__GAME_END,NONE,null
-
-
-id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like5,satisfy2,satisfyOther2,coopOther2,friendOther2,trustOther2,longOther2,fairOther2,honestOther2,emotionOther2,messageOther2,offerOther2,generalOther2,QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t
-3,player,Mentalist,35,35,false,false,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,Dinamic,0,10,30,0,0,0,5,5,0,0,0,5,5,0,0,5,0,0,5,0,5,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,5.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,2.0,24,30,29,29,28,,,,,,,,,,,,,,,,,,,,,,0
-
-: Survey Results: 
-: 3__TIME,NONE,5
-: 3__SEND_MESSAGE,TIMING,We're almost out of time!  Accept this quickly!
-: 3__SEND_OFFER,NONE,null,[ [5, 0, 0], [0, 0, 5], [0, 0, 5], [5, 0, 0] ]
+: 3__SEND_MESSAGE,GENERIC_POS,We should try to split things evenly.
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__SEND_MESSAGE,GENERIC_POS,I think so, too!
+: 3__TIME,NONE,20
+: 3__SEND_MESSAGE,PREF_INFO,Do you like boxes of records more than cuckoo clocks?,1: 2 2: 3 GREATER_THAN true
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__SEND_MESSAGE,GENERIC_POS,I like boxes of records less than cuckoo clocks.,1: 2 2: 3 LESS_THAN false
+: 3__TIME,NONE,25
+: 3__OFFER_IN_PROGRESS,NONE,null
+: 3__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [1, 4, 0] ]
+: 3__TIME,NONE,30
+: 3__SEND_EXPRESSION,NONE,sad
+: 3__SEND_MESSAGE,OFFER_REJECT,Perhaps we should spend more time finding a solution that's good for us both...
+: 3__OFFER_IN_PROGRESS,NONE,null
+: 3__TIME,NONE,35
+: 3__SEND_MESSAGE,OFFER_PROPOSE,I think this arrangement would be beneficial to both.
+: 3__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 4, 1], [2, 3, 0] ]
+: 3__TIME,NONE,40
+: 3__TIME,NONE,45
+: 3__TIME,NONE,50
+: 3__TIME,NONE,55
+: 3__TIME,NONE,60
+: 3__SEND_MESSAGE,OFFER_ACCEPT,Yes, I accept that offer.
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__OFFER_IN_PROGRESS,NONE,null
+: 3__TIME,NONE,65
+: 3__SEND_MESSAGE,GENERIC_POS,Thank you for accepting my offer!
+: 3__TIME,NONE,70
+: 3__SEND_OFFER,NONE,null,[ [2, 3, 0], [0, 5, 0], [0, 0, 5], [5, 0, 0] ]
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__TIME,NONE,75
+: 3__SEND_MESSAGE,OFFER_ACCEPT,That will work for me.
+: 3__OFFER_IN_PROGRESS,NONE,null
+: 3__TIME,NONE,80
+: 3__SEND_OFFER,NONE,null,[ [5, 0, 0], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: 3__SEND_EXPRESSION,NONE,happy
+: 3__TIME,NONE,85
 : 3__FORMAL_ACCEPT,NONE,null
 : 3__FORMAL_ACCEPT,NONE,null
 : 3__GAME_START,NONE,null
-: 3__TIME,NONE,10
 : 3__GAME_END,NONE,null
 
 

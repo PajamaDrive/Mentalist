@@ -44,7 +44,7 @@
 						<div class="hidden" id="beforeIDWarning">
 							<strong>
 								<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
-								<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+								<span class="hidden langChange" lang="jp">数値のみで構成される文字列を半角で入力してください.</span>
 							</strong>
 						</div>
 						<strong>Your ID: </strong><input id="beforeMTurkID" name="beforeMTurkID" type="text" value=""><br><br>
@@ -589,15 +589,15 @@
 			<hr>
 		</div>
 	</div>
-	<div class="hid" id="mainpage">
+	<div class="hidden" id="mainpage">
 		<div class="welcome instructions">
 
 		</div>
 		<div class="reminder instructions">
 			<p/>
 			<span class="langChange" lang="en">
-				Please read the instructions below. <strong>Pay special attention to the bold or <span class="attention">red</span> sections!</strong><br>
-				The underlines correspond to <strong>the areas highlighted in the image</strong>.
+				Please read the instructions below. <strong>Pay special attention to the bold or <span class="attention">red</span> sections!</strong>
+				The underlines correspond to <strong>the areas highlighted in the image</strong>.<br>
 			</span>
 			<span class="hidden langChange" lang="jp">
 				以下の説明を読んでください．<strong>太字や<span class="attention">赤字</span>の部分は重要なので特に注意して読んでください! </strong>
@@ -614,9 +614,9 @@
 				</h1><br><br>
 				<div id="pva1">
 					<span class="langChange" lang="en">
-						You are about to engage in a series of negotiation games with a partner. <br>
-						The objective is to decide how to divide a set of items.<br>
-						If you can agree with your partner, you'll receive the points allocated on your side when you agreed.<br>
+						You are about to engage in a series of negotiation games with a partner.
+						The objective is to decide how to divide a set of items.
+						If you can agree with your partner, you'll receive the points allocated on your side when you agreed.
 						You will be playing <strong>3 games</strong>.<br>
 					</span>
 					<span class="hidden langChange" lang="jp">
@@ -629,11 +629,11 @@
 				</div>
 				<br>
 				<span class="langChange" lang="en">
-					The <strong>first of 3 games</strong> consists of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks. <br>
+					The <strong>first of 3 games</strong> consist of 4 items: record crates, antique lamps, Art Deco paintings, and cuckoo clocks.
 					<strong><span class="attention">Later games may have different items, and they may be worth more or less!  Pay close attention.</span></strong><br>
-					In the first game, you get <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.<br>
+					In the first game, you get <strong>4 points for each box of records, 3 points for each of the paintings, 2 points for each of the lamps, and only 1 point for each cuckoo clock</strong>.
 					This means that the records are worth the most to you! <br>
-					Your opponent may want the same items you do, <strong><span class="attention">or they may not</span></strong>. <br>
+					Your opponent may want the same items you do, <strong><span class="attention">or they may not</span></strong>.
 					Talking to your partner can help reveal what items they may want.<br>
 				</span>
 
@@ -656,19 +656,19 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					Below is a picture of the game board. <br>
-					The chat log is on the right, and a picture of your partner on the left. <br>
-					In the bottom half, there is a trade table and buttons.  Near your partner's picture, you may see tips appear to help guide you!<br>
+					Below is a picture of the game board.
+					The chat log is on the right, and a picture of your partner on the left.
+					In the bottom half, there is a trade table and buttons.  Near your partner's picture, you may see tips appear to help guide you!
 					In the game, you can send messages and questions to your opponent.<br>
-					You can also move items around on the game board, and send offers. <br>
-					Everything you do will appear in the chat log on the right side of the screen so you can look it over.<br>
+					You can also move items around on the game board, and send offers.
+					Everything you do will appear in the chat log on the right side of the screen so you can look it over.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
 					下図はゲームボードの画像です．
 					右側にチャットログ，左側に相手の写真があります．
 					下半分にはトレードテーブルとボタンがあります．相手の画像の近くにはヒントが表示されています．
 					ゲーム中には相手にメッセージや質問などを送ることができます．<br>
-					また，ゲームボード上でアイテムを移動させたり，相手に提案を送ったりすることもできます．<br>
+					また，ゲームボード上でアイテムを移動させたり，相手に提案を送ったりすることもできます．
 					あなたと相手がしたことはすべて画面右側のチャットログに表示されるので，過去の行動を振り返ることもできます．<br><br>
 				</span>
 
@@ -689,10 +689,10 @@
 				</h1> <br><br>
 				<span class="langChange" lang="en">
 					Below is the trade table. <br>
-					With the trade table <strong>you are able to send offers to your partner</strong>. <br>
+					With the trade table <strong>you are able to send offers to your partner</strong>.
 					It will start grayed out.  Click <span class="underLine colorBlue">"Start an Offer"</span> to enable it. <br>
-					You can <span class="underLine colorRed">click any item to pick it up</span>, then <span class="underLine colorRed">click again to place it</span>.<br>
-					For example, you can click one of the lamps in the middle and then click it to your side.<br>
+					You can <span class="underLine colorRed">click any item to pick it up</span>, then <span class="underLine colorRed">click again to place it</span>.
+					For example, you can click one of the lamps in the middle and then click it to your side.
 					You can <span class="underLine colorRed">click multiple times for more items</span>. <br>
 					Nothing sends until you click <span class="underLine colorBlue">"Send your Offer"</span>.<br><br>
 				</span>
@@ -717,10 +717,10 @@
 				</div>
 				<br>
 				<span class="langChange" lang="en">
-					You can also <span class="underLine colorGreen">accept</span> or <span class="underLine colorRed">reject</span> <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below. <br>
-					<strong>These offers aren't binding, but are helpful in building towards a full offer</strong>.<br>
-					Pressing <span class="underLine colorBlue">"Formal Accept"</span> is only possible if ALL items are either on your side or your partner's. <br>
-					If you both agree, the game is finished! <br>
+					You can also <span class="underLine colorGreen">accept</span> or <span class="underLine colorRed">reject</span> <strong>PARTIAL</strong> offers that your partner sends you as shown in the figure on the left below.
+					<strong>These offers aren't binding, but those are helpful in building towards a full offer</strong>.<br>
+					Pressing <span class="underLine colorBlue">"Formal Accept"</span> is only possible if ALL items are either on your side or your partner's.
+					If you both agree, the game is finished!
 					<strong><span class="attention">Formal Accept is possible when there are no undecided items</span></strong>, as shown in the figure on the right below.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -747,11 +747,11 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					The buttons you see below can be used to send emoticons in chat!<br>
-					The blinking emoticon is representing your current emotional state. <br>
+					The buttons you see below can be used to send emoticons in chat!
+					The blinking emoticon is representing your current emotional state.
 					Use it to communicate how you feel about the negotiation!<br>
-					Depending on how you feel about the your opponent's messages or offers, there's a possibility that they may also change their behavior towards you.<br>
-					<strong><span class="attention">Knowing the partner's emotions is also important in negotiations</span></strong>.<br>
+					Depending on how you feel about your opponent's messages or offers, there's a possibility that they may also change their behavior towards you.
+					<strong><span class="attention">Knowing the partner's emotions is also important in negotiations</span></strong>.
 					So <strong>be proactive in expressing your emotions!</strong><br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -768,10 +768,10 @@
 				</div>
 				<br>
 				<span class="langChange" lang="en">
-					You will be assigned an avatar that will be visible to your partner.  <br>
+					You will be assigned an avatar that will be visible to your partner.
 					Your avatar will change facial expressions when you send an emoticon. <br>
-					You will be able to see your opponent's avatar across from the chat box.  <br>
-					Their avatar's facial expression will also change when they send emoticons. <br>
+					You will be able to see your opponent's avatar across from the chat box.
+					Their avatar's facial expression will also change when they send emoticons.
 					Below is an example of what your avatar could look like.<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -798,14 +798,15 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					You can send a message using the button at the bottom right of the screen.<br>
-					Sending messages <strong> lets them know how you feel about the negotiations and their offers</strong>.<br>
-					Therefore, <strong><span class="attention">the sending of messages is an important element in facilitating negotiations</span></strong>.Take advantage of it!<br>
+					You can send a message using the button at the bottom right of the screen.
+					Sending messages <strong> lets them know how you feel about the negotiations and their offers</strong>.
+					Therefore, <strong><span class="attention">the sending of messages is an important element in facilitating negotiations</span></strong>.
+					Take advantage of it!
 					You can send the following types of messages to your partner.<br>
 					<ul>
 						<li>Asking your partner's preferences</li>
 						<li>Expressing your preferences</li>
-						<li>Reacting to the their behavior</li>
+						<li>Reacting to their behavior</li>
 						<li>Making even better agreement</li>
 					</ul>
 				</span>
@@ -837,12 +838,12 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					Below you can find an image of the preference menu. <br>
-					During the negotiation you can <strong>express your own preferences for items and ask your opponent specific questions about their preferences</strong>.<br>
+					Below you can find an image of the preference menu.
+					During the negotiation you can <strong>express your own preferences for items and ask your opponent specific questions about their preferences</strong>.
 					Telling your opponent your preferences or asking to their preferences can have <stong> a positive outcome for both parties.</stong><br>
 					Clicking either of the first two buttons on the right side will let you <strong>express your preferences for items</strong>. <br>
-					Just <span class="underLine colorRed">click the item you want to talk about once</span>, then <span class="underLine colorBlue">click again in one of the boxes</span>.<br>
-					Here, you can see that you're about to ask that your opponent like "paintings" "more than" "cuckoo clocks".<br>
+					Just <span class="underLine colorRed">click the item you want to talk about once</span>, then <span class="underLine colorBlue">click again in one of the boxes</span>.
+					Here, you can see that you're about to ask that your opponent like "paintings" "more than" "cuckoo clocks".
 					You can also <span class="underLine colorGreen">click the "more than" symbol</span> to turn it into different options, like "equal" or "best".<br><br>
 				</span>
 				<span class="hidden langChange" lang="jp">
@@ -876,11 +877,11 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					You can tell your partner how you feel by sending each message.<br>
-					There are positive, negative and neutral messages.<br>
+					You can tell your partner how you feel by sending each message.
+					There are positive, negative and neutral messages.
 					You can send these messages by clicking the third button from the top on the right side of the game board.<br>
-					Many messages convey your feelings in the moment to them, but some of these messages may prompt them to take certain actions.<br>
-					There are messages that <strong>request them to send an offer</strong>, respectively, as folllows.<br>
+					Many messages convey your feelings in the moment to them, but some of these messages may prompt them to take certain actions.
+					There are messages that <strong>request them to send an offer</strong>, respectively, as follows.<br>
 					<ul>
 						<li>Friendly options: <span class="underLine colorBlue"><strong>Would you please make an offer?</strong></span></li>
 						<li>Unfriendly options: <span class="underLine colorRed"><strong>What wrong with you? Hurry up and make an offer!</strong></span></li>
@@ -951,9 +952,9 @@
 					</span>
 				</h1><br><br>
 				<span class="langChange" lang="en">
-					The green button in the lower right of the screen allows you to exchange information with your partner, including information that is more directly related to the outcome of the negotiation.<br>
-					You can use the following messages to <strong>convey the points you already have at the start of the negotiation (called BATNA)</strong> to them.<br>
-					You can change what you tell them by moving the slider.<br>
+					The green button in the lower right of the screen allows you to exchange information with your partner, including information that is more directly related to the outcome of the negotiation.
+					You can use the following messages to <strong>convey the points you already have at the start of the negotiation (called BATNA)</strong> to them.
+					You can change what you tell them by moving the slider.
 					<ul>
 						<li><span class="underLine colorRed">My bottom line is...</span></li>
 					</ul>
@@ -965,7 +966,7 @@
 					<ul>
 						<li><span class="underLine colorGreen">Would you please send a good deal in exchange for a favor?</span></li>
 					</ul>
-					If they send you a good offer by the above message, give them return the favor and they will be happy too!<br>
+					If they send you a good offer by the above message, give them return the favor and they will be happy too!
 					Let them know that you will repay them with the following message.<br>
 					<ul>
 						<li><span class="underLine colorOrange">I'm returning the favor to you! Give me a deal good for you.</span></li>
@@ -1034,7 +1035,7 @@
 					<ul>
 						<li>ゲームが複数回あるときは各ゲームでアイテムや好みが変わります，あなたが何を好んでいるのか確認したい場合は，画面左下の <span class="underLine colorBlue"><strong>"View Payoffs"</strong></span> ボタンをクリックしてください．
 							下図のようなポップアップが表示されます．
-							各アイテムのポイントと<span class="underLine colorRed">BATNA</span>で得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
+							各アイテムのポイントとあなたが<span class="underLine colorRed">BATNA</span>で得られるポイントを確認することができます．上手に交渉してBATNAよりも良いポイントを手に入れましょう!</li>
 						<li>ゲームは "Formal Accept" を両者が押すか，時間切れになると終了します．"Accept (non-binding)" を押しても交渉が終了するわけではありません．</li>
 						<li>交渉時間がなくなるとBATNAとして持っているポイントが獲得できます．<strong>しかしBATNAの価値はかなり低いので，<span class="attention">できるだけ時間内に "Formal Accept" にたどり着くようにしましょう!</span></strong></li>
 						<li>好みやBATNAについて<strong>必ずしも本当のことを言わなければならないわけではありません</strong>．しかし嘘をつくと<strong>交渉が難しくなる場合がある</strong>ので注意しましょう．</li>
@@ -1135,8 +1136,8 @@
 			</span>
 			<form action="">
 				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Drag and drop items to move them</span><span class="hidden langChange" lang="jp">ドラッグアンドドロップでアイテムを移動させる</span></label><br>
-				<input id="ans4" type="radio" name="trade" value="right"> <label><span class="langChange" lang="en">Click to move the item</span><span class="hidden langChange" lang="jp">クリックしてアイテムを移動させる</span></label><br>
 				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Items once assigned cannot be moved</span><span class="hidden langChange" lang="jp">一度割り当てられたアイテムは動かすことはできない</span></label><br>
+				<input id="ans4" type="radio" name="trade" value="right"> <label><span class="langChange" lang="en">Click to move the item</span><span class="hidden langChange" lang="jp">クリックしてアイテムを移動させる</span></label><br>
 				<input type="radio" name="trade" value="wrong"> <label><span class="langChange" lang="en">Can not move the item by yourself</span><span class="hidden langChange" lang="jp">自分でアイテムを動かすことはできない</span></label>
 			</form>
 			<div class="hidden wrong" id="wrong4"><em>
@@ -1158,8 +1159,8 @@
 			</span>
 			<form action="">
 				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">Click the "View Payoffs" button and you can check BATNA</span><span class="hidden langChange" lang="jp">"View Payoffs" ボタンをクリックすると確認できる</span></label><br>
-				<input id="ans5" type="radio" name="batna" value="right"> <label><span class="langChange" lang="en">You can not know your partner's BATNA</span><span class="hidden langChange" lang="jp">相手のBATNAを知ることはできない</span></label><br>
 				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">If time runs out, you can only get points that are set in BATNA</span><span class="hidden langChange" lang="jp">時間切れになった場合はBATNAに設定されているポイントしか獲得できない</span></label><br>
+				<input id="ans5" type="radio" name="batna" value="right"> <label><span class="langChange" lang="en">You can not know your partner's BATNA</span><span class="hidden langChange" lang="jp">相手のBATNAを知ることはできない</span></label><br>
 				<input type="radio" name="batna" value="wrong"> <label><span class="langChange" lang="en">You can tell your partner a lie BATNA</span><span class="hidden langChange" lang="jp">相手に嘘のBATNAを教えても良い</span></label>
 			</form>
 			<div class="hidden wrong" id="wrong5"><em>
@@ -1257,9 +1258,9 @@
 
 			<div class="post instructions hidden" style="margin: auto;">
 				<span class="langChange" lang="en">
-					However, we <strong>highly</strong> recommend to check the operation <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">here</span></a> first.  <br>
+					However, we <strong>highly</strong> recommend to check the operation <a href="https://myiago.com/apps/sandbox/searching.jsp" target="_blank"><span style="font-size: x-large; font-weight: bolder">here</span></a> first.
 					This is only a confirmation of the operation, <strong>not an action from your partner</strong>.<br><br>
-					Be sure to <span class="attention"><strong>confirm that the ID displayed to the right of your partner's avatar is yours</strong></span> when you start negotiating.<br>
+					Be sure to <span class="attention"><strong>confirm that the ID displayed to the right of your partner's avatar is yours</strong></span> when you start negotiating.
 					We recommend <span class="attention"><strong>duplicating this page</strong></span> so you can play it while checking the operation.<br>
 					When you're ready, click the 'Start!' button below.<br>
 				</span>
@@ -1278,7 +1279,7 @@
 				<div class="hidden" id="IDWarning">
 					<strong>
 						<span class="langChange" lang="en">Please enter a string consisting of only numbers.</span>
-						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を入力してください.</span>
+						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を半角で入力してください.</span>
 					</strong>
 				</div>
 				<strong>Your ID: </strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>
