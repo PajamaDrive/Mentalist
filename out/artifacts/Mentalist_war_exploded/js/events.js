@@ -515,7 +515,14 @@ function history(event, socket) {
 }
 
 function playerPointStruct(event, socket) {
-    var html = event.data.replace(/\r?\n/g, "<br />");
+    if($("input[name=lang]:checked").val() == "1"){
+        for(var key of REPLACE_LIST.keys()){
+            event.data = event.data.replace(new RegExp(key, "g"), REPLACE_LIST.get(key));
+        }
+    }
+
+    html = event.data.replace(/\r?\n/g, "<br />");
+
     dialog(html);
 }
 
@@ -560,7 +567,18 @@ function compareSecondItem(event, socket) {
 
 function chatTextTemp(event, socket) {
     $(".compare-panel-message").removeClass("hidden");
-    $(".compare-panel-message").text(event.data);
+    if($("input[name=lang]:checked").val() == "0"){
+        $(".compare-panel-message").text(event.data);
+
+    }
+    else{
+        if(REPLACE_LIST.has(event.data)){
+            $(".compare-panel-message").text(REPLACE_LIST.get(event.data));
+        }
+        else{
+            $(".compare-panel-message").text(event.data);
+        }
+    }
 }
 
 function chatTextFinalized(event, socket) {
@@ -595,6 +613,11 @@ function emoteMessage(event, socket) {
 
 function offerFinalized(event, socket) {
     removeWaitingMessage();
+    if($("input[name=lang]:checked").val() == "1"){
+        for(var key of REPLACE_DIALOG.keys()){
+            event.data = event.data.replace(new RegExp(key, "g"), REPLACE_DIALOG.get(key));
+        }
+    }
     dialogWaitForEnd(event.data);
 }
 
@@ -604,6 +627,11 @@ function notMatched(event, socket) {
 }
 
 function intermediate(event, socket) {
+    if($("input[name=lang]:checked").val() == "1"){
+        for(var key of REPLACE_DIALOG.keys()){
+            event.data = event.data.replace(new RegExp(key, "g"), REPLACE_DIALOG.get(key));
+        }
+    }
     dialogIntermediate(event.data);
 
 }
@@ -618,12 +646,23 @@ function notyetEnd(event, socket) {
 
 function negotiationEnd(event, socket) {
     removeWaitingMessage();
+    if($("input[name=lang]:checked").val() == "1"){
+        for(var key of REPLACE_DIALOG.keys()){
+            event.data = event.data.replace(new RegExp(key, "g"), REPLACE_DIALOG.get(key));
+        }
+    }
+
     dialogWaitForEnd(event.data);
 }
 
 function negotiationWarn(event, socket) {
     removeWaitingMessage();
-    dialog("Only one minute remains in this negotiation!");
+    if($("input[name=lang]:checked").val() == "0") {
+        dialog("Only one minute remains in this negotiation!");
+    }
+    else{
+        dialog(REPLACE_DIALOG.get("Only one minute remains in this negotiation!"));
+    }
 }
 
 function GAME_END(event, socket) {
@@ -649,6 +688,7 @@ function GAME_END(event, socket) {
     socket.send(JSON.stringify(newGamePing));
 
     startup();
+    initLanguage($("input[name=lang]:checked").val());
 }
 
 function containsAgentData(event) {

@@ -37,7 +37,7 @@
 		else{
 			window.setTimeout(document.agentdata.submit.bind(document.agentdata), 10000);
 		}
-	};
+    };
 	
 	//Displays the 'waiting complete' text and hides loading animation once the game page opens
 	function changePageContentOnLoad() {
@@ -49,7 +49,7 @@
 	}
 	else{
 		setTimeout("changePageContentOnLoad()", 6000);
-	} 
+	}
 </script>
 </head>
 <body>
@@ -93,6 +93,8 @@
 	<input id="openness" name="openness" type="hidden" value=<%= request.getParameter("openness") == null ? "-1" : request.getParameter("openness") %>>
 	<input id="conscientiousness" name="conscientiousness" type="hidden" value=<%= request.getParameter("conscientiousness") == null ? "-1" : request.getParameter("conscientiousness") %>>
 	<input id="agreeableness" name="agreeableness" type="hidden" value=<%= request.getParameter("agreeableness") == null ? "-1" : request.getParameter("agreeableness") %>>
+
+	<input id="languageChecked" name="languageChecked" type="hidden" value=<%= request.getParameter("languageChecked") == null ? request.getParameter("beforeLanguageChecked") : request.getParameter("languageChecked") %>>
 
 </form>
 </html>

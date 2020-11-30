@@ -274,6 +274,7 @@ window.onload = function() {
         $("#IDSubmitButton").click(function(e) {
         	var userID = document.getElementById("MTurkID").value;
             if(userID != "" && !isNaN(userID)) {
+                document.getElementById("languageChecked").value = $("input[name=lang]:checked").val();
                 document.getElementById("formUserData").submit();
             }
             else {
@@ -286,6 +287,7 @@ window.onload = function() {
         $("#beforeIDSubmitButton").click(function(e) {
             var userID = document.getElementById("beforeMTurkID").value;
             if(userID != "" && !isNaN(userID)) {
+            	document.getElementById("beforeLanguageChecked").value = $("input[name=lang]:checked").val();
                 document.getElementById("formBefore").submit();
             }
             else {

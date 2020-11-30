@@ -19,16 +19,21 @@
 </head>
 <!-- NOTE: Much of the body text on these page appears to be repeated to account for both game conditions.  When users come from Qualtrics the correct text is loaded depending on their condition. -->
 <body>
-	<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
-	<label for="radio_en">
-		<span class="langChange" lang="en">English</span>
-		<span class="hidden langChange" lang="jp">英語</span>
-	</label>
-	<input type="radio" id="radio_jp" name="lang" value="1">
-	<label for="radio_jp">
-		<span class="langChange" lang="en">Japanese</span>
-		<span class="hidden langChange" lang="jp">日本語</span>
-	</label>
+	<span class="radioButtonWrapper">
+		<input type="radio" id="radio_en" name="lang" value="0" checked="checked">
+		<label for="radio_en">
+			<span class="langChange" lang="en">English</span>
+			<span class="hidden langChange" lang="jp">英語</span>
+		</label>
+	</span>
+	<span class="radioButtonWrapper">
+		<input type="radio" id="radio_jp" name="lang" value="1">
+		<label for="radio_jp">
+			<span class="langChange" lang="en">Japanese</span>
+			<span class="hidden langChange" lang="jp">日本語</span>
+		</label>
+	</span>
+
 	<br>
 	<hr>
 	<div id="big5">
@@ -40,6 +45,7 @@
 				</p>
 
 				<form id="formBefore" target="_self" action="searching.jsp" method="POST">
+					<input type="hidden" value="" id="beforeLanguageChecked" name="beforeLanguageChecked">
 					<div>
 						<div class="hidden" id="beforeIDWarning">
 							<strong>
@@ -1282,6 +1288,7 @@
 						<span class="hidden langChange" lang="jp">数値のみで構成される文字列を半角で入力してください.</span>
 					</strong>
 				</div>
+				<input type="hidden" value="" id="languageChecked" name="languageChecked">
 				<strong>Your ID: </strong><input id="MTurkID" name="MTurkID" type="text" value=""><br><br>
 				<div class="buttonWrapper">
 					<button id="IDSubmitButton" type="button" value="Start"/>

@@ -68,7 +68,7 @@ class FavorGameSpecPart3 extends GameSpec{
 
 	@Override
 	public int getTotalTime() {
-		return 600;
+		return 70;
 	}
 	
 	@Override
@@ -79,7 +79,7 @@ class FavorGameSpecPart3 extends GameSpec{
 	
 	@Override
 	public String getEndgameMessage() {
-		return "The game has ended!  Be prepared, a new game will start with the other opponent soon!";
+		return "The game has ended!  You'll be redirected to finish soon.";
 	}
 	
 

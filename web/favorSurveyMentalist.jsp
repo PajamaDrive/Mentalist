@@ -3,6 +3,22 @@
 <html lang="ja">
 <meta charset="UTF-8">
 <link href="css/iago.css" rel="stylesheet">
+<script>
+    var lang = $("input[name=lang]:checked").val();
+    if(lang == "0"){
+        $("#radio_en_survey").prop("checked", true);
+        $("#radio_jp_survey").prop("checked", false);
+        $(".langChange[lang=en]").removeClass("hidden");
+        $(".langChange[lang=jp]").addClass("hidden");
+    }
+    else{
+        $("#radio_en_survey").prop("checked", false);
+        $("#radio_jp_survey").prop("checked", true);
+        $(".langChange[lang=en]").addClass("hidden");
+        $(".langChange[lang=jp]").removeClass("hidden");
+    }
+
+</script>
 
 <div class="modal fade" id=surveyModalDialog tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-labelledby="surveyModalDialogLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -14,16 +30,21 @@
                 </h5>
             </div>
             <div class="modal-body">
-                <input type="radio" id="radio_en" name="lang" value="0" checked="checked" onclick="radioChecked()">
-                <label for="radio_en">
-                    <span class="langChange" lang="en">English</span>
-                    <span class="hidden langChange" lang="jp">英語</span>
-                </label>
-                <input type="radio" id="radio_jp" name="lang" value="1" onclick="radioChecked()">
-                <label for="radio_jp">
-                    <span class="langChange" lang="en">Japanese</span>
-                    <span class="hidden langChange" lang="jp">日本語</span>
-                </label>
+                <span class="radioButtonWrapper">
+                    <input type="radio" id="radio_en_survey" name="lang_survey" value="0" checked="checked" onclick="radioChecked()">
+                    <label for="radio_en_survey">
+                        <span class="langChange" lang="en">English</span>
+                        <span class="hidden langChange" lang="jp">英語</span>
+                    </label>
+                </span>
+                <span class="radioButtonWrapper">
+                    <input type="radio" id="radio_jp_survey" name="lang_survey" value="1" onclick="radioChecked()">
+                    <label for="radio_jp_survey">
+                        <span class="langChange" lang="en">Japanese</span>
+                        <span class="hidden langChange" lang="jp">日本語</span>
+                    </label>
+                </span>
+
                 <div class="survey instructions">
                     <span class="langChange" lang="en">
                         Please answer these short few questions before continuing to the next game. Your partner will NOT see your answers.<br>
@@ -259,7 +280,7 @@
                         </strong>
                     </div>
                 </div>
-                
+
                 <button type="button" id="surveySubmit" class="btn btn-primary" onclick="submitAll()">
                 <label for="surveySubmit">
                     <span class="langChange" lang="en">Submit</span>

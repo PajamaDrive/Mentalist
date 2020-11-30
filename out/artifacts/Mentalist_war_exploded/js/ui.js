@@ -75,10 +75,12 @@ function updateExchangeInputCursor(disabled) {
 
 function showChatMessage(content) {
     $(".messageHistory").append(content)
+	$(".messageHistoryJp").append(transJp(content, false))
 }
 
 function clearChat() {
     $(".messageHistory").empty()
+	$(".messageHistoryJp").empty()
 }
 
 function flashMessage(msg) {
@@ -136,17 +138,33 @@ function dialogStartGame(content) {
 }
 
 function dialogRedirect(content) {
-	showDialog("Thanks for playing!  Please click ok to be redirected to the finish page!", function(event) {
-        window.location.replace(content);
-        closeSocket();
-    })
+    if($("input[name=lang]:checked").val() == "0") {
+        showDialog("Thanks for playing!  Please click ok to be redirected to the finish page!", function (event) {
+            window.location.replace(content);
+            closeSocket();
+        })
+    }
+    else{
+        showDialog(REPLACE_DIALOG.get("Thanks for playing!  Please click ok to be redirected to the finish page!"), function (event) {
+            window.location.replace(content);
+            closeSocket();
+        })
+    }
 }
 
 function dialogNotYetRedirect(content) {
-    showDialog("You are not allowed to use that form yet!", function(event) {
-        window.location.replace(content);
-        closeSocket();
-    })
+    if($("input[name=lang]:checked").val() == "0"){
+        showDialog("You are not allowed to use that form yet!", function(event) {
+            window.location.replace(content);
+            closeSocket();
+        })
+	}
+	else{
+        showDialog(REPLACE_DIALOG.get("You are not allowed to use that form yet!"), function(event) {
+            window.location.replace(content);
+            closeSocket();
+        })
+	}
 }
 
 function showDialog(content, onOk) {

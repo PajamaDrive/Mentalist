@@ -388,6 +388,7 @@ public class GameBridgeUtils {
         int openness = Integer.parseInt(request.getParameter("openness"));
         int conscientiousness = Integer.parseInt(request.getParameter("conscientiousness"));
         int agreeableness = Integer.parseInt(request.getParameter("agreeableness"));
+        String language = request.getParameter("languageChecked");
         ServletUtils.log("Found mturk id: " + MTurkID, ServletUtils.DebugLevels.DEBUG);
         ServletUtils.log("Found expression: " + expressionChoice, ServletUtils.DebugLevels.DEBUG);
         ServletUtils.log("Found behavior: " + behaviorChoice, ServletUtils.DebugLevels.DEBUG);
@@ -427,6 +428,7 @@ public class GameBridgeUtils {
         request.getSession().setAttribute("openness", openness);
         request.getSession().setAttribute("conscientiousness", conscientiousness);
         request.getSession().setAttribute("agreeableness", agreeableness);
+        request.getSession().setAttribute("languageChecked", language);
         request.getRequestDispatcher("iago.jsp").forward((ServletRequest) request, (ServletResponse) response);
     }
 

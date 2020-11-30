@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -12,12 +13,48 @@
 	crossorigin="anonymous">
 <title>IAGO</title>
 </head>
+<script>
+    function initLanguage(lang){
+        if(lang == "0"){
+            $("#radio_en").prop("checked", true);
+            $("#radio_jp").prop("checked", false);
+        }
+        else{
+            $("#radio_en").prop("checked", false);
+            $("#radio_jp").prop("checked", true);
+        }
 
+        changeLanguage();
+	}
+    var lang = <%= request.getParameter("languageChecked")%>;
+    window.onload = function(){
+        initLanguage(lang);
+    };
+</script>
 <body>
 	<main>
 	<div id="resizeMe">
 		<div class="container" id="mainContainer">
 
+			<div class="container card" id="radioContainer">
+				<span class="userID"><strong>Your ID: </strong><span style="margin-left: 2px;"><%= request.getParameter("MTurkID")%></span></span>
+				<span class="radioButtonWrapper">
+					<input type="radio" id="radio_en" name="lang" value="0" onclick="changeLanguage()">
+					<label for="radio_en">
+						<span class="langChange" lang="en">English</span>
+						<span class="hidden langChange" lang="jp">英語</span>
+					</label>
+				</span>
+				<span class="radioButtonWrapper">
+					<input type="radio" id="radio_jp" name="lang" value="1"  onclick="changeLanguage()">
+					<label for="radio_jp">
+						<span class="langChange" lang="en">Japanese</span>
+						<span class="hidden langChange" lang="jp">日本語</span>
+					</label>
+				</span>
+			</div>
+
+			<div class="container">
 			<div class="column">
 				<div class="card vh-info" id="vhContainer">
 					<div class="card-body">
@@ -30,9 +67,15 @@
 							<div class="status text-muted" id="vhDescription">Your
 								opponent will be described here!</div>
 							<div class="alert alert-light" id="vhCurrentUtterance"></div>
-							<div class="userID"><strong>Your ID: </strong><span class="userID"><%= request.getParameter("MTurkID")%></span></div>
 
-							<div class="time" id="negoTimer">Time Remaining: Loading</div>
+							<div class="time" id="negoTimer">
+								<span class="langChange" lang="en">
+									Time Remaining: Loading
+								</span>
+								<span class="hidden langChange" lang="jp">
+									残り時間:
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -41,7 +84,14 @@
 						<div class="container">
 
 							<div class="row">
-								<small class="exchange-table-row-item text-muted">Opponent's</small>
+								<small class="exchange-table-row-item text-muted">
+									<span class="langChange" lang="en">
+										Opponent's
+									</span>
+									<span class="hidden langChange" lang="jp">
+										相手
+									</span>
+								</small>
 							</div>
 							<div class="row exchange-table-row">
 								<div class="exchange-table-row-item item-col0">
@@ -77,7 +127,14 @@
 							</div>
 
 							<div class="row">
-								<small class="exchange-table-row-item text-muted">Undecided</small>
+								<small class="exchange-table-row-item text-muted">
+									<span class="langChange" lang="en">
+										Undecided
+									</span>
+									<span class="hidden langChange" lang="jp">
+										未配置
+									</span>
+								</small>
 							</div>
 							<div class="row exchange-table-row">
 								<div class="exchange-table-row-item item-col0">
@@ -113,7 +170,14 @@
 							</div>
 
 							<div class="row">
-								<small class="exchange-table-row-item text-muted">Yours</small>
+								<small class="exchange-table-row-item text-muted">
+									<span class="langChange" lang="en">
+										Yours
+									</span>
+									<span class="hidden langChange" lang="jp">
+										あなた
+									</span>
+								</small>
 							</div>
 							<div class="row exchange-table-row">
 								<div class="exchange-table-row-item item-col0">
@@ -149,13 +213,26 @@
 							</div>
 
 							<div class="row">
-								<small class="exchange-table-row-item text-muted">Your
-									points</small>
+								<small class="exchange-table-row-item text-muted">
+									<span class="langChange" lang="en">
+										Your points
+									</span>
+									<span class="hidden langChange" lang="jp">
+										あなたの得点
+									</span>
+								</small>
 								<div class="exchange-table-row-item item-col1"></div>
 								<div class="exchange-table-row-item item-col2"></div>
 								<div class="exchange-table-row-item item-col3"></div>
 								<div class="exchange-table-row-item item-col4"></div>
-								<small class="exchange-table-row-item text-muted total">Total</small>
+								<small class="exchange-table-row-item text-muted total">
+									<span class="langChange" lang="en">
+										Total
+									</span>
+									<span class="hidden langChange" lang="jp">
+										合計
+									</span>
+								</small>
 							</div>
 
 							<div class="row exchange-table-row total-row">
@@ -186,39 +263,58 @@
 					<div class="card-body">
 						<button type="button" id="butStartOffer"
 							class="btn btn-outline-primary btn-sm" data-toggle="tooltip"
-							title="Lets you move items on the table">Start an offer</button>
+							title="Lets you move items on the table">
+							Start an offer
+						</button>
+
 						<button type="button" id="butSendOffer"
 							class="btn btn-outline-primary btn-sm d-none"
-							data-toggle="tooltip" title="Sends the current offer">Send
-							your offer</button>
+							data-toggle="tooltip" title="Sends the current offer">
+							Send your offer
+						</button>
+
 						<button type="button" id="butFormalAccept"
 							class="btn btn-outline-primary btn-sm d-none"
-							data-toggle="tooltip" title="If opponent accepts, game will end">Formally
-							accept offer</button>
+							data-toggle="tooltip" title="If opponent accepts, game will end">
+							Formally accept offer
+						</button>
+
 						<button type="button" id="butFormalQuit"
 							class="btn btn-outline-danger btn-sm d-none"
-							data-toggle="tooltip" title="If opponent quits, game will end">Formally
-							quit game</button>
+							data-toggle="tooltip" title="If opponent quits, game will end">
+							Formally quit game
+						</button>
+
 						<button type="button" id="butAccept"
 							class="btn btn-outline-success btn-sm d-none"
-							data-toggle="tooltip" title="Accepts an offer, but isn't binding">Accept
-							offer (non-binding)</button>
+							data-toggle="tooltip" title="Accepts an offer, but isn't binding">
+							Accept offer (non-binding)
+						</button>
+
 						<button type="button" id="butReject"
 							class="btn btn-outline-danger btn-sm d-none"
-							data-toggle="tooltip" title="Rejects an offer, but isn't binding">Reject
-							offer (non-binding)</button>
+							data-toggle="tooltip" title="Rejects an offer, but isn't binding">
+							Reject offer (non-binding)
+						</button>
+
 						<button type="button" id="butAcceptFavor"
 							class="btn btn-outline-success btn-sm d-none"
 							data-toggle="tooltip"
-							title="Accepts a favor request, but isn't binding">Accept
-							favor (non-binding)</button>
+							title="Accepts a favor request, but isn't binding">
+							Accept favor (non-binding)
+						</button>
+
 						<button type="button" id="butRejectFavor"
 							class="btn btn-outline-danger btn-sm d-none"
 							data-toggle="tooltip"
-							title="Rejects a favor request, but isn't binding">Reject
-							favor (non-binding)</button>
+							title="Rejects a favor request, but isn't binding">
+							Reject favor (non-binding)
+						</button>
+
 						<button type="button" id="butViewPayoffs"
-							class="btn btn-outline-secondary btn-sm">View Payoffs</button>
+							class="btn btn-outline-secondary btn-sm">
+							View Payoffs
+						</button>
 					</div>
 				</div>
 			</div>
@@ -229,11 +325,18 @@
 				<div class="card chat-panel">
 					<div class="card-body">
 						<div class="messageHistory"></div>
+						<div class="hidden messageHistoryJp"></div>
 					</div>
 				</div>
 				<div class="card emoticons-panel">
-					<small class="flex-child"> Tip: The glowing icon is the one
-						you're currently showing! </small>
+					<small class="flex-child">
+						<span class="langChange" lang="en">
+							Tip: The glowing icon is the one you're currently showing!
+						</span>
+						<span class="hidden langChange" lang="jp">
+							Tip: 点滅しているアイコンはあなたが最後に送信したものです．
+						</span>
+					</small>
 					<div class="card-body">
 						<input class="emoticon-item button" id="butAnger" type="image"
 							src="img/angry_face.png" /> <input class="emoticon-item button"
@@ -384,10 +487,9 @@
 					</div>
 				</div>
 			</div>
-
+			</div>
 
 			<div id="debug"></div>
-
 
 
 		</div>

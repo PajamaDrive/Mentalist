@@ -23,9 +23,31 @@ main .container .column {
     min-width: 500px;
 }
 
+#mainContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+#radioContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.radioButtonWrapper{
+    padding: 12px 10px 0 10px;
+}
+
+.userID{
+    font-size: 25px;
+    margin: 5px 20px 0 5px;
+    padding: 0 5px 5px 5px;
+}
+
 .container .column .card {
     margin: 5px 0;
 }
+
 
 .container .column .vh-info {
     display: flex;

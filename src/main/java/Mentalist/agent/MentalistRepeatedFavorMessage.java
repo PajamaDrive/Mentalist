@@ -67,7 +67,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"I'm sorry, but I don't think that's fair to me.",
 			"Apologies, but that won't work for me.",
 			"Perhaps we should spend more time finding a solution that's good for us both...",
-			"I won't be able to accept that.  So sorry. :(",
+			"I won't be able to accept that.  So sorry.",
 			"I could accept your offer if you'd more concede, but...",
 			"Could you concede a little more?",
 			"I'm sorry, but this offer is unacceptable.",
@@ -162,7 +162,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"Great!",
 			"I'm so glad you're pleased.",
 			"I'm happy too!",
-			"Good!",
+			"Good!"
 	};
 
 	private final String[] surpriseEmotion = {
@@ -353,7 +353,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 	}
 
 	protected String getContradictionResponse(String drop) {
-		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct? Please tell me your correct preferences!";
+		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct? Once again, tell me your correct preferences!";
 	}
 
 	@Override

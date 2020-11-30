@@ -86,7 +86,7 @@ class FavorGameSpecPart1 extends GameSpec{
 	@Override
 	public String getNewgameMessage() {
 		return "Time need to negotiate a for some antiques!  Click \"View Payoffs\" to view these again. You now get 4 points for each box of records, "
-				+ " 3 points for each painting, 2 points for each lamp, and <strong>only 1 point for each cuckoo clock.</strong>  You have an alternative deal for 12 points!";
+				+ "3 points for each painting, 2 points for each lamp, and <strong>only 1 point for each cuckoo clock.</strong>  You have an alternative deal for 12 points!";
 	}
 
 	@Override

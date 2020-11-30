@@ -31,7 +31,7 @@ public class PilotStudyMessage extends MentalistCoreMessage implements MessagePo
 			"I'm sorry, but I don't think that's fair to me.",
 			"Apologies, but that won't work for me.",
 			"Perhaps we should spend more time finding a solution that's good for us both...",
-	"I won't be able to accept that.  So sorry. :("};
+	"I won't be able to accept that.  So sorry."};
 
 	protected final String[] vhAccept = {
 			"Your offer is good!",
@@ -131,7 +131,7 @@ public class PilotStudyMessage extends MentalistCoreMessage implements MessagePo
 	}
 
 	protected String getContradictionResponse(String drop) {
-		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct?";
+		return "I'm sorry.  I must be misunderstanding.  Earlier, you said: " + drop + " Was that not correct? Once again, tell me your correct preferences!";
 	}
 
 	@Override

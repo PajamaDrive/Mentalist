@@ -378,6 +378,10 @@ input[type=radio]:not([name*="lang"]) + label {
     height: 60px;
 }
 
+.radioButtonWrapper{
+    padding: 12px 10px 0 10px;
+}
+
 .buttonWrapper > button {
     position: absolute;
     left: 30px;

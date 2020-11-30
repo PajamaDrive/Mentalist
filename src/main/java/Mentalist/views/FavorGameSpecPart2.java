@@ -68,7 +68,7 @@ class FavorGameSpecPart2 extends GameSpec{
 
 	@Override
 	public int getTotalTime() {
-		return 600;
+		return 65;
 	}
 	
 	@Override
@@ -85,8 +85,8 @@ class FavorGameSpecPart2 extends GameSpec{
 	
 	@Override
 	public String getNewgameMessage() {
-		return "The items and your preferences have changed!  You need to negotiate a trade deal!  Click \"View Payoffs\" to view these again.  <strong>You now get a whopping 8 points for each bar of iron</strong>, " +
-				"4 points for each bar of gold, 3 points for each barrel of oil, and only 2 points for each shipment of spices.  You have an alternative deal for 12 points!";
+		return "The items and your preferences have changed!  You need to negotiate a trade deal!  Click \"View Payoffs\" to view these again.  You now get 4 points for each bar of iron, " +
+				"3 points for each bar of gold, 2 points for each barrel of oil, and <strong>only 1 points for each shipment of spices.</strong>  You have an alternative deal for 12 points!";
 	}
 
 	@Override
