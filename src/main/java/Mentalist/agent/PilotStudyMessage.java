@@ -254,7 +254,7 @@ public class PilotStudyMessage extends MentalistCoreMessage implements MessagePo
 			}
 			else 
 			{
-				str = "I agree!  Why don't we make sure you get your favorite item, and I get mine?  Yours is " + game.getIssuePluralNames()[best] + ", right?";
+				str = "I agree!  Why don't we make sure you get your favorite item, and I get mine?";
 				issue1 = best;
 				relation = Relation.BEST;
 				isQuery = true;
@@ -277,6 +277,7 @@ public class PilotStudyMessage extends MentalistCoreMessage implements MessagePo
 				if (Math.abs(utils.myActualOfferValue(lastOffer.getOffer()) - avgPlayerValue) > game.getNumIssues() * 2)
 				{
 					str =  "Ok, I understand.  I do wish we could come up with something that is a more even split though.";
+					/*
 					if (best >= 0 && worst >= 0) 
 					{
 						str += "  Isn't it true that you like " + game.getIssuePluralNames()[best] + " best and " + game.getIssuePluralNames()[worst] + " least?";
@@ -286,6 +287,7 @@ public class PilotStudyMessage extends MentalistCoreMessage implements MessagePo
 						isQuery = true;
 						
 					}
+					*/
 				}
 				else
 					str = "Ok, I understand.  This seems like a fairly even split.";

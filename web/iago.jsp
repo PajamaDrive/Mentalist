@@ -66,7 +66,8 @@
 							<!--  <div class="name">Laura</div>-->
 							<div class="status text-muted" id="vhDescription">Your
 								opponent will be described here!</div>
-							<div class="alert alert-light" id="vhCurrentUtterance"></div>
+							<div class="alert alert-light hidden" id="vhCurrentUtterance"></div>
+							<div class="alert alert-light hidden" id="vhCurrentUtteranceJp"></div>
 
 							<div class="time" id="negoTimer">
 								<span class="langChange" lang="en">
@@ -331,10 +332,10 @@
 				<div class="card emoticons-panel">
 					<small class="flex-child">
 						<span class="langChange" lang="en">
-							Tip: The glowing icon is the one you're currently showing!
+							TIP: The glowing icon is the one you're currently showing!
 						</span>
 						<span class="hidden langChange" lang="jp">
-							Tip: 点滅しているアイコンはあなたが最後に送信したものです．
+							TIP: 点滅しているアイコンはあなたが最後に送信したものです．
 						</span>
 					</small>
 					<div class="card-body">

@@ -84,12 +84,26 @@ function clearChat() {
 }
 
 function flashMessage(msg) {
-    $("#vhCurrentUtterance").text(msg).removeClass('fade').addClass('show')
+    $("#vhCurrentUtterance").text(msg);
+    $("#vhCurrentUtteranceJp").text(REPLACE_FLASH.get(msg));
+    if($("input[name=lang]:checked").val() == "0") {
+        $("#vhCurrentUtterance").removeClass('fade hidden').addClass('show')
+        $("#vhCurrentUtteranceJp").removeClass('fade').addClass('show hidden')
+    }
+    else{
+        $("#vhCurrentUtterance").removeClass('fade').addClass('show hidden')
+        $("#vhCurrentUtteranceJp").removeClass('fade hidden').addClass('show')
+    }
     if (currentUtteranceTimeout) {
         clearTimeout(currentUtteranceTimeout)
     }
     currentUtteranceTimeout = setTimeout(() => {
-        $("#vhCurrentUtterance").removeClass('show').addClass('fade')
+        if($("input[name=lang]:checked").val() == "0"){
+     	   $("#vhCurrentUtterance").removeClass('show').addClass('fade')
+		}
+		else{
+        	$("#vhCurrentUtteranceJp").removeClass('show').addClass('fade')
+    	}
     }, 4000);
 }
 

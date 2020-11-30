@@ -68,7 +68,7 @@ class FavorGameSpecPart3 extends GameSpec{
 
 	@Override
 	public int getTotalTime() {
-		return 70;
+		return 600;
 	}
 	
 	@Override

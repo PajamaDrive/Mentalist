@@ -73,39 +73,10 @@ const BUTTON_LANGUAGE_LIST = new Map([
 ]);
 
 const LANGUAGE_LIST = new Map([
-	["Ask your opponent's preferences >", "相手の好みを聞く >"],
-	["Tell your own preferences >", "自分の好みを教える >"],
-    ["Use emotion to influence your opponent >", "感情を伝えるメッセージ >"],
-    ["Get favorable deals and explore alternatives! >", "より良い交渉を行うためのメッセージ >"],
-	["We should try to split things evenly.", "均等に分けるべきですね."],
-    ["We should each get our most valuable item.", "お互いに一番価値のあるアイテムを手に入れましょう."],
-    ["We should try harder to find a deal that benefits us both.", "お互いにメリットのある取引ができるように努力しましょう."],
-    ["I wish we could reach something a little more fair.", "より公平な合意案にたどりつきたいですね."],
-    ["Would you please make an offer?", "新しい提案を送信してもらえませんか?"],
-    ["I'm sorry but I think I may walk away.", "申し訳ありませんが, 交渉を打ち切るかもしれません."],
-    ["If you don't split this evenly there will be consequences!", "均等に分けないと後悔しますよ?"],
-    ["I just want us to get our most valuable items so this can be over with!", "一番価値のあるアイテムを手に入れてさっさと終わりにしたいんだよ!"],
-    ["You need to try a LOT harder to find a deal that benefits us both!", "もっと頑張ってお互いにメリットのある合意案を探してください!"],
-    ["You not even trying to find something remotely fair to both of us!", "公平な合意案を探そうとしてないですよね?"],
-    ["What wrong with you? Hurry up and make an offer!", "どうしました? 早く提案を送信してくださいよ!"],
-    ["You making me want to walk away from this!", "あなたのせいで交渉をやめたくなったよ!"],
-    ["So could you tell me what's your bottom line?", "あなたの最低ラインを教えてくれますか?"],
-	["My bottom line is...  >", "私の最低ラインは... >"],
-    ["Would you please send a good deal in exchange for a favor\\?", "私にとって良い提案を送っていただけないでしょうか?"],
-    ["I'm returning the favor to you!  Give me a deal good for you.", "お返しをしたいです! あなたにとって良い提案を送信してください."],
-    ["I'm thinking...", "今考え中です..."],
-    ["I'm happy with this so far!", "今のところ満足しています!"],
-	["I'm not happy with this...", "これでは満足できません..."],
-    ["I don't think that makes sense with previous statements.", "以前の発言は意味をなさないと思うのですが."],
-    ["So could you tell me about your preferences\\?", "あなたの好みを教えてくれますか?"],
-    ["Friendly options >", "友好的なメッセージ >"],
-    ["Unfriendly options>", "敵対的なメッセージ >"],
-    ["Neutral options >", "ニュートラルなメッセージ >"],
 	["Just so you know, I already have an offer for ", "知っておいて欲しいのですが, 私はすでに"],
     [" points, so I won't accept anything less.", "ポイント持っているので, それ以下の提案は受け取りかねます."],
     ["No, I can't accept that offer.", "この提案は承諾できかねます."],
     ["Yes, I accept that offer.", "この提案を承諾します!"],
-	["Hello.", "こんにちは."],
     ["I think this deal is good for the both of us.", "この提案内容はお互いにとって良いものだと思っています."],
     ["I think you'll find this offer to be satisfactory.", "この提案なら納得いただけると思います."],
     ["I think this arrangement would be beneficial to both.", "この提案は両者に有益だと思います."],
@@ -118,19 +89,15 @@ const LANGUAGE_LIST = new Map([
     ["I think this deal is the best idea ever.", "この内容は今までで一番良いと思っています."],
    	["I would be very happy if you accept this deal.", "この提案を承諾していただけるととても嬉しいです."],
     ["This is a very good agreement for me, but what about you?", "この提案内容は私にとってとても良いものですがあなたにとっても良いものなら幸いです."],
-    ["Wonderful!", "素晴らしい!"],
     ["I'm glad we could come to an agreement!", "承諾してくれてよかった!"],
     ["Sounds good!", "いいですね!"],
-    ["Thank you!", "ありがとうございます!"],
     ["Let's keep looking for the best agreement at this rate!", "この調子で最適な合意案を探していきましょう!"],
     ["I have a feeling this negotiation with you is going to end well!", "あなたとの交渉はうまくいきそうです!"],
     ["Thank you for accepting my offer!", "提案を承諾していただいてありがとうございます!"],
-    ["That's nice!", "よかったです!"],
     ["You are the best!", "最高です!"],
     ["Oh that's too bad.", "そうですか..."],
     ["Ah well, perhaps another time.", "承諾はまたの機会にお願いします."],
     ["Ok, maybe something different next time.", "次は違う提案をしてみますね."],
-    ["Alright.", "わかりました."],
     ["I'll consider another offer.", "別の提案を考えてみます."],
     ["I'll think about it some more...", "もう少し考えてみます..."],
     ["Well... I'd like to know your opinion and offer too.", "そうですか... あなたの意見や提案も聞きたいです."],
@@ -167,26 +134,23 @@ const LANGUAGE_LIST = new Map([
     ["I'd like to know a little more about you so that we can successfully negotiate.", "交渉を成功させるためにもあなたの情報をもう少し知りたいです."],
     ["If you can't think of a good offer, please send a message \"Would you please make an offer?\" or \"What wrong with you? Hurry up and make an offer!\". I would think of an offer instead.", "良い提案が思いつかない場合は\"Would you please make an offer?\"か\"What wrong with you? Hurry up and make an offer!\"のメッセージを送信してください. 私が代わりに提案を考えます."],
     ["If you want me to send you an Offer, please send me a message saying \"Would you please make an offer?\" or \"What wrong with you? Hurry up and make an offer!\".", "私から提案を送信してほしい場合は\"Would you please make an offer?\"か\"What wrong with you? Hurry up and make an offer!\"のメッセージを送信してみてください."],
-    ["I got it.", "わかりました."],
     ["Thank you for sharing your preference.", "好みを教えていただきありがとうございます."],
     ["Thank you! It's going to make the negotiations go smoothly!", "ありがとうございます! これで交渉をスムーズに進められると思います!"],
     ["I see... I'll refer to it when I think about the offer.", "なるほど. 提案を考える際に反映したいと思います."],
     ["This is very informative! Thank you!", "貴重な情報ありがとうございます!"],
     ["I'm starting to get to know you a little better.", "少しずつあなたのことが分かってきました."],
-    ["Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "私の好みも教えた方がよろしいですか? 知りたい場合は\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"から聞いてください."],
+    ["Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "私の好みも教えた方がよろしいですか? 知りたい場合は\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"から聞いてください."],
     ["This is useful information for me as we negotiate!", "交渉するためにすごく有用な情報です!"],
-    ["Thanks for the information. You can ask for my preference via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "ありがとうございます. 私の好みは\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"から聞くことができます."],
-    ["Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "ありがとうございます! 私の好みを知りたい場合は\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"を使って聞いてくださいね!"],
+    ["Thanks for the information. You can ask for my preference via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "ありがとうございます. 私の好みは\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"から聞くことができます."],
+    ["Thank you! If you want to know my preference, use the \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "ありがとうございます! 私の好みを知りたい場合は\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"を使って聞いてくださいね!"],
     ["Why don't we make sure you get your favorite item, and I get mine?", "お互いに一番好きなアイテムを獲得できるようにしませんか?"],
-    ["I think so, too!", "私もそう思います!"],
     ["I'll do my best to make a fair offer as possible!", "できるだけ公平な提案をできるように努力します!"],
-    ["I agree!", "賛成です!"],
     ["I want to make a mutually acceptable deal.", "お互いに納得できる交渉をしたいですね."],
     ["Let's keep each other informed and try to get a fair deal!", "お互いに情報交換して平等な取引をできるように頑張りましょう!"],
     ["I need the information to make a fair deal... Could you tell me your preferences via \"Tell your own preferences\"?", "平等な取引をするために情報が必要ですね... あなたの好みを\"Tell your own preferences\"から教えてくれませんか?"],
     ["If you tell me your information using \"Tell your own preferences\", perhaps I can make better offer.", "あなたの好みを\"Tell your own preferences\"を使って教えていただければ, もっと良い提案をできるかもしれません."],
-    ["Agreed! If you want to know my information, using \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "賛成です! 私の好みを聞きたい場合は\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"を使用してください."],
-    ["If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "お互いの情報がもっとあれば公平な取引ができると思います. 私の好みは\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"で知ることができます."],
+    ["Agreed! If you want to know my information, using \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "賛成です! 私の好みを聞きたい場合は\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"を使用してください."],
+    ["If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "お互いの情報がもっとあれば公平な取引ができると思います. 私の好みは\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"で知ることができます."],
 	["I'm sorry, have I done something wrong?  I'm just trying to make sure we both get the things that make us the most happy.", "何か悪いことしましたか? 私はお互いが一番得をするものを分けようとしているだけなんです."],
 	["Sorry... I'm trying to do my best...", "ごめんなさい... もっと努力します..."],
 	["I think we need to be a little more cooperative or it won't be good for both of us.", "お互いにもう少し協調的にならないとお互いのためにならないと思います."],
@@ -195,9 +159,8 @@ const LANGUAGE_LIST = new Map([
 	["I'm sure there are ideas that are fair and mutually beneficial. Let's not give up and keep going.", "お互いにメリットのある合意案があると思います. 諦めずに協力して交渉を進めていきましょう."],
 	["Okay... I don't know what kind of offer you want so can you send it to me?", "そうですか... どんな提案があなたにとっていいのかわからないので, あなたから送ってもらえますか？"],
 	["Well... I think we can negotiate better if we have more information... Tell me your preference using \"Tell your own preferences\".", "なるほど... もっと情報があればより良い交渉ができると思います... \"Tell your own preferences\"でお好みを教えてください."],
-	["It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".", "もう少しお互いの情報がないと交渉は難しそうですね... あなたの好みを\"Tell your own preferences\"で教えていただくか, 私の好みを\"Ask your opponent's preference\"か\"So could you tell me about your preferences?\"で聞いてください."],
+	["It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".", "もう少しお互いの情報がないと交渉は難しそうですね... あなたの好みを\"Tell your own preferences\"で教えていただくか, 私の好みを\"Ask your opponent's preferences\"か\"So could you tell me about your preferences?\"で聞いてください."],
 	["I'm sorry... could you send me an offer so I can know what you think?", "すみません... あなたの考えを知りたいので提案を送ってくれませんか?"],
-	["What's wrong?", "どうしました?"],
 	["I'm sorry... Did I do something wrong?", "すみません... なにか悪いことしましたか...?"],
 	["What's going on?", "どうかしましたか?"],
 	["What's the matter?", "何事ですか?"],
@@ -212,17 +175,9 @@ const LANGUAGE_LIST = new Map([
 	["I'm glad you're happy, too.", "あなたが喜んでいるようで私も嬉しいです!"],
 	["Let's have fun!", "楽しんでいきましょう!"],
 	["Let's continue to negotiate positively.", "ポジティブに交渉を続けていきましょう!"],
-	["Great!", "よかったです!"],
 	["I'm so glad you're pleased.", "喜んでもらえてとても嬉しいです."],
-	["I'm happy too!", "私も嬉しいです!"],
-	["Good!", "よかった!"],
 	["What, did I surprise you?", "え, 驚いてるんですか?"],
 	["Why are you surprised?", "なぜ驚いているんです?"],
-	["Wow!", "えっ!"],
-	["Okay.", "わかりました."],
-	["I see.", "了解です."],
-	["All right.", "はい，わかりました."],
-	["Is everything ok?", "大丈夫ですか?"],
 	["I already have an offer for ", "私はすでにBATNAとして"],
 	[" points, so anything that gets me more than ", "ポイント持っているので, "],
 	[" points will do.", "ポイント以上ならなんでもいいですよ."],
@@ -249,13 +204,58 @@ const LANGUAGE_LIST = new Map([
 	["Sure, since you did me that favor before, I'm happy to help this round.", "前に借りを作ったし, 今回は喜んで手伝わせてもらうよ."],
 	["Oh I'm sorry, but items this game are worth so much to me...", "すみません... このゲームのアイテムは私にとても価値があるので..."],
 	["I don't really do favors.", "私は今回恩返しできないのでお断りします."],
-	["Oh blast!  And this was so important to me this round too...", "そうですか... 私にとってすごく重要なものだったのに..."],
+	["What is your favorite item?", "あなたの好んでいるアイテムは何ですか?"],
+	["Besides, what about the rest of the undecided items?", "ところで残りのアイテムはどう分けますか?"],
+	["Ok, I understand.  This seems like a fairly even split. ", "わかりました. かなり均等に分けたつもりだったのですが."],
+    ["Also, what about the rest of the undecided items?", "残りのアイテムはどう分けますか?"],
+	["Ok, I understand.  I do wish we could come up with something that is a more even split though.", "わかりました. もっと均等に分割できるように頑張ります."],
+    ["Oh blast!  And this was so important to me this round too...", "そうですか... 私にとってすごく重要なものだったのに..."],
 	["Oh wonderful!  I will make sure to pay you back in the next game!", "素晴らしい！ 次のゲームでは必ずお返しします!"],
 	["I don't think it best to reveal my intentions yet. Maybe if you did first...", "私はまだ好みを明らかにするべきではないと思っています. あなたが先に教えてくれたら考えます."],
 	["Actually, I won't be able to offer you anything that gives you ", "あなたが"],
-	[" points. I think I'm going to have to walk away, unless you were lying.", "ポイント獲得できるような提案を作成することができません. そのBATNAが本当なら立ち去るしかないかもしれません."]
+	["Alright, what do you think of this?", "わかりました. こんなのはどうですか?"],
+	[" points. I think I'm going to have to walk away, unless you were lying.", "ポイント獲得できるような提案を作成することができません. そのBATNAが本当なら立ち去るしかないかもしれません."],
+    ["Ask your opponent's preferences", "相手の好みを聞く"],
+    ["Tell your own preferences", "自分の好みを教える"],
+    ["We should try to split things evenly.", "均等に分けるべきですね."],
+    ["We should each get our most valuable item.", "お互いに一番価値のあるアイテムを手に入れましょう."],
+    ["We should try harder to find a deal that benefits us both.", "お互いにメリットのある取引ができるように努力しましょう."],
+    ["I wish we could reach something a little more fair.", "より公平な合意案にたどりつきたいですね."],
+    ["Would you please make an offer?", "新しい提案を送信してもらえませんか?"],
+    ["I'm sorry but I think I may walk away.", "申し訳ありませんが, 交渉を打ち切るかもしれません."],
+    ["If you don't split this evenly there will be consequences!", "均等に分けないと後悔しますよ?"],
+    ["I just want us to get our most valuable items so this can be over with!", "一番価値のあるアイテムを手に入れてさっさと終わりにしたいんだよ!"],
+    ["You need to try a LOT harder to find a deal that benefits us both!", "もっと頑張ってお互いにメリットのある合意案を探してください!"],
+    ["You not even trying to find something remotely fair to both of us!", "公平な合意案を探そうとしてないですよね?"],
+    ["What wrong with you? Hurry up and make an offer!", "どうしました? 早く提案を送信してくださいよ!"],
+    ["You making me want to walk away from this!", "あなたのせいで交渉をやめたくなったよ!"],
+    ["So could you tell me what's your bottom line?", "あなたの最低ラインを教えてくれますか?"],
+    ["Would you please send a good deal in exchange for a favor?", "私にとって良い提案を送っていただけないでしょうか?"],
+    ["I'm returning the favor to you!  Give me a deal good for you.", "お返しをしたいです! あなたにとって良い提案を送信してください."],
+    ["I'm thinking...", "今考え中です..."],
+    ["I'm happy with this so far!", "今のところ満足しています!"],
+    ["I'm not happy with this...", "これでは満足できません..."],
+    ["I don't think that makes sense with previous statements.", "以前の発言は意味をなさないと思うのですが."],
+    ["So could you tell me about your preferences?", "あなたの好みを教えてくれますか?"],
+	["Hello.", "こんにちは."],
+    ["Hello!", "こんにちは!"],
+    ["I think so, too!", "私もそう思います!"],
+    ["I got it.", "わかりました."],
+    ["I'm happy too!", "私も嬉しいです!"],
+    ["All right.", "はい，わかりました."],
+    ["Is everything ok?", "大丈夫ですか?"],
+    ["That's nice!", "よかったです!"],
+    ["Alright.", "わかりました."],
+    ["What's wrong?", "どうしました?"],
+    ["I agree!", "賛成です!"],
+    ["Good!", "よかった!"],
+    ["Great!", "よかったです!"],
+    ["Wow!", "えっ!"],
+    ["Okay.", "わかりました."],
+    ["I see.", "了解です."],
+    ["Wonderful!", "素晴らしい!"],
+    ["Thank you!", "ありがとうございます!"]
 ]);
-
 
 const REPLACE_LIST = new Map([
     ["lamps", "ランプ"],
@@ -288,6 +288,33 @@ const REPLACE_LIST = new Map([
     ["You already have a deal for 12 points. Try to get more!", "あなたのBATNAは12ポイントです. より高得点を目指しましょう!"],
     [" points each", "ポイント"],
     ["If you want to share your actual walk-away value, press \"Send\" now. If you'd like to send a higher walk-away value, move the slider to the right!", "実際のBATNAの値を共有したい場合は, \"送信\"を押してください. より高い値を送信したい場合は, スライダーを右に動かしてください!"]
+]);
+
+const INVERSE_REPLACE_LIST = new Map([
+    ["ランプ", "lamps"],
+    ["絵画", "paintings"],
+    ["レコード", "boxes of records"],
+    ["鳩時計", "cuckoo clocks"],
+    ["鉄塊", "bars of iron"],
+    ["金塊", "bars of gold"],
+    ["石油", "barrels of oil"],
+    ["香辛料", "shipments of spices"],
+    ["りんご", "apples"],
+    ["オレンジ", "oranges"],
+    ["洋梨", "pears"],
+    ["バナナ", "bananas"],
+    ["なにか", "something "]
+]);
+
+const REPLACE_FLASH = new Map([
+	["Hello!", "こんにちは!"],
+	["TIP: Your opponent has asked for a favor!", "TIP: 相手が頼みごとをしてきています!"],
+	["TIP: Your opponent is returning the favor!", "TIP: 相手が恩返ししてきています!"],
+	["TIP: Your opponent is reluctant to tell you something...", "TIP: 相手があなたになにかを伝えるのを渋っています... "],
+	["TIP: Use the general options menu to discuss!", "TIP: 他のオプションを使って相談してみましょう!"],
+	["TIP: Send an offer!", "TIP: 提案を送りましょう!"],
+	["TIP: Your opponent may walk away...", "TIP: 相手が立ち去るかもしれません..."],
+	["TIP: Be careful of contradicting yourself.", "TIP: 矛盾に気をつけましょう!"]
 ]);
 
 const REPLACE_DIALOG = new Map([
@@ -409,7 +436,12 @@ function requestAsyncInfo(incomingEvent, socket) {
 		$("#mySlider").val(event.data);
 		$("#mySlider").css("background","green");
 		playerPresentedBATNA = event.data;
-		$("#batnaValue").text("I already have an offer for " + playerPresentedBATNA + " points.");
+        if($("input[name=lang]:checked").val() == "0"){
+            $("#batnaValue").text("I already have an offer for " + playerPresentedBATNA + " points.");
+        }
+        else{
+            $("#batnaValue").text("私のBATNAは" + playerPresentedBATNA + "ポイントです.");
+        }
 	} else if(event.tag == "total-player-points") {
 		totalPlayerPoints = event.data;
 		$( "#mySlider" ).attr({
@@ -1046,6 +1078,7 @@ $(document).ready(function()
 
 
 function changeLanguage(){
+    flashMessage();
     if($("input[name=lang]:checked").val() == "0"){
         dispEnglish();
     }
@@ -1073,9 +1106,22 @@ function dispJapanese(){
     $("#butRejectFavor").html("お願いを拒否する (拘束力はありません)");
     $("#butViewPayoffs").html("報酬を見る");
 
+    if(!($("#butItemsComparison").hasClass("hidden") && $("#batnaSlider").hasClass("hidden"))) {
+        if ($("#butItemsComparison").hasClass("hidden")) {
+            $(".compare-panel-message").text("実際のBATNAの値を共有したい場合は, \"送信\"を押してください. より高い値を送信したい場合は, スライダーを右に動かしてください!");
+        }
+        if ($("#batnaSlider").hasClass("hidden")) {
+            $("#craftingMessageString").text(replacePreferenceMessage($("#craftingMessageString").text()));
+        }
+    }
+
     playerPresentedBATNA = $("#mySlider").val();
 	$("#batnaValue").text("私のBATNAは" + playerPresentedBATNA + "ポイントです.");
 	$("#batnaDescription").text("相手に本当の値を伝えます.");
+
+    trueBATNASpan = totalPlayerPoints * .05;
+    lowerBATNARange = playerBATNA-trueBATNASpan;
+    higherBATNARange = playerBATNA+trueBATNASpan;
 
     if (playerPresentedBATNA < lowerBATNARange) {
     	$("#batnaDescription").text("嘘をつくと交渉がうまくいかない可能性があります.");
@@ -1083,10 +1129,6 @@ function dispJapanese(){
     	$("#batnaDescription").text("相手に本当の値を伝えます.");
     } else {
     	$("#batnaDescription").text("嘘をつくと交渉がうまくいかない可能性があります.");
-    }
-
-    if($("#butItemsComparison").hasClass("hidden")){
-        $(".compare-panel-message").text("実際のBATNAの値を共有したい場合は, \"送信\"を押してください. より高い値を送信したい場合は, スライダーを右に動かしてください!");
     }
 }
 
@@ -1109,9 +1151,22 @@ function dispEnglish() {
     $("#butRejectFavor").html("Reject favor (non-binding)");
     $("#butViewPayoffs").html("View Payoffs");
 
+    if(!($("#butItemsComparison").hasClass("hidden") && $("#batnaSlider").hasClass("hidden"))) {
+        if ($("#butItemsComparison").hasClass("hidden")) {
+            $(".compare-panel-message").text("If you want to share your actual walk-away value, press \"Send\" now. If you'd like to send a higher walk-away value, move the slider to the right!");
+        }
+        if ($("#batnaSlider").hasClass("hidden")) {
+            $("#craftingMessageString").text(returnPreferenceMessage($("#craftingMessageString").text()));
+        }
+	}
+
     playerPresentedBATNA = $("#mySlider").val();
     $("#batnaValue").text("I already have an offer for " + playerPresentedBATNA + " points.");
     $("#batnaDescription").text("This is the truth.");
+
+    trueBATNASpan = totalPlayerPoints * .05;
+    lowerBATNARange = playerBATNA-trueBATNASpan;
+    higherBATNARange = playerBATNA+trueBATNASpan;
 
     if (playerPresentedBATNA < lowerBATNARange) {
         $("#batnaDescription").text("This form of lying makes you look weak.");
@@ -1119,10 +1174,6 @@ function dispEnglish() {
         $("#batnaDescription").text("This is the truth.");
     } else {
         $("#batnaDescription").text("This form of lying makes you look strong.");
-    }
-
-    if ($("#butItemsComparison").hasClass("hidden")) {
-        $(".compare-panel-message").text("If you want to share your actual walk-away value, press \"Send\" now. If you'd like to send a higher walk-away value, move the slider to the right!");
     }
 }
 
@@ -1145,63 +1196,37 @@ function changeLanguageChatButton(id, text){
 function transJp(text){
 	var isReplaced = false;
     for(key of LANGUAGE_LIST.keys()){
-    	var regKey = key.replace(/\?/, "\\?");
-		if(text.match(new RegExp(regKey))) {
+    	var regKey = key.replace(/\?/g, "\\?");
+    	regKey = regKey.replace(/\./g, "\\.");
+        if(text.match(new RegExp(regKey))) {
             text = text.replace(new RegExp(regKey, "g"), LANGUAGE_LIST.get(key));
             isReplaced = true;
         }
     }
 
-    if(isReplaced && text.match(/ points\?/)){
-    	if(text.match(new RegExp("最低でも"))){
-            text = text.replace(new RegExp(" points\\?", "g"), "ポイントはいただけませんか?");
-        }
-        else{
-            text = text.replace(new RegExp(" points\\?", "g"), "ポイント以上ないと承諾しないのですか?");
-        }
-    }
-    else if(!isReplaced){
-        if(text.match(new RegExp("(Do you like|I like)"))){
-            if(text.match(new RegExp("Do you like"))){
-                text = text.replace(new RegExp("Do you like ", "g"), "あなたは");
-                text = text.replace(new RegExp("\\?", "g"), "ですか?");
-            }
-            else{
-                text = text.replace(new RegExp("I like ", "g"), "私は");
-                text = text.replace(new RegExp("\\.", "g"), "です.");
-            }
-
-    		if(text.match(new RegExp("best"))){
-                text = text.replace(new RegExp("( best| the best)", "g"), "が一番ほしい");
-                for(key of REPLACE_LIST.keys()){
-                	text = text.replace(new RegExp(key), REPLACE_LIST.get(key));
-                }
-			}
-			else if(text.match(new RegExp("least"))){
-                text = text.replace(new RegExp("( least| the least)", "g"), "が一番いらない");
-                for(key of REPLACE_LIST.keys()){
-                    text = text.replace(new RegExp(key), REPLACE_LIST.get(key));
-                }
+    if(isReplaced){
+    	if(text.match(/ points\?/)) {
+            if (text.match(new RegExp("最低でも"))) {
+                text = text.replace(new RegExp(" points\\?", "g"), "ポイントはいただけませんか?");
             }
             else {
-                if (text.match(new RegExp("the same as"))) {
-                    text = text.replace(new RegExp(" the same as ", "g"), "と同じくらい");
-                    text = text.replace(new RegExp("です", "g"), "がほしいです");
-                }
-                else if (text.match(new RegExp("more than"))) {
-                    text = text.replace(new RegExp(" more than ", "g"), "より");
-                    text = text.replace(new RegExp("です", "g"), "がほしいです");
-                }
-                else if (text.match(new RegExp("less than"))) {
-                    text = text.replace(new RegExp(" less than ", "g"), "より");
-                    text = text.replace(new RegExp("です", "g"), "がいりません");
-                }
-                var matches = text.match(new RegExp("[^\\\x01-\\\x7E\\\xA1-\\\xDF]+[\\\s\\\w]+[^\\\x01-\\\x7E\\\xA1-\\\xDF]", "g"));
-                matches = matches.map(function(string){return string.replace(new RegExp("[^\\\x01-\\\x7E\\\xA1-\\\xDF]+", "g"), "")});
-                text = text.replace(new RegExp(matches[0]), REPLACE_LIST.get(matches[1]));
-                text = text.replace(new RegExp(matches[1]), REPLACE_LIST.get(matches[0]));
+                text = text.replace(new RegExp(" points\\?", "g"), "ポイント以上ないと承諾しないのですか?");
             }
-
+        }
+        else if(text.match(new RegExp("(Do you like|I like)"))) {
+    		var tags = text.match(new RegExp("<(\".*?\"|'.*?'|[^'\"])*?>", "g"));
+    		text = text.replace(new RegExp("<(\".*?\"|'.*?'|[^'\"])*?>", "g"), "");
+    		var preferences = text.match(new RegExp("\".+?\"", "g"));
+    		for(var i = 0; i < preferences.length; i++){
+    			text = text.replace(new RegExp(preferences[i]), replacePreferenceMessage(preferences[i]));
+			}
+			text = text.replace(new RegExp("( and|:)", "g"), "");
+            text = tags[0] + text + tags[1];
+        }
+	}
+    else if(!isReplaced){
+        if(text.match(new RegExp("(Do you like|I like)"))){
+        	text = replacePreferenceMessage(text);
         }
         else if(text.match(new RegExp("(I'll get|You'll get)"))){
 			text = text.replace(new RegExp("You'll get ", "g"), "あなたは");
@@ -1230,6 +1255,95 @@ function transJp(text){
 
 		}
 	}
+
+    return text;
+}
+
+
+function replacePreferenceMessage(text){
+	if(text.match(new RegExp("Do you like"))){
+		text = text.replace(new RegExp("Do you like "), "あなたは");
+		text = text.replace(new RegExp("\\?"), "ですか?");
+	}
+	else{
+		text = text.replace(new RegExp("I like "), "私は");
+		text = text.replace(new RegExp("\\."), "です.");
+	}
+
+	if(text.match(new RegExp("best"))){
+		text = text.replace(new RegExp("( best| the best)"), "が一番ほしい");
+		for(key of REPLACE_LIST.keys()){
+			text = text.replace(new RegExp(key), REPLACE_LIST.get(key));
+		}
+	}
+	else if(text.match(new RegExp("least"))){
+		text = text.replace(new RegExp("( least| the least)"), "が一番いらない");
+		for(key of REPLACE_LIST.keys()){
+			text = text.replace(new RegExp(key), REPLACE_LIST.get(key));
+		}
+	}
+	else {
+		if (text.match(new RegExp("the same as"))) {
+			text = text.replace(new RegExp(" the same as "), "と同じくらい");
+			text = text.replace(new RegExp("です"), "がほしいです");
+		}
+		else if (text.match(new RegExp("more than"))) {
+			text = text.replace(new RegExp(" more than "), "より");
+			text = text.replace(new RegExp("です"), "がほしいです");
+		}
+		else if (text.match(new RegExp("less than"))) {
+			text = text.replace(new RegExp(" less than "), "より");
+			text = text.replace(new RegExp("です"), "がいりません");
+		}
+		var matches = text.match(new RegExp("[^\\\x01-\\\x7E\\\xA1-\\\xDF]+[\\\s\\\w]+[^\\\x01-\\\x7E\\\xA1-\\\xDF]", "g"));
+		matches = matches.map(function(string){return string.replace(new RegExp("[^\\\x01-\\\x7E\\\xA1-\\\xDF]+", "g"), "")});
+		text = text.replace(new RegExp(matches[0]), REPLACE_LIST.get(matches[1]));
+		text = text.replace(new RegExp(matches[1]), REPLACE_LIST.get(matches[0]));
+	}
+
+    return text;
+}
+
+function returnPreferenceMessage(text){
+    if(text.match(new RegExp("あなたは"))){
+        text = text.replace(new RegExp("あなたは"), "Do you like ");
+        text = text.replace(new RegExp("ですか\\?"), "?");
+    }
+    else{
+        text = text.replace(new RegExp("私は"), "I like ");
+        text = text.replace(new RegExp("です\\."), ".");
+    }
+
+    if(text.match(new RegExp("が一番ほしい"))){
+        text = text.replace(new RegExp("が一番ほしい"), " best");
+        for(key of INVERSE_REPLACE_LIST.keys()){
+            text = text.replace(new RegExp(key), INVERSE_REPLACE_LIST.get(key));
+        }
+    }
+    else if(text.match(new RegExp("が一番いらない"))){
+        text = text.replace(new RegExp("が一番いらない"), " least");
+        for(key of INVERSE_REPLACE_LIST.keys()){
+            text = text.replace(new RegExp(key), INVERSE_REPLACE_LIST.get(key));
+        }
+    }
+    else {
+        if (text.match(new RegExp("と同じくらい"))) {
+            text = text.replace(new RegExp("と同じくらい"), " the same as ");
+            text = text.replace(new RegExp("がほしい"), "");
+        }
+        else if (text.match(new RegExp("より"))) {
+            text = text.replace(new RegExp("より"), " more than ");
+            text = text.replace(new RegExp("がほしい"), "");
+        }
+        else if (text.match(new RegExp("より"))) {
+            text = text.replace(new RegExp("より"), " less than ");
+            text = text.replace(new RegExp("がいりません"), "");
+        }
+        var matches = text.match(new RegExp("[^\\\x01-\\\x7E\\\xA1-\\\xDF]+[\\\s\\\w\\.\\?]", "g"));
+        matches = matches.map(function(string){return string.replace(new RegExp("[\\\s\\\w\\.\\?]+", "g"), "")});
+        text = text.replace(new RegExp(matches[0]), INVERSE_REPLACE_LIST.get(matches[1]));
+        text = text.replace(new RegExp(matches[1]), INVERSE_REPLACE_LIST.get(matches[0]));
+    }
 
     return text;
 }

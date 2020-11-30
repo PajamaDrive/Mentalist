@@ -109,10 +109,10 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"I see... I'll refer to it when I think about the offer.",
 			"This is very informative! Thank you!",
 			"I'm starting to get to know you a little better.",
-			"Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
+			"Should I share my preferences with you as well? If you want to know, ask from \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".",
 			"This is useful information for me as we negotiate!",
-			"Thanks for the information. You can ask for my preference via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
-			"Thank you! If you want to know my preference, use the \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+			"Thanks for the information. You can ask for my preference via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".",
+			"Thank you! If you want to know my preference, use the \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\"."
 	};
 
 	private final String[] genericPos = {
@@ -124,8 +124,8 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"Let's keep each other informed and try to get a fair deal!",
 			"I need the information to make a fair deal... Could you tell me your preferences via \"Tell your own preferences\"?",
 			"If you tell me your information using \"Tell your own preferences\", perhaps I can make better offer.",
-			"Agreed! If you want to know my information, using \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
-			"If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\"."
+			"Agreed! If you want to know my information, using \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".",
+			"If we have more information about each other, we have a fair deal. You can know my preferences via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\"."
 	};
 
 	private final String[] genericNeg = {
@@ -137,7 +137,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 			"I'm sure there are ideas that are fair and mutually beneficial. Let's not give up and keep going.",
 			"Okay... I don't know what kind of offer you want so can you send it to me?",
 			"Well... I think we can negotiate better if we have more information... Tell me your preference using \"Tell your own preferences\".",
-			"It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preference\" or \"So could you tell me about your preferences?\".",
+			"It's going to be hard to negotiate without a little more information about each other... Please tell me your preferences using the \"Tell your own preferences\" or hear my preferences via \"Ask your opponent's preferences\" or \"So could you tell me about your preferences?\".",
 			"I'm sorry... could you send me an offer so I can know what you think?"
 	};
 
