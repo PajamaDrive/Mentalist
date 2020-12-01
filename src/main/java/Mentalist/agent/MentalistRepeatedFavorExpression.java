@@ -46,7 +46,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case BATNA_INFO:
 					return "happy";
 				case BATNA_REQUEST:
-					return null;
+					return "insincereSmile";
 				case CONFUSION:
 					return "surprised";
 				case FAVOR_ACCEPT:
@@ -54,7 +54,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case FAVOR_REJECT:
 					return "sad";
 				case FAVOR_REQUEST:
-					return null;
+					return "insincereSmile";
 				case FAVOR_RETURN:
 					return "happy";
 				case GENERIC_NEG:
@@ -62,7 +62,7 @@ public class MentalistRepeatedFavorExpression extends MentalistCoreExpression im
 				case GENERIC_POS:
 					return "happy";
 				case NONE:
-					return "neutral";
+					return "insincereSmile";
 				case OFFER_ACCEPT:
 					return "happy";
 				case OFFER_REJECT:

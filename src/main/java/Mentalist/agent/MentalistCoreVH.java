@@ -655,12 +655,14 @@ public abstract class MentalistCoreVH extends GeneralVH
 				}
 			}
 
+			boolean offerRequested = (e.getSubClass() == Event.SubClass.OFFER_REQUEST_NEG || e.getSubClass() == Event.SubClass.OFFER_REQUEST_POS);
 			boolean batnaLieFlag = false;
+
 			if (messages instanceof MentalistRepeatedFavorMessage) {
 				batnaLieFlag = ((MentalistRepeatedFavorMessage) messages).lieBatna(e);
 			}
 
-			String expr = containFlag || batnaLieFlag ? "surprised" : expression.getExpression(getHistory());
+			String expr = (e.getSubClass() == Event.SubClass.BATNA_INFO || offerRequested) && utils.conflictBATNA(utils.myPresentedBATNA, utils.adversaryBATNA) ? "afraid" : containFlag || batnaLieFlag ? "surprised" : expression.getExpression(getHistory());
 			if (expr != null)
 			{
 				Event e0 = new Event(this.getID(), EventClass.SEND_EXPRESSION, expr, 2000, (int) (700*game.getMultiplier()));
@@ -687,7 +689,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 					}
 				}
 			} else {
-				resp.add(e0);
+				if(!offerRequested)
+					resp.add(e0);
 			}
 
 
@@ -695,8 +698,6 @@ public abstract class MentalistCoreVH extends GeneralVH
 			{
 				((MentalistCompetitiveBehavior)behavior).resetConcessionCurve();
 			}
-
-			boolean offerRequested = (e.getSubClass() == Event.SubClass.OFFER_REQUEST_NEG || e.getSubClass() == Event.SubClass.OFFER_REQUEST_POS);
 
 			if(offerRequested)
 			{
@@ -727,8 +728,8 @@ public abstract class MentalistCoreVH extends GeneralVH
 						Event e3 = new Event(this.getID(), EventClass.OFFER_IN_PROGRESS, 0);
 						resp.add(e3);
 
-						//Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game), (int) (1000*game.getMultiplier()));
-						//resp.add(e4);
+						Event e4 = new Event(this.getID(), EventClass.SEND_MESSAGE, Event.SubClass.OFFER_PROPOSE, messages.getProposalLang(getHistory(), game), (int) (1000*game.getMultiplier()));
+						resp.add(e4);
 						this.lastOfferSent = e2.getOffer();
 						if(favorOfferIncoming)
 						{

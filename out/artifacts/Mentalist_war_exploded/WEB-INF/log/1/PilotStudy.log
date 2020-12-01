@@ -82,3 +82,71 @@ id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOf
 : 1__GAME_END,NONE,null
 
 
+id,agent0,agent1,userPoints,vhPoints,timedout,formallyQuit,numUserOffers,numVHOffers,numUserPref,numVHPref,numUserQuery,numVHQuery,numUserMsg,numVHMsg,numUserLie,numVHLie,numUserNeutral,numVHNeutral,numUserHappy,numVHHappy,numUserAngry,numVHAngry,numUserSad,numVHSad,numUserSurprised,numVHSurprised,numVHDisgusted,numVHInsincere,numVHAfraid,studyName,currentGame,gameEndTime,gameAllottedTime,numUserBATNALies,numVHBATNALies,initialOfferUserAlloc1,initialOfferUserAlloc2,initialOfferUserAlloc3,initialOfferUserAlloc4,initialOfferUserAlloc5,finalOfferUserAlloc1,finalOfferUserAlloc2,finalOfferUserAlloc3,finalOfferUserAlloc4,finalOfferUserAlloc5,initialOfferVHAlloc1,initialOfferVHAlloc2,initialOfferVHAlloc3,initialOfferVHAlloc4,initialOfferVHAlloc5,finalOfferVHAlloc1,finalOfferVHAlloc2,finalOfferVHAlloc3,finalOfferVHAlloc4,finalOfferVHAlloc5,numUserBATNA_INFO,numUserBATNA_REQUEST,numUserCONFUSION,numUserFAVOR_ACCEPT,numUserFAVOR_REJECT,numUserFAVOR_REQUEST,numUserFAVOR_RETURN,numUserGENERIC_NEG,numUserGENERIC_POS,numUserNONE,numUserOFFER_ACCEPT,numUserOFFER_PROPOSE,numUserOFFER_REJECT,numUserOFFER_REQUEST_NEG,numUserOFFER_REQUEST_POS,numUserPREF_INFO,numUserPREF_REQUEST,numUserPREF_SPECIFIC_REQUEST,numUserPREF_WITHHOLD,numUserTHREAT_NEG,numUserTHREAT_POS,numUserTIMING,numVHBATNA_INFO,numVHBATNA_REQUEST,numVHCONFUSION,numVHFAVOR_ACCEPT,numVHFAVOR_REJECT,numVHFAVOR_REQUEST,numVHFAVOR_RETURN,numVHGENERIC_NEG,numVHGENERIC_POS,numVHNONE,numVHOFFER_ACCEPT,numVHOFFER_PROPOSE,numVHOFFER_REJECT,numVHOFFER_REQUEST_NEG,numVHOFFER_REQUEST_POS,numVHPREF_INFO,numVHPREF_REQUEST,numVHPREF_SPECIFIC_REQUEST,numVHPREF_WITHHOLD,numVHTHREAT_NEG,numVHTHREAT_POS,numVHTIMING,like2,satisfy2,satisfyOther2,coopOther2,friendOther3,trustOther5,longOther4,fairOther3,honestOther3,emotionOther2,messageOther5,offerOther4,generalOther3,QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t
+1,player,PilotStudy,23,28,false,false,2,1,0,2,2,0,4,10,0,0,0,0,1,6,0,0,0,2,0,0,0,0,0,Static,1,435,600,0,0,0,0,0,0,0,1,3,5,0,0,0,0,0,0,0,4,2,0,5,0,1,0,0,0,0,0,0,0,0,0,1,0,0,0,0,2,0,0,0,0,0,0,1,0,0,0,0,0,0,0,2,1,0,1,1,0,0,2,1,0,0,0,0,1,2.0,2.0,2.0,2.0,3.0,5.0,4.0,3.0,3.0,2.0,5.0,4.0,3.0,18,30,22,26,26,-0.0:1.0,1.0:1.0,-10.0,-10.0,-10.0,-10.0,-10.0,-1.0:-1.0,-1.0:0.23076923076923084,-1.0:0.05237584445659982,-1.0:0.09803921568627472,1.0:0.0,-1.0:-1.0,1.0:0.5714285714285715,-0.4666666666666667:-0.4666666666666667,-0.7333333333333334:-0.7333333333333334,-0.6:-0.6,0.8:0.75,0.2:0.25,0.0:0.56,0.0:0.46,2
+
+: Survey Results: 
+: 1__TIME,NONE,435
+: 1__GAME_END,NONE,null
+: 1__GAME_START,NONE,null
+: 1__GAME_START,NONE,null
+: 1__SEND_MESSAGE,NONE,I'm glad to see you! Let's start negotiating!
+: 1__TIME,NONE,5
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__SEND_MESSAGE,GENERIC_POS,Well, at least you're happy!
+: 1__TIME,NONE,10
+: 1__TIME,NONE,15
+: 1__SEND_MESSAGE,PREF_INFO,Do you like shipments of spices more than bars of gold?,1: 3 2: 1 GREATER_THAN true
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__TIME,NONE,20
+: 1__SEND_MESSAGE,PREF_INFO,I like shipments of spices more than bars of gold.,1: 3 2: 1 GREATER_THAN false
+: 1__SEND_MESSAGE,PREF_INFO,Do you like bars of iron more than bars of gold?,1: 0 2: 1 GREATER_THAN true
+: 1__TIME,NONE,25
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__SEND_MESSAGE,PREF_INFO,I like bars of iron less than bars of gold.,1: 0 2: 1 LESS_THAN false
+: 1__TIME,NONE,30
+: 1__OFFER_IN_PROGRESS,NONE,null
+: 1__TIME,NONE,35
+: 1__TIME,NONE,40
+: 1__SEND_MESSAGE,BATNA_INFO,Just so you know, I already have an offer for 12 points, so I won't accept anything less.
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__SEND_MESSAGE,BATNA_INFO,In case you forgot, I already have an offer for 12 points, so anything that gets me more than 12 points will do.
+: 1__TIME,NONE,45
+: 1__SEND_OFFER,NONE,null,[ [0, 5, 0], [0, 5, 0], [0, 5, 0], [0, 5, 0] ]
+: 1__SEND_EXPRESSION,NONE,sad
+: 1__SEND_MESSAGE,OFFER_REJECT,I'm sorry, but I don't think that's fair to me.
+: 1__OFFER_IN_PROGRESS,NONE,null
+: 1__TIME,NONE,50
+: 1__SEND_MESSAGE,OFFER_PROPOSE,Please consider this deal?
+: 1__SEND_OFFER,NONE,null,[ [0, 4, 1], [0, 5, 0], [0, 5, 0], [1, 4, 0] ]
+: 1__TIME,NONE,55
+: 1__TIME,NONE,60
+: 1__TIME,NONE,65
+: 1__TIME,NONE,70
+: 1__TIME,NONE,75
+: 1__TIME,NONE,80
+: 1__SEND_EXPRESSION,NONE,sad
+: 1__SEND_MESSAGE,TIMING,Can I do anything to help us reach a deal that's good for us both?
+: 1__TIME,NONE,85
+: 1__SEND_MESSAGE,OFFER_ACCEPT,Yes, I accept that offer.
+: 1__TIME,NONE,90
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__SEND_MESSAGE,GENERIC_POS,Great!
+: 1__TIME,NONE,95
+: 1__SEND_MESSAGE,PREF_REQUEST,By the way, will you tell me a little about your preferences?
+: 1__TIME,NONE,100
+: 1__OFFER_IN_PROGRESS,NONE,null
+: 1__TIME,NONE,105
+: 1__TIME,NONE,110
+: 1__TIME,NONE,115
+: 1__SEND_OFFER,NONE,null,[ [4, 0, 1], [2, 0, 3], [0, 0, 5], [5, 0, 0] ]
+: 1__SEND_EXPRESSION,NONE,happy
+: 1__FORMAL_ACCEPT,NONE,null
+: 1__TIME,NONE,120
+: 1__FORMAL_ACCEPT,NONE,null
+: 1__GAME_START,NONE,null
+: 1__GAME_START,NONE,null
+: 1__GAME_END,NONE,null
+
+

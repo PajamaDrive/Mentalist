@@ -486,7 +486,7 @@ public class MentalistRepeatedFavorMessage extends MentalistCoreMessage implemen
 
 		if (ePrime.getType() == Event.EventClass.SEND_EXPRESSION && !game.isMultiAgent())
 		{
-			if(!ePrime.getMessage().equals("neutral") && Math.random() >= 0.5) {
+			if(!ePrime.getMessage().equals("neutral")) {
 				String str = getEmotionResponse(history, game, ePrime);
 				Event resp = new Event(agentID, Event.EventClass.SEND_MESSAGE, Event.SubClass.GENERIC_POS, str, delay);
 				return resp;

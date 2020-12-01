@@ -70,7 +70,7 @@ public class StaticMentalistBehavior extends MentalistRepeatedFavorBehavior {
         double choiceDummyPlayerVariance = calcChoiceVariance(dummyVarianceOffers.getPreQueue(), 2, false) * OFFER_PRE_WEIGHT + calcChoiceVariance(dummyVarianceOffers.getQueue(), 2, true);
         double openOfferPoint = normarize(choicePlayerVariance, max(CHOICE_VARIANCE_MAX_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance), min(CHOICE_VARIANCE_MIN_WEIGHT * choiceDummyPlayerVariance, choicePlayerVariance));
 
-        double openBehavior = preferenceAskNum.sum() + prefRequestNum + batnaAskNum;
+        double openBehavior = preferenceAskNum.sum() + prefRequestNum + batnaAskNum * BATNA_WEIGHT;
         double openBehaviorPoint = normarize(openBehavior, max(BEH_NUM_MAX, openBehavior), 0.0);
 
         ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
@@ -98,7 +98,7 @@ public class StaticMentalistBehavior extends MentalistRepeatedFavorBehavior {
 
         double liePoint = -normarize(lieNum, max(SPECIAL_MES_MAX, lieNum), -SPECIAL_MES_MAX);
         double fastBehaviorPoint = normarize(fastBehaviorNum, max(fastBehaviorNum, FAST_BEH_MAX), 0.0);
-        double conscientBehavior = preferenceExpressionNum.sum() + batnaExpressionNum;
+        double conscientBehavior = preferenceExpressionNum.sum() + batnaExpressionNum * BATNA_WEIGHT;
         double conscientBehaviorPoint = max(-1.0, (normarize(conscientBehavior, max(BEH_NUM_MAX, conscientBehavior), 0.0) + fastBehaviorPoint) / 2 + liePoint);
 
         ServletUtils.log("**************************", ServletUtils.DebugLevels.DEBUG);
