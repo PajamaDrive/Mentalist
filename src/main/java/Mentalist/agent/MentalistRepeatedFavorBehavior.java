@@ -1330,4 +1330,9 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	public String getAgentUtil(){ return String.join(":", agentUtilList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
 	public String getPlayerUtil(){ return String.join(":", playerUtilList.toString().replaceAll("[\\[\\] ]", "").split(",")); }
 	public String getT() { return Integer.toString(t); }
+
+	public String getBehaviorFrequency(){ return Double.toString(behaviorFrequency); }
+	public String getBehaviorTimings(){ return String.join(":", behaviorTimings.toString().replaceAll("[\\[\\] ]", "").split(",")); }
+	public String getFastBehaviorNum(){ return Integer.toString(fastBehaviorNum); }
+	public String getOfferString(){ return String.join(":", previousOffers.toString().replaceAll("\\[", "a").replaceAll("\\]", "b").split(","));}
 }

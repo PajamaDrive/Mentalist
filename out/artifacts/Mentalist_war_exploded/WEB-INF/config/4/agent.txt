@@ -1,2 +1,0 @@
-Mentalist.agent.StaticMentalistVH
-Mentalist.agent.PilotStudyVH

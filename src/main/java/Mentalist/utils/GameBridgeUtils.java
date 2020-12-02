@@ -1094,7 +1094,7 @@ public class GameBridgeUtils {
             body += "," + title;
         for (String key : this.surveyData.keySet())
             body += "," + key;
-        body += ",QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t";
+        body += ",QuestionNeuroticism,QuestionExtraversioin,QuestionOpenness,QuestionAgreeableness,QuestionConscientiousness,Cooperativeness,Assertiveness,Neuroticism,Extraversion,Openness,Agreeableness,Conscientiousness,NeuroticismOffer,ExtraversionOffer,OpennessOffer,AgreeablenessOffer,ConscientiousnessOffer,NeuroticismBehavior,ExtraversionBehavior,OpennessBehavior,AgreeablenessBehavior,ConscientiousnessBehavior,offerWeight,behaviorWeight,agentUtil,playerUtil,t,behaviorFreq,behaviorTimings,fastBehaviorNum,Offers";
         body += "\n";
         body += this.MTurkID + ",";
         if (!this.isMultiAgent) {
@@ -1338,6 +1338,10 @@ public class GameBridgeUtils {
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getAgentUtil());
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getPlayerUtil());
                 parameter.add(((MentalistRepeatedFavorBehavior) behavior).getT());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getBehaviorFrequency());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getBehaviorTimings());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getFastBehaviorNum());
+                parameter.add(((MentalistRepeatedFavorBehavior) behavior).getOfferString());
             }
 
             for(int i = 0; i < parameter.size(); i++){
