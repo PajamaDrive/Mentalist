@@ -203,7 +203,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 	//譲歩関数
 	public double getConcessionValue(){
 		Offer maxOffer = makeMaxAgentDummyOffer(previous);
-		return calcAgentUtil(maxOffer) < 1.0 / utils.getMaxPossiblePoints() ? 1.0 / utils.getMaxPossiblePoints() : (gamma_min + (gamma_max - gamma_min) * max(0.0 ,(1 - max(0.0, this.utility_bias + this.utility_weight * (calcAgentUtil(previous) / calcAgentUtil(maxOffer))) * pow((double)t / n,(1 / alpha))))) * calcAgentUtil(maxOffer);
+		return calcAgentUtil(maxOffer) < 1.0 / utils.getMaxPossiblePoints() ? 1.0 / utils.getMaxPossiblePoints() : (gamma_min + (gamma_max - gamma_min) * max(0.0 ,(1 - max(0.0, this.utility_bias + this.utility_weight * (calcAgentUtil(previous) / calcAgentUtil(maxOffer))) * pow(min((double)t / n, 1.0),(1 / alpha))))) * calcAgentUtil(maxOffer);
 	}
 
 	//正規化
@@ -1219,7 +1219,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			} else if (userFave == opponentFave)// Both agent and player want the same issue most
 			{
 				if (free[userFave] >= 2) { // If there are more than two of that issue, propose an offer where the VH and player each get one more of that issue
-					if(count % 2 == 0) {
+					if(count % 3 == 1) {
 						propose.setItem(userFave, new int[]{allocated.getItem(userFave)[0] + 1, free[userFave] - 2, allocated.getItem(userFave)[2] + 1});
 						free[userFave] -= 2;
 					}
@@ -1239,7 +1239,7 @@ public class MentalistRepeatedFavorBehavior extends MentalistCoreBehavior implem
 			} else // If the agent and player have different top picks
 			{
 				// Give both the VH and the player one more of the item they want most
-				if(count % 2 == 0) {
+				if(count % 3 == 1) {
 					propose.setItem(userFave, new int[]{allocated.getItem(userFave)[0], free[userFave] - 1, allocated.getItem(userFave)[2] + 1});
 					propose.setItem(opponentFave, new int[]{allocated.getItem(opponentFave)[0] + 1, free[opponentFave] - 1, allocated.getItem(opponentFave)[2]});
 					free[userFave] -= 1;

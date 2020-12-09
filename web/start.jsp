@@ -1094,7 +1094,7 @@
 						<li><strong>You don't necessarily have to tell the truth about preferences or BATNA</strong>. However, be aware that <strong>lying can be difficult to negotiate</strong>.</li>
 						<li>Your partner may lie as well.</li>
 						<li>In rare cases, <strong>images may not be displayed, the connection may be broken, or your ID may not be displayed due to wrong screen size</strong>. Please <span class="attention"><strong>reload the page</strong></span> in that case.</li>
-						<li><strong>We recommend that you finish the three negotiations at once</strong>. However, if you want to interrupt the negotiations, such as when it is difficult to do so continuously, <strong>close the browser tab</strong> and end the negotiations.
+						<li><strong>We recommend that you finish the three negotiations at once</strong>. However, if you want to interrupt the negotiations, such as when it is difficult to do so continuously, <strong>close the browser tab <span class="attention">after the opponent has changed</span></strong> and end the negotiations.
 							To resume negotiations, enter your ID in the form at the top of the page.</li>
 						<li>If you have any trouble or questions about negotiations or experiments, please contact <span class="attention"><strong><a href="mailto:s198680w@st.go.tuat.ac.jp">s198680w@st.go.tuat.ac.jp</a></strong></span>.</li>
 					</ul>
@@ -1110,7 +1110,7 @@
 						<li>好みやBATNAについて<strong>必ずしも本当のことを言わなければならないわけではありません</strong>．しかし嘘をつくと<strong>交渉が難しくなる場合がある</strong>ので注意しましょう．</li>
 						<li>同様に相手も嘘をつく可能性があります．</li>
 						<li>まれに<strong>画像が表示されなかったり, 接続が切れたり, 交渉開始時の画面サイズがおかしくIDが表示されない</strong>場合があります．その場合は<span class="attention"><strong>ページをリロード</strong></span>してください．</li>
-						<li><strong>交渉は3回一気に終わらせてしまうことをおすすめします</strong>．しかし，時間的に連続で行うのが難しい場合など交渉を中断する場合は<strong>ブラウザのタブを閉じて</strong>交渉を終了してください．
+						<li><strong>交渉は3回一気に終わらせてしまうことをおすすめします</strong>．しかし，時間的に連続で行うのが難しい場合など交渉を中断する場合は<strong><span class="attention">相手が変更された後に</span>ブラウザのタブを閉じて</strong>交渉を終了してください．
 							交渉を再開する場合はページ上部のフォームにIDを入力してください．</li>
 						<li>交渉や実験についてトラブルが発生したり質問がある場合は<span class="attention"><strong><a href="mailto:s198680w@st.go.tuat.ac.jp">s198680w@st.go.tuat.ac.jp</a></strong></span>までご連絡ください．</li>
 					</ul>

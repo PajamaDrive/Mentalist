@@ -25,7 +25,7 @@ public class PilotStudyBehavior extends MentalistRepeatedFavorBehavior {
     //譲歩関数
     public double getConcessionValue(){
         Offer maxOffer = makeMaxAgentDummyOffer(previous);
-        return calcAgentUtil(maxOffer) < 1.0 / utils.getMaxPossiblePoints() ? 1.0 / utils.getMaxPossiblePoints() : (GAMMA_MIN + (GAMMA_MAX - GAMMA_MIN) * (1 - (calcAgentUtil(previous) / calcAgentUtil(maxOffer)) * pow((double)t / N,(1 / alpha)))) * calcAgentUtil(maxOffer);
+        return calcAgentUtil(maxOffer) < 1.0 / utils.getMaxPossiblePoints() ? 1.0 / utils.getMaxPossiblePoints() : (GAMMA_MIN + (GAMMA_MAX - GAMMA_MIN) * (1 - (calcAgentUtil(previous) / calcAgentUtil(maxOffer)) * pow(min((double)t / N, 1.0),(1 / alpha)))) * calcAgentUtil(maxOffer);
     }
 
     //譲歩関数のパラメータを特性によって変更
